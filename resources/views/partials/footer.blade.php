@@ -1,103 +1,132 @@
-<footer class="mdl-mega-footer oxy-color-primary">
-    <div class="mdl-mega-footer--middle-section">
-        <div class="mdl-mega-footer--drop-down-section">
-            <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
-            <h1 class="mdl-mega-footer--heading">Tentang Kami</h1>
-            <div class="mdl-mega-footer__widget">
-                <p>
-                    Lorem ipsum dolor sit amet adipisicing elit. Numquam corrupti in quam vel deleniti recusandae fugit. Eaque totam beatae autem, veritatis quasi suscipit?
-                </p>
-                <p>
-                    An emphasis on consectetur actions makes core functionality immediately apparent laboriosam.
-                </p>
-            </div>
-            <div class="mdl-mega-footer__widget">
-                <i class="fa fa-cc-mastercard"></i>
-                &nbsp;
-                <i class="fa fa-cc-visa"></i>
-                &nbsp;
-                <i class="fa fa-cc-amex"></i>
-                &nbsp;
-                <i class="fa fa-cc-diners-club"></i>
-                &nbsp;
-                <i class="fa fa-cc-paypal"></i>
-                &nbsp;
-                <i class="fa fa-cc-jcb"></i>
+<!-- footer -->
+<footer class="footer-light">
+    <div class="light-layout">
+        <div class="container">
+            <section class="small-section border-section border-top-0">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="subscribe">
+                            <div>
+                                <h4>LEBIH DEKAT DENGAN KAMI!</h4>
+                                <p>Langganan untuk update produk-produk terbari dari kami.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <form action="https://pixelstrap.us19.list-manage.com/subscribe/post?u=5a128856334b598b395f1fc9b&amp;id=082f74cbda" class="form-inline subscribe-form auth-form needs-validation" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
+                              target="_blank">
+                            <div class="form-group mx-sm-3">
+                                <input type="text" class="form-control" name="EMAIL" id="mce-EMAIL" placeholder="Masukkan email anda" required="required">
+                            </div>
+                            <button type="submit" class="btn btn-solid" id="mc-submit">Langganan</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <section class="section-b-space light-layout">
+        <div class="container">
+            <div class="row footer-theme partition-f">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-title footer-mobile-title">
+                        <h4>about</h4>
+                    </div>
+                    <div class="footer-contant">
+                        <div class="footer-logo"><img src="{{ asset('mk/images/icon/logo/1.png') }}" alt=""></div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
+                        <div class="footer-social">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col offset-xl-1">
+                    <div class="sub-title">
+                        <div class="footer-title">
+                            <h4>LAYANAN</h4>
+                        </div>
+                        <div class="footer-contant">
+                            <ul>
+                                <li><a href="#">mens</a></li>
+                                <li><a href="#">womens</a></li>
+                                <li><a href="#">clothing</a></li>
+                                <li><a href="#">accessories</a></li>
+                                <li><a href="#">featured</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="sub-title">
+                        <div class="footer-title">
+                            <h4>why we choose</h4>
+                        </div>
+                        <div class="footer-contant">
+                            <ul>
+                                <li><a href="#">shipping & return</a></li>
+                                <li><a href="#">secure shopping</a></li>
+                                <li><a href="#">gallary</a></li>
+                                <li><a href="#">affiliates</a></li>
+                                <li><a href="#">contacts</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="sub-title">
+                        <div class="footer-title">
+                            <h4>TENTANG KAMI</h4>
+                        </div>
+                        <div class="footer-contant">
+                            <ul class="contact-list">
+                                <li><i class="fa fa-map-marker"></i>Multikart Demo Store, Demo store India 345-659</li>
+                                <li><i class="fa fa-phone"></i>Call Us: 123-456-7898</li>
+                                <li><i class="fa fa-envelope-o"></i>Email Us: <a href="#">Support@Fiot.com</a></li>
+                                <li><i class="fa fa-fax"></i>Fax: 123456</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div class="mdl-mega-footer--drop-down-section">
-            <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
-            <h1 class="mdl-mega-footer--heading">Jam Pelayanan</h1>
-            <ul class="mdl-mega-footer--link-list mdl-mega-footer--link-list--bordered">
-                <li>Senin <span class="oxy-inline-block oxy-float-right oxy-margin-right-40"> 10:00 - 20:00</span></li>
-                <li>Selasa  <span class="oxy-inline-block oxy-float-right oxy-margin-right-40"> 12:00 - 21:00</span></li>
-                <li>Rabu <span class="oxy-inline-block oxy-float-right oxy-margin-right-40"> 10:00 - 20:00</span></li>
-                <li>Kamis  <span class="oxy-inline-block oxy-float-right oxy-margin-right-40"> 09:00 - 20:00</span></li>
-                <li>Jum'at <span class="oxy-inline-block oxy-float-right oxy-margin-right-40"> 08:00 - 18:00</span></li>
-                <li>Sabtu  <span class="oxy-inline-block oxy-float-right oxy-margin-right-40"> 12:00 - 20:00</span></li>
-            </ul>
-        </div>
-
-        <div class="mdl-mega-footer--drop-down-section">
-            <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
-            <h1 class="mdl-mega-footer--heading">Produk Kami</h1>
-            <div class="mdl-mega-footer__widget">
-                @foreach ($data['footerProducts'] as $row)
-                    <a href="single-product.html">
-                        <img width="60" class="oxy-margin-bottom-10 oxy-margin-right-10" src="{{ asset('storage/' . $row->productImage->where('type', '1')->first()->img_path) }}" alt="product thumbnail">
-                    </a>
-                @endforeach
-                
-            </div>
-        </div>
-        <div class="mdl-mega-footer--drop-down-section">
-            <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
-            <h1 class="mdl-mega-footer--heading">Alamat</h1>
-            <div class="mdl-mega-footer__widget">
-                {{-- <p>
-                    Contact us any time, we would love to hear from you.
-                </p> --}}
-                <p>
-                    Nama Kantor
-                    <br>
-                    Jl. Kenangan No. 79 &amp; 80
-                    <br>
-                    Jakarta Selatan, Indonesia
-                    <br/>
-                    (021) 599 033
-                    <br>
-                </p>
-                <p>
-                    <a href="#">contohalamatwebsite.com</a>
-                    <br>
-                    info@contohalamatwebsite.com
-                </p>
-                <p>
-                    <a href="#" class="mdl-button mdl-js-button mdl-button--icon">
-                        <i class="fa fa-facebook"></i>
-                    </a>
-                    <a href="#" class="mdl-button mdl-js-button mdl-button--icon">
-                        <i class="fa fa-twitter" ></i>
-                    </a>
-                    <a href="#" class="mdl-button mdl-js-button mdl-button--icon">
-                        <i class="fa fa-flickr" ></i>
-                    </a>
-                    <a href="#" class="mdl-button mdl-js-button mdl-button--icon">
-                        <i class="fa fa-linkedin" ></i>
-                    </a>
-                </p>
+    </section>
+    <div class="sub-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6 col-md-6 col-sm-12">
+                    <div class="footer-end">
+                        <p><i class="fa fa-copyright" aria-hidden="true"></i> 2020 Visiprop</p>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-md-6 col-sm-12">
+                    <div class="payment-card-bottom">
+                        <ul>
+                            <li>
+                                <a href="#"><img src="{{ asset('mk/images/icon/visa.png') }}" alt=""></a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="{{ asset('mk/images/icon/mastercard.png') }}" alt=""></a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="{{ asset('mk/images/icon/paypal.png') }}" alt=""></a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="{{ asset('mk/images/icon/american-express.png') }}" alt=""></a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="{{ asset('mk/images/icon/discover.png') }}" alt=""></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
-    {{-- <div class="mdl-mega-footer--bottom-section">
-        <div class="mdl-logo">Fab</div>
-        <ul class="mdl-mega-footer--link-list">
-            <li><a href="page-card.html">Conditions</a></li>
-            <li><a href="page-card.html">Help</a></li>
-            <li><a href="page-card.html">Privacy</a></li>
-            <li><a href="page-card.html">Terms</a></li>
-        </ul>
-    </div> --}}
 </footer>
+<!-- footer end -->

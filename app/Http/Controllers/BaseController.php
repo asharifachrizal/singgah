@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use View;
 use Sentinel;
+use App\Category;
 use App\Product;
 use App\Cart;
 
 class BaseController extends Controller
 {
     public function __construct() {
-        
+        $headerCategories = Category::all();
         $footerProducts = Product::all()->random(9);
         
         if(Sentinel::check())
@@ -26,6 +27,7 @@ class BaseController extends Controller
         }
         
         $data = array(
+            'headerCategories' => $headerCategories,
             'footerProducts' => $footerProducts,
             'cartQuantity' => $cartQuantity,
         );

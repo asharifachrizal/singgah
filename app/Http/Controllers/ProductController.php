@@ -17,10 +17,10 @@ class ProductController extends BaseController
         return view('pages.product.index', compact('products', 'categories'));
     }
 
-    public function detail($slug)
+    public function detail($category, $slug)
     {
         $product = Product::where('slug', '=', $slug)->first();
-        $relatedProducts = Product::orderBy('created_at', 'desc')->take(4)->get();
+        $relatedProducts = Product::orderBy('created_at', 'desc')->take(6)->get();
         return view('pages.product.detail', compact('product', 'relatedProducts'));
     }
 }

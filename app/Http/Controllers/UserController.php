@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Sentinel;
 
-class UserController extends Controller
+class UserController extends BaseController
 {
     public function login(){
         return view('pages.login');
@@ -32,5 +32,10 @@ class UserController extends Controller
     {
         Sentinel::logout();
         return redirect()->route('login');
+    }
+
+    public function setting()
+    {
+        return view('pages.user.setting');
     }
 }

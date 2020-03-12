@@ -34,7 +34,7 @@ class ProductTableSeeder extends Seeder
 
         DB::table('products')->insert([
             'name' => 'Selling W/ Talking',
-            'slug' => 'selling-w/-talking',
+            'slug' => 'selling-w-talking',
             'category_id' => '2',
             'description' => 'Ini contoh deskripsi desain buku',
             'price' => '30000',

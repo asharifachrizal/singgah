@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.mk')
 
 @section('title')
 Jasa Desain | Singgah  
@@ -6,211 +6,209 @@ Jasa Desain | Singgah
 
 @section('content')
 
-<div class="oxy-section">
-    <div class="oxy-section__background oxy-background-parallax">
-        <img src="{{ asset('fab/images/backgrounds/bg4-notinclude.jpg') }}" alt="section background" class="oxy-photo-blur-3">
-    </div>
-    <div class="oxy-section__overlay oxy-section__overlay--gradient-from-top-50"></div>
-    <div class="oxy-section__content">
-        <div class="mdl-grid mdl-grid--no-fullwidth">
-            <div class="oxy-divider" style="height: 200px;"></div>
-        </div>
-    </div>
-</div>
-
-<div class="oxy-section">
-    <div class="oxy-section__content">
-        <div class="mdl-grid mdl-grid--no-fullwidth oxy-margin-top-40 oxy-margin-bottom-30">
-            <div class="mdl-cell--middle mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--2-col-phone">
-                <ol class="oxy-breadcrumb">
-                    <li class="oxy-breadcrumb__item"><a href="shop.html">Beranda</a></li>
-                    <li class="oxy-breadcrumb__item"><a href="shop.html">{{ $product->category->name }}</a></li>
-                    <li class="oxy-breadcrumb__item"><span>{{ $product->name }}</span></li>
-                </ol>
+<!-- breadcrumb start -->
+<div class="breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="page-title">
+                    <h2>Produk</h2></div>
+            </div>
+            <div class="col-sm-6">
+                <nav aria-label="breadcrumb" class="theme-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Beranda</a></li>
+                        <li class="breadcrumb-item" aria-current="page">Produk</li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ $product->name }}</li>
+                    </ol>
+                </nav>
             </div>
         </div>
     </div>
 </div>
+<!-- breadcrumb End -->
 
-<div class="oxy-section">
-    <div class="oxy-section__content">
-        <div class="mdl-grid mdl-grid--no-fullwidth">
-            <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
 
-                <div class="oxy-product-slider">
-
-                    <div class="oxy-product-badge">
-                        Sale
-                    </div>
-
-                    <div class="flexslider oxy-product-slider__slides"
-                        data-flex-animation="slide"
-                        data-flex-controls="thumbnails"
-                        data-flex-controlsalign="left"
-                        data-flex-controlsposition="outside"
-                        data-flex-directions="hide"
-                        data-flex-directions-type="simple"
-                        data-flex-duration="600"
-                        data-flex-slideshow="true" data-flex-speed="7000" id="product-images">
-                        <ul class="slides">
-                            @foreach ($product->productImage as $rowItem)
-                                <li data-thumb="{{ asset('storage/' . $rowItem->img_path) }}">
-                                    <img alt="Top Fancy" src="{{ asset('storage/' . $rowItem->img_path) }}">
-                                </li>
-                            @endforeach
-                        </ul>
-                    </div>
-
-                </div>
-
-            </div>
-            <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--4-col-phone oxy-product-details">
-                <h1 class="mdl-typography--display-1 oxy-margin-top-0 oxy-margin-bottom-10">{{ $product->name }}</h1>
-                <p class="mdl-typography--display-1 oxy-margin-0 oxy-margin-bottom-20 oxy-product-price">
-                    <del>
-                        <span>{{ $product->price_before_display }}</span>
-                    </del>
-                    <ins>
-                        <span>{{ $product->priceDisplay }}</span>
-                    </ins>
-                </p>
-
-                {{-- <a href="#product-reviews-tab" id="review-rating-tooltip" class="oxy-rating oxy-rating--big oxy-margin-bottom-20 oxy-display-inline-block" title="Rated 4.00 out of 5">
-                    <span style="width:85%">
-                        <strong class="oxy-rating__stars">4.00</strong> out of 5
-                    </span>
-                </a> --}}
-
-                <div class="mdl-tooltip" for="review-rating-tooltip">
-                    <span itemprop="reviewCount" class="count">1</span> customer review
-                </div>
-
-                {{-- <p class="mdl-typography--title mdl-typography--font-light oxy-typography-line-height-normal oxy-opacity-50">
-                    Material Design Lite is a light-weight implementation of design, specifically crafted for the web. For more detailed guidelines and specifications for other platforms please refer to the Material Design site. Thats the spirit of material design. Get started now.
-                </p> --}}
-                <form class="oxy-margin-bottom-30">
-                    <table class="oxy-product-details__options">
-                        <tbody>
-                            <tr>
-                                <td><label for="color">Ukuran:</label></td>
-                                <td>
-                                    <div class="mdl-selectfield mdl-js-selectfield" tabindex="-1">
-                                        <select name="orderby" class="mdl-selectfield__select">
-                                            <option value="Small">S</option>
-                                            <option value="Medium">M</option>
-                                            <option value="Large">L</option>
-                                            <option value="Large">XL</option>
-                                        </select>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><label for="color">Warna:</label></td>
-                                <td>
-                                    <div class="mdl-selectfield mdl-js-selectfield" tabindex="-1">
-                                        <select name="orderby" class="mdl-selectfield__select">
-                                            <option value="Green">Biru</option>
-                                            <option value="Red">Merah</option>
-                                            <option value="Yellow">Hijau</option>
-                                        </select>
-                                    </div>
-                                    {{-- <button class="oxy-display-block mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary">
-                                        Clear selection
-                                    </button> --}}
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <div class="oxy-quantity">
-                        <input type="button" value="-">
-                        <div class="mdl-textfield mdl-js-textfield">
-                            <input type="number" step="1" min="0" name="cart" value="1" title="Qty" class="mdl-textfield__input" id="q1">
-                            <label class="mdl-textfield__label" for="q1"></label>
-                        </div>
-                        <input type="button" value="+">
-                    </div>
-
-                    <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
-                        Tambah ke Keranjang
-                    </button>
-                </form>
-
-                <div class="mdl-grid">
-                    <div class="mdl-cell mdl-cell--6-col mdl-cell mdl-cell--4-col-tablet mdl-cell mdl-cell--2-col-phone mdl-cell--middle">
-                        <div class="oxy-product-details__meta">
-                            <span>
-                                Category:
-                                <a href="#" rel="tag">{{ $product->category->name }}</a>
-                            </span>
+<!-- section start -->
+<section>
+    <div class="collection-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-1 col-sm-2 col-xs-12">
+                    <div class="row">
+                        <div class="col-12 p-0">
+                            <div class="slider-right-nav">
+                                @foreach ($product->productImage as $row)
+                                    <div><img src="{{ asset('uploads/' . $row->img_path) }}" alt="" class="img-fluid blur-up lazyload"></div>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
-                    <div class="mdl-cell mdl-cell--6-col mdl-cell mdl-cell--4-col-tablet mdl-cell mdl-cell--2-col-phone mdl-cell--middle mdl-typography--text-right">
-                        <button id="product-share"class="mdl-button mdl-js-button mdl-button--icon">
-                            <i class="material-icons">share</i>
-                        </button>
-                        <ul class="mdl-menu mdl-menu--top-right mdl-js-menu mdl-js-ripple-effect" for="product-share">
-                          <li class="mdl-menu__item">Share on facebook</li>
-                          <li class="mdl-menu__item">Share on twitter</li>
-                          <li class="mdl-menu__item">Share on google+</li>
-                        </ul>
+                </div>
+                <div class="col-lg-5 col-sm-10 col-xs-12 order-up">
+                    <div class="product-right-slick">
+                        @foreach ($product->productImage as $row)
+                            <div><img src="{{ asset('uploads/' . $row->img_path) }}" alt="" class="img-fluid blur-up lazyload image_zoom_cls-0"></div>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="col-lg-6 rtl-text">
+                    <div class="product-right">
+                        <h2>{{ $product->name }}</h2>
+                        <h4><del>{{ $product->priceBeforeDisplay }}</del><span>diskon 55%</span></h4>
+                        <h3>{{ $product->priceDisplay }}</h3>
+                        {{-- <ul class="color-variant">
+                            <li class="bg-light0"></li>
+                            <li class="bg-light1"></li>
+                            <li class="bg-light2"></li>
+                        </ul> --}}
+                        {{-- <div class="product-description border-product">
+                            <h6 class="product-title size-text">select size <span><a href="" data-toggle="modal" data-target="#sizemodal">size chart</a></span></h6>
+                            <div class="size-box">
+                                <ul>
+                                    <li class="active"><a href="#">s</a></li>
+                                    <li><a href="#">m</a></li>
+                                    <li><a href="#">l</a></li>
+                                    <li><a href="#">xl</a></li>
+                                </ul>
+                            </div>
+                            <h6 class="product-title">quantity</h6>
+                            <div class="qty-box">
+                                <div class="input-group"><span class="input-group-prepend"><button type="button" class="btn quantity-left-minus" data-type="minus" data-field=""><i class="ti-angle-left"></i></button> </span>
+                                    <input type="text" name="quantity" class="form-control input-number" value="1"> <span class="input-group-prepend"><button type="button" class="btn quantity-right-plus" data-type="plus" data-field=""><i class="ti-angle-right"></i></button></span></div>
+                            </div>
+                        </div> --}}
+                        <div class="product-buttons"><a href="#" data-toggle="modal" data-target="#addtocart" class="btn btn-solid">Tambah ke Keranjang</a> <a href="#" class="btn btn-solid">Beli Sekarang</a></div>
+                        <div class="border-product">
+                            <h6 class="product-title">Deskripsi</h6>
+                            <p>Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem,</p>
+                        </div>
+                        <div class="border-product">
+                            <h6 class="product-title">Bagikan</h6>
+                            <div class="product-icon">
+                                <ul class="product-social">
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                                </ul>
+                                <form class="d-inline-block">
+                                    <button class="wishlist-btn"><i class="fa fa-heart"></i><span class="title-font">Tambahkan ke WishList</span></button>
+                                </form>
+                            </div>
+                        </div>
+                        {{-- <div class="border-product">
+                            <h6 class="product-title">Time Reminder</h6>
+                            <div class="timer">
+                                <p id="demo"><span>25 <span class="padding-l">:</span> <span class="timer-cal">Days</span> </span><span>22 <span class="padding-l">:</span> <span class="timer-cal">Hrs</span> </span><span>13 <span class="padding-l">:</span> <span class="timer-cal">Min</span> </span><span>57 <span class="timer-cal">Sec</span></span>
+                                </p>
+                            </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</section>
+<!-- Section ends -->
 
-<div class="oxy-section">
-    <div class="oxy-section__content">
-        <div class="mdl-grid mdl-grid--no-fullwidth oxy-margin-top-40">
-        <div class="mdl-cell mdl-cell--12-col">
-            <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-                <div class="mdl-tabs__tab-bar oxy-flex-justify-start">
-                    <a href="#product-description-tab" class="mdl-tabs__tab is-active">Deskripsi</a>
-                    <a href="#additional-info-tab" class="mdl-tabs__tab">Informasi Tambahan</a>
-                </div>
 
-                <div class="mdl-tabs__panel oxy-padding-top-20 oxy-padding-bottom-20 is-active" id="product-description-tab">
-                    {{ $product->description }}. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi ratione, quo recusandae obcaecati eaque quae beatae voluptatibus odit delectus necessitatibus quisquam facere omnis. Sapiente, enim. Quam placeat qui quisquam deleniti. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro culpa maxime id! Provident unde commodi magnam odit voluptates in possimus impedit esse aliquid voluptas, porro exercitationem! Qui molestiae debitis molestias.
-                </div>
-                <div class="mdl-tabs__panel oxy-padding-top-20 oxy-padding-bottom-20" id="additional-info-tab">
-                    <table class="mdl-data-table mdl-js-data-table oxy-full-width">
-                        <tbody>
-                            <tr>
-                                <td class="mdl-data-table__cell--non-numeric"><strong>Ukuran</strong></td>
-                                <td>Small, Medium, Large, XXL</td>
-                            </tr>
-                            <tr>
-                                <td class="mdl-data-table__cell--non-numeric"><strong>Warna</strong></td>
-                                <td>Biru, Merah, Hijau</td>
-                            </tr>
-                        </tbody>
-                    </table>
+<!-- product-tab starts -->
+<section class="tab-product m-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-lg-12">
+                <ul class="nav nav-tabs nav-material" id="top-tab" role="tablist">
+                    <li class="nav-item"><a class="nav-link active" id="top-home-tab" data-toggle="tab" href="#top-home" role="tab" aria-selected="true">Detil</a>
+                        <div class="material-border"></div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" id="review-top-tab" data-toggle="tab" href="#top-review" role="tab" aria-selected="false">Tulis Komentar</a>
+                        <div class="material-border"></div>
+                    </li>
+                </ul>
+                <div class="tab-content nav-material" id="top-tabContent">
+                    <div class="tab-pane fade show active" id="top-home" role="tabpanel" aria-labelledby="top-home-tab">
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                    </div>
+                    <div class="tab-pane fade" id="top-review" role="tabpanel" aria-labelledby="review-top-tab">
+                        <form class="theme-form">
+                            <div class="form-row">
+                                <div class="col-md-12">
+                                    <div class="media">
+                                        <label>Rating</label>
+                                        <div class="media-body ml-3">
+                                            <div class="rating three-star"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Enter Your name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="email">Email</label>
+                                    <input type="text" class="form-control" id="email" placeholder="Email" required>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="review">Review Title</label>
+                                    <input type="text" class="form-control" id="review" placeholder="Enter your Review Subjects" required>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="review">Review Title</label>
+                                    <textarea class="form-control" placeholder="Wrire Your Testimonial Here" id="exampleFormControlTextarea1" rows="6"></textarea>
+                                </div>
+                                <div class="col-md-12">
+                                    <button class="btn btn-solid" type="submit">Submit YOur Review</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</section>
+<!-- product-tab ends -->
 
-<div class="oxy-section">
-    <div class="oxy-section__content">
-        <div class="mdl-grid mdl-grid--no-fullwidth">
-            <div class="mdl-cell mdl-cell--12-col">
-                <h2 class="mdl-typography--display-1 mdl-typography--text-center mdl-typography--font-light oxy-margin-top-40  oxy-margin-bottom-20">
-                    Rekomendasi Produk
-                </h2>
 
-                <div class="oxy-divider oxy-divider--center">
-                     <div class="oxy-divider__border"></div>
+<!-- product section start -->
+<section class="section-b-space ratio_asos">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 product-related">
+                <h2>Produk Lainnya</h2></div>
+        </div>
+        <div class="row search-product">
+            @foreach ($relatedProducts as $row)
+            <div class="col-xl-2 col-md-4 col-sm-6">
+                <div class="product-box">
+                    <div class="img-wrapper">
+                        <div class="front">
+                            <a href="{{ route('product.detail', [$row->category->slug, $row->slug]) }}"><img src="{{ asset('uploads/' . $row->productImage[0]->img_path) }}" class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                        </div>
+                        <div class="back">
+                            <a href="{{ route('product.detail', [$row->category->slug, $row->slug]) }}"><img src="{{ asset('uploads/' . $row->productImage[1]->img_path) }}" class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                        </div>
+                        <div class="cart-info cart-wrap">
+                            <button data-toggle="modal" data-target="#addtocart"  title="Add to cart"><i class="ti-shopping-cart" ></i></button> <a href="javascript:void(0)" title="Add to Wishlist"><i class="ti-heart" aria-hidden="true"></i></a> <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View"><i class="ti-search" aria-hidden="true"></i></a> <a href="compare.html" title="Compare"><i class="ti-reload" aria-hidden="true"></i></a></div>
+                    </div>
+                    <div class="product-detail">
+                        <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div><a href="product-page(no-sidebar).html"><h6>{{ $row->name }}</h6></a>
+                        <h4>{{ $row->priceBefore }}</h4>
+                        {{-- <ul class="color-variant">
+                            <li class="bg-light0"></li>
+                            <li class="bg-light1"></li>
+                            <li class="bg-light2"></li>
+                        </ul> --}}
+                    </div>
                 </div>
             </div>
+            @endforeach
+            
         </div>
-
-        @include('partials.sections.products4x2', ['products' => $relatedProducts])
     </div>
-</div>
-
-@include('partials.sections.shop-banners')
+</section>
+<!-- product section end -->
 
 @endsection
