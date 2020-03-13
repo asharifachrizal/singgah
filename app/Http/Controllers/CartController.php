@@ -31,17 +31,31 @@ class CartController extends BaseController
 
     public function additem(Request $request, $slug)
     {
-        $product = Product::where('slug', $slug)->first();
-        $data = [
-            'user_id'       => Sentinel::getUser()->id,
-            'product_id'    => $product->id
-        ];
-        $cart = Cart::create($data);
-        $notification = [
-            'heading' => 'Berhasil Disimpan!',
-            'message' => 'Produk berhasil ditambahkan ke Keranjang.',
-            'alert-type' => 'success'
-        ];
+        if(Sentinel::check())
+        {
+            $product = Product::where('slug', $slug)->first();
+            $data = [
+                'user_id'       => Sentinel::getUser()->id,
+                'product_id'    => $product->id
+            ];
+            $cart = Cart::create($data);
+            $notification = [
+                'heading' => 'Berhasil!',
+                'message' => 'Item berhasil ditambahkan ke keranjang.',
+                'bgColor' => '#2b6c45',
+                'alert-type' => 'success'
+            ];
+        } 
+        else
+        {
+            $notification = [
+                'heading' => 'Gagal!',
+                'message' => 'Anda belum login. Silahkan login terlebih ada',
+                'bgColor' => '#990000',
+                'alert-type' => 'error'
+            ];
+        }
+        
         return $notification;
     }
 }

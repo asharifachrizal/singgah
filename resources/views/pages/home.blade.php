@@ -516,17 +516,15 @@ $(document).ready(function() {
             success: function(result)
             {
                 $.toast({
-                    heading: 'Berhasil',
-                    text: 'Item berhasil ditambahkan ke keranjang.',
+                    heading: result['heading'],
+                    text: result['message'],
                     position: 'top-right',
-                    bgColor: '#2b6c45',
+                    bgColor: result['bg-color'],
                     loaderBg: '#ffa250',
-                    icon: 'success',
+                    icon: result['alert-type'],
                     hideAfter: 3500,
                     stack: 6
                 });
-                console.log('good');
-
             }
         });
     });
