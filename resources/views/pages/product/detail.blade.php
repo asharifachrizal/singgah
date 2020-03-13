@@ -4,6 +4,11 @@
 Jasa Desain | Singgah  
 @endsection
 
+@section('styles')
+<!-- toast CSS -->
+<link href="{{ asset('material/plugins/toast-master/css/jquery.toast.css') }}" rel="stylesheet">
+@endsection
+
 @section('content')
 
 <!-- breadcrumb start -->
@@ -62,23 +67,17 @@ Jasa Desain | Singgah
                             <li class="bg-light1"></li>
                             <li class="bg-light2"></li>
                         </ul> --}}
-                        {{-- <div class="product-description border-product">
-                            <h6 class="product-title size-text">select size <span><a href="" data-toggle="modal" data-target="#sizemodal">size chart</a></span></h6>
-                            <div class="size-box">
-                                <ul>
-                                    <li class="active"><a href="#">s</a></li>
-                                    <li><a href="#">m</a></li>
-                                    <li><a href="#">l</a></li>
-                                    <li><a href="#">xl</a></li>
-                                </ul>
-                            </div>
+                        <div class="product-description border-product">
                             <h6 class="product-title">quantity</h6>
                             <div class="qty-box">
                                 <div class="input-group"><span class="input-group-prepend"><button type="button" class="btn quantity-left-minus" data-type="minus" data-field=""><i class="ti-angle-left"></i></button> </span>
                                     <input type="text" name="quantity" class="form-control input-number" value="1"> <span class="input-group-prepend"><button type="button" class="btn quantity-right-plus" data-type="plus" data-field=""><i class="ti-angle-right"></i></button></span></div>
                             </div>
-                        </div> --}}
-                        <div class="product-buttons"><a href="#" data-toggle="modal" data-target="#addtocart" class="btn btn-solid">Tambah ke Keranjang</a> <a href="#" class="btn btn-solid">Beli Sekarang</a></div>
+                        </div>
+                        <div class="product-buttons">
+                            <a href="#" data-toggle="modal" data-target="#addtocart" class="btn btn-solid add-shopping-cart-button" data-product={{ $product->slug }}>Tambah ke Keranjang</a> 
+                            <a href="{{ route('cart.checkout') }}" class="btn btn-solid">Beli Sekarang</a>
+                        </div>
                         <div class="border-product">
                             <h6 class="product-title">Deskripsi</h6>
                             <p>Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem,</p>
@@ -212,3 +211,39 @@ Jasa Desain | Singgah
 <!-- product section end -->
 
 @endsection
+
+@section('scripts')
+<script src="{{ asset('material/plugins/toast-master/js/jquery.toast.js') }}"></script>
+<script src="{{ asset('material/js/toastr.js') }}"></script>
+<script>
+    $(document).ready(function() {
+        $('.add-shopping-cart-button').click(function(){
+            var APP_URL = {!! json_encode(url('/')) !!}
+    
+            var product_slug = $(this).attr('data-product');
+            console.log(product_slug);
+    
+            var url =  APP_URL + "/keranjang/tambah/" + product_slug;
+    
+            $.ajax
+            ({ 
+                url: url,
+                type: 'post',
+                success: function(result)
+                {
+                    $.toast({
+                        heading: result['heading'],
+                        text: result['message'],
+                        position: 'bottom-right',
+                        bgColor: result['bg-color'],
+                        loaderBg: '#ffa250',
+                        icon: result['alert-type'],
+                        hideAfter: 3500,
+                        stack: 6
+                    });
+                }
+            });
+        });
+    });
+    </script>
+    @endsection
