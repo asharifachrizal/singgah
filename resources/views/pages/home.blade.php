@@ -518,7 +518,7 @@ $(document).ready(function() {
                 $.toast({
                     heading: result['heading'],
                     text: result['message'],
-                    position: 'top-right',
+                    position: 'bottom-right',
                     bgColor: result['bg-color'],
                     loaderBg: '#ffa250',
                     icon: result['alert-type'],
