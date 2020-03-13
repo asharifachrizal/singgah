@@ -18,7 +18,7 @@
                         <li class="mobile-wishlist"><a href="{{ route('user.setting') }}"><i class="fa fa-user" aria-hidden="true"></i> {{ Sentinel::getUser()->first_name }}</a></li>
                         <li class="mobile-wishlist"><a href="#" onclick="document.getElementById('logout-form').submit()"><i class="fa fa-sign-out-alt" aria-hidden="true"></i> Logout</a></li>
                         @else
-                        <li class="mobile-wishlist"><a href="#"><i class="fa fa-sign-in-alt" aria-hidden="true"></i> Login</a></li>
+                        <li class="mobile-wishlist"><a href="{{ route('login') }}"><i class="fa fa-sign-in-alt" aria-hidden="true"></i> Login</a></li>
                         @endif
                     </ul>
                 </div>
@@ -110,7 +110,7 @@
                                 <a href="{{ route('faq') }}">FAQ</a>
                             </li>
                             <li>
-                                <a href="{{ route('aboutUs') }}">Tentang Singgah</a>
+                                <a href="{{ route('aboutUs') }}">Tentang Kami</a>
                             </li>
                         </ul>
                     </nav>

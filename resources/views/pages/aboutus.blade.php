@@ -34,7 +34,7 @@ Jasa Desain | Singgah
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <div class="banner-section"><img src="{{ asset('mk/images/about/about%20us.jpg') }}" class="img-fluid blur-up lazyload" alt=""></div>
+                <div class="banner-section"><img src="{{ asset('uploads/sliders/slider-5.png') }}" class="img-fluid blur-up lazyload" alt=""></div>
             </div>
             <div class="col-sm-12">
                 <h4>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</h4>
@@ -142,10 +142,17 @@ Jasa Desain | Singgah
                     @for ($i = 0; $i < 6; $i++)
                         <div>
                             <div>
-                                <img src="{{ asset('mk/images/team/1.jpg') }}" class="img-fluid blur-up lazyload bg-img" alt="">
+                                <img src="{{ asset('uploads/banners/featured-left.jpg') }}" class="img-fluid blur-up lazyload bg-img" alt="">
                             </div>
                             <h4>Bambang Pamungkas</h4>
                             <h6>CEO & Founder Singgah</h6>
+                        </div>
+                        <div>
+                            <div>
+                                <img src="{{ asset('uploads/banners/featured-right.jpg') }}" class="img-fluid blur-up lazyload bg-img" alt="">
+                            </div>
+                            <h4>Budi Sudarsono</h4>
+                            <h6>CTO Singgah</h6>
                         </div>
                     @endfor
                 </div>

@@ -53,11 +53,9 @@
                         </div>
                         <div class="footer-contant">
                             <ul>
-                                <li><a href="#">mens</a></li>
-                                <li><a href="#">womens</a></li>
-                                <li><a href="#">clothing</a></li>
-                                <li><a href="#">accessories</a></li>
-                                <li><a href="#">featured</a></li>
+                                <li><a href="{{ route('faq') }}">Bantuan</a></li>
+                                <li><a href="{{ route('promo') }}">Promo</a></li>
+                                <li><a href="#">Status Order</a></li>
                             </ul>
                         </div>
                     </div>
@@ -65,15 +63,13 @@
                 <div class="col">
                     <div class="sub-title">
                         <div class="footer-title">
-                            <h4>why we choose</h4>
+                            <h4>Tentang Kami</h4>
                         </div>
                         <div class="footer-contant">
                             <ul>
-                                <li><a href="#">shipping & return</a></li>
-                                <li><a href="#">secure shopping</a></li>
-                                <li><a href="#">gallary</a></li>
-                                <li><a href="#">affiliates</a></li>
-                                <li><a href="#">contacts</a></li>
+                                <li><a href="{{ route('aboutUs') }}">Profil Perusahaan</a></li>
+                                <li><a href="#">Kebijakan Privasi</a></li>
+                                <li><a href="#">Hubungi Kami</a></li>
                             </ul>
                         </div>
                     </div>
@@ -81,14 +77,13 @@
                 <div class="col">
                     <div class="sub-title">
                         <div class="footer-title">
-                            <h4>TENTANG KAMI</h4>
+                            <h4>Alamat</h4>
                         </div>
                         <div class="footer-contant">
                             <ul class="contact-list">
-                                <li><i class="fa fa-map-marker"></i>Multikart Demo Store, Demo store India 345-659</li>
-                                <li><i class="fa fa-phone"></i>Call Us: 123-456-7898</li>
-                                <li><i class="fa fa-envelope-o"></i>Email Us: <a href="#">Support@Fiot.com</a></li>
-                                <li><i class="fa fa-fax"></i>Fax: 123456</li>
+                                <li><i class="fa fa-map-marker"></i>Singgah, Jl. Raya Kenangan No. 20, Jakarta Selatan</li>
+                                <li><i class="fa fa-phone"></i>Hubungi Kami: <br>021 - 555 - 8889</li>
+                                <li><i class="fa fa-envelope-o"></i>Email Us: <br><a href="#">Support@sinngah.com</a></li>
                             </ul>
                         </div>
                     </div>
