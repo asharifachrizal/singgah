@@ -6,8 +6,8 @@
             <div class="row">
                 <div class="col">
                     <div class="banner-contain">
-                        <h2>2018</h2>
-                        <h3>interior design in home</h3>
+                        <h2>2020</h2>
+                        <h3>SINGGAH ART</h3>
                         <h4>special offer</h4>
                     </div>
                 </div>

@@ -13,8 +13,8 @@
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <form action="https://pixelstrap.us19.list-manage.com/subscribe/post?u=5a128856334b598b395f1fc9b&amp;id=082f74cbda" class="form-inline subscribe-form auth-form needs-validation" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
-                              target="_blank">
+                        <form  class="form-inline subscribe-form auth-form needs-validation" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
+                              >
                             <div class="form-group mx-sm-3">
                                 <input type="text" class="form-control" name="EMAIL" id="mce-EMAIL" placeholder="Masukkan email anda" required="required">
                             </div>
@@ -33,7 +33,7 @@
                         <h4>about</h4>
                     </div>
                     <div class="footer-contant">
-                        <div class="footer-logo"><img src="{{ asset('mk/images/icon/logo/1.png') }}" alt=""></div>
+                        <div class="footer-logo"><img src="{{ asset('mk/images/icon/logo/singgahLogo.png') }}" alt=""></div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
                         <div class="footer-social">
                             <ul>
@@ -53,9 +53,9 @@
                         </div>
                         <div class="footer-contant">
                             <ul>
-                                <li><a href="{{ route('faq') }}">Bantuan</a></li>
+                                <li><a href="{{ route('faq') }}">FAQ</a></li>
                                 <li><a href="{{ route('promo') }}">Promo</a></li>
-                                <li><a href="#">Status Order</a></li>
+                                <!-- <li><a href="#">Status Order</a></li> -->
                             </ul>
                         </div>
                     </div>
@@ -68,8 +68,8 @@
                         <div class="footer-contant">
                             <ul>
                                 <li><a href="{{ route('aboutUs') }}">Profil Perusahaan</a></li>
-                                <li><a href="#">Kebijakan Privasi</a></li>
-                                <li><a href="#">Hubungi Kami</a></li>
+                                <li><a>Kebijakan Privasi</a></li>
+                                <li><a>Hubungi Kami</a></li>
                             </ul>
                         </div>
                     </div>
@@ -83,7 +83,7 @@
                             <ul class="contact-list">
                                 <li><i class="fa fa-map-marker"></i>Singgah, Jl. Raya Kenangan No. 20, Jakarta Selatan</li>
                                 <li><i class="fa fa-phone"></i>Hubungi Kami: <br>021 - 555 - 8889</li>
-                                <li><i class="fa fa-envelope-o"></i>Email Us: <br><a href="#">Support@sinngah.com</a></li>
+                                <li><i class="fa fa-envelope-o"></i>Email Us: <br><a href="#">support@singgah.com</a></li>
                             </ul>
                         </div>
                     </div>
