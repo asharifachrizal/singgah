@@ -36,16 +36,16 @@ Jasa Desain | Singgah
                 <div class="accordion theme-accordion" id="accordionExample">
                     <div class="card">
                         <div class="card-header" id="headingOne">
-                            <h5 class="mb-0"><button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Pertanyaan 1?</button></h5></div>
+                            <h5 class="mb-0"><button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Apakah Misbah Ganteng?</button></h5></div>
                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                             <div class="card-body">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore delectus consequatur et ipsum quos nisi excepturi, aut magnam dolorum illo molestias, quod adipisci vel quibusdam officia nihil asperiores odio nesciunt.</p>
+                                <p>Hmmm...</p>
                             </div>
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-header" id="headingTwo">
-                            <h5 class="mb-0"><button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Pertanyaan 2?</button></h5></div>
+                            <h5 class="mb-0"><button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Apakah Singgah Bisa Print Buku Juga?</button></h5></div>
                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                             <div class="card-body">
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias inventore rem mollitia vero facere corporis nobis! Sapiente temporibus obcaecati possimus placeat quasi nemo illum, modi deserunt inventore ea adipisci ab.</p>
