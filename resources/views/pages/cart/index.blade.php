@@ -35,7 +35,7 @@ Jasa Desain | Singgah
                 <table class="table cart-table table-responsive-xs">
                     <thead>
                     <tr class="table-head">
-                        <th scope="col">-</th>
+                        <th scope="col">Produk</th>
                         <th scope="col">Nama Item</th>
                         <th scope="col">Harga</th>
                         <th scope="col">Qty</th>
@@ -47,7 +47,7 @@ Jasa Desain | Singgah
                         @foreach ($carts as $row)
                             <tr>
                                 <td>
-                                    <a href="#"><img src="{{ asset('storage/' . $row->product->productImage->where('type', '1')->first()->img_path) }}" alt=""></a>
+                                    <a href="#"><img src="{{ asset('uploads/' . $row->product->productImage->where('type', '1')->first()->img_path) }}" alt=""></a>
                                 </td>
                                 <td><a href="#">{{ $row->product->name }}</a>
                                     <div class="mobile-cart-content row">
