@@ -19,7 +19,14 @@ class VisitorMiddleware
         if(Sentinel::check())
             return $next($request);
         else{
-            return redirect()->route('login');
+            if($request->ajax()){
+                return $next($request);
+            } 
+            else
+            {
+                return redirect()->route('login');
+            }
+            
         }
     }
 }
