@@ -11,13 +11,13 @@ Jasa Desain | Singgah
         <div class="row">
             <div class="col-sm-6">
                 <div class="page-title">
-                    <h2>Pengaturan</h2></div>
+                    <h2>Profil</h2></div>
             </div>
             <div class="col-sm-6">
                 <nav aria-label="breadcrumb" class="theme-breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="index.html">Beranda</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Pengaturan</li>
+                        <li class="breadcrumb-item active" aria-current="page">Profil</li>
                     </ol>
                 </nav>
             </div>
@@ -35,7 +35,7 @@ Jasa Desain | Singgah
                 <div class="account-sidebar"><a class="popup-btn">Akun Saya</a></div>
                 <div class="dashboard-left">
                     <div class="collection-mobile-back"><span class="filter-back"><i class="fa fa-angle-left" aria-hidden="true"></i> kembali</span></div>
-                    <div class="block-content">
+                    <!-- <div class="block-content">
                         <ul>
                             <li class="active"><a href="#">Informasi Akun</a></li>
                             <li><a href="#">Alamat</a></li>
@@ -43,7 +43,7 @@ Jasa Desain | Singgah
                             <li><a href="#">Langganan</a></li>
                             <li class="last"><a href="#">Logout</a></li>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="col-lg-9">
@@ -57,10 +57,10 @@ Jasa Desain | Singgah
                                 <div class="col-sm-6">
                                     <div class="box">
                                         <div class="box-title">
-                                            <h3>Informas</h3><a href="#">Edit</a></div>
+                                            <h3>Informasi</h3><a href="#">Edit</a></div>
                                         <div class="box-content">
-                                            <h6>MARK JECNO</h6>
-                                            <h6>MARk-JECNO@gmail.com</h6>
+                                            <h6>Januar</h6>
+                                            <h6>januar@gmail.com</h6>
                                             <h6><a href="#">Change Password</a></h6></div>
                                     </div>
                                 </div>

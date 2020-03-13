@@ -36,7 +36,7 @@ Jasa Desain | Singgah
                 <a href="#">
                     <div class="collection-banner p-right text-center">
                         <div class="img-part">
-                            <img src="{{ asset('storage/sub-banners/sub-banner-1.png') }}" class="img-fluid blur-up lazyload bg-img" alt="">
+                            <img src="{{ asset('uploads/sub-banners/sub-banner-1.png') }}" class="img-fluid blur-up lazyload bg-img" alt="">
                         </div>
                         <div class="contain-banner">
                             <div>
@@ -51,7 +51,7 @@ Jasa Desain | Singgah
                 <a href="#">
                     <div class="collection-banner p-right text-center">
                         <div class="img-part">
-                            <img src="{{ asset('storage/sub-banners/sub-banner-2.png') }}" class="img-fluid blur-up lazyload bg-img" alt="">
+                            <img src="{{ asset('uploads/sub-banners/sub-banner-2.png') }}" class="img-fluid blur-up lazyload bg-img" alt="">
                         </div>
                         <div class="contain-banner">
                             <div>
@@ -75,12 +75,12 @@ Jasa Desain | Singgah
                 <a href="#">
                     <div class="collection-banner p-right text-right">
                         <div class="img-part">
-                            <img src="{{ asset('storage/sub-banners/sub-banner-3.png') }}" class="img-fluid blur-up lazyload bg-img" alt="">
+                            <img src="{{ asset('uploads/sub-banners/sub-banner-3.png') }}" class="img-fluid blur-up lazyload bg-img" alt="">
                         </div>
                         <div class="contain-banner banner-3">
                             <div>
                                 <h4>10% off</h4>
-                                <h2>speaker</h2>
+                                <h2>Book Cover</h2>
                             </div>
                         </div>
                     </div>
@@ -90,12 +90,12 @@ Jasa Desain | Singgah
                 <a href="#">
                     <div class="collection-banner p-right text-right">
                         <div class="img-part">
-                            <img src="{{ asset('storage/sub-banners/sub-banner-2.png') }}" class="img-fluid blur-up lazyload bg-img" alt="">
+                            <img src="{{ asset('uploads/sub-banners/sub-banner-2.png') }}" class="img-fluid blur-up lazyload bg-img" alt="">
                         </div>
                         <div class="contain-banner banner-3">
                             <div>
                                 <h4>10% off</h4>
-                                <h2>earplug</h2>
+                                <h2>Instagram Video</h2>
                             </div>
                         </div>
                     </div>
@@ -105,7 +105,7 @@ Jasa Desain | Singgah
                 <a href="#">
                     <div class="collection-banner p-right text-right">
                         <div class="img-part">
-                            <img src="{{ asset('storage/sub-banners/sub-banner-1.png') }}" class="img-fluid blur-up lazyload bg-img" alt="">
+                            <img src="{{ asset('uploads/sub-banners/sub-banner-1.png') }}" class="img-fluid blur-up lazyload bg-img" alt="">
                         </div>
                         <div class="contain-banner banner-3">
                             <div>

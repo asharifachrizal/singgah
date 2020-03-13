@@ -8,7 +8,7 @@
                     <div class="header-contact">
                         <ul>
                             <li>Selamat datang di www.singgah.com</li>
-                            <li><i class="fa fa-phone" aria-hidden="true"></i>Hubungi kami: 021 - 555 - 8889</li>
+                            <li><i class="fa fa-phone" aria-hidden="true"></i>Hubungi kami: 14045</li>
                         </ul>
                     </div>
                 </div>
@@ -32,7 +32,7 @@
             <div class="col-sm-12">
                 <div class="main-menu border-section border-top-0">
                     <div class="brand-logo layout2-logo">
-                        <a href="{{ route('home') }}"><img src="{{ asset('mk/images/icon/logo/1.png') }}" class="img-fluid blur-up lazyload" alt=""></a>
+                        <a href="{{ route('home') }}"><img src="{{ asset('mk/images/icon/logo/singgahLogo.png') }}" class="img-fluid blur-up lazyload" alt=""></a>
                     </div>
                     <div class="menu-right pull-right">
                         <div class="icon-nav">
@@ -92,14 +92,14 @@
                             <li>
                                 <div class="mobile-back text-right">Kembali<i class="fa fa-angle-right pl-2" aria-hidden="true"></i></div>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <a href="#">Belanja</a>
                                 <ul>
                                     @foreach ($data['headerCategories'] as $row)
                                         <li><a href="{{ route('category.detail', $row->slug) }}">{{ $row->name }}</a></li>
                                     @endforeach
                                 </ul>
-                            </li>
+                            </li> -->
                             <li>
                                 <a href="{{ route('cart') }}">Keranjang</a>
                             </li>
