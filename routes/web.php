@@ -11,6 +11,10 @@
 |
 */
 
+Route::view('/cms', 'layouts.mk-cms');
+Route::get('/cms/transaction', 'CMSController@transaction')->name('transaction');
+Route::get('/cms/order', 'CMSController@order')->name('order');
+
 Route::group(['middleware' => 'guest'], function() {
     Route::get('/login', 'UserController@login')->name('login');
     Route::get('/register', 'UserController@login')->name('register');
