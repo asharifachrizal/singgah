@@ -79,8 +79,8 @@ Jasa Desain | Singgah
                 <div class="theme-tab">
                     <ul class="tabs tab-title">
                         <li class="current"><a href="tab-4">Terbaru</a></li>
-                        <li class=""><a href="tab-5">Terkini</a></li>
-                        <li class=""><a href="tab-6">Terpopuler</a></li>
+                        <!-- <li class=""><a href="tab-5">Terkini</a></li>
+                        <li class=""><a href="tab-6">Terpopuler</a></li> -->
                     </ul>
                     <div class="tab-content-cls">
                         <div id="tab-4" class="tab-content active default">

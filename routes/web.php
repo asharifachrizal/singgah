@@ -11,9 +11,12 @@
 |
 */
 
-Route::view('/cms', 'layouts.mk-cms');
+// Route::view('/cms', 'layouts.mk-cms')->name('cms.dashboard');
+Route::get('/cms', 'CMSController@dashboard')->name('cms.dashboard');
 Route::get('/cms/transaction', 'CMSController@transaction')->name('transaction');
 Route::get('/cms/order', 'CMSController@order')->name('order');
+Route::get('/cms/product/list', 'CMSController@productList')->name('product.list');
+Route::get('/cms/product/add', 'CMSController@addProduct')->name('product.add');
 
 Route::group(['middleware' => 'guest'], function() {
     Route::get('/login', 'UserController@login')->name('login');

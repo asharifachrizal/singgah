@@ -9,7 +9,7 @@
                 <div class="col-lg-6">
                     <div class="page-header-left">
                         <h3>Transactions
-                            <small>Multikart Admin panel</small>
+                            <small>Singgah Admin panel</small>
                         </h3>
                     </div>
                 </div>
