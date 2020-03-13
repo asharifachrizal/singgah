@@ -1,7 +1,7 @@
 <!-- header start -->
 <header class="header-2">
     <div class="mobile-fix-option"></div>
-    <div class="top-header top-header-dark">
+    <div class="top-header top-header-darkSinggah">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
