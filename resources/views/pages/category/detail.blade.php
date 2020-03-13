@@ -4,6 +4,11 @@
 Jasa Desain | Singgah  
 @endsection
 
+@section('styles')
+<!-- toast CSS -->
+<link href="{{ asset('material/plugins/toast-master/css/jquery.toast.css') }}" rel="stylesheet">
+@endsection
+
 @section('content')
 <!-- breadcrumb start -->
 <div class="breadcrumb-section">
@@ -43,23 +48,23 @@ Jasa Desain | Singgah
                                 <div class="collection-brand-filter">
                                     <div class="custom-control custom-checkbox collection-filter-checkbox">
                                         <input type="checkbox" class="custom-control-input" id="hundred">
-                                        <label class="custom-control-label" for="hundred">$10 - $100</label>
+                                        <label class="custom-control-label" for="hundred">RP 10.000 - RP 30.000</label>
                                     </div>
                                     <div class="custom-control custom-checkbox collection-filter-checkbox">
                                         <input type="checkbox" class="custom-control-input" id="twohundred">
-                                        <label class="custom-control-label" for="twohundred">$100 - $200</label>
+                                        <label class="custom-control-label" for="twohundred">RP 30.000 - RP 50.000</label>
                                     </div>
                                     <div class="custom-control custom-checkbox collection-filter-checkbox">
                                         <input type="checkbox" class="custom-control-input" id="threehundred">
-                                        <label class="custom-control-label" for="threehundred">$200 - $300</label>
+                                        <label class="custom-control-label" for="threehundred">RP 50.000 - RP 100.000</label>
                                     </div>
                                     <div class="custom-control custom-checkbox collection-filter-checkbox">
                                         <input type="checkbox" class="custom-control-input" id="fourhundred">
-                                        <label class="custom-control-label" for="fourhundred">$300 - $400</label>
+                                        <label class="custom-control-label" for="fourhundred">RP 100.000 - RP 300.000</label>
                                     </div>
                                     <div class="custom-control custom-checkbox collection-filter-checkbox">
                                         <input type="checkbox" class="custom-control-input" id="fourhundredabove">
-                                        <label class="custom-control-label" for="fourhundredabove">$400 above</label>
+                                        <label class="custom-control-label" for="fourhundredabove">> RP 300.000</label>
                                     </div>
                                 </div>
                             </div>
@@ -157,7 +162,10 @@ Jasa Desain | Singgah
                                                             <a href="{{ route('product.detail', [$category, $row->name]) }}"><img src="{{ asset('uploads/' . $row->productImage[1]->img_path) }}" class="img-fluid blur-up lazyload bg-img" alt=""></a>
                                                         </div>
                                                         <div class="cart-info cart-wrap">
-                                                            <button data-toggle="modal" data-target="#addtocart"  title="Add to cart"><i class="ti-shopping-cart" ></i></button> <a href="javascript:void(0)" title="Add to Wishlist"><i class="ti-heart" aria-hidden="true"></i></a> <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View"><i class="ti-search" aria-hidden="true"></i></a> <a href="compare.html" title="Compare"><i class="ti-reload" aria-hidden="true"></i></a></div>
+                                                            <button class="add-shopping-cart-button" data-product={{ $row->slug }}>
+                                                                <i class="ti-shopping-cart" ></i>
+                                                            </button> 
+                                                        </div>
                                                     </div>
                                                     <div class="product-detail">
                                                         <div>
@@ -202,4 +210,43 @@ Jasa Desain | Singgah
     </div>
 </section>
 <!-- section End -->
+@endsection
+
+@section('scripts')
+<script src="{{ asset('material/plugins/toast-master/js/jquery.toast.js') }}"></script>
+<script src="{{ asset('material/js/toastr.js') }}"></script>
+
+<script>
+$(document).ready(function() {
+    $('.add-shopping-cart-button').click(function(){
+        var APP_URL = {!! json_encode(url('/')) !!}
+
+        var product_slug = $(this).attr('data-product');
+        console.log(product_slug);
+
+        var url =  APP_URL + "/keranjang/tambah/" + product_slug;
+
+        $.ajax
+        ({ 
+            url: url,
+            type: 'post',
+            success: function(result)
+            {
+                $.toast({
+                    heading: 'Berhasil',
+                    text: 'Item berhasil ditambahkan ke keranjang.',
+                    position: 'top-right',
+                    bgColor: '#2b6c45',
+                    loaderBg: '#ffa250',
+                    icon: 'success',
+                    hideAfter: 3500,
+                    stack: 6
+                });
+                console.log('good');
+
+            }
+        });
+    });
+});
+</script>
 @endsection

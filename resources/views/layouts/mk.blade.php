@@ -10,7 +10,7 @@
     <meta name="author" content="multikart">
     <link rel="icon" href="{{ asset('mk/images/favicon/5.png') }}" type="image/x-icon">
     <link rel="shortcut icon" href="{{ asset('mk/images/favicon/5.png') }}" type="image/x-icon">
-    <title>@yield('titel')</title>
+    <title>@yield('title')</title>
 
     <!--Google font-->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
@@ -33,6 +33,8 @@
 
     <!-- Theme css -->
     <link rel="stylesheet" type="text/css" href="{{ asset('mk/css/color5.css') }}" media="screen" id="color">
+
+    @yield('styles')
 
 </head>
 
@@ -77,6 +79,8 @@
 
 <!-- Theme js-->
 <script src="{{ asset('mk/js/script.js') }}"></script>
+
+@yield('scripts')
 </body>
 
 </html>
