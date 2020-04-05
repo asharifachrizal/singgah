@@ -17,6 +17,27 @@ class ProductController extends BaseController
         return view('pages.product.index', compact('products', 'categories'));
     }
 
+    public function produksi()
+    {
+        $products = Product::where('category_id', '=', 1 )->get();
+        $categories = Category::all();
+        return view('pages.product.produksi', compact('products', 'categories'));
+    }
+
+    public function nonproduksi()
+    {
+        $products = Product::where('category_id', '=', 2 )->get();
+        $categories = Category::all();
+        return view('pages.product.nonproduksi', compact('products', 'categories'));
+    }
+
+    public function video()
+    {
+        $products = Product::where('category_id', '=', 3 )->get();
+        $categories = Category::all();
+        return view('pages.product.video', compact('products', 'categories'));
+    }
+
     public function detail($category, $slug)
     {
         $product = Product::where('slug', '=', $slug)->first();

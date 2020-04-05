@@ -12,7 +12,7 @@ Jasa Desain | Singgah
         <div class="row">
             <div class="col-sm-6">
                 <div class="page-title">
-                    <h2>Produk</h2></div>
+                    <h2>Product</h2></div>
             </div>
             <div class="col-sm-6">
                 <nav aria-label="breadcrumb" class="theme-breadcrumb">
@@ -31,7 +31,7 @@ Jasa Desain | Singgah
 <!-- Category -->
 <div class="title1 section-t-space">
     <h4>SINGGAH ART</h4>
-    <h2 class="title-inner1">Produk</h2>
+    <h2 class="title-inner1">Produk Desain</h2>
 </div>
 <section class="p-0 ratio2_1">
     <div class="container-fluid">
@@ -42,7 +42,7 @@ Jasa Desain | Singgah
                         <img src="{{ asset('uploads/sub-banners/hero-block-3-mobile.jpg') }}" class="img-fluid blur-up lazyload bg-img" alt="">
                     </div>
                     <div class="category-box">
-                        <a href="#">
+                        <a href="{{ route('produksi')}}">
                             <h2>Produksi</h2>
                         </a>
                     </div>
@@ -54,7 +54,7 @@ Jasa Desain | Singgah
                         <img src="{{ asset('uploads/sub-banners/hero-block-3-mobile.jpg') }}" class="img-fluid blur-up lazyload bg-img" alt="">
                     </div>
                     <div class="category-box">
-                        <a href="#">
+                        <a href="{{ route('nonproduksi')}}">
                             <h2>non-produksi</h2>
                         </a>
                     </div>
@@ -66,7 +66,7 @@ Jasa Desain | Singgah
                         <img src="{{ asset('uploads/sub-banners/hero-block-3-mobile.jpg') }}" class="img-fluid blur-up lazyload bg-img" alt="">
                     </div>
                     <div class="category-box">
-                        <a href="#">
+                        <a href="{{ route('video')}}">
                             <h2>video</h2>
                         </a>
                     </div>

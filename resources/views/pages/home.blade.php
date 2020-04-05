@@ -676,7 +676,6 @@ Jasa Desain | Singgah
 @section('scripts')
 <script src="{{ asset('material/plugins/toast-master/js/jquery.toast.js') }}"></script>
 <script src="{{ asset('material/js/toastr.js') }}"></script>
-<script src="{{ asset('material/js/plugins.js') }}"></script>
 
 <script>
 $(document).ready(function() {

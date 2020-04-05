@@ -31,6 +31,9 @@ Route::get('/kategori', 'CategoryController@index')->name('category');
 Route::get('/kategori/{slug}', 'CategoryController@detail')->name('category.detail');
 
 Route::get('/produk', 'ProductController@index')->name('product');
+Route::get('/desain-produksi', 'ProductController@produksi')->name('produksi');
+Route::get('/desain-non-produksi', 'ProductController@nonproduksi')->name('nonproduksi');
+Route::get('/desain-video', 'ProductController@video')->name('video');
 Route::get('/p/{category}/{slug}', 'ProductController@detail')->name('product.detail');
 
 Route::get('/promo', 'PromoController@index')->name('promo');
