@@ -61,7 +61,7 @@
                                 <li class="onhover-div mobile-cart">
                                     <div>
                                         <a href="{{ route('cart') }}">
-                                            <img src="{{ asset('mk/images/icon/cart.png') }}" class="img-fluid blur-up lazyload" alt=""> 
+                                            <img src="{{ asset('mk/images/icon/cart.png') }}" class="img-fluid blur-up lazyload" alt="">
                                             <i class="ti-shopping-cart"></i>
                                         </a>
                                     </div>
@@ -69,7 +69,7 @@
                                 <li class="onhover-div mobile-cart">
                                     <div>
                                         <a href="#">
-                                            <img src="{{ asset('mk/images/icon/setting.png') }}" class="img-fluid blur-up lazyload" alt=""> 
+                                            <img src="{{ asset('mk/images/icon/setting.png') }}" class="img-fluid blur-up lazyload" alt="">
                                             <i class="ti-shopping-cart"></i>
                                         </a>
                                     </div>
@@ -101,7 +101,8 @@
                                 </ul>
                             </li> -->
                             <li>
-                                <a href="{{ route('cart') }}">Keranjang</a>
+                                {{-- <a href="{{ route('cart') }}">Keranjang</a> --}}
+                                <a href="{{ route('category')}}">Product</a>
                             </li>
                             <li>
                                 <a href="{{ route('promo') }}">Promo</a>
@@ -110,7 +111,7 @@
                                 <a href="{{ route('faq') }}">FAQ</a>
                             </li>
                             <li>
-                                <a href="{{ route('aboutUs') }}">Tentang Kami</a>
+                                {{-- <a href="{{ route('aboutUs') }}">Tentang Kami</a> --}}
                             </li>
                         </ul>
                     </nav>
