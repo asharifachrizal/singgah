@@ -64,16 +64,16 @@ Jasa Desain | Singgah
                                             </div>
                                         </div>
                                         <div class="product-detail">
-                                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
+                                            {{-- <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div> --}}
                                             <a href="{{ route('product.detail', [$row->category->slug, $row->slug]) }}">
                                                 <h6>{{ $row->name }}</h6>
                                             </a>
-                                            <h4>{{ $row->priceDisplay }} <del>{{ $row->priceBeforeDisplay }}</del></h4>
+                                            {{-- <h4>{{ $row->priceDisplay }} <del>{{ $row->priceBeforeDisplay }}</del></h4>
                                             <ul class="color-variant">
                                                 <li class="bg-light0"></li>
                                                 <li class="bg-light1"></li>
                                                 <li class="bg-light2"></li>
-                                            </ul>
+                                            </ul> --}}
                                         </div>
                                     </div>
                                 @endforeach

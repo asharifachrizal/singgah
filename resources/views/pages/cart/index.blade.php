@@ -1,7 +1,7 @@
 @extends('layouts.mk')
 
 @section('title')
-Jasa Desain | Singgah  
+Jasa Desain | Singgah
 @endsection
 
 @section('content')
@@ -37,10 +37,10 @@ Jasa Desain | Singgah
                     <tr class="table-head">
                         <th scope="col">Produk</th>
                         <th scope="col">Nama Item</th>
-                        <th scope="col">Harga</th>
+                        {{-- <th scope="col">Harga</th> --}}
                         <th scope="col">Qty</th>
                         <th scope="col">Aksi</th>
-                        <th scope="col">Total</th>
+                        {{-- <th scope="col">Total</th> --}}
                     </tr>
                     </thead>
                     <tbody>
@@ -64,8 +64,8 @@ Jasa Desain | Singgah
                                             <h2 class="td-color"><a href="#" class="icon"><i class="ti-close"></i></a></h2></div>
                                     </div>
                                 </td>
-                                <td>
-                                    <h2>{{ $row->product->priceDisplay }}</h2></td>
+                                {{-- <td>
+                                    <h2>{{ $row->product->priceDisplay }}</h2></td> --}}
                                 <td>
                                     <div class="qty-box">
                                         <div class="input-group">
@@ -74,8 +74,8 @@ Jasa Desain | Singgah
                                     </div>
                                 </td>
                                 <td><a href="#" class="icon"><i class="ti-close"></i></a></td>
-                                <td>
-                                    <h2 class="td-color">{{ $row->price_subtotal_display }}</h2></td>
+                                {{-- <td>
+                                    <h2 class="td-color">{{ $row->price_subtotal_display }}</h2></td> --}}
                             </tr>
                         @endforeach
                     </tbody>
@@ -83,9 +83,9 @@ Jasa Desain | Singgah
                 <table class="table cart-table table-responsive-md">
                     <tfoot>
                     <tr>
-                        <td>Total :</td>
+                        {{-- <td>Total :</td> --}}
                         <td>
-                            <h2>Rp. 45K</h2>
+                            {{-- <h2>Rp. 45K</h2> --}}
                         </td>
                     </tr>
                     </tfoot>
@@ -94,7 +94,7 @@ Jasa Desain | Singgah
         </div>
         <div class="row cart-buttons">
             <div class="col-6"><a href="{{ route('category') }}" class="btn btn-solid">Kembali Belanja</a></div>
-            <div class="col-6"><a href="{{ route('cart.checkout') }}" class="btn btn-solid">Pembayaran</a></div>
+            <div class="col-6"><a href="{{ route('cart.checkout') }}" class="btn btn-solid">Send Request</a></div>
         </div>
     </div>
 </section>

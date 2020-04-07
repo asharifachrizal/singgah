@@ -60,8 +60,8 @@ Jasa Desain | Singgah
                 <div class="col-lg-6 rtl-text">
                     <div class="product-right">
                         <h2>{{ $product->name }}</h2>
-                        <h4><del>{{ $product->priceBeforeDisplay }}</del><span>diskon 55%</span></h4>
-                        <h3>{{ $product->priceDisplay }}</h3>
+                        {{-- <h4><del>{{ $product->priceBeforeDisplay }}</del><span>diskon 55%</span></h4>
+                        <h3>{{ $product->priceDisplay }}</h3> --}}
                         {{-- <ul class="color-variant">
                             <li class="bg-light0"></li>
                             <li class="bg-light1"></li>
@@ -73,7 +73,8 @@ Jasa Desain | Singgah
                                 <div class="input-group"><span class="input-group-prepend"><button type="button" class="btn quantity-left-minus" data-type="minus" data-field=""><i class="ti-angle-left"></i></button> </span>
                                     <input type="text" name="quantity" class="form-control input-number" value="1"> <span class="input-group-prepend"><button type="button" class="btn quantity-right-plus" data-type="plus" data-field=""><i class="ti-angle-right"></i></button></span></div>
                             </div>
-                            @if($product->category_id = 3)
+                            <br>
+                            @if($product->category_id == 3)
                             <h6 class="product-title">duration</h6>
                             <div class="qty-box">
                                 <div class="input-group1">
@@ -86,6 +87,53 @@ Jasa Desain | Singgah
                                     <input type="number" name="ratio1" > X <input type="number" name="ratio2" > </div>
                             </div>
                             @endif
+                            <br>
+                            @if($product->name == "Poster")
+                            <h6 class="product-title">Jenis</h6>
+                            <div class="qty-box">
+                                <select class="form-control" id="sel1">
+                                    <option>Landscape</option>
+                                    <option>Potrait</option>
+                                </select>
+                            </div>
+                            @elseif($product->name == "Banner")
+                            <h6 class="product-title">Jenis</h6>
+                            <div class="qty-box">
+                                <select class="form-control" id="sel1">
+                                    <option>Horizontal/Spanduk</option>
+                                    <option>Vertikal/Rontek</option>
+                                </select>
+                            </div>
+                            @elseif($product->name == "Baliho")
+                            <h6 class="product-title">Jenis</h6>
+                            <div class="qty-box">
+                                <select class="form-control" id="sel1">
+                                    <option>Vertical</option>
+                                    <option>Horizontal</option>
+                                </select>
+                            </div>
+                            @elseif($product->name == "Konten IG")
+                            <h6 class="product-title">Jenis</h6>
+                            <div class="qty-box">
+                                <select class="form-control" id="sel1">
+                                    <option>Feeds</option>
+                                    <option>IG Story</option>
+                                </select>
+                            </div>
+                            @elseif($product->name == "Bumper")
+                            <h6 class="product-title">Jenis</h6>
+                            <div class="qty-box">
+                                <select class="form-control" id="sel1">
+                                    <option>Short Bumper (max 15sec)</option>
+                                    <option>Long Bumper (>15sec)</option>
+                                </select>
+                            </div>
+                            @endif
+                            <h6 class="product-title">Tone</h6>
+                            <div class="qty-box">
+                                <div class="input-group"><span class="input-group-prepend"><button type="button" class="btn quantity-left-minus" data-type="minus" data-field=""><i class="ti-angle-left"></i></button> </span>
+                                    <input type="text" name="quantity" class="form-control input-number" value="1"> <span class="input-group-prepend"><button type="button" class="btn quantity-right-plus" data-type="plus" data-field=""><i class="ti-angle-right"></i></button></span></div>
+                            </div>
                         </div>
                         <div class="product-buttons">
                             <a href="#" data-toggle="modal" data-target="#addtocart" class="btn btn-solid add-shopping-cart-button" data-product={{ $product->slug }}>Tambah ke Keranjang</a>
