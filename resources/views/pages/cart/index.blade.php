@@ -94,7 +94,7 @@ Jasa Desain | Singgah
         </div>
         <div class="row cart-buttons">
             <div class="col-6"><a href="{{ route('category') }}" class="btn btn-solid">Kembali Belanja</a></div>
-            <div class="col-6"><a href="{{ route('cart.checkout') }}" class="btn btn-solid">Send Request</a></div>
+            <div class="col-6"><a href="#" class="btn btn-solid">Send Order</a></div>
         </div>
     </div>
 </section>
