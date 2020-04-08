@@ -33,6 +33,27 @@ class Product extends Model
 		return $this->hasMany('App\ProductImage');
 	}
 
+	public function productColor()
+	{
+		return $this->hasMany('App\ProductColor');
+	}
+
+	public function productFont()
+	{
+		return $this->hasMany('App\ProductFont');
+	}
+	public function productOutput()
+	{
+		return $this->hasMany('App\ProductOutput');
+	}
+	public function productStyle()
+	{
+		return $this->hasMany('App\ProductStyle');
+	}
+	public function productTone()
+	{
+		return $this->hasMany('App\ProductTone');
+	}
 	public function productName()
 	{
 		return $this->belongsTo('App\ProductName');

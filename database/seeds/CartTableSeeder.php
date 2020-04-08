@@ -17,28 +17,10 @@ class CartTableSeeder extends Seeder
     public function createCartCategory()
     {
         DB::table('carts')->insert([
-            'user_id' => '2',
-            'product_id' => '4'
+            'user_id' => 1,
+            'status' => 'actived'
         ]);
 
-        DB::table('carts')->insert([
-            'user_id' => '2',
-            'product_id' => '7'
-        ]);
         
-        DB::table('carts')->insert([
-            'user_id' => '2',
-            'product_id' => '2'
-        ]);
-
-        DB::table('carts')->insert([
-            'user_id' => '3',
-            'product_id' => '7'
-        ]);
-
-        DB::table('carts')->insert([
-            'user_id' => '3',
-            'product_id' => '9'
-        ]);
     }
 }

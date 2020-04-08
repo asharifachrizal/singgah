@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cart extends Model
 {
-	protected $fillable = ['user_id', 'product_id', 'quantity'];
+	protected $fillable = ['user_id', 'status'];
 
 	protected $appends = ['price_subtotal_display'];
 
@@ -17,8 +17,8 @@ class Cart extends Model
     	return $priceSubtotalDisplay;
 	}
 
-    public function product()
+    public function user()
 	{
-		return $this->belongsTo('App\Product');
+		return $this->belongsTo('App\User');
 	}
 }

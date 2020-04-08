@@ -44,4 +44,11 @@ class ProductController extends BaseController
         $relatedProducts = Product::orderBy('created_at', 'desc')->take(6)->get();
         return view('pages.product.detail', compact('product', 'relatedProducts'));
     }
+
+    public function addProductToCart($category, $slug)
+    {
+        $product = Product::where('slug', '=', $slug)->first();
+        $relatedProducts = Product::orderBy('created_at', 'desc')->take(6)->get();
+        return view('pages.product.detail', compact('product', 'relatedProducts'));
+    }
 }

@@ -19,15 +19,13 @@ class CreateProductsTable extends Migration
             $table->bigInteger('category_id')->unsigned();
             $table->bigInteger('product_name_id')->unsigned();
             $table->integer('quantity');
-            $table->integer('orientation');
-            $table->integer('size');
+            $table->string('orientation');
+            $table->string('size');
             $table->integer('duration');
             $table->text('target_audience');
             $table->text('deadline');
             $table->text('briefURL');
-            $table->text('progress');
-            $table->string('slug')->unique();            
-            $table->integer('price');
+            $table->text('progress');                                   
             $table->timestamps();
 
             $table->foreign('cart_id')->references('id')->on('carts')

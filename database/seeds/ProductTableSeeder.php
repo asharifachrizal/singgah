@@ -17,20 +17,20 @@ class ProductTableSeeder extends Seeder
     public function createSampleProduct()
     {
         DB::table('products')->insert([
-            'name' => 'Masterpiece',
-            'slug' => 'masterpiece',
-            'category_id' => '1',
-            'description' => 'Ini contoh deskripsi desain baju',
-            'price' => '10000',
+            'cart_id' => 1,
+            'category_id' => 1,
+            'product_name_id' => 1,
+            'quantity' => 1,
+            'orientation' => '1080 x 1080',
+            'size' => '1080 x 1080',
+            'duration' => 60,
+            'target_audience' => 'remaja',
+            'deadline' => 'Selasa',
+            'briefURL' => 'url url url',
+            'progress' => 'on progress',            
         ]);
 
-        DB::table('products')->insert([
-            'name' => 'I Wont Do It',
-            'slug' => 'i-wont-do-it',
-            'category_id' => '1',
-            'description' => 'Ini contoh deskripsi desain poster',
-            'price' => '5000',
-        ]);
+        
 
         
     }
