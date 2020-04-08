@@ -63,9 +63,5 @@ class Product extends Model
 	{
 		return $this->belongsTo('App\Cart');
 	}
-
-	public function category()
-	{
-		return $this->belongsTo('App\Category');
-	}
+	
 }

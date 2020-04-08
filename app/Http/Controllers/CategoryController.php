@@ -11,7 +11,7 @@ class CategoryController extends BaseController
     public function index()
     {
         $categories = Category::all();
-        return view('pages.product.category', compact( 'categories'));
+        return view('pages.product.category', compact('categories'));
     }
 
     public function detail($slug)

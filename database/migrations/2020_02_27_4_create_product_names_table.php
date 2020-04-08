@@ -15,9 +15,14 @@ class CreateProductNamesTable extends Migration
     {
         Schema::create('product_names', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('category_id')->unsigned();
             $table->string('value');
             $table->string('slug')->unique(); 
             $table->timestamps();
+
+            $table->foreign('category_id')->references('id')->on('categories')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
     }
 

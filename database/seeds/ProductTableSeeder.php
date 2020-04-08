@@ -17,8 +17,7 @@ class ProductTableSeeder extends Seeder
     public function createSampleProduct()
     {
         DB::table('products')->insert([
-            'cart_id' => 1,
-            'category_id' => 1,
+            'cart_id' => 1,            
             'product_name_id' => 1,
             'quantity' => 1,
             'orientation' => '1080 x 1080',

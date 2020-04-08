@@ -34,6 +34,8 @@
 
     <!-- Theme css -->
     <link rel="stylesheet" type="text/css" href="{{ asset('mk/css/color19.css') }}" media="screen" id="color">
+    <!-- App css-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('mk/css/admin.css') }}">
 
     @yield('styles')
 

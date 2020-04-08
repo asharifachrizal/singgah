@@ -16,4 +16,9 @@ class ProductName extends Model
 	{
 		return $this->hasMany('App\ProductNameBranch');
 	}
+
+	public function category()
+	{
+		return $this->belongsTo('App\Category');
+    }
 }
