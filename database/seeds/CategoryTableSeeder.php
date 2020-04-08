@@ -17,18 +17,18 @@ class CategoryTableSeeder extends Seeder
     public function createSampleCategory()
     {
         DB::table('categories')->insert([
-            'name' => 'Book',
-            'slug' => 'book',
+            'name' => 'Desain Produksi',
+            'slug' => 'desain-produksi',
         ]);
 
         DB::table('categories')->insert([
-            'name' => 'Poster',
-            'slug' => 'poster',
+            'name' => 'Desain Non-Produksi',
+            'slug' => 'desain-non-produksi',
         ]);
 
         DB::table('categories')->insert([
-            'name' => 'Instagram',
-            'slug' => 'instagram',
+            'name' => 'Video',
+            'slug' => 'video',
         ]);
     }
 }

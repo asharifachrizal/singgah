@@ -1,7 +1,7 @@
 @extends('layouts.mk')
 
 @section('title')
-Jasa Desain | Singgah  
+Jasa Desain | Singgah
 @endsection
 
 @section('content')
@@ -12,7 +12,7 @@ Jasa Desain | Singgah
         <div class="row">
             <div class="col-sm-6">
                 <div class="page-title">
-                    <h2>Produk</h2></div>
+                    <h2>Product</h2></div>
             </div>
             <div class="col-sm-6">
                 <nav aria-label="breadcrumb" class="theme-breadcrumb">
@@ -27,8 +27,59 @@ Jasa Desain | Singgah
 </div>
 <!-- breadcrumb End -->
 
-<!-- category 4 -->
-<div class="category-bg ratio_square">
+
+<!-- Category -->
+<div class="title1 section-t-space">
+    <h4>SINGGAH ART</h4>
+    <h2 class="title-inner1">Produk Desain</h2>
+</div>
+<section class="p-0 ratio2_1">
+    <div class="container-fluid">
+        <div class="row category-border">
+            <div class="col-sm-4 border-padding">
+                <div class="category-banner">
+                    <div>
+                        <img src="{{ asset('uploads/sub-banners/hero-block-3-mobile.jpg') }}" class="img-fluid blur-up lazyload bg-img" alt="">
+                    </div>
+                    <div class="category-box">
+                        <a href="{{ route('produksi')}}">
+                            <h2>Produksi</h2>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 border-padding">
+                <div class="category-banner">
+                    <div>
+                        <img src="{{ asset('uploads/sub-banners/hero-block-3-mobile.jpg') }}" class="img-fluid blur-up lazyload bg-img" alt="">
+                    </div>
+                    <div class="category-box">
+                        <a href="{{ route('nonproduksi')}}">
+                            <h2>non-produksi</h2>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 border-padding">
+                <div class="category-banner">
+                    <div>
+                        <img src="{{ asset('uploads/sub-banners/hero-block-3-mobile.jpg') }}" class="img-fluid blur-up lazyload bg-img" alt="">
+                    </div>
+                    <div class="category-box">
+                        <a href="{{ route('video')}}">
+                            <h2>video</h2>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Category end -->
+
+
+
+{{-- <div class="category-bg ratio_square">
     <div class="container-fluid p-0">
         <div class="row order-section">
             @foreach ($categories as $key => $row)
@@ -53,5 +104,5 @@ Jasa Desain | Singgah
             @endforeach
         </div>
     </div>
-</div>
+</div> --}}
 @endsection
