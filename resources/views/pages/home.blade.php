@@ -20,7 +20,7 @@ Jasa Desain | Singgah
 @include('partials.slider')
 
 <!-- collection banner -->
-<section class="banner-furniture ratio_45">
+<!-- <section class="banner-furniture ratio_45">
     <div class="container-fluid">
         <div class="row partition3">
             <div class="col-md-4">
@@ -70,7 +70,7 @@ Jasa Desain | Singgah
             </div>
         </div>
     </div>
-</section>
+</section> -->
 <!-- collection banner end -->
 
 

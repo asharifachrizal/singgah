@@ -46,28 +46,28 @@ Jasa Desain | Singgah
                                 @foreach ($products as $row)
                                     <div class="product-box">
                                         <div class="img-wrapper">
-                                            <div class="lable-block"><span class="lable3">new</span> <span class="lable4">on sale</span></div>
+                                            <!-- <div class="lable-block"><span class="lable3">new</span> <span class="lable4">on sale</span></div> -->
                                             <div class="front">
                                                 <a href="{{ route('product.detail', [$row->category->slug, $row->slug]) }}">
                                                     <img src="{{ asset('uploads/'. $row->productImage[0]->img_path) }}" class="img-fluid blur-up lazyload bg-img" alt="">
                                                 </a>
                                             </div>
-                                            <div class="back">
-                                                <a href="{{ route('product.detail', [$row->category->slug, $row->slug]) }}">
-                                                    <img src="{{ asset('uploads/'. $row->productImage[1]->img_path) }}" class="img-fluid blur-up lazyload bg-img" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="cart-info cart-wrap">
-                                                <button class="add-shopping-cart-button" data-product={{ $row->slug }}>
-                                                    <i class="ti-shopping-cart" ></i>
-                                                </button>
-                                            </div>
+                                            <!-- <div class="back"> -->
+                                                <!-- <a href="{{ route('product.detail', [$row->category->slug, $row->slug]) }}"> -->
+                                                    <!-- <img src="{{ asset('uploads/'. $row->productImage[1]->img_path) }}" class="img-fluid blur-up lazyload bg-img" alt=""> -->
+                                                <!-- </a> -->
+                                            <!-- </div> -->
+                                            <!-- <div class="cart-info cart-wrap"> -->
+                                                <!-- <button class="add-shopping-cart-button" data-product={{ $row->slug }}> -->
+                                                    <!-- <i class="ti-shopping-cart" ></i> -->
+                                                <!-- </button> -->
+                                            <!-- </div> -->
                                         </div>
                                         <div class="product-detail">
                                             {{-- <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div> --}}
-                                            <a href="{{ route('product.detail', [$row->category->slug, $row->slug]) }}">
+                                            <!-- <a href="{{ route('product.detail', [$row->category->slug, $row->slug]) }}">
                                                 <h6>{{ $row->name }}</h6>
-                                            </a>
+                                            </a> -->
                                             {{-- <h4>{{ $row->priceDisplay }} <del>{{ $row->priceBeforeDisplay }}</del></h4>
                                             <ul class="color-variant">
                                                 <li class="bg-light0"></li>

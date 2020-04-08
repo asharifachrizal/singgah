@@ -33,6 +33,16 @@ class Product extends Model
 		return $this->hasMany('App\ProductImage');
 	}
 
+	public function productName()
+	{
+		return $this->belongsTo('App\ProductName');
+	}
+	
+	public function cart()
+	{
+		return $this->belongsTo('App\Cart');
+	}
+
 	public function category()
 	{
 		return $this->belongsTo('App\Category');

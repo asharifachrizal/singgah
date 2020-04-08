@@ -5,12 +5,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
-                    <div class="header-contact">
+                    <!-- <div class="header-contact">
                         <ul>
                             <li>Selamat datang di www.singgah.com</li>
                             <li><i class="fa fa-phone" aria-hidden="true"></i>Hubungi kami: 14045</li>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="col-lg-6 text-right">
                     <ul class="header-dropdown">
@@ -38,7 +38,7 @@
                         <div class="icon-nav">
                             <ul>
                                 <li class="onhover-div mobile-search">
-                                    <div><img src="{{ asset('mk/images/icon/search.png') }}" onclick="openSearch()" class="img-fluid blur-up lazyload" alt=""> <i class="ti-search" onclick="openSearch()"></i></div>
+                                    <!-- <div><img src="{{ asset('mk/images/icon/search.png') }}" onclick="openSearch()" class="img-fluid blur-up lazyload" alt=""> <i class="ti-search" onclick="openSearch()"></i></div> -->
                                     <div id="search-overlay" class="search-overlay">
                                         <div><span class="closebtn" onclick="closeSearch()" title="Close Overlay">×</span>
                                             <div class="overlay-content">
