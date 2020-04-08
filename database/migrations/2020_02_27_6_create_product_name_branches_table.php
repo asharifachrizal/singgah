@@ -15,14 +15,12 @@ class CreateProductNameBranchesTable extends Migration
     {
         Schema::create('product_name_branches', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('product_name_id');            
+            $table->bigInteger('product_name_id')->unsigned();            
             $table->string('value');                                
             $table->timestamps();
             
 
-            $table->foreign('product_name_id')->references('id')->on('product_names')
-				->onUpdate('cascade')
-                ->onDelete('cascade');
+            $table->foreign('product_name_id')->references('id')->on('product_names');
         });
     }
 
