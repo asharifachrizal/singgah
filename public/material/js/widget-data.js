@@ -164,30 +164,30 @@ $(function () {
             width: '100%',
             height: '50',
             lineColor: '#fff',
-            fillColor: '#1e88e5',
-            maxSpotColor: '#1e88e5',
+            fillColor: '#009efb',
+            maxSpotColor: '#009efb',
             highlightLineColor: 'rgba(0, 0, 0, 0.2)',
-            highlightSpotColor: '#1e88e5'
+            highlightSpotColor: '#009efb'
         });
         $("#spark6").sparkline([2,4,4,6,8,5,6,4,8,6,6,2], {
             type: 'line',
             width: '100%',
             height: '50',
             lineColor: '#fff',
-            fillColor: '#21c1d6',
-            maxSpotColor: '#21c1d6',
+            fillColor: '#26c6da',
+            maxSpotColor: '#26c6da',
             highlightLineColor: 'rgba(0, 0, 0, 0.2)',
-            highlightSpotColor: '#21c1d6'
+            highlightSpotColor: '#26c6da'
         });
         $("#spark7").sparkline([2,4,4,6,8,5,6,4,8,6,6,2], {
             type: 'line',
             width: '100%',
             height: '50',
             lineColor: '#fff',
-            fillColor: '#ffb22b',
-            maxSpotColor: '#ffb22b',
+            fillColor: '#ffbc34',
+            maxSpotColor: '#ffbc34',
             highlightLineColor: 'rgba(0, 0, 0, 0.2)',
-            highlightSpotColor: '#ffb22b'
+            highlightSpotColor: '#ffbc34'
         });
         $('#spark8').sparkline([ 4, 5, 0, 10, 9, 12, 4, 9], {
             type: 'bar',

@@ -5,8 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Sentinel;
 
+use App\User;
+
 class UserController extends BaseController
 {
+    public function index(){
+        $users = User::all();   
+        dd($users);
+        return view('pages.cms.customers', compact('users'));
+    }
+
     public function login(){
         return view('pages.login');
     }
