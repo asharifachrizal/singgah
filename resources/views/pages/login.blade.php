@@ -1,5 +1,5 @@
 
-@extends('layouts.mk')
+@extends('layouts.mk-base')
 
 @section('title')
 Jasa Desain | Singgah  

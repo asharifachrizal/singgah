@@ -10,7 +10,7 @@
     <meta name="author" content="multikart">
     <link rel="icon" href="{{ asset('mk/images/favicon/5.png') }}" type="image/x-icon">
     <link rel="shortcut icon" href="{{ asset('mk/images/favicon/singgahFavicon.png') }}" type="image/x-icon">
-    <!-- <title>@yield('titel')</title> -->
+    <!-- <title>@yield('title')</title> -->
     <title>Singgah</title>
 
     <!--Google font-->

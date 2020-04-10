@@ -12,7 +12,8 @@ Jasa Desain | Singgah
         <div class="row">
             <div class="col-sm-6">
                 <div class="page-title">
-                    <h2>Product</h2></div>
+                    <h2>Product</h2>
+                </div>
             </div>
             <div class="col-sm-6">
                 <nav aria-label="breadcrumb" class="theme-breadcrumb">

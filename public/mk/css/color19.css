@@ -1,5 +1,5 @@
 :root {
-  --theme-deafult: #0f469f; }
+  --theme-deafult: #0f459e; }
 
 /*-----------------------------------------------------------------------------------
 
@@ -1315,20 +1315,6 @@ header {
           color: #777777; }
         .top-header.top-header-dark .header-dropdown li a:hover i {
           color: var(--theme-deafult); }
-.top-header.top-header-darkSinggah {
-  background-color: #0f469f; }
-  .top-header.top-header-darkSinggah .header-contact li {
-    color: #ffffff; }
-    .top-header.top-header-darkSinggah .header-contact li i {
-      color: #ffffff; }
-  .top-header.top-header-darkSinggah .header-dropdown li {
-    color: #ffffff; }
-    .top-header.top-header-darkSinggah .header-dropdown li a {
-      color: #ffffff; }
-      .top-header.top-header-darkSinggah .header-dropdown li a i {
-        color: #ffffff; }
-      .top-header.top-header-dark .header-dropdown li a:hover i {
-        color: #ff8084; }
   .top-header.top-header-dark2 {
     background-color: #2d2a25; }
     .top-header.top-header-dark2 .header-contact li {

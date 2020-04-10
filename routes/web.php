@@ -42,9 +42,9 @@ Route::get('/promo', 'PromoController@index')->name('promo');
 
 
 Route::get('/faq', 'HomeController@faq')->name('faq');
-Route::get('/tentang-kami', 'HomeController@aboutUs')->name('aboutUs');
+Route::get('/about-us', 'HomeController@aboutUs')->name('aboutUs');
 
-Route::get('/tentang-kami', 'HomeController@aboutUs')->name('aboutUs');
+// Route::get('/about-us', 'HomeController@aboutUs')->name('aboutUs');
 
 Route::group(['middleware' => 'visitor'], function() {
     Route::post('/logout', 'UserController@postLogout')->name('postLogout');
