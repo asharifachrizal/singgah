@@ -12,17 +12,17 @@ $(function () {
     new Chartist.Line('.total-revenue4', {
         labels: ['0', '4', '8', '12', '16', '20', '24', '30']
         , series: [
-            [0, 2, 3.5, 0, 13, 1, 4, 1]
-            , [0, 4, 0, 4, 0, 4, 0, 4]
-        ]
+        [0, 2, 3.5, 0, 13, 1, 4, 1]
+        , [0, 4, 0, 4, 0, 4, 0, 4]
+      ]
     }, {
         high: 15
         , low: 0
         , showArea: true
         , fullWidth: true
         , plugins: [
-            Chartist.plugins.tooltip()
-        ], // As this is axis specific we need to tell Chartist to use whole numbers only on the concerned axis
+        Chartist.plugins.tooltip()
+      ], // As this is axis specific we need to tell Chartist to use whole numbers only on the concerned axis
         axisY: {
             onlyInteger: true
             , offset: 20
@@ -37,9 +37,9 @@ $(function () {
     new Chartist.Line('.user-analytics', {
         labels: ['10 jan', '15 jan', '20 jan', '25 jan', '30 jan', '05 Feb', '10 Feb']
         , series: [
-            [0, 2, 3.5, 0, 13, 1, 4]
+        [0, 2, 3.5, 0, 13, 1, 4]
 
-        ]
+      ]
     }, {
         high: 25
         , low: 0
@@ -50,8 +50,8 @@ $(function () {
         , fullWidth: true
         , chartPadding: 0
         , plugins: [
-            Chartist.plugins.tooltip()
-        ], // As this is axis specific we need to tell Chartist to use whole numbers only on the concerned axis
+        Chartist.plugins.tooltip()
+      ], // As this is axis specific we need to tell Chartist to use whole numbers only on the concerned axis
         axisY: {
             onlyInteger: true
             , offset: 20
@@ -143,9 +143,9 @@ $(function () {
     new Chartist.Line('.andvios', {
         labels: ['0', '4', '8', '12', '16', '20', '24', '30', '16', '20', '24', '30', '34', '38', '42', '46', '50', '54']
         , series: [
-            [11, 4, 3, 14, 9, 10, 18, 15, 24, 17, 19, 26, 31, 26, 37, 41, 46, 51]
-            , [8, 1, 1, 10, 11, 6, 12, 14, 21, 15, 21, 24, 28, 23, 34, 38, 41, 47]
-        ]
+        [11, 4, 3, 14, 9, 10, 18, 15, 24, 17, 19, 26, 31, 26, 37, 41, 46, 51]
+        , [8, 1, 1, 10, 11, 6, 12, 14, 21, 15, 21, 24, 28, 23, 34, 38, 41, 47]
+      ]
     }, {
         low: 0
         , showArea: true
@@ -158,8 +158,8 @@ $(function () {
             , offset: 0
         }
         , plugins: [
-            Chartist.plugins.tooltip()
-        ], // As this is axis specific we need to tell Chartist to use whole numbers only on the concerned axis
+        Chartist.plugins.tooltip()
+      ], // As this is axis specific we need to tell Chartist to use whole numbers only on the concerned axis
         axisY: {
             onlyInteger: true
             , showLabel: false
@@ -172,17 +172,17 @@ $(function () {
     new Chartist.Line('.usage', {
         labels: ['0', '4', '8', '12', '16', '20', '24', '30']
         , series: [
-            [5, 0, 12, 1, 8, 3, 12, 15]
+        [5, 0, 12, 1, 8, 3, 12, 15]
 
-        ]
+      ]
     }, {
         high: 13
         , low: 0
         , showArea: true
         , fullWidth: true
         , plugins: [
-            Chartist.plugins.tooltip()
-        ], // As this is axis specific we need to tell Chartist to use whole numbers only on the concerned axis
+        Chartist.plugins.tooltip()
+      ], // As this is axis specific we need to tell Chartist to use whole numbers only on the concerned axis
         axisY: {
             onlyInteger: true
             , offset: 20
@@ -207,7 +207,7 @@ $(function () {
             type: 'bar'
             , width: '100%'
             , height: '100'
-            , barWidth: '4'
+            , barWidth: '8'
             , resize: true
             , barSpacing: '5'
             , barColor: 'rgba(255, 255, 255, 0.3)'
@@ -225,9 +225,9 @@ $(function () {
     new Chartist.Bar('.download-state', {
         labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
         , series: [
-            [5, 4, 3, 7, 5, 10, 3]
-            , [3, 2, 9, 5, 4, 6, 4]
-        ]
+        [5, 4, 3, 7, 5, 10, 3]
+        , [3, 2, 9, 5, 4, 6, 4]
+      ]
     }, {
         high: 11
         , low: 0
@@ -235,14 +235,13 @@ $(function () {
         , seriesBarDistance: 10
         , fullWidth: true
         , plugins: [
-            Chartist.plugins.tooltip()
-        ]
+        Chartist.plugins.tooltip()
+      ]
         , axisX: {
             // On the x-axis start means top and end means bottom
             showGrid: false
         }
-        ,
-    }, {});
+    , }, {});
 });
 // ============================================================== 
 // doughnut chart option
@@ -332,9 +331,9 @@ option = {
                     value: 300
                     , name: '140%'
                 }
-            ]
-        }
-    ]
+                ]
+            }
+        ]
 };
 // use configuration item and data specified to show chart
 doughnutChart.setOption(option, true), $(function () {
