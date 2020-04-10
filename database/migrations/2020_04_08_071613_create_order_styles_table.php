@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProductFontsTable extends Migration
+class CreateOrderStylesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateProductFontsTable extends Migration
      */
     public function up()
     {
-        Schema::create('product_fonts', function (Blueprint $table) {
+        Schema::create('order_styles', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('product_id')->unsigned();
+            $table->bigInteger('order_id')->unsigned();
             $table->string('value');
             $table->timestamps();
 
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('order_id')->references('id')->on('orders');
         });
     }
 
@@ -30,6 +30,6 @@ class CreateProductFontsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_fonts');
+        Schema::dropIfExists('order_styles');
     }
 }

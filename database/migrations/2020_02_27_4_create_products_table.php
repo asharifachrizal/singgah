@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProductColorsTable extends Migration
+class CreateProductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,16 @@ class CreateProductColorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('product_colors', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('product_id')->unsigned();
+            $table->bigInteger('category_id')->unsigned();
             $table->string('value');
+            $table->string('slug')->unique(); 
             $table->timestamps();
 
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('category_id')->references('id')->on('categories')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
     }
 
@@ -30,6 +33,6 @@ class CreateProductColorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_colors');
+        Schema::dropIfExists('products');
     }
 }

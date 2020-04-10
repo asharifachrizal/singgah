@@ -199,7 +199,7 @@
                 <div class="col-md-12">
                     <div class="pull-left">
                         <address>
-                            <h3> &nbsp;<b class="text-danger">Material Pro Admin</b></h3>
+                            <h3> &nbsp;<b class="text-danger">Singgah</b></h3>
                             <p class="text-muted m-l-5">E 104, Dharti-2,
                                 <br/> Nr' Viswakarma Temple,
                                 <br/> Talaja Road,
