@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Sentinel;
-use App\ProductName;
+use App\Product;
 use App\Category;
 use App\Cart;
 

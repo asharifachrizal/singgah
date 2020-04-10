@@ -8,10 +8,7 @@ use Sentinel;
 
 class CMSController extends BaseController
 {
-    public function dashboard()
-    {        
-        return view('pages.cms.dashboard');
-    }
+    
     public function customer()
     {        
         return view('pages.cms.customers');

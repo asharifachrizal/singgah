@@ -12,10 +12,10 @@
 */
 
 // Route::view('/cms', 'layouts.mk-cms')->name('cms.dashboard');
-Route::get('/cms', 'CMSController@dashboard')->name('cms.dashboard');
-Route::get('/cms/customers', 'CMSController@customer')->name('cms.customer');
-Route::get('/cms/orders', 'CMSController@order')->name('cms.order');
-Route::get('/cms/orders/detail', 'CMSController@orderDetail')->name('cms.order.detail');
+Route::view('/cms', 'pages.cms.dashboard')->name('cms.dashboard');
+Route::get('/cms/customer', 'UserController@index')->name('cms.customer');
+Route::get('/cms/order', 'CMSController@order')->name('cms.order');
+Route::get('/cms/order/detail', 'CMSController@orderDetail')->name('cms.order.detail');
 // Route::get('/cms/custom', 'CMSController@customers')->name('cms.customers');
 Route::get('/cms/transaction', 'CMSController@transaction')->name('transaction');
 Route::get('/cms/order', 'CMSController@order')->name('order');
