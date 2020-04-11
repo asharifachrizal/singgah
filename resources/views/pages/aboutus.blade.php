@@ -5,30 +5,6 @@
 Singgah | About Us  
 @endsection
 
-@section('breadcumb')
-
-@endsection
-<!-- breadcrumb start -->
-<div class="breadcrumb-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="page-title">
-                    <h2>About Us</h2>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <nav aria-label="breadcrumb" class="theme-breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">About Us</li>
-                    </ol>
-                </nav>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- breadcrumb end -->
 @section('content')
 
 <!-- about section start -->
@@ -49,6 +25,7 @@ Singgah | About Us
 <!-- about section end -->
 
 <!--Testimonial start-->
+<!--
 <section class="testimonial small-section">
     <div class="container">
         <div class="row">
@@ -131,10 +108,12 @@ Singgah | About Us
         </div>
     </div>
 </section>
+-->
 <!--Testimonial ends-->
 
 
 <!--Team start-->
+<!--
 <section id="team" class="team section-b-space ratio_asos">
     <div class="container">
         <div class="row">
@@ -162,6 +141,7 @@ Singgah | About Us
         </div>
     </div>
 </section>
+-->
 <!--Team ends-->
 
 @endsection

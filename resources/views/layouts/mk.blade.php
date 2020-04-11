@@ -45,7 +45,7 @@
 
 @include('partials.header')
 
-@yield('breadcumb')
+<!-- @yield('breadcumb')     -->
 
 @yield('content')
 

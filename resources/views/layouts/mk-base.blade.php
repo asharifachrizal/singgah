@@ -42,7 +42,7 @@
 
 
     <!-- loader start -->
-    <!-- @include('segments.loader') -->
+    @include('segments.loader')
     <!-- loader end -->
 
 
