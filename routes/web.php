@@ -24,7 +24,7 @@ Route::get('/cms/product/add', 'CMSController@addProduct')->name('product.add');
 
 Route::group(['middleware' => 'guest'], function() {
     Route::get('/login', 'UserController@login')->name('login');
-    Route::get('/daftar', 'UserController@login')->name('register');
+    Route::get('/daftar', 'UserController@register')->name('register');
     Route::post('/login', 'UserController@postLogin')->name('postLogin');
 });
 
