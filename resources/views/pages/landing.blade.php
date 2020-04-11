@@ -9,7 +9,7 @@ Singgah
 @section('breadcumb')
 <!-- Home slider -->
 <section class="p-0">
-    <div class="slide-1 home-slider">
+    <div class="slide-1 home-slider text-white">
         <div>
             <div class="home p-center text-center">
                 <img src="{{ asset('mk/images/special/bg4.jpg') }}" alt="" class="bg-img blur-up lazyload">
@@ -17,9 +17,9 @@ Singgah
                     <div class="row">
                         <div class="col">
                             <div class="slider-contain ">
-                                <div class="text-white">
+                                <div class="">
                                     <h4>save 10%</h4>
-                                    <h1>fresh vegetables</h1><a href="#" class="btn btn-solid">shop now</a>
+                                    <h1>Create your Project</h1><a href="#" class="btn btn-solid">shop now</a>
                                 </div>
                             </div>
                         </div>
@@ -29,14 +29,14 @@ Singgah
         </div>
         <div>
             <div class="home p-center text-center">
-                <img src="{{ asset('mk/images/home-banner/38.jpg') }}" alt="" class="bg-img blur-up lazyload">
+                <img src="{{ asset('mk/images/special/bg5.jpg') }}" alt="" class="bg-img blur-up lazyload">
                 <div class="container">
                     <div class="row">
                         <div class="col">
                             <div class="slider-contain">
                                 <div>
                                     <h4>save upto 10%</h4>
-                                    <h1>fresh vegetables</h1><a href="#" class="btn btn-solid">shop now</a>
+                                    <h1>make your design</h1><a href="#" class="btn btn-solid">shop now</a>
                                 </div>
                             </div>
                         </div>
@@ -430,7 +430,7 @@ Singgah
 <!-- Parallax banner -->
 <section class="p-0">
     <div class="full-banner parallax text-left p-left">
-        <img src="../assets/images/parallax/15.jpg" alt="" class="bg-img blur-up lazyload">
+        <img src="{{ asset('mk/images/special/bg-btm-02.jpeg') }}" alt="" class="bg-img blur-up lazyload">
         <div class="container">
             <div class="row">
                 <div class="col">
@@ -445,6 +445,59 @@ Singgah
     </div>
 </section>
 <!-- Parallax banner end -->
+
+<!--  logo section -->
+<section class="section-b-space">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="slide-6 no-arrow">
+                    <div>
+                        <div class="logo-block">
+                            <a href="#"><img src="{{ asset('mk/images/logos/1.png') }}" alt=""></a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="logo-block">
+                            <a href="#"><img src="{{ asset('mk/images/logos/2.png') }}" alt=""></a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="logo-block">
+                            <a href="#"><img src="{{ asset('mk/images/logos/3.png') }}" alt=""></a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="logo-block">
+                            <a href="#"><img src="{{ asset('mk/images/logos/4.png') }}" alt=""></a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="logo-block">
+                            <a href="#"><img src="{{ asset('mk/images/logos/5.png') }}" alt=""></a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="logo-block">
+                            <a href="#"><img src="{{ asset('mk/images/logos/6.png') }}" alt=""></a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="logo-block">
+                            <a href="#"><img src="{{ asset('mk/images/logos/7.png') }}" alt=""></a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="logo-block">
+                            <a href="#"><img src="{{ asset('mk/images/logos/8.png') }}" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--  logo section end-->
 @endsection
 
 @section('scripts')
