@@ -11,12 +11,12 @@
 |
 */
 
-// Route::view('/cms', 'layouts.mk-cms')->name('cms.dashboard');
+Route::view('/cms/cart/detail', 'pages.cms.order-detail');
 Route::view('/cms/login', 'pages.cms.admin-login')->name('cms.login');
 Route::view('/cms', 'pages.cms.dashboard')->name('cms.dashboard');
 Route::get('/cms/customer', 'UserController@index')->name('cms.customer');
 Route::get('/cms/cart', 'CartController@index')->name('cms.cart');
-Route::get('/cms/cart/detail', 'CartController@detail')->name('cms.cart.detail');
+// Route::get('/cms/cart/detail', 'CartController@detail')->name('cms.cart.detail');
 
 
 Route::group(['middleware' => 'guest'], function() {
