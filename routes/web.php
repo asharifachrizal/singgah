@@ -12,6 +12,7 @@
 */
 
 // Route::view('/cms', 'layouts.mk-cms')->name('cms.dashboard');
+Route::view('/cms/login', 'pages.cms.admin-login')->name('cms.login');
 Route::view('/cms', 'pages.cms.dashboard')->name('cms.dashboard');
 Route::get('/cms/customer', 'UserController@index')->name('cms.customer');
 Route::get('/cms/order', 'CMSController@order')->name('cms.order');

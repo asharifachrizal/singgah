@@ -149,7 +149,7 @@
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar">
                 <!-- User profile -->
-                <div class="user-profile" style="background: url(material/images/background/user-info.jpg) no-repeat;">
+                <div class="user-profile" style="background: url({{ asset('material/images/background/user-info.jpg') }}) no-repeat;">
                     <!-- User profile image -->
                     <div class="profile-img"> <img src="{{ asset('material/images/users/1.jpg')}}" alt="user" /> </div>
                     <!-- User profile text-->
