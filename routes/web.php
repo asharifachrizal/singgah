@@ -21,7 +21,7 @@ Route::get('/cms/cart/detail', 'CartController@detail')->name('cms.cart.detail')
 
 Route::group(['middleware' => 'guest'], function() {
     Route::get('/login', 'UserController@login')->name('login');
-    Route::get('/daftar', 'UserController@register')->name('register');
+    Route::get('/register', 'UserController@register')->name('register');
     Route::post('/login', 'UserController@postLogin')->name('postLogin');
     Route::post('/storeRegister', 'RegisterController@registerStore')->name('register.store');
 });
