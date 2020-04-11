@@ -68,15 +68,13 @@
                 <div class="col">
                     <div class="sub-title">
                         <div class="footer-title">
-                            <h4>why we choose</h4>
+                            <h4>Service</h4>
                         </div>
                         <div class="footer-contant">
                             <ul>
-                                <li><a href="#">shipping & return</a></li>
-                                <li><a href="#">secure shopping</a></li>
-                                <li><a href="#">gallary</a></li>
-                                <li><a href="#">affiliates</a></li>
-                                <li><a href="#">contacts</a></li>
+                                <li><a href="#">Product</a></li>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">FAQ</a></li>
                             </ul>
                         </div>
                     </div>
@@ -105,31 +103,10 @@
             <div class="row">
                 <div class="col-xl-6 col-md-6 col-sm-12">
                     <div class="footer-end">
-                        <p><i class="fa fa-copyright" aria-hidden="true"></i> 2017-18 themeforest powered by
-                            pixelstrap</p>
+                        <p><i class="fa fa-copyright" aria-hidden="true"></i> 2020 Singgah by Visiprop</p>
                     </div>
                 </div>
-                <div class="col-xl-6 col-md-6 col-sm-12">
-                    <div class="payment-card-bottom">
-                        <ul>
-                            <li>
-                                <a href="#"><img src="../assets/images/icon/visa.png" alt=""></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="../assets/images/icon/mastercard.png" alt=""></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="../assets/images/icon/paypal.png" alt=""></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="../assets/images/icon/american-express.png" alt=""></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="../assets/images/icon/discover.png" alt=""></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </div>
