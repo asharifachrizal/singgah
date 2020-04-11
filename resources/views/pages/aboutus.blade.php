@@ -5,7 +5,9 @@
 Singgah | About Us  
 @endsection
 
-@section('content')
+@section('breadcumb')
+
+@endsection
 <!-- breadcrumb start -->
 <div class="breadcrumb-section">
     <div class="container">
@@ -27,7 +29,7 @@ Singgah | About Us
     </div>
 </div>
 <!-- breadcrumb end -->
-
+@section('content')
 
 <!-- about section start -->
 <section class="about-page section-b-space">

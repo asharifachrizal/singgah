@@ -33,8 +33,9 @@ Route::get('/kategori', 'CategoryController@index')->name('category');
 Route::get('/kategori/{slug}', 'CategoryController@detail')->name('category.detail');
 
 Route::get('/produk', 'ProductController@index')->name('product');
+Route::get('/produk/order', 'ProductController@order')->name('productOrder');
 Route::get('/produk/select-product/{slug}/{category_id}', 'ProductController@selectProduct')->name('product.select');
-Route::get('/produk/detail', 'ProductController@detail')->name('product.detail');
+Route::get('/produk/detail', 'ProductController@detailProduct')->name('product.detail');
 // Route::get('/produk/desain-produksi', 'ProductController@produksi')->name('produksi');
 // Route::get('/produk/desain-non-produksi', 'ProductController@nonproduksi')->name('nonproduksi');
 // Route::get('/produk/desain-video', 'ProductController@video')->name('video');
