@@ -12,16 +12,18 @@
 */
 
 // Route::view('/cms', 'layouts.mk-cms')->name('cms.dashboard');
-Route::get('/cms', 'CMSController@dashboard')->name('cms.dashboard');
-Route::get('/cms/transaction', 'CMSController@transaction')->name('transaction');
-Route::get('/cms/order', 'CMSController@order')->name('order');
-Route::get('/cms/product/list', 'CMSController@productList')->name('product.list');
-Route::get('/cms/product/add', 'CMSController@addProduct')->name('product.add');
+Route::view('/cms/login', 'pages.cms.admin-login')->name('cms.login');
+Route::view('/cms', 'pages.cms.dashboard')->name('cms.dashboard');
+Route::get('/cms/customer', 'UserController@index')->name('cms.customer');
+Route::get('/cms/cart', 'CartController@index')->name('cms.cart');
+Route::get('/cms/cart/detail', 'CartController@detail')->name('cms.cart.detail');
+
 
 Route::group(['middleware' => 'guest'], function() {
     Route::get('/login', 'UserController@login')->name('login');
-    Route::get('/daftar', 'UserController@login')->name('register');
+    Route::get('/register', 'UserController@register')->name('register');
     Route::post('/login', 'UserController@postLogin')->name('postLogin');
+    Route::post('/storeRegister', 'RegisterController@registerStore')->name('register.store');
 });
 
 Route::get('/', 'HomeController@index')->name('home');
@@ -31,18 +33,20 @@ Route::get('/kategori', 'CategoryController@index')->name('category');
 Route::get('/kategori/{slug}', 'CategoryController@detail')->name('category.detail');
 
 Route::get('/produk', 'ProductController@index')->name('product');
-Route::get('/produk/desain-produksi', 'ProductController@produksi')->name('produksi');
-Route::get('/produk/desain-non-produksi', 'ProductController@nonproduksi')->name('nonproduksi');
-Route::get('/produk/desain-video', 'ProductController@video')->name('video');
-Route::get('/produk/{category}/{slug}', 'ProductController@detail')->name('product.detail');
+Route::get('/produk/select-product/{slug}/{category_id}', 'ProductController@selectProduct')->name('product.select');
+Route::get('/produk/detail', 'ProductController@detail')->name('product.detail');
+// Route::get('/produk/desain-produksi', 'ProductController@produksi')->name('produksi');
+// Route::get('/produk/desain-non-produksi', 'ProductController@nonproduksi')->name('nonproduksi');
+// Route::get('/produk/desain-video', 'ProductController@video')->name('video');
+
 
 Route::get('/promo', 'PromoController@index')->name('promo');
 
 
 Route::get('/faq', 'HomeController@faq')->name('faq');
-Route::get('/tentang-kami', 'HomeController@aboutUs')->name('aboutUs');
+Route::get('/about-us', 'HomeController@aboutUs')->name('aboutUs');
 
-Route::get('/tentang-kami', 'HomeController@aboutUs')->name('aboutUs');
+// Route::get('/about-us', 'HomeController@aboutUs')->name('aboutUs');
 
 Route::group(['middleware' => 'visitor'], function() {
     Route::post('/logout', 'UserController@postLogout')->name('postLogout');

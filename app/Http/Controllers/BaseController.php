@@ -13,7 +13,7 @@ class BaseController extends Controller
 {
     public function __construct() {
         $headerCategories = Category::all();
-        $footerProducts = Product::all()->random(9);
+        // $footerProducts = Product::all()->random(9);
         
         if(Sentinel::check())
         {
@@ -28,7 +28,7 @@ class BaseController extends Controller
         
         $data = array(
             'headerCategories' => $headerCategories,
-            'footerProducts' => $footerProducts,
+            // 'footerProducts' => $footerProducts,
             'cartQuantity' => $cartQuantity,
         );
 

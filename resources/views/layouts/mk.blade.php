@@ -10,7 +10,7 @@
     <meta name="author" content="multikart">
     <link rel="icon" href="{{ asset('mk/images/favicon/5.png') }}" type="image/x-icon">
     <link rel="shortcut icon" href="{{ asset('mk/images/favicon/singgahFavicon.png') }}" type="image/x-icon">
-    <!-- <title>@yield('titel')</title> -->
+    <!-- <title>@yield('title')</title> -->
     <title>Singgah</title>
 
     <!--Google font-->
@@ -34,6 +34,8 @@
 
     <!-- Theme css -->
     <link rel="stylesheet" type="text/css" href="{{ asset('mk/css/color19.css') }}" media="screen" id="color">
+    <!-- App css-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('mk/css/admin.css') }}">
 
     @yield('styles')
 

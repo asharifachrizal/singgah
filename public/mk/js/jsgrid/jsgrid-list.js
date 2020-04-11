@@ -3,14 +3,14 @@
     $("#basicScenario").jsGrid({
         width: "100%",
         filtering: true,
-        editing: false,
-        inserting: false,
+        editing: true,
+        inserting: true,
         sorting: true,
         paging: true,
         autoload: true,
         pActionSize: 15,
         pActionButtonCount: 5,
-        deleteConfirm: "Do you really want to delete the product?",
+        deleteConfirm: "Do you really want to delete the client?",
         controller: db,
         fields: [
             { name: "Id", type: "number", width: 30},
@@ -33,9 +33,9 @@
                 width: 50
             },
             { name: "Product Title", type: "text", width: 100},
-            // { name: "Entry Type", type: "text", width: 50},
+            { name: "Entry Type", type: "text", width: 50},
             { name: "Quantity", type: "number", width: 50},
-        // { type: "control" }
+        { type: "control" }
         ]
     });
 })(jQuery);

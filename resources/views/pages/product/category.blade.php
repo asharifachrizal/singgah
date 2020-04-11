@@ -12,7 +12,8 @@ Jasa Desain | Singgah
         <div class="row">
             <div class="col-sm-6">
                 <div class="page-title">
-                    <h2>Product</h2></div>
+                    <h2>Product</h2>
+                </div>
             </div>
             <div class="col-sm-6">
                 <nav aria-label="breadcrumb" class="theme-breadcrumb">
@@ -42,7 +43,7 @@ Jasa Desain | Singgah
                         <img src="{{ asset('uploads/sub-banners/hero-block-3-mobile.jpg') }}" class="img-fluid blur-up lazyload bg-img" alt="">
                     </div>
                     <div class="category-box">
-                        <a href="{{ route('produksi')}}">
+                        <a href="{{ route('product.select', ['slug' => 'Produksi','category_id' => 1])}}">
                             <h2>Produksi</h2>
                         </a>
                     </div>
@@ -54,7 +55,7 @@ Jasa Desain | Singgah
                         <img src="{{ asset('uploads/sub-banners/hero-block-3-mobile.jpg') }}" class="img-fluid blur-up lazyload bg-img" alt="">
                     </div>
                     <div class="category-box">
-                        <a href="{{ route('nonproduksi')}}">
+                    <a href="{{ route('product.select', ['slug' => 'Produksi','category_id' => 2])}}">
                             <h2>non-produksi</h2>
                         </a>
                     </div>
@@ -66,7 +67,7 @@ Jasa Desain | Singgah
                         <img src="{{ asset('uploads/sub-banners/hero-block-3-mobile.jpg') }}" class="img-fluid blur-up lazyload bg-img" alt="">
                     </div>
                     <div class="category-box">
-                        <a href="{{ route('video')}}">
+                    <a href="{{ route('product.select', ['slug' => 'Produksi','category_id' => 3])}}">
                             <h2>video</h2>
                         </a>
                     </div>

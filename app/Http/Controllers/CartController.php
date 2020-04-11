@@ -11,12 +11,8 @@ class CartController extends BaseController
 {
     public function index()
     {
-        $carts = Cart::where('user_id', Sentinel::getUser()->id)->get();
-        $totalCart = 0;
-        foreach($carts as $row){
-            $totalCart += $row->product->price;
-        }
-        return view('pages.cart.index', compact('carts', 'totalCart'));
+        $carts = Cart::where('status', '>', 0)->get();        
+        return view('pages.cms.carts', compact('carts'));
     }
 
     public function checkout()
