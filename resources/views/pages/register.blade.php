@@ -41,7 +41,7 @@ Jasa Desain | Singgah
                             </div>
                             <div class="col-md-6">
                                 <label for="email">email</label>
-                                <input type="text" class="form-control" id="email" placeholder="Email" name="email" required="">
+                                <input type="email" class="form-control" id="email" placeholder="Email" name="email" required="">
                             </div>
                         </div>
                         <div class="form-row">
@@ -57,7 +57,7 @@ Jasa Desain | Singgah
                             </div>
                             <div class="col-md-6">
                                 <label for="email">Phone Number</label>
-                                <input type="text" class="form-control" id="email" name="phone_number" placeholder="08xxxx" required="">
+                                <input type="number" class="form-control" id="email" name="phone_number" placeholder="08xxxx" required="">
                             </div>
                         </div>
                         <div class="form-row">
