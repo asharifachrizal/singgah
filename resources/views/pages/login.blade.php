@@ -2,7 +2,7 @@
 @extends('layouts.mk')
 
 @section('title')
-Jasa Desain | Singgah  
+Jasa Desain | Singgah
 @endsection
 
 @section('content')
@@ -55,7 +55,7 @@ Jasa Desain | Singgah
                     <h6 class="title-font">Buat Akun</h6>
                     <p>Registrasi dengan mudah di toko kami dan dapatkan promo-promo dari produk kami. Gabung dan rasakan kemudahan bertransaksi. Dengan mendaftar, saya menyetujui syarat dan ketentuan serta kebijakan privasi.</p>
                     <br><br><br><br><br>
-                    <a href="#" class="btn btn-solid">Buat Akun</a></div>
+                    <a href="{{ route('register')}}" class="btn btn-solid">Buat Akun</a></div>
             </div>
         </div>
     </div>

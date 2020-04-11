@@ -10,7 +10,7 @@ use App\User;
 class UserController extends BaseController
 {
     public function index(){
-        $users = User::all();   
+        $users = User::all();
         dd($users);
         return view('pages.cms.customers', compact('users'));
     }
@@ -45,5 +45,9 @@ class UserController extends BaseController
     public function setting()
     {
         return view('pages.user.setting');
+    }
+    public function register()
+    {
+        return view('pages.register');
     }
 }
