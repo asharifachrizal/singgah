@@ -66,12 +66,12 @@
             </div>
         </div>
     </section>
-    <div class="sub-footer">
+    <div class="sub-footer" style="background-color: #0f459e">
         <div class="container">
             <div class="row">
                 <div class="col-xl-6 col-md-6 col-sm-12">
                     <div class="footer-end">
-                        <p><i class="fa fa-copyright" aria-hidden="true"></i> 2020 Singgah by Visiprop</p>
+                        <p style="color: #fff"><i class="fa fa-copyright" aria-hidden="true"></i> 2020 Singgah by Visiprop</p>
                     </div>
                 </div>
                 

@@ -35,6 +35,8 @@
     <!-- Theme css -->
     <link rel="stylesheet" type="text/css" href="{{ asset('mk/css/color19.css') }}" media="screen" id="color">
 
+    @yield('styles')
+
 
 </head>
 
@@ -2004,6 +2006,8 @@
 
     <!-- Theme js-->
     <script src="{{ asset('mk/js/script.js') }}"></script>
+
+    @yield('scripts')
 
     <script>
         $(window).on('load', function () {
