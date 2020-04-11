@@ -1,12 +1,11 @@
-@extends('layouts.mk')
+@extends('layouts.mk-base')
 
 @section('title')
-Jasa Desain | Singgah
+Singgah | Produk
 @endsection
 
-@section('content')
 
-<!-- breadcrumb start -->
+@section('breadcumb')
 <div class="breadcrumb-section">
     <div class="container">
         <div class="row">
@@ -18,64 +17,71 @@ Jasa Desain | Singgah
             <div class="col-sm-6">
                 <nav aria-label="breadcrumb" class="theme-breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Beranda</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Produk</li>
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Product</li>
                     </ol>
                 </nav>
             </div>
         </div>
     </div>
 </div>
-<!-- breadcrumb End -->
+@endsection
 
+
+@section('content')
 
 <!-- Category -->
-<div class="title1 section-t-space">
-    <h4>SINGGAH ART</h4>
-    <h2 class="title-inner1">Produk Desain</h2>
-</div>
-<section class="p-0 ratio2_1">
-    <div class="container-fluid">
-        <div class="row category-border">
-            <div class="col-sm-4 border-padding">
-                <div class="category-banner">
-                    <div>
-                        <img src="{{ asset('uploads/sub-banners/hero-block-3-mobile.jpg') }}" class="img-fluid blur-up lazyload bg-img" alt="">
-                    </div>
-                    <div class="category-box">
-                        <a href="{{ route('product.select', ['slug' => 'Produksi','category_id' => 1])}}">
-                            <h2>Produksi</h2>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4 border-padding">
-                <div class="category-banner">
-                    <div>
-                        <img src="{{ asset('uploads/sub-banners/hero-block-3-mobile.jpg') }}" class="img-fluid blur-up lazyload bg-img" alt="">
-                    </div>
-                    <div class="category-box">
-                    <a href="{{ route('product.select', ['slug' => 'Produksi','category_id' => 2])}}">
-                            <h2>non-produksi</h2>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4 border-padding">
-                <div class="category-banner">
-                    <div>
-                        <img src="{{ asset('uploads/sub-banners/hero-block-3-mobile.jpg') }}" class="img-fluid blur-up lazyload bg-img" alt="">
-                    </div>
-                    <div class="category-box">
-                    <a href="{{ route('product.select', ['slug' => 'Produksi','category_id' => 3])}}">
-                            <h2>video</h2>
-                        </a>
-                    </div>
-                </div>
-            </div>
+<div class="container ">
+    <div class="margin-bottom">
+        <div class="title1 section-t-space">
+                <h4>SINGGAH ART</h4>
+                <h2 class="title-inner1">Produk Desain</h2>
         </div>
+        <section class="p-0 ratio2_1">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-4 border-padding">
+                        <div class="category-banner">
+                            <div>
+                                <img src="{{ asset('uploads/sub-banners/hero-block-3-mobile.jpg') }}" class="img-fluid blur-up lazyload bg-img" alt="">
+                            </div>
+                            <div class="category-box">
+                                <a href="{{ route('product.select', ['slug' => 'Produksi','category_id' => 1])}}">
+                                    <h2>Produksi</h2>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 border-padding">
+                        <div class="category-banner">
+                            <div>
+                                <img src="{{ asset('uploads/sub-banners/hero-block-3-mobile.jpg') }}" class="img-fluid blur-up lazyload bg-img" alt="">
+                            </div>
+                            <div class="category-box">
+                            <a href="{{ route('product.select', ['slug' => 'Produksi','category_id' => 2])}}">
+                                    <h2>non-produksi</h2>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 border-padding">
+                        <div class="category-banner">
+                            <div>
+                                <img src="{{ asset('uploads/sub-banners/hero-block-3-mobile.jpg') }}" class="img-fluid blur-up lazyload bg-img" alt="">
+                            </div>
+                            <div class="category-box">
+                            <a href="{{ route('product.select', ['slug' => 'Produksi','category_id' => 3])}}">
+                                    <h2>video</h2>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-</section>
+</div>
+
 <!-- Category end -->
 
 
