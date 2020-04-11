@@ -46,7 +46,7 @@ Singgah | Produk
                                 <img src="{{ asset('uploads/sub-banners/hero-block-3-mobile.jpg') }}" class="img-fluid blur-up lazyload bg-img" alt="">
                             </div>
                             <div class="category-box">
-                                <a href="{{ route('product.select', ['slug' => 'Produksi','category_id' => 1])}}">
+                                <a href="{{ route('product.select', [$products->category->slug => 'desain-produksi', $products->category_id => 1])}}">
                                     <h2>Produksi</h2>
                                 </a>
                             </div>
@@ -58,7 +58,7 @@ Singgah | Produk
                                 <img src="{{ asset('uploads/sub-banners/hero-block-3-mobile.jpg') }}" class="img-fluid blur-up lazyload bg-img" alt="">
                             </div>
                             <div class="category-box">
-                            <a href="{{ route('product.select', ['slug' => 'Produksi','category_id' => 2])}}">
+                            <a href="{{ route('product.select', [$products->category->slug => 'desain-non-produksi', $products->category_id => 2])}}">
                                     <h2>non-produksi</h2>
                                 </a>
                             </div>
@@ -70,7 +70,7 @@ Singgah | Produk
                                 <img src="{{ asset('uploads/sub-banners/hero-block-3-mobile.jpg') }}" class="img-fluid blur-up lazyload bg-img" alt="">
                             </div>
                             <div class="category-box">
-                            <a href="{{ route('product.select', ['slug' => 'Produksi','category_id' => 3])}}">
+                            <a href="{{ route('product.select', [$products->category->slug => 'video', $products->category_id => 3])}}">
                                     <h2>video</h2>
                                 </a>
                             </div>
