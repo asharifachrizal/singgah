@@ -43,13 +43,13 @@
 
 <body>
 
-@include('partials.header')
+@include('segments.header')
 
 <!-- @yield('breadcumb')     -->
 
 @yield('content')
 
-@include('partials.footer')
+@include('segments.footer')
 
 
 <!-- tap to top start -->

@@ -10,14 +10,14 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::view('/cms/cart/detail', 'pages.cms.order-detail');
-Route::view('/cms/login', 'pages.cms.admin-login')->name('cms.login');
-Route::view('/cms', 'pages.cms.dashboard')->name('cms.dashboard');
-Route::get('/cms/customer', 'UserController@index')->name('cms.customer');
-Route::get('/cms/cart', 'CartController@index')->name('cms.cart');
+Route::group(['middleware' => 'admin'], function() {
+    Route::view('/cms/cart/detail', 'pages.cms.order-detail');
+    Route::view('/cms/login', 'pages.cms.admin-login')->name('cms.login');
+    Route::view('/cms', 'pages.cms.dashboard')->name('cms.dashboard');
+    Route::get('/cms/customer', 'UserController@index')->name('cms.customer');
+    Route::get('/cms/cart', 'CartController@index')->name('cms.cart');
 // Route::get('/cms/cart/detail', 'CartController@detail')->name('cms.cart.detail');
-
+});
 
 Route::group(['middleware' => 'guest'], function() {
     Route::get('/login', 'UserController@login')->name('login');

@@ -6,7 +6,7 @@
                 <div class="col-lg-6">
                     <div class="header-contact">
                         <ul>
-                            
+
                         </ul>
                     </div>
                 </div>
@@ -14,13 +14,18 @@
                     <ul class="header-dropdown">
                         <!-- <li class="mobile-wishlist"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a> -->
                         </li>
+                        @if(Sentinel::check())
                         <li class="onhover-dropdown mobile-account"> <i class="fa fa-user" aria-hidden="true"></i>
-                            My Account
+                            {{ Sentinel::getUser()->full_name }}
                             <ul class="onhover-show-div">
                                 <li><a href="{{ route('login')}}" data-lng="en">Login</a></li>
-                                <li><a href="#" data-lng="es">Logout</a></li>
+                                <li><a href="#" onclick="document.getElementById('logout-form').submit()" data-lng="es">Logout</a></li>
+                                <li class="mobile-wishlist"><a href="{{ route('user.setting') }}">Setting</a></li>
                             </ul>
                         </li>
+                        @else
+                        <li class="mobile-wishlist"><a href="{{ route('login') }}"><i class="fa fa-sign-in-alt" aria-hidden="true"></i> Login</a></li>
+                        @endif
                     </ul>
                 </div>
             </div>

@@ -42,32 +42,32 @@ Jasa Desain | Singgah
                 <div class="collection-block">
                     <div>
                         <img src="../mk/images/collection/1.jpg" class="img-fluid blur-up lazyload bg-img" alt="">
-                    </div>                    
-                </div>                
-            </div>  
-            @endforeach -->
-            <div class="product-dropdown-body">
-                <div class="digital-add needs-validation">                    
-                    <form method="POST" action="{{ route('product.detail')}}">
-                        <div class="form-group">     
-                                    
-                            <!-- <label class="col-form-label"><span>*</span>Produk</label> -->
-                            <select name="product-list" class="custom-select" required="" style="box-shadow: 7px 6px 15px -10px black">
-                                
-                                @foreach ($productNames as $row)
-                                <option value="{{$row->value}}">{{$row->value}}</option>
-                                @endforeach                            
-                            </select>                        
-                            
-                        </div>
-                        <div class="form-group-product">                                                
-                            <a href="" class="btn btn-primary" onclick="parentNode.submit()>Next Step</a>
-                        </div>
-                    </form>                   
-                    
+                    </div>
                 </div>
             </div>
-        </div>                   
+            @endforeach -->
+            <div class="product-dropdown-body">
+                <div class="digital-add needs-validation">
+                    <form method="POST" action="{{ route('product.detail')}}">
+                        <div class="form-group">
+
+                            <!-- <label class="col-form-label"><span>*</span>Produk</label> -->
+                            <select name="product-list" class="custom-select" required="" style="box-shadow: 7px 6px 15px -10px black">
+
+                                @foreach ($productNames as $row)
+                                <option value="{{$row->value}}">{{$row->value}}</option>
+                                @endforeach
+                            </select>
+
+                        </div>
+                        <div class="form-group-product">
+                            <a href="" class="btn btn-primary" onclick="parentNode.submit(">Next Step</a>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
     </div>
 </section>
     <!--Section ends-->
