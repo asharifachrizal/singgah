@@ -14,6 +14,7 @@ class ProductController extends BaseController
     public function index()
     {
         $products = Product::all();
+        dd($products->category);
         return view('pages.product.category', compact('products'));
 
     }

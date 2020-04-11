@@ -6,17 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-	
+
 	public function product()
 	{
 		return $this->belongsTo('App\Product');
 	}
-	
+
 	public function cart()
 	{
 		return $this->belongsTo('App\Cart');
 	}
-	
+
 	public function orderColor()
 	{
 		return $this->hasMany('App\OrderColor');
@@ -34,6 +34,9 @@ class Order extends Model
 	{
 		return $this->hasMany('App\OrderStyle');
 	}
-	
-	
+	public function invoices()
+	{
+		return $this->hasMany('App\OrderStyle');
+	}
+
 }
