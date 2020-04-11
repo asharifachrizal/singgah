@@ -26,7 +26,7 @@ class UserController extends BaseController
             Sentinel::authenticate($request->all());
             if(Sentinel::check()) {
                 if(Sentinel::getUser()->roles()->first()->slug == 'admin')
-                    return redirect()->route('cms');
+                    return redirect()->route('cms.dashboard');
                 else
                 return redirect()->route('home');
             } else {

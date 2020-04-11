@@ -31,6 +31,8 @@
             </div>
         </div>
     </div>
+    <form action="{{ route('postLogout') }}" method="POST" id="logout-form">
+    </form>
     <div class="container-fluid custom-container">
         <div class="row">
             <div class="col-sm-12">
