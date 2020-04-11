@@ -18,7 +18,8 @@ class CartTableSeeder extends Seeder
     {
         DB::table('carts')->insert([
             'user_id' => 1,
-            'status' => 'actived'
+            'status' => 'actived',
+            'outputURL' => 'url url url'
         ]);
 
         
