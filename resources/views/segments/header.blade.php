@@ -47,7 +47,7 @@
                                                 aria-hidden="true"></i></div>
                                     </li>
                                     <li>
-                                        <a href="{{ route('user.setting') }}">product</a>
+                                        <a href="{{ route('product') }}">product</a>
                                         <ul>
                                             <li>
                                                 <a href="#">new demos <span class="new-tag">new</span></a>

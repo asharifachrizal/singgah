@@ -12,9 +12,10 @@ class ProductController extends BaseController
 {
     public function index()
     {
-        $products = Product::all();
-        $categories = Category::all();
-        return view('pages.product.index', compact('products', 'categories'));
+        // $products = Product::all();
+        // $categories = Category::all();
+        // return view('pages.product.index', compact('products', 'categories'));
+        return view('pages.product.index');
     }
 
     public function selectProduct($slug, $category_id)
