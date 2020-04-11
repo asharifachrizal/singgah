@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Faker\Factory as Faker;
 
 class OrderTableSeeder extends Seeder
 {
@@ -9,12 +10,16 @@ class OrderTableSeeder extends Seeder
      * 
      * @return void
      */ 
-
+    
     public function run() {
-         $this->createSampleProduct(); 
+        $this->createSampleProduct(); 
     } 
     
     public function createSampleProduct() {
+        $faker = Faker::create();
+
+        
+
         DB::table('orders')->insert([ 
             'cart_id' => 1,
             'product_id' => 1,
@@ -25,7 +30,9 @@ class OrderTableSeeder extends Seeder
             'target_audience' => 'remaja',
             'deadline' => 'Selasa',
             'briefURL' => 'url url url',
-            'progress' => 'on progress',
+            'status' => 0,
+            
+
         ]); 
     }
 }

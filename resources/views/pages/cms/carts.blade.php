@@ -4,9 +4,9 @@
 <!-- Bread crumb and right sidebar toggle -->
 <div class="row page-titles">
     <div class="col-md-5 col-8 align-self-center">
-        <h3 class="text-themecolor m-b-0 m-t-0">Order</h3>
+        <h3 class="text-themecolor m-b-0 m-t-0">Cart</h3>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="javascript:void(0)">Order</a></li>
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Cart</a></li>
             <li class="breadcrumb-item active">List</li>
         </ol>
     </div>   
@@ -21,7 +21,7 @@
             <table id="myTable" class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                        <th>Order Id</th>
+                        <th>Cart Id</th>
                         <th>Customer Name</th>                        
                         <th>Entry Date</th>
                         <th>Status</th>
@@ -30,17 +30,36 @@
                     </tr>
                 </thead>
                 <tbody>
+                @foreach ($carts as $cart)                    
                     <tr>
-                        <td>00001</td>
-                        <td>Januar</td>
-                        <td>12/04/2020</td>
-                        <td><span class="label label-danger">Request Invoice</span> </td>
-                        <td>
-                            <a href="#" data-toggle="tooltip" data-original-title="Create Invoice"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
-                            <!-- <a href="#" data-toggle="tooltip" data-original-title="Close"> <i class="fa fa-close text-danger"></i> </a> -->
-                        </td>
+                        <td>{{ $cart->id }}</td>
+                        <td>{{ $cart->user->first_name }}</td>
+                        <td>{{ $cart->created_at->toDateString() }}</td>
+                        @if ($cart->status === 1)
+                            <td><span class="label label-warning">Request Invoice</span> </td>
+                            <td>
+                                <a href="#" data-toggle="tooltip" data-original-title="Create Invoice"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>                                
+                            </td>
+                        @elseif ($cart->status === 2)
+                            <td><span class="label label-info">Invoice Sent</span> </td>            
+                            <td>                                
+                                <a href="#" data-toggle="tooltip" data-original-title="Open Invoice"> <i class="fa fa-eye"></i> </a>
+                            </td>
+                        @elseif ($cart->status === 3)
+                            <td><span class="label label-danger">Invoice Rejected</span> </td>            
+                            <td>                                
+                                <a href="#" data-toggle="tooltip" data-original-title="Open Invoice"> <i class="fa fa-eye"></i> </a>
+                            </td>
+                        @elseif ($cart->status === 4)
+                            <td><span class="label label-green">Invoice Paid</span> </td>            
+                            <td>                                
+                                <a href="#" data-toggle="tooltip" data-original-title="Open Invoice"> <i class="fa fa-eye"></i> </a>
+                            </td>
+                        @endif
+                        
                                                 
                     </tr>
+                @endforeach
                     
                 </tbody>
             </table>

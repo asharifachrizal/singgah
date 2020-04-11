@@ -15,13 +15,9 @@
 Route::view('/cms/login', 'pages.cms.admin-login')->name('cms.login');
 Route::view('/cms', 'pages.cms.dashboard')->name('cms.dashboard');
 Route::get('/cms/customer', 'UserController@index')->name('cms.customer');
-Route::get('/cms/order', 'CMSController@order')->name('cms.order');
-Route::get('/cms/order/detail', 'CMSController@orderDetail')->name('cms.order.detail');
-// Route::get('/cms/custom', 'CMSController@customers')->name('cms.customers');
-Route::get('/cms/transaction', 'CMSController@transaction')->name('transaction');
-Route::get('/cms/order', 'CMSController@order')->name('order');
-Route::get('/cms/product/list', 'CMSController@productList')->name('product.list');
-Route::get('/cms/product/add', 'CMSController@addProduct')->name('product.add');
+Route::get('/cms/cart', 'CartController@index')->name('cms.cart');
+Route::get('/cms/cart/detail', 'CartController@detail')->name('cms.cart.detail');
+
 
 Route::group(['middleware' => 'guest'], function() {
     Route::get('/login', 'UserController@login')->name('login');

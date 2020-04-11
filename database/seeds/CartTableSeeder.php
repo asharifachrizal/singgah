@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Faker\Factory as Faker;
 
 class CartTableSeeder extends Seeder
 {
@@ -16,10 +17,39 @@ class CartTableSeeder extends Seeder
 
     public function createCartCategory()
     {
+        $faker = Faker::create();
+
         DB::table('carts')->insert([
             'user_id' => 1,
-            'status' => 'actived',
-            'outputURL' => 'url url url'
+            'status' => 0,
+            'outputURL' => 'url url url',
+            'created_at' => $faker->dateTime($max = 'now', $timezone = null),
+        ]);
+
+        DB::table('carts')->insert([
+            'user_id' => 1,
+            'status' => 1,
+            'outputURL' => 'url url url',
+            'created_at' => $faker->dateTime($max = 'now', $timezone = null),
+        ]);
+
+        DB::table('carts')->insert([
+            'user_id' => 1,
+            'status' => 2,
+            'outputURL' => 'url url url',
+            'created_at' => $faker->dateTime($max = 'now', $timezone = null),
+        ]);
+        DB::table('carts')->insert([
+            'user_id' => 1,
+            'status' => 3,
+            'outputURL' => 'url url url',
+            'created_at' => $faker->dateTime($max = 'now', $timezone = null),
+        ]);
+        DB::table('carts')->insert([
+            'user_id' => 1,
+            'status' => 4,
+            'outputURL' => 'url url url',
+            'created_at' => $faker->dateTime($max = 'now', $timezone = null),
         ]);
 
         

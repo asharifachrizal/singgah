@@ -169,13 +169,13 @@
                     <ul id="sidebarnav">
                         <li class="nav-small-cap">MENU</li>
                         <li>
-                            <a href="starter-kit.html" aria-expanded="false"><i class="fa fa-circle"></i><span class="hide-menu">Dashboard</span></a>
+                            <a href="{{ route('cms.dashboard')}}" aria-expanded="false"><i class="fa fa-circle"></i><span class="hide-menu">Dashboard</span></a>
                         </li>
                         <li>
-                            <a href="starter-kit.html" aria-expanded="false"><i class="fa fa-address-book-o"></i><span class="hide-menu">Customers</span></a>
+                            <a href="{{ route('cms.customer')}}" aria-expanded="false"><i class="fa fa-address-book-o"></i><span class="hide-menu">Customers</span></a>
                         </li>
                         <li>
-                            <a href="starter-kit.html" aria-expanded="false"><i class="fa fa-book"></i><span class="hide-menu">Orders</span></a>
+                            <a href="{{ route('cms.cart')}}" aria-expanded="false"><i class="fa fa-book"></i><span class="hide-menu">Cart</span></a>
                         </li>
                         
                     </ul>

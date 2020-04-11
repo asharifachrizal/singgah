@@ -13,15 +13,7 @@ class CMSController extends BaseController
     {        
         return view('pages.cms.customers');
     }
-    public function order()
-    {        
-        return view('pages.cms.orders');
-    }
-
-    public function orderDetail()
-    {        
-        return view('pages.cms.order-detail');
-    }
+   
 
 
 

@@ -24,7 +24,7 @@ class CreateOrdersTable extends Migration
             $table->text('target_audience');
             $table->text('deadline');
             $table->text('briefURL');
-            $table->text('progress');                                   
+            $table->text('status');                                   
             $table->timestamps();
 
             $table->foreign('cart_id')->references('id')->on('carts')

@@ -9,9 +9,9 @@ use App\User;
 
 class UserController extends BaseController
 {
-    public function index(){
-        $users = User::all();
-        dd($users);
+    public function indexCustomer(){
+        $users = User::where('role_id', 2)->get();
+        // dd($users);
         return view('pages.cms.customers', compact('users'));
     }
 
