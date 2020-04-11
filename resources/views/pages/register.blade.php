@@ -37,7 +37,7 @@ Jasa Desain | Singgah
                         <div class="form-row">
                             <div class="col-md-6">
                                 <label for="email">Full Name</label>
-                                <input type="text" class="form-control" id="fname" placeholder="Full Name" name="fullName" required="">
+                                <input type="text" class="form-control" id="fname" placeholder="Full Name" name="full_name" required="">
                             </div>
                             <div class="col-md-6">
                                 <label for="email">email</label>

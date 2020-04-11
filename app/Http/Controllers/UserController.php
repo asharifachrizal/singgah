@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Sentinel;
 use Validator;
-// use App\User;
-use User;
+use App\User;
+// use User;
 
 class UserController extends BaseController
 {
@@ -56,14 +56,14 @@ class UserController extends BaseController
     {
 
             $data = [
-                'fullName'          => $request->fullName,
+                'full_name'         => $request->fullName,
                 'address'           => $request->address,
                 'city'              => $request->city,
-                'phoneNumber'       => $request->phoneNumber,
+                'phone_number'       => $request->phoneNumber,
                 'email'             => $request->email,
                 'password'          => $request->password
             ];
-            dd($data);
+            // dd($data);
 
             $user = Sentinel::registerAndActivate($data);
             $role = Sentinel::findRoleBySlug('visitor');

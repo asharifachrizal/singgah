@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use User;
+use App\User;
 use Sentinel;
 use Validator;
 
@@ -16,59 +16,26 @@ class RegisterController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function registerStore(Request $request)
     {
-        $rules = [
-            'fullName'              => 'required',
-            'address'               => 'required',
-            'city'                  => 'required',
-            'phoneNumber'           => 'required',
-			'email'                 => 'required',
-			'username'              => 'required',
-			'password'              => 'required|min:8',
-			'password-confirmation' => 'required|min:8|same:password',
-        ];
-
-        $messages = [
-            'name.required' => 'Kolom nama tidak boleh kosong.',
-            'address.required' => 'Kolom alamat tidak boleh kosong.',
-            'city.required' => 'Kolom kota tidak boleh kosong.',
-            'phoneNumber.required' => 'Kolom no. telpon tidak boleh kosong.',
-            'email.required' => 'Kolom email tidak boleh kosong.',
-            'username.required' => 'Kolom username tidak boleh kosong.',
-            'password.required' => 'Kolom password tidak boleh kosong.',
-            'password.min' => 'Kolom password harus lebih dari 8 char.',
-            'password-confirmation.required' => 'Kolom konfirmasi password tidak boleh kosong.',
-            'password-confirmation.min' => 'Kolom password harus lebih dari 8 char.',
-            'password-confirmation.same' => 'Kolom password dan konfirmasi password tidak sama.',
-        ];
-
-        $validation = Validator::make($request->all(), $rules, $messages);
-        if (!$validation->fails()) {
-            $data = [
-                'name'                  => $request->name,
-                'gender'                => $request->gender,
-                'email'                 => $request->email,
-                'username'              => $request->username,
-                'password'              => $request->password,
-            ];
+        // dd($request->all());
 
 
-            $user = Sentinel::registerAndActivate($data);
+            // $data = [
+            //     'full_name'         => $request->fullName,
+            //     'address'           => $request->address,
+            //     'city'              => $request->city,
+            //     'phone_number'       => $request->phoneNumber,
+            //     'email'             => $request->email,
+            //     'password'          => $request->password
+            // ];
+            // dd($request->all());
+
+            $user = Sentinel::registerAndActivate($request->all());
             $role = Sentinel::findRoleBySlug('visitor');
             $user->roles()->attach($role);
-            $notification = [
-                'heading' => 'Berhasil Disimpan!',
-                'message' => 'User berhasil dibuat silahkan login.',
-                'alert-type' => 'success'
-            ];
-            return redirect()->route('pages.login')->with($notification);
-        }
-        $notification = [
-            'heading' => 'Gagal Disimpan!',
-            'message' => 'Silahkan memastikan tiap inputan yang dibutuhkan terisi dengan benar.',
-            'alert-type' => 'error'
-        ];
-        return redirect()->back()->withInput()->with($notification)->withErrors($validation);
+
+            return redirect()->route('login');
+
     }
 }
