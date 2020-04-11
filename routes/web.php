@@ -26,6 +26,7 @@ Route::group(['middleware' => 'guest'], function() {
     Route::get('/login', 'UserController@login')->name('login');
     Route::get('/daftar', 'UserController@register')->name('register');
     Route::post('/login', 'UserController@postLogin')->name('postLogin');
+    Route::post('/storeRegister', 'UserController@registerStore')->name('register.store');
 });
 
 Route::get('/', 'HomeController@index')->name('home');

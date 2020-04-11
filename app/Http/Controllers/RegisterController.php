@@ -19,8 +19,10 @@ class RegisterController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'name'                  => 'required',
-			'gender'                => 'required',
+            'fullName'              => 'required',
+            'address'               => 'required',
+            'city'                  => 'required',
+            'phoneNumber'           => 'required',
 			'email'                 => 'required',
 			'username'              => 'required',
 			'password'              => 'required|min:8',
@@ -29,7 +31,9 @@ class RegisterController extends Controller
 
         $messages = [
             'name.required' => 'Kolom nama tidak boleh kosong.',
-            'gender.required' => 'Kolom jenis kelamin tidak boleh kosong.',
+            'address.required' => 'Kolom alamat tidak boleh kosong.',
+            'city.required' => 'Kolom kota tidak boleh kosong.',
+            'phoneNumber.required' => 'Kolom no. telpon tidak boleh kosong.',
             'email.required' => 'Kolom email tidak boleh kosong.',
             'username.required' => 'Kolom username tidak boleh kosong.',
             'password.required' => 'Kolom password tidak boleh kosong.',

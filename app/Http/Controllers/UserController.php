@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Sentinel;
-
-use App\User;
+use Validator;
+// use App\User;
+use User;
 
 class UserController extends BaseController
 {
@@ -49,5 +50,26 @@ class UserController extends BaseController
     public function register()
     {
         return view('pages.register');
+    }
+
+    public function registerStore(Request $request)
+    {
+
+            $data = [
+                'fullName'          => $request->fullName,
+                'address'           => $request->address,
+                'city'              => $request->city,
+                'phoneNumber'       => $request->phoneNumber,
+                'email'             => $request->email,
+                'password'          => $request->password
+            ];
+            dd($data);
+
+            $user = Sentinel::registerAndActivate($data);
+            $role = Sentinel::findRoleBySlug('visitor');
+            $user->roles()->attach($role);
+
+            return redirect()->route('login');
+
     }
 }

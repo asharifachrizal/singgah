@@ -40,7 +40,7 @@ class UserTableSeeder extends Seeder
         $credentials = [
 			'email' => 'admin@mailinator.com',
             'password' => 'qwerty123',
-            'first_name' => 'Admin',
+            'fullName' => 'Admin',
 		];
 
         $user = Sentinel::registerAndActivate($credentials);
@@ -49,12 +49,11 @@ class UserTableSeeder extends Seeder
     }
 
     public function createDefaultVisitor()
-    {   
+    {
         $credentials = [
 			'email' => 'asharifachrizal@mailinator.com',
             'password' => 'qwerty123',
-            'first_name' => 'Ashari',
-            'last_name' => 'Fachrizal',
+            'fullName' => 'Ashari Fachrizal',
 		];
 
         $user = Sentinel::registerAndActivate($credentials);
@@ -64,8 +63,7 @@ class UserTableSeeder extends Seeder
         $credentials = [
 			'email' => 'januarelsan@mailinator.com',
             'password' => 'qwerty123',
-            'first_name' => 'Januar',
-            'last_name' => 'Elsan',
+            'fullName' => 'Januar Elsan',
 		];
 
         $user = Sentinel::registerAndActivate($credentials);
