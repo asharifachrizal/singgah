@@ -6,7 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+class User extends \Cartalyst\Sentinel\Users\EloquentUser
 {
     use Notifiable;
 
@@ -16,7 +16,13 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'full_name',
+        'address',
+        'city',
+        'phone_number',
+        'name',
+        'email',
+        'password',
     ];
 
     /**
@@ -24,21 +30,21 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+    // protected $hidden = [
+    //     'password', 'remember_token',
+    // ];
 
     /**
      * The attributes that should be cast to native types.
      *
      * @var array
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    // protected $casts = [
+    //     'email_verified_at' => 'datetime',
+    // ];
 
-    public function role()
-	{
-		return $this->belongsTo('App\Product');
-	}
+    // public function role()
+	// {
+	// 	return $this->belongsTo('App\Product');
+	// }
 }

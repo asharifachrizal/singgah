@@ -33,39 +33,49 @@ Jasa Desain | Singgah
             <div class="col-lg-12">
                 <h3>create account</h3>
                 <div class="theme-card">
-                    <form class="theme-form">
+                    <form class="theme-form" method="POST" action="{{ route('register.store') }}">
                         <div class="form-row">
                             <div class="col-md-6">
-                                <label for="email">Name</label>
-                                <input type="text" class="form-control" id="fname" placeholder="Name"
+                                <label for="email">Full Name</label>
+                                <input type="text" class="form-control" id="fname" placeholder="Full Name" name="full_name" required="">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="email">email</label>
+                                <input type="text" class="form-control" id="email" placeholder="Email" name="email" required="">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                                <label for="email">Address</label>
+                                <input type="text" class="form-control" id="fname" name="address" placeholder="JL...."
+                                    required="">
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <label for="email">City</label>
+                                <input type="text" class="form-control" id="fname" name="city" placeholder="Bandung"
                                     required="">
                             </div>
                             <div class="col-md-6">
-                                <label for="review">Gender</label>
-                                <div class="form-check">
-                                    <label class="custom-control custom-radio">
-                                        <input class="custom-control-input" value="M" name="gender" type="radio">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description"> <i class="fa fa-male"></i> Laki-Laki</span>
-                                    </label>
-                                    <label class="custom-control custom-radio">
-                                        <input class="custom-control-input" value="F" name="gender" type="radio">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description"> <i class="fa fa-female"></i> Perempuan</span>
-                                    </label>
-                                </div>
+                                <label for="email">Phone Number</label>
+                                <input type="text" class="form-control" id="email" name="phoneNumber" placeholder="08xxxx" required="">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col-md-6">
-                                <label for="email">email</label>
-                                <input type="text" class="form-control" id="email" placeholder="Email" required="">
+                                <div class="form-group">
+                                    <label><strong>Password</strong> <span class="text-danger">*</span></label>
+                                    <input type="password" name="password" class="form-control">
+                                </div>
                             </div>
                             <div class="col-md-6">
-                                <label for="review">Password</label>
-                                <input type="password" class="form-control" id="review"
-                                    placeholder="Enter your password" required="">
-                            </div><a href="#" class="btn btn-solid">create Account</a>
+                                <div class="form-group">
+                                    <label><strong>Konfirmasi Password</strong> <span class="text-danger">*</span></label>
+                                    <input type="password" name="password-confirmation" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-action">
+                                <button type="submit"  class="btn btn-solid">create Account</button>
+                            </div>
                         </div>
                     </form>
                 </div>

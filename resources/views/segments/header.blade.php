@@ -18,7 +18,7 @@
                         <li class="onhover-dropdown mobile-account"> <i class="fa fa-user" aria-hidden="true"></i>
                             My Account
                             <ul class="onhover-show-div">
-                                <li><a href="#" data-lng="en">Login</a></li>
+                                <li><a href="{{ route('login')}}" data-lng="en">Login</a></li>
                                 <li><a href="#" data-lng="es">Logout</a></li>
                             </ul>
                         </li>
@@ -171,14 +171,14 @@
                                             <li><a href="product-page(vertical-tab).html">vertical tab</a></li>
                                         </ul>
                                     </li>
-                                    
+
                                 </ul>
                             </nav>
                         </div>
                         <div>
                             <div class="icon-nav">
                                 <ul>
-                                    
+
                                     <li class="onhover-div mobile-cart">
                                         <div><img src="{{ asset('mk/images/icon/cart.png') }}"
                                                 class="img-fluid blur-up lazyload" alt=""> <i
