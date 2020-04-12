@@ -40,42 +40,44 @@ Singgah | Produk
         <section class="p-0 ratio2_1">
             <div class="container-fluid">
                 <div class="row">
+                    @foreach($categories as $row)
                     <div class="col-sm-4 border-padding">
                         <div class="category-banner">
                             <div>
                                 <img src="{{ asset('uploads/sub-banners/hero-block-3-mobile.jpg') }}" class="img-fluid blur-up lazyload bg-img" alt="">
                             </div>
                             <div class="category-box">
-                                <a href="{{ route('product.select', [$products->category->slug => 'desain-produksi', $products->category_id => 1])}}">
-                                    <h2>Produksi</h2>
+                                <a href="{{ route('product.select', [$row->slug, $row->id])}}">
+                                    <h2>{{$row->name}}</h2>
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-4 border-padding">
+                    @endforeach
+                    {{-- <div class="col-sm-4 border-padding">
                         <div class="category-banner">
                             <div>
                                 <img src="{{ asset('uploads/sub-banners/hero-block-3-mobile.jpg') }}" class="img-fluid blur-up lazyload bg-img" alt="">
                             </div>
                             <div class="category-box">
-                            <a href="{{ route('product.select', [$products->category->slug => 'desain-non-produksi', $products->category_id => 2])}}">
+                            <a href="{{ route('product.select', [$row->slug == 'desain-non-produksi', $row->id == 2])}}">
                                     <h2>non-produksi</h2>
                                 </a>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-sm-4 border-padding">
+                    </div> --}}
+                    {{-- <div class="col-sm-4 border-padding">
                         <div class="category-banner">
                             <div>
                                 <img src="{{ asset('uploads/sub-banners/hero-block-3-mobile.jpg') }}" class="img-fluid blur-up lazyload bg-img" alt="">
                             </div>
                             <div class="category-box">
-                            <a href="{{ route('product.select', [$products->category->slug => 'video', $products->category_id => 3])}}">
+                            <a href="{{ route('product.select', [$row->slug == 'video', $row->id == 3])}}">
                                     <h2>video</h2>
                                 </a>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </section>

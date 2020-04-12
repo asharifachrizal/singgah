@@ -37,7 +37,7 @@ Jasa Desain | Singgah
 <section class="collection section-b-space ratio_square ">
     <div class="container">
         <div class="row partition-collection">
-            <!-- @foreach ($productNames as $row)
+            {{-- @foreach ($productNames as $row)
             <div class="col-lg-2 col-md-4">
                 <div class="collection-block">
                     <div>
@@ -45,17 +45,17 @@ Jasa Desain | Singgah
                     </div>
                 </div>
             </div>
-            @endforeach -->
+            @endforeach --}}
             <div class="product-dropdown-body">
                 <div class="digital-add needs-validation">
                     <form method="POST" action="{{ route('product.detail')}}">
                         <div class="form-group">
 
                             <!-- <label class="col-form-label"><span>*</span>Produk</label> -->
-                            <select name="product-list" class="custom-select" required="" style="box-shadow: 7px 6px 15px -10px black">
-
-                                @foreach ($productNames as $row)
-                                <option value="{{$row->value}}">{{$row->value}}</option>
+                            <select name="product-list" class="custom-select" required="" >
+                                {{-- style="box-shadow: 7px 6px 15px -10px black" --}}
+                                @foreach ($products as $row)
+                                <option value="{{$row->id}}">{{$row->name}}</option>
                                 @endforeach
                             </select>
 
