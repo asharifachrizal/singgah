@@ -26,6 +26,8 @@ Route::group(['middleware' => 'guest'], function() {
     Route::post('/storeRegister', 'RegisterController@registerStore')->name('register.store');
 });
 
+
+
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/coming-soon', 'HomeController@comingSoon')->name('comingsoon');
 
@@ -41,13 +43,13 @@ Route::get('/produk/detail', 'ProductController@detailProduct')->name('product.d
 // Route::get('/produk/desain-video', 'ProductController@video')->name('video');
 
 
-Route::get('/promo', 'PromoController@index')->name('promo');
+// Route::get('/promo', '')->name('promo');
 
 
 Route::get('/faq', 'HomeController@faq')->name('faq');
 Route::get('/about-us', 'HomeController@aboutUs')->name('aboutUs');
 
-// Route::get('/about-us', 'HomeController@aboutUs')->name('aboutUs');
+Route::get('/about-us', 'HomeController@aboutUs')->name('aboutUs');
 
 Route::group(['middleware' => 'visitor'], function() {
     Route::post('/logout', 'UserController@postLogout')->name('postLogout');

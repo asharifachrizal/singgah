@@ -107,7 +107,7 @@
 .dark .fbox-effect .fbox-icon i:after { box-shadow: 0 2px 0 0 #494949; }
 
 .dark .fbox-effect.fbox-dark .fbox-icon i:after {
-	box-shadow: 0 2px 0 0 #1ABC9C;
+	box-shadow: 0 2px 0 0 #1325ad;
 	box-shadow: 0 2px 0 0 var(--themecolor);
 }
 
@@ -116,7 +116,7 @@
 
 .dark .fbox-border.fbox-effect.fbox-dark .fbox-icon i:hover,
 .dark .fbox-border.fbox-effect.fbox-dark:hover .fbox-icon i {
-	box-shadow: 0 1px 0 0 #1ABC9C;
+	box-shadow: 0 1px 0 0 #1325ad;
 	box-shadow: 0 1px 0 0 var(--themecolor);
 }
 

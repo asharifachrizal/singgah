@@ -1,151 +1,158 @@
-@extends('layouts.mk-base')
+@extends('layouts.client-base')
 
 @section('styles')
-<!-- Bootstrap Switch CSS -->
-<link rel="stylesheet" href="{{ asset('canvas/css/components/bs-switches.css') }}" type="text/css" />
+<style>
+    .file-caption.icon-visible .file-caption-name {
+        font-family: 'Lato', sans-serif;
+        color: #666;
+    }
+    
+    .form-widget { position: relative; }
+    
+    #checkout-same-as-billing {
+        position: absolute;
+        top: 10px;
+        left: auto;
+        right: 0;
+        z-index: 5;
+    }
+</style>
+@endsection
 
-<!-- Radio Checkbox Plugin -->
-<link rel="stylesheet" href="{{ asset('canvas/css/components/radio-checkbox.css') }}" type="text/css" />
-
-<link rel="stylesheet" href="{{ asset('canvas/css/responsive.css" type="text/css') }}" />
+@section('title')
+Singgah | Order
 @endsection
 
 @section('breadcumb')
-<div class="breadcrumb-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="page-title">
-                        <h2>Order</h2>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <nav aria-label="breadcrumb" class="theme-breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li class="breadcrumb-item"><a href="index.html">Product</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Order</li>
-                        </ol>
-                    </nav>
-                </div>
-            </div>
-        </div>
+<section id="page-title" class="page-title-parallax page-title-dark" style="background-image: url('{{ asset('canvas/images/parallax/8.jpg') }}'); background-size: cover; padding: 120px 0;" data-bottom-top="background-position:0px 0px;" data-top-bottom="background-position:0px -300px;">
+
+    <div class="container clearfix">
+        <h1>Order</h1>
+        <span>Make your order here.</span>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Product</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Order</li>
+        </ol>
     </div>
+
+</section>
 @endsection
 
 @section('content')
-<section id="content ">
-    <div class="content-wrap">
-        <div class="container clearfix">
-            <div class="postcontent margin-bottom">
-                    <h3>Desain Order</h3>
+<div class="content-wrap">
 
-                    <!-- form section -->
-                    <form style="max-width: 35rem;">
-                        <div class="form-group">
-                            <label for="exampleFormControlInput1">Email address</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+    <div class="container clearfix">
+
+        <div class="form-widget">
+
+            <div class="form-result"></div>
+            <div class="center"></div>
+            <form class="row" id="checkout-form" action="include/form.php" method="post" enctype="multipart/form-data">
+                <div class="col-lg-12 text-center">
+                    <h2>Order Information</h2>
+                    <h4>{nama-kategori-product}</h4>
+                </div>
+                <div class="col-lg-6">
+                    <div class="feature-box media-box">
+                        <div class="fbox-media">
+                            <img src="{{ asset('canvas/images/services/1.jpg') }}" alt="Why choose Us?">
                         </div>
-                        <div class="form-group">
-                            <label for="produk">Produk</label>
-                            <select class="form-control" id="produk">
-                                <option value="booklet">Booklet</option>
-                                <option value="brosur">Brosur</option>
-                                <option value="poster">Poster</option>
-                                <option value="roll-banner-x-banner">Roll Banner/X-banner</option>
-                                <option value="banner">Banner</option>
-                                <option value="baliho">Baliho</option>
+                        <div class="fbox-desc">
+                            <h3>Why choose Us.<span class="subtitle">Because we are Reliable.</span></h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi rem, facilis nobis voluptatum est voluptatem accusamus molestiae eaque perspiciatis mollitia.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-process"></div>
+
+                <div class="col-lg-6">
+                    <div class="row checkout-form-billing">
+                        
+                        {{-- <div class="row"></div> --}}
+                        <div class="col-12 form-group">
+                            <label for="nama-produk">Product:</label>
+                            <select class="form-control required" name="nama-produk" id="nama-produk">
+                                    <option value="brosur">Brosur</option>
+                                    <option value="poster">Poster</option>
+                                    <option value="banner">Banner</option>
+                                    <option value="baliho">Baliho</option>
+                                    <option value="kartu-nama">Kartu Nama</option>
+                            </select>
+                            
+                        </div>
+                        {{-- <div class="col-12 form-group">
+                            <label>Email:</label>
+                            <input type="email" name="checkout-form-billing-email" id="checkout-form-billing-email" class="form-control required" value="" placeholder="user@company.com">
+                        </div> --}}
+                        <div class="col-12 form-group">
+                            <label for="jenis-produk">Jenis Produk:</label>
+                            <select class="form-control required" name="jenis-produk" id="jenis-produk">
+                                    <option value="landscape">Landscape</option>
+                                    <option value="potrait">Potrait</option>
+                                    <option value="horizontal">Horizontal</option>
+                                    <option value="vertikal">Vertikal</option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label for="jenis">Jenis</label>
-                            <select class="form-control" id="jenis">
-                                <option value="landscape">Landscape</option>
-                                <option value="potrait">Potrait</option>
-                                <option value="horizontal">Horizontal</option>
-                                <option value="vertikal">Vertikal</option>
+                        <div class="col-6 form-group">
+                            <label for="kuatiti-produk">Kuantiti:</label><br>
+                            <input type="number" name="kuatiti-produk" id="kuatiti-produk" class="form-control required" value="" placeholder="minimal 1" min="1">
+                        </div>
+                        <div class="col-6 form-group">
+                            <label for="ukuran-rasio-produk">Ukuran/rasio:</label><br>
+                            <input type="text" name="ukuran-rasio-produk" id="ukuran-rasio-produk" class="form-control required" value="" placeholder="ukuran produk">
+                        </div>
+                        <div class="col-12 form-group">
+                            <label for="tone-produk">Tone</label>
+                            <textarea class="form-control required" id="tone-produk" name="tone-produk" rows="3" placeholder="warna, font-style, color grading"></textarea>
+                        </div>
+                        <div class="col-12 form-group">
+                            <label for="design-style-produk">Design Style</label>
+                            <textarea class="form-control required" id="design-style-produk" name="design-style-produk" rows="3" placeholder="contoh: simple, elegant, animation, etc."></textarea>
+                        </div>
+                        <div class="col-12 form-group">
+                            <label for="target-audience-produk">Target Audience:</label><br>
+                            <input type="text" name="target-audience-produk" id="target-audience-produk" class="form-control required" value="" placeholder="anak-anak-dewasa / 4-6">
+                        </div>
+                        <div class="col-12 form-group">
+                            <label for="obj-brief-produk">Objective Brief</label>
+                            <textarea class="form-control required" id="obj-brief-produk" name="obj-brief-produk" rows="3" placeholder="Brief detail produk"></textarea>
+                        </div>
+                        <div class="col-6 form-group">
+                            <label for="deadline-produk">Deadline:</label><br>
+                            <select class="form-control required" name="deadline-produk" id="deadline-produk">
+                                    <option value="segera">Segera</option>
+                                    <option value="normal">Nomral</option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label for="kuantiti">Kuantiti</label>
-                            <input class="form-control" type="number" id="kuantiti" name="kuantiti" min="1"/>
+                        <div class="col-6 form-group">
+                            <label for="output-produk">Output:</label><br>
+                            <input type="text" name="output-produk" id="output-produk" class="form-control required" value="" placeholder="format file">
                         </div>
-                        <div class="form-group">
-                            <label for="ukuran-rasio">Ukuran/Rasio</label>
-                            <input class="form-control" type="text" id="ukuran-rasio" name="ukuran-rasio" />
+                        <div class="col-12 form-group">
+                            <label for="standart-pattern-produk">Standart Pattern</label>
+                            <textarea class="form-control required" id="standart-pattern-produk" name="standart-pattern-produk" rows="3" placeholder="standart pattern yang diinginkan"></textarea>
                         </div>
-                        <h4>Design Tone</h4>
-                        <div class="form-group">
-                            <label for="warna">Warna</label>
-                            <input class="form-control" type="text" id="warna" name="warna" />
+
+
+                        
+                        <div class="col-12 form-group">
+                            <button type="submit" name="checkout-form-submit" class="btn btn-lg btn-secondary">Checkout</button>
                         </div>
-                        <div class="form-group">
-                            <label for="font-style">Font Style</label>
-                            <input class="form-control" type="text" id="font-style" name="font-style" />
-                        </div>
-                        <div class="form-group">
-                            <label for="color-grading">Color Grading</label>
-                            <input class="form-control" type="text" id="color-grading" name="color-grading" />
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlSelect1">Design Style</label>
-                            <div>
-                                <input id="design-style01" value="simple" class="checkbox-style" name="design-style01" type="checkbox">
-                                <label for="design-style01" class="checkbox-style-1-label">Simple</label>
-                            </div>
-                            <div>
-                                <input id="design-style02" value="elegant" class="checkbox-style" name="design-style02" type="checkbox">
-                                <label for="design-style02" class="checkbox-style-1-label">Elegant</label>
-                            </div>
-                            <div>
-                                <input id="design-style03" value="vectorize" class="checkbox-style" name="design-style03" type="checkbox">
-                                <label for="design-style03" class="checkbox-style-1-label">Vectorize</label>
-                            </div>
-                            <div>
-                                <input id="design-style04" value="realism" class="checkbox-style" name="design-style04" type="checkbox">
-                                <label for="design-style04" class="checkbox-style-1-label">Realism</label>
-                            </div>
-                            <div>
-                                <input id="design-style05" value="animation" class="checkbox-style" name="design-style05" type="checkbox">
-                                <label for="design-style05" class="checkbox-style-1-label">Animation</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="target-audience">Target Audience</label>
-                            <input class="form-control" type="text" id="target-audience" name="target-audience" />
-                        </div>
-                        <div class="form-group">
-                            <label for="objective-brief">Objective Brief</label>
-                            <textarea class="form-control" id="objective-brief" rows="3"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="deadline">Deadline</label>
-                            <select class="form-control" id="deadline">
-                                <option value="segera">Segera</option>
-                                <option value="normal">Normal</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="output">Output</label>
-                            <input class="form-control" type="text" id="output" name="output" />
-                        </div>
-                        <div class="form-group">
-                            <label for="standart-pattern">Standart Pattern<br><span>refensi desain yang anda inginkan</span></label>
-                            <input type="file" class="form-control-file" id="standart-pattern">
-                        </div>
-                        <button type="submit" class="btn btn-primary mt-3">Submit</button>
-                    </form>
-                    <!-- form section end -->
-            </div>
+                    </div>
+                </div>
+                {{-- <div class="col-lg-6">
+                    <div class="hidden">
+                        <input type="text" id="checkout-form-botcheck" name="checkout-form-botcheck" value="" />
+                    </div>
+                    <div class="form-group center">
+                        <button type="submit" name="checkout-form-submit" class="btn btn-lg btn-secondary">Checkout</button>
+                    </div>
+                    <input type="hidden" name="prefix" value="checkout-form-">
+                </div> --}}
+            </form>
         </div>
     </div>
-</section>
-
-
-
-@endsection
-
-@section('scripts')
-<script src="{{ asset('canvas/js/jquery.js') }}"></script>
-<script src="{{ asset('canvas/js/plugins.js') }}"></script>
+</div>
 @endsection
