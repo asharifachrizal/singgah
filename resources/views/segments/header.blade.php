@@ -18,8 +18,8 @@
             <nav id="primary-menu">
 
                 <ul>
-                    <li><a href="#"><div>Home</div></a></li>
-                    <li><a href="#"><div>Product</div></a>
+                    <li><a href="{{ route('home') }}"><div>Home</div></a></li>
+                    <li><a href="{{ route('product') }}"><div>Product</div></a>
                         <ul>
                             <li><a href="index-corporate.html"><div>Home - Corporate</div></a>
                                 <ul>
