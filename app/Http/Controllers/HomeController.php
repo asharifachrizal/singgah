@@ -12,7 +12,7 @@ class HomeController extends BaseController
     {
         $latestProducts = Product::orderBy('created_at', 'desc')->take(8)->get();
         $slider = Slider::all();
-        return view('pages.landing', compact('latestProducts', 'slider'));
+        return view('pages.home', compact('latestProducts', 'slider'));
     
     }
 
