@@ -9,6 +9,6 @@ class Invoice extends Model
     //
     public function cart()
 	{
-		return $this->belongsTo('App\Cart');
+		return $this->belongsTo('App\Order');
     }
 }

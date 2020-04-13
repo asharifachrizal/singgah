@@ -20,6 +20,7 @@ class ProductController extends BaseController
 
     public function order()
     {
+        // $product = Product::where('category_id', '=', $id)->get();
         return view('pages.product.order');
     }
 
@@ -34,5 +35,6 @@ class ProductController extends BaseController
         $products = Product::where('category_id', '=', $category_id)->get();
         return view('pages.product.selectProduct', compact('products'));
     }
+
 
 }

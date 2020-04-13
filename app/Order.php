@@ -6,6 +6,26 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
+    protected $fillable = [
+        'user_id',
+        'product_id',
+        'product_name',
+        'quantity',
+        'orientation',
+        'size',
+        'duration',
+        'target_audience',
+        'deadline',
+        'pattern',
+        'style',
+        'kind',
+        'output',
+        'tone',
+        'brief',
+        'status',
+        'price'
+
+    ];
 
 	public function product()
 	{
@@ -36,7 +56,7 @@ class Order extends Model
 	}
 	public function invoices()
 	{
-		return $this->hasMany('App\OrderStyle');
+		return $this->hasMany('App\Invoice');
 	}
 
 }
