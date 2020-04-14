@@ -43,8 +43,8 @@ class User extends \Cartalyst\Sentinel\Users\EloquentUser
     //     'email_verified_at' => 'datetime',
     // ];
 
-    // public function role()
-	// {
-	// 	return $this->belongsTo('App\Product');
-	// }
+    public function invoice()
+	{
+		return $this->hasMany('App\Invoice');
+	}
 }

@@ -35,31 +35,16 @@
                         <td>{{ $order->id }}</td>
                         <td>Nama</td>                        
                         <td>{{ $order->created_at->toDateString() }}</td>                        
-                        @if ($order->status === 1)
+                        @if ($order->status == 0)
                             <td><span class="label label-warning">Request Invoice</span> </td>
                             <td>
                                 <a href="#" data-toggle="tooltip" data-original-title="Create Invoice"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>                                
                             </td>
-                        @elseif ($order->status === 2)
-                            <td><span class="label label-info">Invoice Sent</span> </td>            
+                        @elseif ($order->status == 1)
+                            <td><span class="label label-info">Invoice Received</span> </td>            
                             <td>                                
                                 <a href="#" data-toggle="tooltip" data-original-title="Open Invoice"> <i class="fa fa-eye"></i> </a>
-                            </td>
-                        @elseif ($order->status === 3)
-                            <td><span class="label label-danger">Invoice Rejected</span> </td>            
-                            <td>                                
-                                <a href="#" data-toggle="tooltip" data-original-title="Open Invoice"> <i class="fa fa-eye"></i> </a>
-                            </td>
-                        @elseif ($order->status === 4)
-                            <td><span class="label label-green">Invoice Paid</span> </td>            
-                            <td>                                
-                                <a href="#" data-toggle="tooltip" data-original-title="Open Invoice"> <i class="fa fa-eye"></i> </a>
-                            </td>
-                        @else 
-                            <td><span class="label label-green">Invoice Paid</span> </td>            
-                            <td>                                
-                                <a href="#" data-toggle="tooltip" data-original-title="Open Invoice"> <i class="fa fa-eye"></i> </a>
-                            </td>
+                            </td>                        
                         @endif
                                                                         
                     </tr>
