@@ -17,7 +17,9 @@ Route::view('/about-us', 'pages.about-us')->name('aboutUs');
 
 // order cart & cart pages
 Route::view('/cart', 'pages.cart.index')->name('cartUser');
-Route::view('/order-list', 'pages.cart.order-list')->name('orderCartUser');
+Route::view('/order/list', 'pages.cart.order-list')->name('myorder');
+Route::view('/order/detail', 'pages.cart.order-detail')->name('order.detail');
+Route::view('/order/detail/invoice', 'pages.cart.order-invoice')->name('order.detail.invoice');
 
 
 Route::group(['middleware' => 'admin'], function() {

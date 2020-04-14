@@ -14,6 +14,8 @@
 	<link rel="stylesheet" href="{{ asset('canvas/css/font-icons.css') }}" type="text/css" />
 	<link rel="stylesheet" href="{{ asset('canvas/css/animate.css') }}" type="text/css" />
 	<link rel="stylesheet" href="{{ asset('canvas/css/magnific-popup.css') }}" type="text/css" />
+	<!-- Custom CSS -->
+    <link href="{{ asset('material/css/style.css') }}" rel="stylesheet">
 
 	<link rel="stylesheet" href="{{ asset('canvas/css/responsive.css') }}" type="text/css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />

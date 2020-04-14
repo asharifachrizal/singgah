@@ -190,7 +190,37 @@
 
 </div>
 
-<button onclick="window.location.href = '{{ route('cms.invoice')}}'" type="button" class="btn waves-effect waves-light btn-info">Invoice</button>
+<div class="card">
+    
+    <div class="card-body">        
+        <div class="row">
+            <div class="col-md-12 ">
+                <div class="form-group">
+                    <label>Brief From Client</label>
+                    <input type="text" class="form-control" disabled>
+                </div>
+            </div>            
+        </div>
+        <!--/row-->
+        <div class="row">            
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Output File</label>
+                    <input type="text" class="form-control">
+                </div>  
+            </div>
+        </div>
+        <!--/row-->
+
+        <button onclick="window.location.href = #" type="button" class="btn waves-effect waves-light btn-info">Save</button>
+ 
+    </div>
+
+    
+
+</div>
+
+<button onclick="window.location.href = '{{ route('cms.invoice')}}'" type="button" class="btn waves-effect waves-light btn-info">See Detail Invoice</button>
 
 
 <!-- ============================================================== -->

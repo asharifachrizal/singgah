@@ -211,7 +211,7 @@
             <div class="col_one_fourth">
                 <div class="feature-box fbox-center fbox-bg fbox-plain">
                     <div class="fbox-icon">
-                        <a href="#"><i class="icon-map-marker2"></i></a>
+                        <a ><i class="icon-map-marker2"></i></a>
                     </div>
                     <h3>Our Headquarters<span class="subtitle">Jakarta, Indonesia</span></h3>
                 </div>
@@ -220,7 +220,7 @@
             <div class="col_one_fourth">
                 <div class="feature-box fbox-center fbox-bg fbox-plain">
                     <div class="fbox-icon">
-                        <a href="#"><i class="icon-phone3"></i></a>
+                        <a ><i class="icon-phone3"></i></a>
                     </div>
                     <h3>Speak to Us<span class="subtitle">(62) 0123456789</span></h3>
                 </div>
@@ -229,7 +229,7 @@
             <div class="col_one_fourth">
                 <div class="feature-box fbox-center fbox-bg fbox-plain">
                     <div class="fbox-icon">
-                        <a href="#"><i class="icon-instagram"></i></a>
+                        <a ><i class="icon-instagram"></i></a>
                     </div>
                     <h3>Follow On Instagram<span class="subtitle">@singgah</span></h3>
                 </div>
@@ -238,7 +238,7 @@
             <div class="col_one_fourth col_last">
                 <div class="feature-box fbox-center fbox-bg fbox-plain">
                     <div class="fbox-icon">
-                        <a href="#"><i class="icon-twitter2"></i></a>
+                        <a ><i class="icon-twitter2"></i></a>
                     </div>
                     <h3>Follow on Twitter<span class="subtitle">@singgah</span></h3>
                 </div>

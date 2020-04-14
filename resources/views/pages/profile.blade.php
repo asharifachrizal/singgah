@@ -84,16 +84,16 @@ Singgah | Profile
             <div class="col-md-3 clearfix">
 
                 <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action clearfix">Profile <i class="icon-user float-right"></i></a>
-                    <a href="#" class="list-group-item list-group-item-action clearfix">My Orders <i class="icon-laptop2 float-right"></i></a>                    
+                    <!-- <a href="#" class="list-group-item list-group-item-action clearfix">Profile <i class="icon-user float-right"></i></a> -->
+                    <a href="{{ route('myorder')}}" class="list-group-item list-group-item-action clearfix">My Orders <i class="icon-laptop2 float-right"></i></a>                    
                     <a href="#" class="list-group-item list-group-item-action clearfix">Logout <i class="icon-line2-logout float-right"></i></a>
                 </div>
 
-                <div class="fancy-title topmargin title-border">
+                <!-- <div class="fancy-title topmargin title-border">
                     <h4>About Me</h4>
                 </div>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum laboriosam, dignissimos veniam obcaecati. Quasi eaque, odio assumenda porro explicabo laborum!</p>                
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum laboriosam, dignissimos veniam obcaecati. Quasi eaque, odio assumenda porro explicabo laborum!</p>                 -->
 
             </div>
 
