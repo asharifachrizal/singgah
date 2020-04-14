@@ -27,20 +27,24 @@ Singgah | Order-Category
         
             <div class="col-lg-12 text-center">
                 <h2>Order Information</h2>
-                <h4>{nama-kategori-product}</h4>
+                <h4>Choose category for your product</h4>
+            </div>
+            <div class="feature-box fbox-center fbox-effect nobottomborder" >
+                <div class="fbox-icon">
+                    <i class="icon-box"></i>
+                </div>
+                <h3>Desain Produksi</h3>
             </div>
     
-            <div class="row center">
-                <form class="col-lg-12 my-auto">
+            <div class="">
+                <form class="row center my-auto">
                     
-                    <div class="form-group">
-                        <label for="exampleFormControlSelect1">Example select</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
+                    <div class="col-lg-12 category-form form-group">
+                        <label for="exampleFormControlSelect1">Select category</label>
+                        <select class="form-control " id="exampleFormControlSelect1">
+                            <option>Banner</option>
+                            <option>Baliho</option>
+                            <option>Poster</option>
                         </select>
                     </div>
                 </form>
