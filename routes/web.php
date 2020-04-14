@@ -10,6 +10,12 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::view('/', 'pages.home')->name('home');
+Route::view('/faq', 'pages.faq')->name('faq');
+Route::view('/about-us', 'pages.about-us')->name('aboutUs');
+
+
 Route::group(['middleware' => 'admin'], function() {
     Route::view('/cms/cart/detail', 'pages.cms.order-detail');
     Route::view('/cms/login', 'pages.cms.admin-login')->name('cms.login');
@@ -29,32 +35,18 @@ Route::group(['middleware' => 'guest'], function() {
 
 
 
-Route::get('/', 'HomeController@index')->name('home');
-Route::get('/coming-soon', 'HomeController@comingSoon')->name('comingsoon');
 
 Route::get('/kategori', 'CategoryController@index')->name('category');
 Route::get('/kategori/{slug}', 'CategoryController@detail')->name('category.detail');
 
 Route::get('/produk', 'ProductController@index')->name('product');
-<<<<<<< HEAD
-=======
 Route::get('/produk/category', 'ProductController@selectCategory')->name('selectCategory');
 Route::get('/produk/order', 'ProductController@order')->name('productOrder');
->>>>>>> singgah-develop-v0
 Route::get('/produk/select-product/{slug}/{category_id}', 'ProductController@selectProduct')->name('product.select');
 Route::get('/produk/detail', 'ProductController@detailProduct')->name('product.detail');
-// Route::get('/produk/desain-produksi', 'ProductController@produksi')->name('produksi');
-// Route::get('/produk/desain-non-produksi', 'ProductController@nonproduksi')->name('nonproduksi');
-// Route::get('/produk/desain-video', 'ProductController@video')->name('video');
 
 
-// Route::get('/promo', '')->name('promo');
 
-
-Route::get('/faq', 'HomeController@faq')->name('faq');
-Route::get('/about-us', 'HomeController@aboutUs')->name('aboutUs');
-
-Route::get('/about-us', 'HomeController@aboutUs')->name('aboutUs');
 
 Route::group(['middleware' => 'visitor'], function() {
     Route::post('/logout', 'UserController@postLogout')->name('postLogout');

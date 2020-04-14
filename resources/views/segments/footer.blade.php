@@ -9,7 +9,7 @@
             <div class="container clearfix">
 
                 <div class="col_half">
-                    <img src="{{ asset('canvas/images/logo.png')}}" alt="Footer Logo" class="footer-logo">
+                    <img src="{{ asset('singgah/logos/logo-1-white.png')}}" alt="Footer Logo" class="footer-logo">
 
                     Copyrights &copy; 2020 by Singgah
                 </div>
