@@ -19,10 +19,10 @@ Route::view('/about-us', 'pages.about-us')->name('aboutUs');
 Route::group(['middleware' => 'admin'], function() {
     Route::view('/cms/login', 'pages.cms.admin-login')->name('cms.login');
     Route::view('/cms', 'pages.cms.dashboard')->name('cms.dashboard');
-    Route::get('/cms/customer', 'UserController@index')->name('cms.customer');
-    Route::get('/cms/cart', 'CartController@index')->name('cms.cart');
-    Route::view('/cms/cart/detail', 'pages.cms.order-detail');
-// Route::get('/cms/cart/detail', 'CartController@detail')->name('cms.cart.detail');
+    Route::get('/cms/customer', 'UserController@indexCustomer')->name('cms.customer');
+    Route::get('/cms/order', 'OrderController@index')->name('cms.order');
+    Route::view('/cms/order/detail', 'pages.cms.order-detail');
+
 });
 
 Route::group(['middleware' => 'guest'], function() {

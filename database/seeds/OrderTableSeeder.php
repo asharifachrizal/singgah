@@ -21,7 +21,7 @@ class OrderTableSeeder extends Seeder
         
 
         DB::table('orders')->insert([ 
-            'cart_id' => 1,
+            'invoice_id' => 1,
             'product_id' => 1,
             'quantity' => 1,
             'orientation' => '1080 x 1080',
@@ -29,7 +29,11 @@ class OrderTableSeeder extends Seeder
             'duration' => 60,
             'target_audience' => 'remaja',
             'deadline' => 'Selasa',
-            'briefURL' => 'url url url',
+            'font' => 'Arial, Calibri',
+            'color' => 'Merah, Kuning',
+            'style' => 'Asik',
+            'output' => 'PNG, PSD',
+            'price' => null,            
             'status' => 0,
             
 

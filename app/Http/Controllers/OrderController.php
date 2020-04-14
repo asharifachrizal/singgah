@@ -11,7 +11,8 @@ class OrderController extends Controller
     public function index()
     {
         $orders = Order::all();
-        return view('pages.cms.orders', compact('orders'));
+        // dd($orders);
+        return view('pages.cms.order-list', compact('orders'));
     }
 
 
