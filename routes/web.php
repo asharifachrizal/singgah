@@ -35,6 +35,11 @@ Route::get('/kategori', 'CategoryController@index')->name('category');
 Route::get('/kategori/{slug}', 'CategoryController@detail')->name('category.detail');
 
 Route::get('/produk', 'ProductController@index')->name('product');
+<<<<<<< HEAD
+=======
+Route::get('/produk/category', 'ProductController@selectCategory')->name('selectCategory');
+Route::get('/produk/order', 'ProductController@order')->name('productOrder');
+>>>>>>> singgah-develop-v0
 Route::get('/produk/select-product/{slug}/{category_id}', 'ProductController@selectProduct')->name('product.select');
 Route::get('/produk/detail', 'ProductController@detailProduct')->name('product.detail');
 // Route::get('/produk/desain-produksi', 'ProductController@produksi')->name('produksi');

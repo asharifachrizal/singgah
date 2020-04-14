@@ -23,7 +23,7 @@ class HomeController extends BaseController
 
     public function aboutUs()
     {
-        return view('pages.aboutus');
+        return view('pages.about-us');
     }
 
     public function comingSoon()
