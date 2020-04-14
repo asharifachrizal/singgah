@@ -3561,12 +3561,9 @@ body:not(.device-touch) .grid-container {
 -----------------------------------------------------------------*/
 
 .portfolio-filter {
-	position: relative;
-	margin: 0 0 40px 0;
-	list-style: none;
-	border: 1px solid rgba(0,0,0,0.07);
-	float: left;
-	border-radius: 4px;
+	margin-left: auto;
+	margin-right: auto;
+	float: none;
 }
 
 .portfolio-filter li {

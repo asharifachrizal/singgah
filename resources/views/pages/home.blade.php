@@ -64,6 +64,121 @@
 
         </div>
 
+        
+            <!-- Our Works
+            ============================================= -->
+            <div class="section nobg nobottommargin clearfix">
+                <div class="container clearfix">
+                    <div class="heading-block center noborder" data-heading="O">
+                        <h3 class="nott ls0">Our Portofolio</h3>
+                    </div>
+
+                    <!-- Portfolio Filter
+                    ============================================= -->
+                    <ul class="portfolio-filter style-2 center clearfix" data-container="#portfolio">
+
+                        <li class="activeFilter"><a href="#" data-filter="*">Show All</a></li>
+                        <li><a href="#" data-filter=".pf-poster">Poster</a></li>
+                        <li><a href="#" data-filter=".pf-x">X - Banner</a></li>
+                        <li><a href="#" data-filter=".pf-fig">Feed Instagram</a></li>
+                        <li><a href="#" data-filter=".pf-koran">Iklan Koran</a></li>
+                        <li><a href="#" data-filter=".pf-cover">Book Cover</a></li>
+                        
+
+                    </ul><!-- #portfolio-filter end -->
+                </div>
+
+                <!-- Portfolio Items
+                ============================================= -->
+                <div id="portfolio" class="portfolio grid-container portfolio-nomargin clearfix">
+
+                    <article class="portfolio-item pf-media pf-poster">
+                        <div class="portfolio-poster">
+                            <a >
+                                <img src="{{ asset('singgah/portofolios/portofolio-1.jpg')}}" alt="Open Imagination">
+                            </a>
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-desc">
+                                    <h3><a >Open Imagination</a></h3>
+                                    <span><a >Media</a>, <a >Icons</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="portfolio-item pf-media pf-poster">
+                        <div class="portfolio-poster">
+                            <a >
+                                <img src="{{ asset('singgah/portofolios/portofolio-2.jpg')}}" alt="Open Imagination">
+                            </a>
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-desc">
+                                    <h3><a >Open Imagination</a></h3>
+                                    <span><a >Media</a>, <a >Icons</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="portfolio-item pf-media pf-fig">
+                        <div class="portfolio-fig">
+                            <a >
+                                <img src="{{ asset('singgah/portofolios/portofolio-3.jpg')}}" alt="Open Imagination">
+                            </a>
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-desc">
+                                    <h3><a >Open Imagination</a></h3>
+                                    <span><a >Media</a>, <a >Icons</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="portfolio-item pf-media pf-koran">
+                        <div class="portfolio-koran">
+                            <a >
+                                <img src="{{ asset('singgah/portofolios/portofolio-4.jpg')}}" alt="Open Imagination">
+                            </a>
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-desc">
+                                    <h3><a >Open Imagination</a></h3>
+                                    <span><a >Media</a>, <a >Icons</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="portfolio-item pf-media pf-x">
+                        <div class="portfolio-x">
+                            <a >
+                                <img src="{{ asset('singgah/portofolios/portofolio-5.jpg')}}" alt="Open Imagination">
+                            </a>
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-desc">
+                                    <h3><a >Open Imagination</a></h3>
+                                    <span><a >Media</a>, <a >Icons</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="portfolio-item pf-media pf-book">
+                        <div class="portfolio-x">
+                            <a >
+                                <img src="{{ asset('singgah/portofolios/portofolio-6.jpg')}}" alt="Open Imagination">
+                            </a>
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-desc">
+                                    <h3><a >Open Imagination</a></h3>
+                                    <span><a >Media</a>, <a >Icons</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                                    
+
+                </div>
+                <!-- #portfolio end -->            
+
+
+            </div>
+
         <div class="divider"><i class="icon-="></i></div>
         <h3>Our Happy Clients</h3>
 

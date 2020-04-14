@@ -9,8 +9,8 @@
             <!-- Logo
             ============================================= -->
             <div id="logo">
-                <a href="index.html" class="standard-logo" data-dark-logo="{{ asset('singgah/logos/logo-1.png') }}"><img src="{{ asset('singgah/logos/logo-1.png') }}" alt="Singgah Logo"></a>
-                <a href="index.html" class="retina-logo" data-dark-logo="{{ asset('singgah/logos/logo-1.png') }}"><img src="{{ asset('singgah/logos/logo-1.png') }}" alt="Singgah Logo"></a>
+                <a href="{{ route('home') }}" class="standard-logo" data-dark-logo="{{ asset('singgah/logos/logo-1.png') }}"><img src="{{ asset('singgah/logos/logo-1.png') }}" alt="Singgah Logo"></a>
+                <a href="{{ route('home') }}" class="retina-logo" data-dark-logo="{{ asset('singgah/logos/logo-1.png') }}"><img src="{{ asset('singgah/logos/logo-1.png') }}" alt="Singgah Logo"></a>
             </div><!-- #logo end -->
 
             <!-- Primary Navigation
@@ -23,7 +23,7 @@
                     <li><a href="{{ route('aboutUs') }}"><div>About Us</div></a></li>
                     <li><a href="{{ route('faq') }}"><div>FAQ</div></a></li>
                     
-                    <li><a href="{{ route('postLogout') }}"><div>Login</div></a></li>
+                    <li><a href="{{ route('login') }}"><div>Login</div></a></li>
                     {{-- <li class="mega-menu"><a href="#"><div>Pages</div></a>
                         <div class="mega-menu-content style-2 clearfix">
                             <ul class="mega-menu-column col-lg-3">
