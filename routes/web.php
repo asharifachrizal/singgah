@@ -15,6 +15,10 @@ Route::view('/', 'pages.home')->name('home');
 Route::view('/faq', 'pages.faq')->name('faq');
 Route::view('/about-us', 'pages.about-us')->name('aboutUs');
 
+// order cart & cart pages
+Route::view('/cart', 'pages.cart.index')->name('cartUser');
+Route::view('/order-list', 'pages.cart.order-list')->name('orderCartUser');
+
 
 Route::group(['middleware' => 'admin'], function() {
     Route::view('/cms/login', 'pages.cms.admin-login')->name('cms.login');

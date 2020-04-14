@@ -11059,6 +11059,11 @@ body:not(.device-touch) .text-overlay {
 	Forms
 -----------------------------------------------------------------*/
 
+.category-form{
+	margin: 0 auto;
+	max-width: 25rem;
+}
+
 .sm-form-control {
 	display: block;
 	width: 100%;
