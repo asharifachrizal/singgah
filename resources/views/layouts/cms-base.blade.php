@@ -176,7 +176,7 @@
                             <a href="{{ route('cms.customer')}}" aria-expanded="false"><i class="fa fa-address-book-o"></i><span class="hide-menu">Customers</span></a>
                         </li>
                         <li>
-                            <a href="{{ route('cms.cart')}}" aria-expanded="false"><i class="fa fa-book"></i><span class="hide-menu">Cart</span></a>
+                            <a href="{{ route('cms.cart')}}" aria-expanded="false"><i class="fa fa-book"></i><span class="hide-menu">Order</span></a>
                         </li>
 
                     </ul>
