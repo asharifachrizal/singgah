@@ -15,11 +15,12 @@ class CreateInvoicesTable extends Migration
     {
         Schema::create('invoices', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('cart_id')->unsigned();
+            $table->bigInteger('order_id')->unsigned();
+            $table->integer('user_id');
             $table->string('status');
             $table->timestamps();
 
-            $table->foreign('cart_id')->references('id')->on('carts');
+            $table->foreign('order_id')->references('id')->on('products');
         });
     }
 

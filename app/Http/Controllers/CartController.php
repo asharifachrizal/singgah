@@ -11,7 +11,7 @@ class CartController extends BaseController
 {
     public function index()
     {
-        $carts = Cart::where('status', '>', 0)->get();        
+        $carts = Cart::where('status', '>', 0)->get();
         return view('pages.cms.carts', compact('carts'));
     }
 
@@ -25,14 +25,28 @@ class CartController extends BaseController
         return view('pages.cart.checkout', compact('carts', 'totalCart'));
     }
 
-    public function additem(Request $request, $slug)
+    public function additem(Request $request)
     {
         if(Sentinel::check())
         {
-            $product = Product::where('slug', $slug)->first();
+            // $product = Product::where('slug', $slug)->first();
             $data = [
                 'user_id'       => Sentinel::getUser()->id,
-                'product_id'    => $product->id
+                'product_id'    => $request->id,
+                'product_name'    => $request->namaproduk,
+                'quantity'      => $request->quantity,
+                'orientation'   => $request->orientation,
+                'size'          => $request->size,
+                'duration'      => $request->duration,
+                'target_audience'   => $request->target_audience,
+                'deadline'      => $request->deadline,
+                'pattern'      => $request->pattern,
+                'style'      => $request->style,
+                'output'      => $request->output,
+                'tone'      => $request->tone,
+                'brief'      => $request->brief,
+
+
             ];
             $cart = Cart::create($data);
             $notification = [
@@ -41,7 +55,7 @@ class CartController extends BaseController
                 'bgColor' => '#2b6c45',
                 'alert-type' => 'success'
             ];
-        } 
+        }
         else
         {
             $notification = [
@@ -51,7 +65,7 @@ class CartController extends BaseController
                 'alert-type' => 'error'
             ];
         }
-        
+
         return $notification;
     }
 }

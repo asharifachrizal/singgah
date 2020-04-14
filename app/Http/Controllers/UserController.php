@@ -25,6 +25,9 @@ class UserController extends BaseController
         try{
             Sentinel::authenticate($request->all());
             if(Sentinel::check()) {
+                if(Sentinel::getUser()->roles()->first()->slug == 'admin')
+                    return redirect()->route('cms.dashboard');
+                else
                 return redirect()->route('home');
             } else {
                 throw new WrongCredentialException("Kombinasi email dan password salah.");

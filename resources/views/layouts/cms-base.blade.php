@@ -14,7 +14,7 @@
     <!-- Bootstrap Core CSS -->
     <link href="{{ asset('material/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="{{ asset('material/css/style.css') }}" rel="stylesheet">    
+    <link href="{{ asset('material/css/style.css') }}" rel="stylesheet">
     <!-- Color picker plugins css -->
     <link href="{{ asset('material/plugins/clockpicker/dist/jquery-clockpicker.min.css')}}" rel="stylesheet">
     <link href="{{ asset('material/plugins/jquery-asColorPicker-master/css/asColorPicker.css')}}" rel="stylesheet">
@@ -63,7 +63,7 @@
                         <span>
                          <!-- dark Logo text -->
                          <img src="{{ asset('material/images/logo-text.png')}}" alt="homepage" class="dark-logo" />
-                         <!-- Light Logo text -->    
+                         <!-- Light Logo text -->
                          <img src="{{ asset('material/images/logo-light-text.png')}}" class="light-logo" alt="homepage" /></span> </a>
                 </div>
                 <!-- ============================================================== -->
@@ -74,7 +74,7 @@
                     <!-- toggle and nav items -->
                     <!-- ============================================================== -->
                     <ul class="navbar-nav mr-auto mt-md-0">
-                    
+
                         <!-- This is  -->
                         <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="mdi mdi-menu"></i></a> </li>
                         <li class="nav-item"> <a class="nav-link sidebartoggler hidden-sm-down text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
@@ -82,9 +82,9 @@
                         <!-- Search -->
                         <!-- ============================================================== -->
                         <li class="nav-item hidden-sm-down search-box">
-                            
+
                         </li>
-                        
+
                     </ul>
                     <!-- ============================================================== -->
                     <!-- User profile and search -->
@@ -94,7 +94,7 @@
                         <!-- Comment -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
-                            
+
                         </li>
                         <!-- ============================================================== -->
                         <!-- End Comment -->
@@ -103,7 +103,7 @@
                         <!-- Messages -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
-                            
+
                         </li>
                         <!-- ============================================================== -->
                         <!-- End Messages -->
@@ -130,13 +130,14 @@
                                     <li role="separator" class="divider"></li>
                                     <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>
                                     <li role="separator" class="divider"></li> -->
-                                    <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                    <li><a href="#" onclick="document.getElementById('logout-form').submit()"><i class="fa fa-power-off"></i> Logout</a></li>
                                 </ul>
                             </div>
                         </li>
-                        
                     </ul>
                 </div>
+                <form action="{{ route('postLogout') }}" method="POST" id="logout-form">
+                </form>
             </nav>
         </header>
         <!-- ============================================================== -->
@@ -177,7 +178,7 @@
                         <li>
                             <a href="{{ route('cms.cart')}}" aria-expanded="false"><i class="fa fa-book"></i><span class="hide-menu">Cart</span></a>
                         </li>
-                        
+
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
@@ -205,13 +206,13 @@
             <!-- Container fluid  -->
             <!-- ============================================================== -->
             <div class="container-fluid">
-                
+
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
-                
+
                 @yield('cmscontent')
-                
+
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
