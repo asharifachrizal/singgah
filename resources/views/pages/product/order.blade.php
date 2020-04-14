@@ -48,7 +48,8 @@ Singgah | Order
 
             <div class="form-result"></div>
             <div class="center"></div>
-            <form class="row" id="checkout-form" action="include/form.php" method="post" enctype="multipart/form-data">
+            <form class="row" id="#" action="{{ route('cart.additem')}}" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="{{Sentinel::getUser()->id }}">
                 <div class="col-lg-12 text-center">
                     <h2>Order Information</h2>
                     <h4>{nama-kategori-product}</h4>
@@ -134,14 +135,14 @@ Singgah | Order
                             <label for="standart-pattern-produk">Standart Pattern</label>
                             <textarea class="form-control required" id="pattern" name="standart-pattern-produk" rows="3" placeholder="standart pattern yang diinginkan"></textarea>
                         </div>
-
-
-
                         <div class="col-12 form-group">
-                            <button type="submit" name="checkout-form-submit" class="btn btn-lg btn-secondary">Add to cart</button>
+                            <button type="submit" class="btn btn-lg btn-secondary">Add to cart</button>
                         </div>
                     </div>
                 </div>
+                {{-- <div class="form-action">
+                    <button type="submit" class="btn btn-lg btn-secondary">Add To Cart</button>
+                </div> --}}
                 {{-- <div class="col-lg-6">
                     <div class="hidden">
                         <input type="text" id="checkout-form-botcheck" name="checkout-form-botcheck" value="" />

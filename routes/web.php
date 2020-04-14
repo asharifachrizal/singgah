@@ -35,7 +35,6 @@ Route::get('/kategori', 'CategoryController@index')->name('category');
 Route::get('/kategori/{slug}', 'CategoryController@detail')->name('category.detail');
 
 Route::get('/produk', 'ProductController@index')->name('product');
-Route::get('/produk/order', 'ProductController@order')->name('productOrder');
 Route::get('/produk/select-product/{slug}/{category_id}', 'ProductController@selectProduct')->name('product.select');
 Route::get('/produk/detail', 'ProductController@detailProduct')->name('product.detail');
 // Route::get('/produk/desain-produksi', 'ProductController@produksi')->name('produksi');
@@ -56,7 +55,7 @@ Route::group(['middleware' => 'visitor'], function() {
 
     Route::get('/keranjang', 'CartController@index')->name('cart');
     Route::get('/keranjang/pembayaran', 'CartController@checkout')->name('cart.checkout');
-    Route::post('/keranjang/tambah/{slug}', 'CartController@additem')->name('cart.additem');
-
+    Route::post('/keranjang/tambah', 'CartController@additem')->name('cart.additem');
+    Route::get('/produk/order', 'ProductController@order')->name('productOrder');
     Route::get('/pengaturan', 'UserController@setting')->name('user.setting');
 });

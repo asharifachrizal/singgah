@@ -25,11 +25,11 @@ class CartController extends BaseController
         return view('pages.cart.checkout', compact('carts', 'totalCart'));
     }
 
-    public function additem(Request $request, $slug)
+    public function additem(Request $request)
     {
         if(Sentinel::check())
         {
-            $product = Product::where('slug', $slug)->first();
+            // $product = Product::where('slug', $slug)->first();
             $data = [
                 'user_id'       => Sentinel::getUser()->id,
                 'product_id'    => $request->id,
