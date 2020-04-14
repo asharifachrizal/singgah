@@ -27,101 +27,40 @@
             <table class="table cart">
                 <thead>
                     <tr>
-                        <th class="cart-product-remove">&nbsp;</th>
+                        <th class="cart-product-remove">No.</th>
                         <th class="cart-product-thumbnail">Produk</th>
-                        <th class="cart-product-name">Category</th>
-                        
-                        <th class="cart-product-quantity">Quantity</th>
-                        <th class="cart-product-subtotal">Total</th>
+                        <th class="cart-product-name">Category</th>                                                
+                        <th class="cart-product-subtotal">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr class="cart_item">
-                        <td class="cart-product-remove">
-                            <a href="#" class="remove" title="Remove this item"><i class="icon-trash2"></i></a>
-                        </td>
-
-                        <td class="cart-product-thumbnail">
-                            <a href="#"><img width="64" height="64" src="images/shop/thumbs/small/dress-3.jpg" alt="Pink Printed Dress"></a>
-                        </td>
-
-                        <td class="cart-product-name">
-                            <a href="#">Pink Printed Dress</a>
-                        </td>
-
-                        <td class="cart-product-quantity">
-                            <div class="quantity clearfix">
-                                <input type="button" value="-" class="minus">
-                                <input type="text" name="quantity" value="2" class="qty" />
-                                <input type="button" value="+" class="plus">
-                            </div>
-                        </td>
-
-                        <td class="cart-product-subtotal">
-                            <span class="amount">$39.98</span>
-                        </td>
-                    </tr>
-                    <tr class="cart_item">
-                        <td class="cart-product-remove">
-                            <a href="#" class="remove" title="Remove this item"><i class="icon-trash2"></i></a>
-                        </td>
-
-                        <td class="cart-product-thumbnail">
-                            <a href="#"><img width="64" height="64" src="images/shop/thumbs/small/shoes-2.jpg" alt="Checked Canvas Shoes"></a>
-                        </td>
-
-                        <td class="cart-product-name">
-                            <a href="#">Checked Canvas Shoes</a>
-                        </td>
-
                         
-
-                        <td class="cart-product-quantity">
-                            <div class="quantity clearfix">
-                                <input type="button" value="-" class="minus">
-                                <input type="text" name="quantity" value="1" class="qty" />
-                                <input type="button" value="+" class="plus">
-                            </div>
-                        </td>
-
-                        <td class="cart-product-subtotal">
-                            <span class="amount">$24.99</span>
-                        </td>
-                    </tr>
-                    <tr class="cart_item">
-                        <td class="cart-product-remove">
-                            <a href="#" class="remove" title="Remove this item"><i class="icon-trash2"></i></a>
-                        </td>
-
-                        <td class="cart-product-thumbnail">
-                            <a href="#"><img width="64" height="64" src="images/shop/thumbs/small/tshirt-2.jpg" alt="Pink Printed Dress"></a>
+                        <td class="cart-product-name">
+                            <a >1</a>
                         </td>
 
                         <td class="cart-product-name">
-                            <a href="#">Blue Men Tshirt</a>
+                            <a >Poster</a>
                         </td>
 
-                        
-
-                        <td class="cart-product-quantity">
-                            <div class="quantity clearfix">
-                                <input type="button" value="-" class="minus">
-                                <input type="text" name="quantity" value="3" class="qty" />
-                                <input type="button" value="+" class="plus">
-                            </div>
-                        </td>
+                        <td class="cart-product-name">
+                            <a>Non-Production</a>
+                        </td>                        
 
                         <td class="cart-product-subtotal">
-                            <span class="amount">$41.97</span>
+                            <a href="#" class="add" title="Edit this item"><i class="icon-pencil"></i></a>
+                            <a href="#" class="remove" title="Remove this item"><i class="icon-trash2"></i></a>
                         </td>
                     </tr>
+                    
                     <tr class="cart_item">
                         <td colspan="6">
                             <div class="row clearfix">
                                 
                                 <div class="col-lg-12 col-12 nopadding">
-                                    <a href="#" class="button button-3d nomargin fright">Go to Order</a>
-                                    <a href="shop.html" class="button button-3d notopmargin fright">Proceed to Checkout</a>
+                                    <a href="#" class="button button-3d nomargin fright">Request Invoice</a>
+                                    <!-- <a href="shop.html" class="button button-3d notopmargin fright">Proceed to Checkout</a> -->
                                 </div>
                             </div>
                         </td>

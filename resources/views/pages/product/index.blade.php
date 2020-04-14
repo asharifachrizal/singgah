@@ -21,8 +21,8 @@ Singgah | Product
 <section id="section-services" class="page-section topmargin-lg">
 
     <div class="heading-block center bottommargin-lg">
-        <h2>Product</h2>
-        <span>List of some products included in Singgah.</span>
+        <h2>Product Category</h2>
+        <span>List of some Category.</span>
     </div>
 
     <div class="container clearfix">
@@ -33,7 +33,7 @@ Singgah | Product
                     <a href="#"><i class="icon-box"></i></a>
                 </div>
                 <h3>Desain Produksi</h3>
-                <p>Powerful Layout with Responsive functionality that can be adapted to any screen size.</p>
+                <!-- <p>Powerful Layout with Responsive functionality that can be adapted to any screen size.</p> -->
             </div>
         </div>
 
@@ -43,7 +43,7 @@ Singgah | Product
                     <a href="#"><i class="icon-news"></i></a>
                 </div>
                 <h3>Desain Non-produksi</h3>
-                <p>Looks beautiful &amp; ultra-sharp on Retina Displays with Retina Icons, Fonts &amp; Images.</p>
+                <!-- <p>Looks beautiful &amp; ultra-sharp on Retina Displays with Retina Icons, Fonts &amp; Images.</p> -->
             </div>
         </div>
 
@@ -53,7 +53,7 @@ Singgah | Product
                     <a href="#"><i class="icon-video1"></i></a>
                 </div>
                 <h3>Video</h3>
-                <p>Optimized code that are completely customizable and deliver unmatched fast performance.</p>
+                <!-- <p>Optimized code that are completely customizable and deliver unmatched fast performance.</p> -->
             </div>
         </div>
 
