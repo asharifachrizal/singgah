@@ -5,7 +5,7 @@ Singgah | About Us
 @endsection
 
 @section('breadcumb')
-<section id="page-title" class="page-title-parallax page-title-dark" style="background-image: url('{{ asset('canvas/images/parallax/8.jpg') }}'); background-size: cover; padding: 120px 0;" data-bottom-top="background-position:0px 0px;" data-top-bottom="background-position:0px -300px;">
+<section id="page-title" class="page-title-parallax page-title-dark" style="background-image: url('{{ asset('canvas/images/parallax/2.jpg') }}'); background-size: cover; padding: 120px 0;" data-bottom-top="background-position:0px 0px;" data-top-bottom="background-position:0px -300px;">
 
     <div class="container clearfix">
         <h1>About Us</h1>
@@ -27,8 +27,8 @@ Singgah | About Us
         <div class="col_full">
 
             <div class="heading-block center nobottomborder">
-                <h2>Sinngah Creative </h2>
-                <span>We value Work Ethics &amp; Environment as it helps in creating a Creative Thinktank</span>
+                <h2>Singgah Agency </h2>
+                <span>We value Work Ethics &amp; Environment as it helps in creating a Creative Design</span>
             </div>
 
             <div class="fslider" data-pagi="false" data-animation="fade">
@@ -81,8 +81,8 @@ Singgah | About Us
         <div class="clear"></div>
 
         <div class="promo promo-light bottommargin">
-            <h3>Call us today at <span>+12.345.6789</span> or Email us at <span>email@gmail.com</span></h3>
-            <span>We strive to provide Our Customers with Top Notch Support to make their Theme Experience Wonderful</span>
+            <h3>Call us today at <span>+62.123456789</span> or Email us at <span>singgah@gmail.com</span></h3>
+            <span>We strive to provide Our Customers with Top Notch Support to make their Design Experience Wonderful</span>
             <a href="#" class="button button-xlarge button-rounded">Order Now</a>
         </div>
 

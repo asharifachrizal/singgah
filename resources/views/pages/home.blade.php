@@ -6,7 +6,7 @@
     <div class="slider-parallax-inner">
         <div class="swiper-container swiper-parent">
             <div class="swiper-wrapper">
-                <div class="swiper-slide dark" style="background-image: url('{{ asset('canvas/images/slider/swiper/1.jpg') }}');">
+                <div class="swiper-slide dark" style="background-image: url('{{ asset('singgah/bg3.jpg') }}');">
                     <div class="container clearfix">
                         <div class="slider-caption slider-caption-center">
                             <h2 data-animate="fadeInUp">Welcome to Singgah</h2>
