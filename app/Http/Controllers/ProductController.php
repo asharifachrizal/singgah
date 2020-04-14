@@ -24,16 +24,12 @@ class ProductController extends BaseController
         return view('pages.product.order');
     }
 
-<<<<<<< HEAD
-    public function selectProduct($slug, $id)
-=======
     public function selectCategory()
     {
         return view('pages.product.category');
     }
     
     public function selectProduct($slug, $category_id)
->>>>>>> singgah-develop-v0
     {
         $products = Product::where('category_id', '=', $id)->get();
         return view('pages.product.selectProduct', compact('products'));
