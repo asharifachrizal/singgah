@@ -38,12 +38,12 @@
                         @if ($order->status == 0)
                             <td><span class="label label-warning">Request Invoice</span> </td>
                             <td>
-                                <a href="#" data-toggle="tooltip" data-original-title="Create Invoice"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>                                
+                                <a href="{{ route('cms.order.detail')}}" data-toggle="tooltip" data-original-title="Open Detail"> <i class="fa fa-eye"></i> </a>                                
                             </td>
                         @elseif ($order->status == 1)
                             <td><span class="label label-info">Invoice Received</span> </td>            
                             <td>                                
-                                <a href="#" data-toggle="tooltip" data-original-title="Open Invoice"> <i class="fa fa-eye"></i> </a>
+                                <a href="{{ route('cms.order.detail')}}" data-toggle="tooltip" data-original-title="Open Detail"> <i class="fa fa-eye"></i> </a>
                             </td>                        
                         @endif
                                                                         

@@ -21,7 +21,8 @@ Route::group(['middleware' => 'admin'], function() {
     Route::view('/cms', 'pages.cms.dashboard')->name('cms.dashboard');
     Route::get('/cms/customer', 'UserController@indexCustomer')->name('cms.customer');
     Route::get('/cms/order', 'OrderController@index')->name('cms.order');
-    Route::view('/cms/order/detail', 'pages.cms.order-detail');
+    Route::view('/cms/order/detail', 'pages.cms.order-detail')->name('cms.order.detail');
+    Route::view('/cms/order/invoice', 'pages.cms.invoice')->name('cms.invoice');
 
 });
 

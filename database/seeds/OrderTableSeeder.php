@@ -35,6 +35,7 @@ class OrderTableSeeder extends Seeder
             'output' => 'PNG, PSD',
             'price' => null,            
             'status' => 0,
+            'created_at' => $faker->dateTime($max = 'now', $timezone = null),
             
 
         ]); 
