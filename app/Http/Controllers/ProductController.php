@@ -22,6 +22,11 @@ class ProductController extends BaseController
     {
         return view('pages.product.order');
     }
+
+    public function selectCategory()
+    {
+        return view('pages.product.category');
+    }
     
     public function selectProduct($slug, $category_id)
     {
