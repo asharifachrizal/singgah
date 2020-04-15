@@ -22,8 +22,12 @@
                     <li><a href="{{ route('product') }}"><div>Product</div></a></li>
                     <li><a href="{{ route('aboutUs') }}"><div>About Us</div></a></li>
                     <li><a href="{{ route('faq') }}"><div>FAQ</div></a></li>
-                    
-                    <li><a href="{{ route('login') }}"><div>Login</div></a></li>
+                    @if(Sentinel::check())
+                        <li class="mobile-wishlist"><a href="#"><i class="fa fa-user" aria-hidden="true"></i>{{ Sentinel::getUser()->full_name }}</a></li>
+                        <li class="mobile-wishlist"><a href="#" onclick="document.getElementById('logout-form').submit()"><i class="fa fa-sign-out-alt" aria-hidden="true"></i> Logout</a></li>
+                    @else
+                        <li><a href="{{ route('login') }}"><div>Login</div></a></li>
+                    @endif
                     {{-- <li class="mega-menu"><a href="#"><div>Pages</div></a>
                         <div class="mega-menu-content style-2 clearfix">
                             <ul class="mega-menu-column col-lg-3">
@@ -319,6 +323,9 @@
                         </div>
                     </li> --}}
                 </ul>
+                <form action="{{ route('postLogout') }}" method="POST" id="logout-form">
+                </form>
+
 
                 <!-- Top Cart
                 ============================================= -->
