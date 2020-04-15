@@ -22,7 +22,7 @@ class CartController extends BaseController
     {
         $tempcarts = Cart::where('user_id', Sentinel::getUser()->id);
         $carts = $tempcarts->where('status', '=', 0)->get();
-        return view('pages.order.index', compact('carts'));
+        return view('pages.cart.index', compact('carts'));
     }
 
     public function checkout()
@@ -39,14 +39,22 @@ class CartController extends BaseController
     {
 
         // $carts = Cart::where('user_id', '=', $id)->get();
-        // $tempcarts = Cart::where('status', '=', 1)->where('user_id', '=', $id);
-        // $carts = $tempcarts->orderBy('created_at', 'ASC')->get();
+        $tempcarts = Cart::where('status', '=', 1)->where('user_id', '=', $id);
+        $carts = $tempcarts->orderBy('created_at', 'ASC')->get()->unique('no_order');
+        // $carts = $cart->groupBy('no_order')->get();
         // dd($carts);
         // $totalCart = 0;
         // foreach($carts as $row){
         //     $totalCart += $row->product->price;
         // }
-        return redirect('pages.order.list', compact('carts'));
+        return view('pages.order.list', compact('carts'));
+    }
+
+    public function detailOrder($no_order)
+    {
+        $order = Cart::where('no_order', '=', $no_order)->get();
+
+        return view('pages.order.detail', compact('order'));
     }
 
     public function additem(Request $request)

@@ -66,4 +66,5 @@ Route::group(['middleware' => 'visitor'], function() {
     Route::post('/profile/{id}', 'UserController@registerUpdate')->name('registerUpdate');
     Route::post('/order/{id}', 'CartController@addOrder')->name('tambahOrder');
     Route::get('/my-order/{id}', 'CartController@myOrder')->name('myorder');
+    Route::get('/my-order/detail/{id}', 'CartController@detailOrder')->name('detailOrder');
 });

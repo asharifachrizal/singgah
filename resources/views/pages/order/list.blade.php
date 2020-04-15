@@ -29,6 +29,7 @@
 
                         <th class="cart-product-name">Order Id</th>
                         <th class="cart-product-name">Status</th>
+                        <th class="cart-product-name">Last Update</th>
                         <th class="cart-product-name">Action</th>
                     </tr>
                 </thead>
@@ -37,15 +38,18 @@
                     <tr class="cart_item">
 
                         <td class="cart-product-name">
-                        <a>{{$row->product_name}}</a>
+                        <a>{{$row->no_order}}</a>
                         </td>
 
                         <td class="cart-product-name">
-                            <a>Status</a>
+                            <a>{{$row->status}}</a>
                         </td>
 
                         <td class="cart-product-name">
-                            <a href="{{ route('order.detail')}}" class="add" title="See Detail"><i class="icon-eye"></i></a>
+                            <a>{{$row->updated_at}}</a>
+                        </td>
+                        <td class="cart-product-name">
+                            <a href="{{ route('detailOrder', $row->no_order)}}" class="add" title="See Detail"><i class="icon-eye"></i></a>
                         </td>
                     </tr>
                     @endforeach
