@@ -14,9 +14,9 @@ class CreateOrdersTable extends Migration
     public function up()
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->bigIncrements('id');            
-            $table->bigInteger('invoice_id')->unsigned();            
-            $table->bigInteger('product_id')->unsigned();            
+            $table->bigIncrements('id');
+            $table->bigInteger('invoice_id')->unsigned();
+            $table->bigInteger('product_id')->unsigned();
             $table->integer('quantity')->nullable();
             $table->string('orientation')->nullable();
             $table->string('size')->nullable();
@@ -27,6 +27,7 @@ class CreateOrdersTable extends Migration
             $table->string('color')->nullable();
             $table->string('style')->nullable();
             $table->string('output')->nullable();
+            $table->string('no_order')->nullable();
             $table->text('price')->nullable();
             $table->text('status')->nullable();
             $table->timestamps();

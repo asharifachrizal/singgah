@@ -1,5 +1,6 @@
 <?php
 
+use App\Product;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -14,9 +15,11 @@ class CreateCartsTable extends Migration
     public function up()
     {
         Schema::create('carts', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->integer('product_id')->nullable();
+            $table->integer('product_id')->unsigned();
             $table->string('product_name')->nullable();
             $table->integer('quantity')->nullable();
             $table->string('orientation')->nullable();
@@ -33,9 +36,11 @@ class CreateCartsTable extends Migration
 
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id', 'product_id')->references('id','id')->on('users', 'products');
 
-            // $table->foreign('product_id')->references('id')->on('products');
+            // $table->foreign('product_id')
+            //         ->references('id')->on('products')
+            //         ->onDelete('cascade');
         });
     }
 

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Sentinel;
 use App\Cart;
 use App\Product;
+use App\Category;
 
 class CartController extends BaseController
 {
@@ -13,6 +14,12 @@ class CartController extends BaseController
     {
         $carts = Cart::where('status', '>', 0)->get();
         return view('pages.cms.carts', compact('carts'));
+    }
+
+    public function cartClient()
+    {
+        $carts = Cart::where('user_id', Sentinel::getUser()->id)->get();
+        return view('pages.cart.index', compact('carts'));
     }
 
     public function checkout()
@@ -32,7 +39,7 @@ class CartController extends BaseController
             // $product = Product::where('slug', $slug)->first();
             $data = [
                 'user_id'       => Sentinel::getUser()->id,
-                'product_id'    => $request->id,
+                'product_id'    => 2,
                 'product_name'    => $request->namaproduk,
                 'quantity'      => $request->quantity,
                 'orientation'   => $request->orientation,
@@ -48,6 +55,9 @@ class CartController extends BaseController
 
 
             ];
+
+            // dd ($data);
+
             $cart = Cart::create($data);
             $notification = [
                 'heading' => 'Berhasil!',
