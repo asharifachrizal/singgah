@@ -1,9 +1,6 @@
 
 @extends('layouts.mk')
 
-@section('title')
-Jasa Desain | Singgah
-@endsection
 
 @section('content')
 <!-- breadcrumb -->

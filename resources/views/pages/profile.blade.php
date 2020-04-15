@@ -1,8 +1,6 @@
 @extends('layouts.client-base')
 
-@section('title')
-Singgah | Profile
-@endsection
+
 
 @section('breadcumb')
 <section id="page-title" class="page-title-parallax page-title-dark" style="background-image: url('{{ asset('canvas/images/parallax/7.jpg') }}'); background-size: cover; padding: 120px 0;" data-bottom-top="background-position:0px 0px;" data-top-bottom="background-position:0px -300px;">

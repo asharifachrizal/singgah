@@ -1,8 +1,5 @@
 @extends('layouts.mk-base')
 
-@section('title')
-Singgah | Produk
-@endsection
 
 
 @section('breadcumb')
