@@ -75,4 +75,33 @@ class UserController extends BaseController
             return redirect()->route('login');
 
     }
+
+    public function registerUpdate(Request $request, $id)
+    {
+            // $hasher = Sentinel::setHasher($request->password);
+            // $rules = [
+
+            // ];
+            $data = [
+                'full_name'         => $request->full_name,
+                'address'           => $request->address,
+                'city'              => $request->city,
+                'phone_number'       => $request->phone_number,
+                'email'             => $request->email,
+                'password'          => $request->password
+            ];
+            // dd($data);
+
+            $user = Sentinel::findById($id);
+            $user = Sentinel::update($user, $data);;
+
+            return redirect()->route('profile');
+
+    }
+
+    public function profile()
+    {
+        $user = User::where('id', '=', Sentinel::getUser()->id)->first();
+        return view('pages.profile', compact('user'));
+    }
 }

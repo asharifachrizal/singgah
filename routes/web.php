@@ -62,5 +62,7 @@ Route::group(['middleware' => 'visitor'], function() {
     Route::get('/keranjang/pembayaran', 'CartController@checkout')->name('cart.checkout');
     Route::post('/keranjang/tambah', 'CartController@additem')->name('cart.additem');
     Route::get('/produk/order', 'ProductController@order')->name('productOrder');
-    Route::get('/pengaturan', 'UserController@setting')->name('user.setting');
+    // Route::get('/pengaturan', 'UserController@setting')->name('user.setting');
+    Route::get('/profile', 'UserController@profile')->name('profile');
+    Route::post('/profile/{id}', 'UserController@registerUpdate')->name('registerUpdate');
 });
