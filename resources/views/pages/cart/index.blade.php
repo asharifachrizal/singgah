@@ -57,16 +57,16 @@
                     <tr class="cart_item">
                         <td colspan="6">
                             <div class="row clearfix">
-
                                 <div class="col-lg-12 col-12 nopadding">
-                                    <a href="#" class="button button-3d nomargin fright">Send Order</a>
+                                    <a href="#" onclick="document.getElementById('addOrder').submit()" class="button button-3d nomargin fright">Send Order</a>
                                     <!-- <a href="shop.html" class="button button-3d notopmargin fright">Proceed to Checkout</a> -->
                                 </div>
+                                <form action="{{ route('tambahOrder', Sentinel::getUser()->id) }}" method="POST" id="addOrder">
+                                </form>
                             </div>
                         </td>
                     </tr>
                 </tbody>
-
             </table>
         </div>
     </div>

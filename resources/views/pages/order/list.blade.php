@@ -8,11 +8,11 @@
 
     <div class="container clearfix">
         <h1>My Order</h1>
-        
+
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
             <li class="breadcrumb-item"><a href="#">List</a></li>
-            
+
         </ol>
     </div>
 
@@ -25,38 +25,33 @@
         <div class="table-responsive">
             <table class="table cart">
                 <thead>
-                    <tr>                        
-                        
-                        <th class="cart-product-name">Order Id</th>                                                
-                        <th class="cart-product-name">Status</th>                        
+                    <tr>
+
+                        <th class="cart-product-name">Order Id</th>
+                        <th class="cart-product-name">Status</th>
                         <th class="cart-product-name">Action</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($carts as $key=>$row)
                     <tr class="cart_item">
-                        
+
                         <td class="cart-product-name">
-                            <a>13456</a>
-                        </td>                        
-                        
+                        <a>{{$row->product_name}}</a>
+                        </td>
+
                         <td class="cart-product-name">
                             <a>Status</a>
-                        </td>                        
-                        
-                        <td class="cart-product-name">
-                            <a href="{{ route('order.detail')}}" class="add" title="See Detail"><i class="icon-eye"></i></a>                            
                         </td>
-                        
-                    </tr>
-                    
-                    
-                    
-                </tbody>
 
+                        <td class="cart-product-name">
+                            <a href="{{ route('order.detail')}}" class="add" title="See Detail"><i class="icon-eye"></i></a>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
             </table>
         </div>
-
-       
     </div>
 </div>
 @endsection

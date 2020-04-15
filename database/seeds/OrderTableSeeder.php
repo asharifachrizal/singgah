@@ -5,23 +5,23 @@ use Faker\Factory as Faker;
 
 class OrderTableSeeder extends Seeder
 {
-    /** * 
-     * Run the database seeds. * 
-     * 
+    /** *
+     * Run the database seeds. *
+     *
      * @return void
-     */ 
-    
+     */
+
     public function run() {
-        $this->createSampleProduct(); 
-    } 
-    
+        $this->createSampleProduct();
+    }
+
     public function createSampleProduct() {
         $faker = Faker::create();
 
-        
 
-        DB::table('orders')->insert([ 
-            'invoice_id' => 1,
+
+        DB::table('orders')->insert([
+            'user_id' => 3,
             'product_id' => 1,
             'quantity' => 1,
             'orientation' => '1080 x 1080',
@@ -33,11 +33,11 @@ class OrderTableSeeder extends Seeder
             'color' => 'Merah, Kuning',
             'style' => 'Asik',
             'output' => 'PNG, PSD',
-            'price' => null,            
+            'price' => null,
             'status' => 0,
             'created_at' => $faker->dateTime($max = 'now', $timezone = null),
-            
 
-        ]); 
+
+        ]);
     }
 }

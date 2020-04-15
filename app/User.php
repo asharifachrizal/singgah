@@ -46,5 +46,16 @@ class User extends \Cartalyst\Sentinel\Users\EloquentUser
     public function invoice()
 	{
 		return $this->hasMany('App\Invoice');
+    }
+
+    public function cart()
+	{
+		return $this->hasMany('App\Cart');
+    }
+
+
+    public function order()
+	{
+		return $this->hasMany('App\Order');
 	}
 }

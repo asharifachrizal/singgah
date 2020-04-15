@@ -23,7 +23,7 @@ class Order extends Model
         'tone',
         'brief',
         'status',
-        'price'
+        'price',
 
     ];
 

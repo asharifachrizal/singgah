@@ -322,16 +322,16 @@
                             </ul>
                         </div>
                     </li> --}}
-                </ul>
                 <form action="{{ route('postLogout') }}" method="POST" id="logout-form">
                 </form>
+                </ul>
 
 
                 <!-- Top Cart
                 ============================================= -->
                 <div id="top-cart">
-                    <a href="#" id="top-cart-trigger"><i class="icon-shopping-cart"></i><span>5</span></a>
-                    <div class="top-cart-content">
+                    <a href="{{ route('cartUser')}}" id="top-cart-trigger"><i class="icon-shopping-cart"></i><span></span></a>
+                    {{-- <div class="top-cart-content">
                         <div class="top-cart-title">
                             <h4>Shopping Cart</h4>
                         </div>
@@ -359,9 +359,9 @@
                         </div>
                         <div class="top-cart-action clearfix">
                             <span class="fleft top-checkout-price">$114.95</span>
-                            <button class="button button-3d button-small nomargin fright">View Cart</button>
+                            <button class="button button-3d button-small nomargin fright" > <a href="{{ route('cartUser')}}"> VIEW CART</a></button>
                         </div>
-                    </div>
+                    </div> --}}
                 </div><!-- #top-cart end -->
 
             </nav><!-- #primary-menu end -->

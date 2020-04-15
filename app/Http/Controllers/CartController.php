@@ -8,6 +8,8 @@ use App\Cart;
 use App\Product;
 use App\Category;
 
+use Faker\Factory as Faker;
+
 class CartController extends BaseController
 {
     public function index()
@@ -18,8 +20,9 @@ class CartController extends BaseController
 
     public function cartClient()
     {
-        $carts = Cart::where('user_id', Sentinel::getUser()->id)->get();
-        return view('pages.cart.index', compact('carts'));
+        $tempcarts = Cart::where('user_id', Sentinel::getUser()->id);
+        $carts = $tempcarts->where('status', '=', 0)->get();
+        return view('pages.order.index', compact('carts'));
     }
 
     public function checkout()
@@ -30,6 +33,20 @@ class CartController extends BaseController
             $totalCart += $row->product->price;
         }
         return view('pages.cart.checkout', compact('carts', 'totalCart'));
+    }
+
+    public function myOrder($id)
+    {
+
+        // $carts = Cart::where('user_id', '=', $id)->get();
+        // $tempcarts = Cart::where('status', '=', 1)->where('user_id', '=', $id);
+        // $carts = $tempcarts->orderBy('created_at', 'ASC')->get();
+        // dd($carts);
+        // $totalCart = 0;
+        // foreach($carts as $row){
+        //     $totalCart += $row->product->price;
+        // }
+        return redirect('pages.order.list', compact('carts'));
     }
 
     public function additem(Request $request)
@@ -52,6 +69,7 @@ class CartController extends BaseController
                 'output'      => $request->output,
                 'tone'      => $request->tone,
                 'brief'      => $request->brief,
+                'status'      => 0,
 
 
             ];
@@ -78,4 +96,25 @@ class CartController extends BaseController
 
         return $notification;
     }
+
+    public function addOrder(Request $request, $id)
+    {
+        $faker = Faker::create();
+
+        $carts = Cart::where('user_id', '=', $id);
+        $data = [
+            'status'         => 1,
+            'no_order'        => $faker->unixTime($max = 'now'),
+        ];
+        // dd($data);
+
+        $carts->update($data);
+
+        return redirect()->route('profile');
+
+    }
+
+
+
+
 }

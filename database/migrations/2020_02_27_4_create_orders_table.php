@@ -14,9 +14,11 @@ class CreateOrdersTable extends Migration
     public function up()
     {
         Schema::create('orders', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+
             $table->bigIncrements('id');
-            $table->bigInteger('invoice_id')->unsigned();
-            $table->bigInteger('product_id')->unsigned();
+            $table->integer('user_id')->unsigned();
+            $table->integer('product_id')->nullable();
             $table->integer('quantity')->nullable();
             $table->string('orientation')->nullable();
             $table->string('size')->nullable();
@@ -35,11 +37,15 @@ class CreateOrdersTable extends Migration
             // $table->foreign('cart_id')->references('id')->on('carts')
 			// 	->onUpdate('cascade')
             //     ->onDelete('cascade');
+            // $table->foreign('user_id', 'product_id')->references('id','id')->on('users', 'products');
 
-            $table->foreign('product_id')->references('id')->on('products')
+            // $table->foreign('product_id')->references('id')->on('products')
+			// 	->onUpdate('cascade')
+            //     ->onDelete('cascade');
+
+            $table->foreign('user_id')->references('id')->on('users')
 				->onUpdate('cascade')
                 ->onDelete('cascade');
-
 
         });
     }
