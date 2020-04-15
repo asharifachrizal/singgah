@@ -1,4 +1,4 @@
-@extends('layouts.mk-base')
+@extends('layouts.client-base')
 
 @section('title')
 Singgah | Produk
