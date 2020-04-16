@@ -1,10 +1,6 @@
 
 @extends('layouts.client-base')
 
-@section('title')
-Jasa Desain | Singgah
-@endsection
-
 
 @section('breadcumb')
 <section id="page-title" class="page-title-parallax page-title-dark" style="background-image: url('{{ asset('canvas/images/parallax/7.jpg') }}'); background-size: cover; padding: 120px 0;" data-bottom-top="background-position:0px 0px;" data-top-bottom="background-position:0px -300px;">
@@ -51,21 +47,16 @@ Jasa Desain | Singgah
 
             <div class="acctitle"><i class="acc-closed icon-user4"></i><i class="acc-open icon-ok-sign"></i>New Signup? Register for an Account</div>
             <div class="acc_content clearfix">
-                <form id="register-form" name="register-form" class="nobottommargin" action="#" method="post">
+                <form id="register-form" name="register-form" class="nobottommargin" id="myForm" action="{{ route('register.store') }}" method="post">
                     <div class="col_full">
                         <label for="register-form-name">Email:</label>
                         <input type="text" id="register-form-name" name="email" value="" class="form-control" />
                     </div>
                     
                     <div class="col_full">
-                        <label for="register-form-name">Username:</label>
-                        <input type="text" id="register-form-name" name="username" value="" class="form-control" />
-                    </div>
-
-                    <div class="col_full">
                         <label for="register-form-password">Choose Password:</label>
                         <input type="password" id="register-form-password" name="password" value="" class="form-control" />
-                    </div>                  
+                    </div>
 
                     <div class="col_full">
                         <label for="register-form-name">Full Name:</label>
@@ -88,7 +79,7 @@ Jasa Desain | Singgah
                     </div>
 
                     <div class="col_full nobottommargin">
-                        <button class="button button-3d button-black nomargin" value="register">Register Now</button>
+                        <button class="button button-3d button-black nomargin" onclick="myFunction()" value="register">Register Now</button>
                     </div>
                 </form>
             </div>
@@ -129,4 +120,12 @@ Jasa Desain | Singgah
 </div> -->
 
 <!--Section ends-->
+@endsection
+
+@section('script')
+<script>
+    function myFunction() {
+        document.getElementById("myForm").submit();
+    }
+</script>
 @endsection

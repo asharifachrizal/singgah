@@ -22,8 +22,12 @@
                     <li><a href="{{ route('product') }}"><div>Product</div></a></li>
                     <li><a href="{{ route('aboutUs') }}"><div>About Us</div></a></li>
                     <li><a href="{{ route('faq') }}"><div>FAQ</div></a></li>
-                    
-                    <li><a href="{{ route('login') }}"><div>Login</div></a></li>
+                    @if(Sentinel::check())
+                        <li class="mobile-wishlist"><a href="{{ route('profile')}}"><i class="fa fa-user" aria-hidden="true"></i>{{ Sentinel::getUser()->full_name }}</a></li>
+                        <li class="mobile-wishlist"><a href="#" onclick="document.getElementById('logout-form').submit()"><i class="fa fa-sign-out-alt" aria-hidden="true"></i> Logout</a></li>
+                    @else
+                        <li><a href="{{ route('login') }}"><div>Login</div></a></li>
+                    @endif
                     {{-- <li class="mega-menu"><a href="#"><div>Pages</div></a>
                         <div class="mega-menu-content style-2 clearfix">
                             <ul class="mega-menu-column col-lg-3">
@@ -318,43 +322,19 @@
                             </ul>
                         </div>
                     </li> --}}
+                <form action="{{ route('postLogout') }}" method="POST" id="logout-form">
+                </form>
                 </ul>
+
 
                 <!-- Top Cart
                 ============================================= -->
                 <div id="top-cart">
-                    <a href="#" id="top-cart-trigger"><i class="icon-shopping-cart"></i><span>5</span></a>
-                    <div class="top-cart-content">
-                        <div class="top-cart-title">
-                            <h4>Shopping Cart</h4>
-                        </div>
-                        {{-- <div class="top-cart-items">
-                            <div class="top-cart-item clearfix">
-                                <div class="top-cart-item-image">
-                                    <a href="#"><img src="images/shop/small/1.jpg" alt="Blue Round-Neck Tshirt" /></a>
-                                </div>
-                                <div class="top-cart-item-desc">
-                                    <a href="#">Blue Round-Neck Tshirt</a>
-                                    <span class="top-cart-item-price">$19.99</span>
-                                    <span class="top-cart-item-quantity">x 2</span>
-                                </div>
-                            </div>
-                            <div class="top-cart-item clearfix">
-                                <div class="top-cart-item-image">
-                                    <a href="#"><img src="images/shop/small/6.jpg" alt="Light Blue Denim Dress" /></a>
-                                </div>
-                                <div class="top-cart-item-desc">
-                                    <a href="#">Light Blue Denim Dress</a>
-                                    <span class="top-cart-item-price">$24.99</span>
-                                    <span class="top-cart-item-quantity">x 3</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="top-cart-action clearfix">
-                            <span class="fleft top-checkout-price">$114.95</span>
-                            <button class="button button-3d button-small nomargin fright">View Cart</button>
-                        </div> --}}
-                    </div>
+                    
+                    <a href="{{ route('cartUser')}}" ><i class="icon-shopping-cart"></i>
+                        <!-- <span>1</span> -->
+                    </a>
+                    
                 </div><!-- #top-cart end -->
 
             </nav><!-- #primary-menu end -->

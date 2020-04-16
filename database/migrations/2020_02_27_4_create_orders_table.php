@@ -14,9 +14,11 @@ class CreateOrdersTable extends Migration
     public function up()
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->bigIncrements('id');            
-            $table->bigInteger('invoice_id')->unsigned();            
-            $table->bigInteger('product_id')->unsigned();            
+            $table->engine = 'InnoDB';
+
+            $table->increments('id');
+            $table->integer('user_id')->nullable();
+            $table->integer('product_id')->unsigned();
             $table->integer('quantity')->nullable();
             $table->string('orientation')->nullable();
             $table->string('size')->nullable();
@@ -27,18 +29,22 @@ class CreateOrdersTable extends Migration
             $table->string('color')->nullable();
             $table->string('style')->nullable();
             $table->string('output')->nullable();
-            $table->text('price')->nullable();
-            $table->text('status')->nullable();
+            $table->string('no_order')->nullable();
+            $table->integer('price')->nullable();
+            $table->integer('link')->nullable();
+            $table->integer('status')->nullable();
             $table->timestamps();
 
             // $table->foreign('cart_id')->references('id')->on('carts')
 			// 	->onUpdate('cascade')
             //     ->onDelete('cascade');
+            // $table->foreign('user_id', 'product_id')->references('id','id')->on('users', 'products');
 
-            $table->foreign('product_id')->references('id')->on('products')
-				->onUpdate('cascade')
-                ->onDelete('cascade');
+            $table->foreign('product_id')->references('id')->on('products') ;
 
+            // $table->foreign('user_id')->references('id')->on('users')
+			// 	->onUpdate('cascade')
+            //     ->onDelete('cascade');
 
         });
     }

@@ -9,11 +9,11 @@
 
     <div class="container clearfix">
         <h1>Order</h1>
-        
+
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Order</a></li>
             <li class="breadcrumb-item"><a href="#">Order</a></li>
-            
+
         </ol>
     </div>
 
@@ -29,36 +29,36 @@
                     <tr>
                         <th class="cart-product-remove">No.</th>
                         <th class="cart-product-thumbnail">Produk</th>
-                        <th class="cart-product-name">Category</th>                                                
+                        <th class="cart-product-name">Category</th>
                         <th class="cart-product-name">Price</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($order as $key=>$row)
                     <tr class="cart_item">
-                        
                         <td class="cart-product-name">
-                            <a >1</a>
+                            <a >{{$key+1}}</a>
                         </td>
 
                         <td class="cart-product-name">
-                            <a >Poster</a>
+                            <a >{{$row->product_name}}</a>
                         </td>
 
                         <td class="cart-product-name">
-                            <a>Non-Production</a>
-                        </td>  
-                        
+                            <a>{{$row->product->category->name}}</a>
+                        </td>
+
                         <td class="cart-product-name">
-                            <a>Rp. 50,000</a>
-                        </td>  
+                            <a>{{$row->price}}</a>
+                        </td>
 
                         <td class="cart-product-subtotal">
                             <!-- <a href="#" class="add" title="Edit this item"><i class="icon-pencil"></i></a>
                             <a href="#" class="remove" title="Remove this item"><i class="icon-trash2"></i></a> -->
                         </td>
                     </tr>
-                    
-                    
+                    @endforeach
+
                 </tbody>
 
             </table>
@@ -114,7 +114,7 @@
                                             <td class="text-right"> $24 </td>
                                             <td class="text-right"> $48 </td>
                                         </tr>
-                                        
+
                                     </tbody>
                                 </table>
                             </div>
@@ -130,7 +130,7 @@
                             <hr>
                             <div class="text-right">
                                 <button class="btn btn-danger" type="submit"> Reject Invoice </button>
-                                <button class="btn btn-info" type="submit"> Proceed to Checkout </button>                        
+                                <button class="btn btn-info" type="submit"> Proceed to Checkout </button>
                             </div>
                         </div>
                     </div>

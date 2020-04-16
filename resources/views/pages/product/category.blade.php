@@ -1,8 +1,5 @@
 @extends('layouts.client-base')
 
-@section('title')
-Singgah | Produk
-@endsection
 
 
 @section('breadcumb')

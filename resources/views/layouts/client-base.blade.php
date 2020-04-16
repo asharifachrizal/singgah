@@ -24,7 +24,7 @@
 
 	<!-- Document Title
 	============================================= -->
-	<title>@yield('title')</title>
+	<title>Singgah | Agency</title>
 
 </head>
 
