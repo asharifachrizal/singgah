@@ -27,12 +27,14 @@ class CreateCartsTable extends Migration
             $table->integer('duration')->nullable();
             $table->text('target_audience')->nullable();
             $table->string('style')->nullable();
-            $table->string('tone')->nullable();
-            $table->string('brief')->nullable();
-            $table->string('pattern')->nullable();
+            $table->string('color')->nullable();
+            $table->string('color_grading')->nullable();
+            $table->string('design_style')->nullable();
+            $table->string('font')->nullable();
             $table->string('output')->nullable();
             $table->text('deadline')->nullable();
             $table->integer('status')->nullable();
+            $table->string('brief')->nullable();                        
 
             $table->timestamps();
 
