@@ -54,6 +54,8 @@
                         </td>
                     </tr>
                     @endforeach
+
+                    @if (count($carts) > 0)
                     <tr class="cart_item">
                         <td colspan="6">
                             <div class="row clearfix">
@@ -66,6 +68,7 @@
                             </div>
                         </td>
                     </tr>
+                    @endif
                 </tbody>
             </table>
         </div>
