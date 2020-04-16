@@ -47,7 +47,7 @@
                         <td class="#">
                             <a>{{$row->product->category->name}}</a>
                         </td>
-
+                            <input type="hidden" name="id_cart" value="{{$row->id}}">
                         <td class="cart-product-subtotal">
                             <a href="#" class="add" title="Edit this item"><i class="icon-pencil"></i></a>
                             <a href="#" class="remove" title="Remove this item"><i class="icon-trash2"></i></a>
@@ -64,6 +64,9 @@
                                     <!-- <a href="shop.html" class="button button-3d notopmargin fright">Proceed to Checkout</a> -->
                                 </div>
                                 <form action="{{ route('tambahOrder', Sentinel::getUser()->id) }}" method="POST" id="addOrder">
+                                    @foreach ($carts as $row)
+                                    <input type="hidden" name="id_cart[]" value="{{$row->id}}">
+                                    @endforeach
                                 </form>
                             </div>
                         </td>
