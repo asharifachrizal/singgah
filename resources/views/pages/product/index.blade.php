@@ -28,7 +28,7 @@
         <div class="col_one_third">
             <div class="feature-box fbox-center fbox-effect nobottomborder" data-animate="fadeIn">
                 <div class="fbox-icon">
-                    <a href="#"><i class="icon-box"></i></a>
+                    <a href="{{ route('product.select', ['desain-produksi', 1])}}"><i class="icon-box"></i></a>
                 </div>
                 <h3>Desain Produksi</h3>
                 <!-- <p>Powerful Layout with Responsive functionality that can be adapted to any screen size.</p> -->
@@ -38,7 +38,7 @@
         <div class="col_one_third">
             <div class="feature-box fbox-center fbox-effect nobottomborder" data-animate="fadeIn" data-delay="200">
                 <div class="fbox-icon">
-                    <a href="#"><i class="icon-news"></i></a>
+                    <a href="{{ route('product.select', ['desain-non-produksi', 2])}}"><i class="icon-news"></i></a>
                 </div>
                 <h3>Desain Non-produksi</h3>
                 <!-- <p>Looks beautiful &amp; ultra-sharp on Retina Displays with Retina Icons, Fonts &amp; Images.</p> -->
@@ -48,14 +48,14 @@
         <div class="col_one_third col_last">
             <div class="feature-box fbox-center fbox-effect nobottomborder" data-animate="fadeIn" data-delay="400">
                 <div class="fbox-icon">
-                    <a href="#"><i class="icon-video1"></i></a>
+                    <a href="{{ route('product.select', ['video', 3])}}"><i class="icon-video1"></i></a>
                 </div>
                 <h3>Video</h3>
                 <!-- <p>Optimized code that are completely customizable and deliver unmatched fast performance.</p> -->
             </div>
         </div>
 
-        
+
 
     </div>
 

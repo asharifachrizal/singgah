@@ -14,7 +14,8 @@ class ProductController extends BaseController
     public function index()
     {
 
-        return view('pages.product.index');
+        $category = Category::all();
+        return view('pages.product.index', compact('category'));
 
     }
 
@@ -28,8 +29,8 @@ class ProductController extends BaseController
     {
         return view('pages.product.category');
     }
-    
-    public function selectProduct($slug, $category_id)
+
+    public function selectProduct($slug, $id)
     {
         $products = Product::where('category_id', '=', $id)->get();
         return view('pages.product.selectProduct', compact('products'));
