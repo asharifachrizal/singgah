@@ -328,7 +328,7 @@
                         <div class="top-cart-title">
                             <h4>Shopping Cart</h4>
                         </div>
-                        <div class="top-cart-items">
+                        {{-- <div class="top-cart-items">
                             <div class="top-cart-item clearfix">
                                 <div class="top-cart-item-image">
                                     <a href="#"><img src="images/shop/small/1.jpg" alt="Blue Round-Neck Tshirt" /></a>
@@ -353,7 +353,7 @@
                         <div class="top-cart-action clearfix">
                             <span class="fleft top-checkout-price">$114.95</span>
                             <button class="button button-3d button-small nomargin fright">View Cart</button>
-                        </div>
+                        </div> --}}
                     </div>
                 </div><!-- #top-cart end -->
 
