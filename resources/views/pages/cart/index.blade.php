@@ -55,7 +55,7 @@
                     </tr>
                     @endforeach
 
-                    @if (count($carts) > 0)
+                    @if (count($carts) > -1)
                     <tr class="cart_item">
                         <td colspan="6">
                             <div class="row clearfix">
@@ -64,6 +64,11 @@
                                     <!-- <a href="shop.html" class="button button-3d notopmargin fright">Proceed to Checkout</a> -->
                                 </div>
                                 <form action="{{ route('tambahOrder', Sentinel::getUser()->id) }}" method="POST" id="addOrder">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Brief Url</label>
+                                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Brief URL">
+                                        <small id="emailHelp" class="form-text text-muted">Put Your brief on GDrive, and copy your brief link here!</small>
+                                    </div>
                                     @foreach ($carts as $row)
                                     <input type="hidden" name="id_cart[]" value="{{$row->id}}">
                                     @endforeach
