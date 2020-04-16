@@ -16,9 +16,7 @@ Route::view('/faq', 'pages.faq')->name('faq');
 Route::view('/about-us', 'pages.about-us')->name('aboutUs');
 
 // order cart & cart pages
-Route::view('/cart', 'pages.cart.index')->name('cartUser');
-Route::view('/order/list', 'pages.cart.order-list')->name('myorder');
-Route::view('/order/detail', 'pages.cart.order-detail')->name('order.detail');
+// Route::view('/order/detail', 'pages.cart.order-detail')->name('order.detail');
 Route::view('/order/detail/invoice', 'pages.cart.order-invoice')->name('order.detail.invoice');
 
 
@@ -58,9 +56,15 @@ Route::get('/produk/detail', 'ProductController@detailProduct')->name('product.d
 Route::group(['middleware' => 'visitor'], function() {
     Route::post('/logout', 'UserController@postLogout')->name('postLogout');
 
+    Route::get('/cart', 'CartController@cartClient')->name('cartUser');
     Route::get('/keranjang', 'CartController@index')->name('cart');
     Route::get('/keranjang/pembayaran', 'CartController@checkout')->name('cart.checkout');
     Route::post('/keranjang/tambah', 'CartController@additem')->name('cart.additem');
     Route::get('/produk/order', 'ProductController@order')->name('productOrder');
-    Route::get('/pengaturan', 'UserController@setting')->name('user.setting');
+    // Route::get('/pengaturan', 'UserController@setting')->name('user.setting');
+    Route::get('/profile', 'UserController@profile')->name('profile');
+    Route::post('/profile/{id}', 'UserController@registerUpdate')->name('registerUpdate');
+    Route::post('/order/{id}', 'CartController@addOrder')->name('tambahOrder');
+    Route::get('/my-order/{id}', 'CartController@myOrder')->name('myorder');
+    Route::get('/my-order/detail/{id}', 'CartController@detailOrder')->name('detailOrder');
 });

@@ -21,6 +21,39 @@ class OrderController extends Controller
         return view('pages.cms.order-detail');
     }
 
+
+    public function sendOrder()
+    {
+        if(Sentinel::check())
+        {
+            // $product = Product::where('slug', $slug)->first();
+            $data = [
+                'user_id'       => Sentinel::getUser()->id,
+                'product_id'    => 2,
+                'product_name'    => $request->namaproduk,
+                'quantity'      => $request->quantity,
+                'orientation'   => $request->orientation,
+                'size'          => $request->size,
+                'duration'      => $request->duration,
+                'target_audience'   => $request->target_audience,
+                'deadline'      => $request->deadline,
+                'pattern'      => $request->pattern,
+                'style'      => $request->style,
+                'output'      => $request->output,
+                'tone'      => $request->tone,
+                'brief'      => $request->brief,
+                'status'      => "ORDER SENT",
+
+
+            ];
+
+            // dd ($data);
+
+            $order = Order::create($data);
+            return view('pages.order.list');
+        }
+    }
+
     public function store()
     {
         $data = [
