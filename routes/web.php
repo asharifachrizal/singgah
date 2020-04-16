@@ -38,9 +38,6 @@ Route::group(['middleware' => 'guest'], function() {
     Route::view('/profile', 'pages.profile')->name('profile');
 });
 
-
-
-
 Route::get('/kategori', 'CategoryController@index')->name('category');
 Route::get('/kategori/{slug}', 'CategoryController@detail')->name('category.detail');
 
@@ -49,8 +46,6 @@ Route::get('/produk/category', 'ProductController@selectCategory')->name('select
 Route::get('/produk/order', 'ProductController@order')->name('productOrder');
 Route::get('/produk/select-product/{slug}/{category_id}', 'ProductController@selectProduct')->name('product.select');
 Route::get('/produk/detail', 'ProductController@detailProduct')->name('product.detail');
-
-
 
 
 Route::group(['middleware' => 'visitor'], function() {
