@@ -37,7 +37,7 @@ Singgah | Order-Category
             </div>
     
             <div class="">
-                <form class="row center my-auto">
+                <form method="" class="row center my-auto">
                     
                     <div class="col-lg-12 category-form form-group">
                         <label for="exampleFormControlSelect1">Select category</label>
@@ -46,6 +46,9 @@ Singgah | Order-Category
                             <option>Baliho</option>
                             <option>Poster</option>
                         </select>
+                    </div>
+                    <div class="col-lg-12 form-group">
+                        <a href="" class="btn btn-primary" onclick="parentNode.submit()">Next Step</a>
                     </div>
                 </form>
             </div>
