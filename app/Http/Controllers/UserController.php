@@ -59,10 +59,10 @@ class UserController extends BaseController
     {
 
             $data = [
-                'full_name'         => $request->fullName,
+                'full_name'         => $request->full_name,
                 'address'           => $request->address,
                 'city'              => $request->city,
-                'phone_number'       => $request->phoneNumber,
+                'phone_number'       => $request->phone_number,
                 'email'             => $request->email,
                 'password'          => $request->password
             ];
