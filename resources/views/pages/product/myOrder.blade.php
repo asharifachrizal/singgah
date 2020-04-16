@@ -52,7 +52,10 @@
 
                         <div class="row">
                             <div class="col-lg-12">
-                                <form class="row" id="event-registration" action="include/form.php" method="post" enctype="multipart/form-data">
+                                <form class="row" id="event-registration" action="{{ route('cart.additem')}}" method="post" enctype="multipart/form-data">
+                                    <input type="hidden" name="id" value="{{Sentinel::getUser()->id }}">
+                                    <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                    <input type="hidden" name="namaproduk" value="{{ $product->value }}">
                                     <div class="form-process"></div>
                                     {{-- gua gk paham if nya ini gua buatin daftar if nya --}}
                                     {{-- Untuk produk berikut, tab jenis produk di hidden saja
@@ -99,11 +102,11 @@
                                     </div>
                                     <div class="col-6 form-group">
                                         <label for="kuatiti-produk">Kuantiti:</label><br>
-                                        <input type="number" name="kuatiti-produk" id="quantity" class="form-control required" value="" placeholder="minimal 1" min="1">
+                                        <input type="number" name="quantity" id="quantity" class="form-control required" value="" placeholder="minimal 1" min="1">
                                     </div>
                                     <div class="col-6 form-group">
                                         <label for="ukuran-rasio-produk">Ukuran/rasio:</label><br>
-                                        <input type="text" name="ukuran-rasio-produk" id="size" class="form-control required" value="" placeholder="ukuran produk">
+                                        <input type="text" name="size" id="size" class="form-control required" value="" placeholder="ukuran produk">
                                     </div>
                                     <div class="col-12 form-group">
                                         <label for="tone-produk">Tone</label>
@@ -111,7 +114,7 @@
                                     </div>
 
                                     {{-- Untuk produk berikut, tab design style di hidden saja
-                                        
+
                                         SEMUA JENIS VIDEO
 
                                         --}}
@@ -121,7 +124,7 @@
                                     </div>
                                     <div class="col-12 form-group">
                                         <label for="target-audience-produk">Target Audience:</label><br>
-                                        <input type="text" name="target-audience-produk" id="target_audience" class="form-control required" value="" placeholder="anak-anak-dewasa / 4-6">
+                                        <input type="text" name="target_audience" id="target_audience" class="form-control required" value="" placeholder="anak-anak-dewasa / 4-6">
                                     </div>
                                     <div class="col-12 form-group">
                                         <label for="obj-brief-produk">Objective Brief</label>
@@ -136,11 +139,11 @@
                                     </div>
                                     <div class="col-6 form-group">
                                         <label for="output-produk">Output:</label><br>
-                                        <input type="text" name="output-produk" id="output" class="form-control required" value="" placeholder="format file">
+                                        <input type="text" name="output" id="output" class="form-control required" value="" placeholder="format file">
                                     </div>
                                     <div class="col-12 form-group">
                                         <label for="standart-pattern-produk">Standart Pattern</label>
-                                        <textarea class="form-control required" id="pattern" name="standart-pattern-produk" rows="3" placeholder="standart pattern yang diinginkan"></textarea>
+                                        <textarea class="form-control required" id="pattern" name="pattern" rows="3" placeholder="standart pattern yang diinginkan"></textarea>
                                     </div>
                                     <div class="col-12 hidden">
                                         <input type="text" id="event-registration-botcheck" name="event-registration-botcheck" value="" />
@@ -156,7 +159,7 @@
                     </div>
                 </div>
             </div>
-        
+
         </div>
     </div>
 </div>

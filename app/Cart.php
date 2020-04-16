@@ -22,7 +22,8 @@ class Cart extends Model
         'output',
         'tone',
         'brief',
-        'status'
+        'status',
+        'link'
 
     ];
         public function user()

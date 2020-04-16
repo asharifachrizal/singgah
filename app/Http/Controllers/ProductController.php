@@ -19,10 +19,10 @@ class ProductController extends BaseController
 
     }
 
-    public function order()
+    public function order($id)
     {
-        // $product = Product::where('category_id', '=', $id)->get();
-        return view('pages.product.order');
+        $product = Product::where('id', '=', $id)->first();
+        return view('pages.product.myOrder', compact('product'));
     }
 
     public function selectCategory()
@@ -32,8 +32,11 @@ class ProductController extends BaseController
 
     public function selectProduct($slug, $id)
     {
+        $product = Product::where('category_id', '=', $id)->first();
+        // dd($product->category_id);
         $products = Product::where('category_id', '=', $id)->get();
-        return view('pages.product.selectProduct', compact('products'));
+        // dd($products->category->id);
+        return view('pages.product.selectCategory', compact('products', 'product'));
     }
 
     public function detailProduct($category_id)

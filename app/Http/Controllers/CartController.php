@@ -64,7 +64,7 @@ class CartController extends BaseController
             // $product = Product::where('slug', $slug)->first();
             $data = [
                 'user_id'       => Sentinel::getUser()->id,
-                'product_id'    => 2,
+                'product_id'    => $request->product_id,
                 'product_name'    => $request->namaproduk,
                 'quantity'      => $request->quantity,
                 'orientation'   => $request->orientation,
@@ -117,7 +117,9 @@ class CartController extends BaseController
             $data = [
                 'status'         => 1,
                 'no_order'        => date("Ymdhis"),
+                'link'         => $request->brief
             ];
+            // dd($data);
 
             $carts->update($data);
         }
