@@ -42,13 +42,13 @@ Route::get('/kategori', 'CategoryController@index')->name('category');
 Route::get('/kategori/{slug}', 'CategoryController@detail')->name('category.detail');
 
 // route baru for 
-Route::view('/product/select-category', 'pages.product.selectCategory')->name('forSelectCategory');
+Route::view('/product/select-product', 'pages.product.selectCategory')->name('forSelectCategory');
 Route::view('/product/my-order', 'pages.product.myOrder')->name('forMyOrder');
 
 Route::get('/product', 'ProductController@index')->name('product');
 Route::get('/product/category', 'ProductController@selectCategory')->name('selectCategory');
 Route::get('/product/order', 'ProductController@order')->name('productOrder');
-Route::get('/product/select-product/{slug}/{category_id}', 'ProductController@selectProduct')->name('product.select');
+// Route::get('/product/select-product/{slug}/{category_id}', 'ProductController@selectProduct')->name('product.select');
 Route::get('/product/detail', 'ProductController@detailProduct')->name('product.detail');
 
 Route::group(['middleware' => 'visitor'], function() {
