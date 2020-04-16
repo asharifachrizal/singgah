@@ -9,9 +9,9 @@
             <li class="breadcrumb-item"><a href="javascript:void(0)">Order</a></li>
             <li class="breadcrumb-item active">List</li>
         </ol>
-    </div>   
+    </div>
 </div>
-<!-- End Bread crumb and right sidebar toggle -->  
+<!-- End Bread crumb and right sidebar toggle -->
 
 <div class="card">
     <div class="card-body">
@@ -22,34 +22,31 @@
                 <thead>
                     <tr>
                         <th>Order Id</th>
-                        <th>Customer Name</th>                        
+                        <th>Customer Name</th>
                         <th>Entry Date</th>
                         <th>Status</th>
                         <th>Actions</th>
-                                                
+
                     </tr>
                 </thead>
                 <tbody>
-                @foreach ($orders as $order)                    
+                @foreach ($orders as $order)
                     <tr>
-                        <td>{{ $order->id }}</td>
-                        <td>Nama</td>                        
-                        <td>{{ $order->created_at->toDateString() }}</td>                        
+                        <td>{{ $order->no_order }}</td>
+                        <td>{{ $order->user->full_name}}</td>
+                        <td>{{ $order->created_at->toDateString() }}</td>
                         @if ($order->status == 0)
                             <td><span class="label label-warning">Request Invoice</span> </td>
-                            <td>
-                                <a href="{{ route('cms.order.detail')}}" data-toggle="tooltip" data-original-title="Open Detail"> <i class="fa fa-eye"></i> </a>                                
-                            </td>
                         @elseif ($order->status == 1)
-                            <td><span class="label label-info">Invoice Received</span> </td>            
-                            <td>                                
-                                <a href="{{ route('cms.order.detail')}}" data-toggle="tooltip" data-original-title="Open Detail"> <i class="fa fa-eye"></i> </a>
-                            </td>                        
+                            <td><span class="label label-info">Invoice Received</span> </td>
                         @endif
-                                                                        
+                        <td>
+                            <a href="{{ route('cms.order.detail', $order->no_order)}}" data-toggle="tooltip" data-original-title="Open Detail"> <i class="fa fa-eye"></i> </a>
+                        </td>
+
                     </tr>
                 @endforeach
-                    
+
                 </tbody>
             </table>
         </div>

@@ -4,21 +4,25 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Order;
+use App\Cart;
 
 class OrderController extends Controller
 {
     //
     public function index()
     {
-        $orders = Order::all();
+        $tempcarts = Cart::where('status', '=', 1);
+        $orders = $tempcarts->orderBy('created_at', 'ASC')->get()->unique('no_order');
         // dd($orders);
         return view('pages.cms.order-list', compact('orders'));
     }
 
 
-    public function orderDetail()
+    public function orderDetail($no_order)
     {
-        return view('pages.cms.order-detail');
+        $orders = Cart::where('no_order', '=', $no_order)->get();
+        // dd($orders);
+        return view('pages.cms.order-detail', compact('orders'));
     }
 
 

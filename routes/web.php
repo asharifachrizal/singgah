@@ -25,7 +25,7 @@ Route::group(['middleware' => 'admin'], function() {
     Route::view('/cms', 'pages.cms.dashboard')->name('cms.dashboard');
     Route::get('/cms/customer', 'UserController@indexCustomer')->name('cms.customer');
     Route::get('/cms/order', 'OrderController@index')->name('cms.order');
-    Route::view('/cms/order/detail', 'pages.cms.order-detail')->name('cms.order.detail');
+    Route::get('/cms/order/detail/{no_order}', 'OrderController@orderDetail')->name('cms.order.detail');
     Route::view('/cms/order/invoice', 'pages.cms.invoice')->name('cms.invoice');
 
 });
@@ -38,17 +38,17 @@ Route::group(['middleware' => 'guest'], function() {
     Route::view('/profile', 'pages.profile')->name('profile');
 });
 
-Route::get('/kategori', 'CategoryController@index')->name('category');
-Route::get('/kategori/{slug}', 'CategoryController@detail')->name('category.detail');
+// Route::get('/kategori', 'CategoryController@index')->name('category');
+// Route::get('/kategori/{slug}', 'CategoryController@detail')->name('category.detail');
 
-// route baru for 
+// route baru for
 Route::view('/product/select-category', 'pages.product.selectCategory')->name('forSelectCategory');
 Route::view('/product/my-order', 'pages.product.myOrder')->name('forMyOrder');
 
 Route::get('/product', 'ProductController@index')->name('product');
 Route::get('/product/category', 'ProductController@selectCategory')->name('selectCategory');
 Route::get('/product/order', 'ProductController@order')->name('productOrder');
-Route::get('/product/select-product/{slug}/{category_id}', 'ProductController@selectProduct')->name('product.select');
+Route::get('/product/select-product/{slug}/{id}', 'ProductController@selectProduct')->name('product.select');
 Route::get('/product/detail', 'ProductController@detailProduct')->name('product.detail');
 
 Route::group(['middleware' => 'visitor'], function() {
@@ -56,9 +56,9 @@ Route::group(['middleware' => 'visitor'], function() {
 
     Route::get('/cart', 'CartController@cartClient')->name('cartUser');
     Route::get('/keranjang', 'CartController@index')->name('cart');
-    Route::get('/keranjang/pembayaran', 'CartController@checkout')->name('cart.checkout');
-    Route::post('/keranjang/tambah', 'CartController@additem')->name('cart.additem');
-    Route::get('/produk/order', 'ProductController@order')->name('productOrder');
+    Route::get('/cart/checkout', 'CartController@checkout')->name('cart.checkout');
+    Route::post('/cart/add', 'CartController@additem')->name('cart.additem');
+    // Route::get('/product/order', 'ProductController@order')->name('productOrder');
     // Route::get('/pengaturan', 'UserController@setting')->name('user.setting');
     Route::get('/profile', 'UserController@profile')->name('profile');
     Route::post('/profile/{id}', 'UserController@registerUpdate')->name('registerUpdate');

@@ -8,13 +8,14 @@
             <li class="breadcrumb-item"><a href="javascript:void(0)">Order</a></li>
             <li class="breadcrumb-item active">Detail</li>
         </ol>
-    </div>   
+    </div>
 </div>
-<!-- End Bread crumb and right sidebar toggle -->  
-                
+<!-- End Bread crumb and right sidebar toggle -->
+
 <!-- ============================================================== -->
 <!-- Start Page Content -->
 <!-- ============================================================== -->
+@foreach ($orders as $row)
 <div class="card">
     <div class="card-header">
         Brosur
@@ -26,19 +27,19 @@
     </div>
     <div class="card-body collapse">
         <h4 class="card-title">Special title treatment</h4>
-        
+
         <div class="row">
             <div class="col-md-6 ">
                 <div class="form-group">
                     <label>Deadline</label>
-                    <input type="date" class="form-control" disabled>
+                    <input type="text" class="form-control" disabled value="{{$row->deadline}}">
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Quantity</label>
-                    <input type="number" class="form-control" value="1" disabled>
-                </div>               
+                    <input type="number" class="form-control" value="1" disabled value="{{$row->quantity}}">
+                </div>
             </div>
         </div>
         <!--/row-->
@@ -46,19 +47,19 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Size/Ration</label>
-                    <input type="text" class="form-control" value="1" disabled>
-                </div>               
+                    <input type="text" class="form-control" value="1" disabled value="{{$row->size}}">
+                </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Orientation</label>
-                    <input type="text" class="form-control" disabled>
-                </div>  
+                    <input type="text" class="form-control" disabled value="{{$row->orientation}}">
+                </div>
             </div>
         </div>
         <!--/row-->
         <div class="row">
-            
+
             <div class="col-md-6">
                 <div class="form-group">
                 <div class="card">
@@ -72,7 +73,7 @@
                         <!-- <h4 class="card-title">Special title treatment</h4> -->
                         <p class="card-text">#FFFFFF</p>
                         <p class="card-text">#FFFFFF</p>
-                        <p class="card-text">#FFFFFF</p>                        
+                        <p class="card-text">#FFFFFF</p>
                     </div>
                 </div>
                 </div>
@@ -90,16 +91,16 @@
                         <p class="card-text">#FFFFFF</p>
                         <p class="card-text">#FFFFFF</p>
                         <p class="card-text">#FFFFFF</p>
-                                         
+
                     </div>
                 </div>
                 </div>
             </div>
-            
+
         </div>
 
         <div class="row">
-            
+
             <div class="col-md-6">
                 <div class="form-group">
                 <div class="card">
@@ -111,7 +112,7 @@
                     </div>
                     <div class="card-body collapse">
                         <!-- <h4 class="card-title">Special title treatment</h4> -->
-                        <p class="card-text">Arial</p>                        
+                        <p class="card-text">Arial</p>
                     </div>
                 </div>
                 </div>
@@ -126,16 +127,16 @@
                         </div>
                     </div>
                     <div class="card-body collapse">
-                        <p class="card-text">Anak Muda</p>                        
-                                         
+                        <p class="card-text">Anak Muda</p>
+
                     </div>
                 </div>
                 </div>
             </div>
-            
+
         </div>
-        
-        <div class="row">            
+
+        <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
                 <div class="card">
@@ -147,7 +148,7 @@
                     </div>
                     <div class="card-body collapse">
                         <!-- <h4 class="card-title">Special title treatment</h4> -->
-                        <p class="card-text">JPEG, PNG</p>                        
+                        <p class="card-text">JPEG, PNG</p>
                     </div>
                 </div>
                 </div>
@@ -163,60 +164,60 @@
                     </div>
                     <div class="card-body collapse">
                         <p class="card-text">BUMN</p>
-                        <p class="card-text">Poster Game</p>                        
-                                         
+                        <p class="card-text">Poster Game</p>
+
                     </div>
                 </div>
                 </div>
             </div>
         </div>
-        
+
         <!--/row-->
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
                     <label>Price</label>
                     <input type="number" class="form-control" value="1" name="price">
-                </div>               
-            </div>            
+                </div>
+            </div>
         </div>
         <!--/row-->
 
-        
+
 
     </div>
 
-    
+
 
 </div>
-
+@endforeach
 <div class="card">
-    
-    <div class="card-body">        
+
+    <div class="card-body">
         <div class="row">
             <div class="col-md-12 ">
                 <div class="form-group">
                     <label>Brief From Client</label>
                     <input type="text" class="form-control" disabled>
                 </div>
-            </div>            
+            </div>
         </div>
         <!--/row-->
-        <div class="row">            
+        <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
                     <label>Output File</label>
                     <input type="text" class="form-control">
-                </div>  
+                </div>
             </div>
         </div>
         <!--/row-->
 
         <button onclick="window.location.href = #" type="button" class="btn waves-effect waves-light btn-info">Save</button>
- 
+
     </div>
 
-    
+
 
 </div>
 
@@ -235,4 +236,3 @@
 
 
 
-        
