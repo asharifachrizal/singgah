@@ -108,15 +108,22 @@ class CartController extends BaseController
     public function addOrder(Request $request, $id)
     {
         $faker = Faker::create();
+        // dd($request->id_cart);
+        // $carts = Cart::where('user_id', '=', $id);
+        $arrayFile = $request->id_cart;
 
-        $carts = Cart::where('user_id', '=', $id);
-        $data = [
-            'status'         => 1,
-            'no_order'        => $faker->unixTime($max = 'now'),
-        ];
+        foreach ($arrayFile as $row){
+            $carts = Cart::where('id', '=', $row);
+            $data = [
+                'status'         => 1,
+                'no_order'        => date("Ymdhis"),
+            ];
+
+            $carts->update($data);
+        }
+
+
         // dd($data);
-
-        $carts->update($data);
 
         return redirect()->route('profile');
 
