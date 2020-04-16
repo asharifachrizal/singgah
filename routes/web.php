@@ -16,9 +16,6 @@ Route::view('/', 'pages.home')->name('home');
 Route::view('/faq', 'pages.faq')->name('faq');
 Route::view('/about-us', 'pages.about-us')->name('aboutUs');
 
-Route::view('/order/detail/invoice', 'pages.cart.order-invoice')->name('order.detail.invoice');
-
-
 Route::group(['middleware' => 'admin'], function() {
     Route::view('/cms/login', 'pages.cms.admin-login')->name('cms.login');
     Route::view('/cms', 'pages.cms.dashboard')->name('cms.dashboard');
@@ -45,8 +42,7 @@ Route::group(['middleware' => 'visitor'], function() {
     Route::get('/keranjang', 'CartController@index')->name('cart');
     Route::get('/keranjang/pembayaran', 'CartController@checkout')->name('cart.checkout');
     Route::post('/keranjang/tambah', 'CartController@additem')->name('cart.additem');
-    Route::get('/produk/order', 'ProductController@order')->name('productOrder');
-    // Route::get('/pengaturan', 'UserController@setting')->name('user.setting');
+    Route::get('/produk/order', 'ProductController@order')->name('productOrder');    
     Route::get('/profile', 'UserController@profile')->name('profile');
     Route::post('/profile/{id}', 'UserController@registerUpdate')->name('registerUpdate');
     Route::post('/order/{id}', 'CartController@addOrder')->name('tambahOrder');
