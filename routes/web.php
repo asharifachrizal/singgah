@@ -41,12 +41,15 @@ Route::group(['middleware' => 'guest'], function() {
 Route::get('/kategori', 'CategoryController@index')->name('category');
 Route::get('/kategori/{slug}', 'CategoryController@detail')->name('category.detail');
 
-Route::get('/produk', 'ProductController@index')->name('product');
-Route::get('/produk/category', 'ProductController@selectCategory')->name('selectCategory');
-Route::get('/produk/order', 'ProductController@order')->name('productOrder');
-Route::get('/produk/select-product/{slug}/{category_id}', 'ProductController@selectProduct')->name('product.select');
-Route::get('/produk/detail', 'ProductController@detailProduct')->name('product.detail');
+// route baru for 
+Route::view('/product/select-category', 'pages.product.selectCategory')->name('forSelectCategory');
+Route::view('/product/my-order', 'pages.product.myOrder')->name('forMyOrder');
 
+Route::get('/product', 'ProductController@index')->name('product');
+Route::get('/product/category', 'ProductController@selectCategory')->name('selectCategory');
+Route::get('/product/order', 'ProductController@order')->name('productOrder');
+Route::get('/product/select-product/{slug}/{category_id}', 'ProductController@selectProduct')->name('product.select');
+Route::get('/product/detail', 'ProductController@detailProduct')->name('product.detail');
 
 Route::group(['middleware' => 'visitor'], function() {
     Route::post('/logout', 'UserController@postLogout')->name('postLogout');
