@@ -35,10 +35,10 @@
                             <div class="flexslider">
                                 <div class="slider-wrap" data-lightbox="gallery">
                                     <div class="slide" data-thumb="{{ asset('canvas/images/shop/thumbs/dress/3.jpg') }}"><a href="{{ asset('canvas/images/shop/dress/3.jpg') }}" title="Pink Printed Dress - Front View" data-lightbox="gallery-item"><img src="{{ asset('canvas/images/shop/dress/3.jpg') }}" alt="Pink Printed Dress"></a></div>
-                                    <div class="slide" data-thumb="{{ asset('canvas/images/shop/thumbs/dress/3-1.jpg') }}"><a href="{{ asset('canvas/images/shop/dress/3-1.jpg') }}" title="Pink Printed Dress - Side View" data-lightbox="gallery-item"><img src="{{ asset('canvas/images/shop/dress/3-1.jpg') }}" alt="Pink Printed Dress"></a></div>
-                                    <div class="slide" data-thumb="{{ asset('canvas/images/shop/thumbs/dress/3-2.jpg') }}"><a href="{{ asset('canvas/images/shop/dress/3-2.jpg') }}" title="Pink Printed Dress - Back View" data-lightbox="gallery-item"><img src="{{ asset('canvas/images/shop/dress/3-2.jpg') }}" alt="Pink Printed Dress"></a></div>
+                                    {{-- <div class="slide" data-thumb="{{ asset('canvas/images/shop/thumbs/dress/3-1.jpg') }}"><a href="{{ asset('canvas/images/shop/dress/3-1.jpg') }}" title="Pink Printed Dress - Side View" data-lightbox="gallery-item"><img src="{{ asset('canvas/images/shop/dress/3-1.jpg') }}" alt="Pink Printed Dress"></a></div>
+                                    <div class="slide" data-thumb="{{ asset('canvas/images/shop/thumbs/dress/3-2.jpg') }}"><a href="{{ asset('canvas/images/shop/dress/3-2.jpg') }}" title="Pink Printed Dress - Back View" data-lightbox="gallery-item"><img src="{{ asset('canvas/images/shop/dress/3-2.jpg') }}" alt="Pink Printed Dress"></a></div> --}}
                                 </div>
-                            </div>') }}
+                            </div>
                         </div>
                         <div class="sale-flash">Sale!</div>
                     </div><!-- Product Single - Gallery End -->
