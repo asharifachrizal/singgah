@@ -9,9 +9,9 @@
             <li class="breadcrumb-item"><a href="javascript:void(0)">Customer</a></li>
             <li class="breadcrumb-item active">List</li>
         </ol>
-    </div>   
+    </div>
 </div>
-<!-- End Bread crumb and right sidebar toggle -->  
+<!-- End Bread crumb and right sidebar toggle -->
 
 <div class="card">
     <div class="card-body">
@@ -21,20 +21,21 @@
             <table id="myTable" class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                        <th>Name</th>                        
+                        <th>Name</th>
                         <th>Order Amount</th>
                         <th>Invoice Revenue</th>
-                                                
+
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($users as $row)
                     <tr>
-                        <td>Januar</td>
-                        <td>2</td>
+                        <td>{{$row->full_name}}</td>
+                        <td>{{$row->cart->count()}}</td>
                         <td>Rp. 2.500.000</td>
-                        
+
                     </tr>
-                    
+                    @endforeach
                 </tbody>
             </table>
         </div>

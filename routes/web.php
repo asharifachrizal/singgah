@@ -19,7 +19,7 @@ Route::view('/about-us', 'pages.about-us')->name('aboutUs');
 Route::group(['middleware' => 'admin'], function() {
     Route::view('/cms/login', 'pages.cms.admin-login')->name('cms.login');
     Route::view('/cms', 'pages.cms.dashboard')->name('cms.dashboard');
-    Route::get('/cms/customer', 'UserController@indexCustomer')->name('cms.customer');
+    Route::get('/cms/customer', 'CMSController@customer')->name('cms.customer');
     Route::get('/cms/order', 'OrderController@index')->name('cms.order');
     Route::get('/cms/order/detail/{no_order}', 'OrderController@orderDetail')->name('cms.order.detail');
     Route::view('/cms/order/invoice', 'pages.cms.invoice')->name('cms.invoice');
