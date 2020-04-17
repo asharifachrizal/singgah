@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\MessageBag;
+use App\Exceptions\User\WrongCredentialException;
+use Cartalyst\Sentinel\Checkpoints\ThrottlingException;
 use Sentinel;
 use Validator;
 use App\User;

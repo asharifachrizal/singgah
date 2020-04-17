@@ -28,6 +28,13 @@
             <div class="acctitle"><i class="acc-closed icon-lock3"></i><i class="acc-open icon-unlock"></i>Login to your Account</div>
             <div class="acc_content clearfix">
                 <form class="nobottommargin" id="loginform" method="POST" action="{{ route('postLogin') }}">
+                    @if(session('error'))
+                        <div class="form-group m-t-30">
+                            <div class="col-xs-12">
+                                <div class="alert alert-danger"> {{ session()->get('error') }} </div>
+                            </div>
+                        </div>
+                    @endif
                     <div class="col_full">
                         <label for="login-form-username">Email:</label>
                         <input type="text" id="login-form-username" name="email" value="" class="form-control" />
@@ -52,7 +59,7 @@
                         <label for="register-form-name">Email:</label>
                         <input type="text" id="register-form-name" name="email" value="" class="form-control" />
                     </div>
-                    
+
                     <div class="col_full">
                         <label for="register-form-password">Choose Password:</label>
                         <input type="password" id="register-form-password" name="password" value="" class="form-control" />
