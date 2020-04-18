@@ -17,9 +17,11 @@ class CreateInvoicesTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->integer('cart_id')->unsigned();
-            $table->text('briefURL');
-            $table->text('outputURL');
-            $table->string('status');
+            $table->integer('price')->nullable();
+            $table->text('briefURL')->nullable();
+            $table->text('outputURL')->nullable();
+            $table->string('no_order')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

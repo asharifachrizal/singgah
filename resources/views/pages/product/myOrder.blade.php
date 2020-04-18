@@ -57,71 +57,61 @@
                                     <input type="hidden" name="product_id" value="{{ $product->id }}">
                                     <input type="hidden" name="namaproduk" value="{{ $product->value }}">
                                     <div class="form-process"></div>
-                                    {{-- gua gk paham if nya ini gua buatin daftar if nya --}}
-                                    {{-- Untuk produk berikut, tab jenis produk di hidden saja
-
-                                        DESAIN PRODUKSI:
-                                        booklet
-                                        brosur
-                                        roll-banner/x-banner
-                                        kartu nama
-                                        sampul dokumen
-                                        presentasi
-                                        iklan koran
-
-                                        DESAIN NON-PRODUKSI:
-                                        infografis
-                                        konten promosi
-                                        konten broadcast
-
-                                        VIDEO:
-                                        editing offline
-                                        motion graphic
-                                        animation
-
-                                         --}}
                                     <div class="col-12 form-group">
                                         <label for="jenis-produk">Jenis Produk:</label>
                                         <select class="form-control required" name="orientation" id="jenis-produk">
                                                 {{-- opsi untuk desain produksi:poster --}}
+                                                @if ($product->id == 3)
                                                 <option value="landscape">Landscape</option>
                                                 <option value="potrait">Potrait</option>
-
+                                                @elseif ($product->id == 5)
+                                                {{-- opsi untuk desain produksi:banner/baliho --}}
+                                                <option value="horizontal">Horizontal/Spanduk</option>
+                                                <option value="vertikal">Vertikal/Rontek</option>
+                                                @elseif ($product->id == 6)
                                                 {{-- opsi untuk desain produksi:banner/baliho --}}
                                                 <option value="horizontal">Horizontal</option>
                                                 <option value="vertikal">Vertikal</option>
-
+                                                @elseif ($product->id == 11)
                                                 {{-- opsi untuk desain non-produksi:konten IG --}}
                                                 <option value="feeds">Feeds</option>
                                                 <option value="ig-story">IG Story</option>
-
+                                                @elseif ($product->id == 16)
                                                 {{-- opsi untuk desain video:bumper --}}
                                                 <option value="short-bumper">Short Bumper (max. 15 secs)</option>
                                                 <option value="long-bumper">Long Bumper ( > 15 secs)</option>
+                                                @else
+                                                <option value="-" >{{$product->value}}</option>
+                                                @endif
                                         </select>
                                     </div>
                                     <div class="col-6 form-group">
                                         <label for="kuatiti-produk">Kuantiti:</label><br>
                                         <input type="number" name="quantity" id="quantity" class="form-control required" value="" placeholder="minimal 1" min="1">
                                     </div>
+                                    @if ($product->category->id == 3)
+                                    <div class="col-6 form-group">
+                                        <label for="ukuran-rasio-produk">Duration</label><br>
+                                        <input type="text" name="duration" id="duration" class="form-control required" value="" placeholder="ukuran produk">
+                                    </div>
+                                    @else
                                     <div class="col-6 form-group">
                                         <label for="ukuran-rasio-produk">Ukuran/rasio:</label><br>
                                         <input type="text" name="size" id="size" class="form-control required" value="" placeholder="ukuran produk">
                                     </div>
+
+                                    @endif
                                     <div class="col-12 form-group">
                                         <label for="tone-produk">Tone</label>
                                         <textarea class="form-control required" id="tone-produk" name="tone" rows="3" placeholder="warna, font-style, color grading"></textarea>
                                     </div>
-
-                                    {{-- Untuk produk berikut, tab design style di hidden saja
-
-                                        SEMUA JENIS VIDEO
-
-                                        --}}
+                                    @if ($product->category->id == 3)
+                                    @else
                                     <div class="col-12 form-group">
                                         <label for="design-style-produk">Design Style</label>
                                         <textarea class="form-control required" id="style" name="style" rows="3" placeholder="contoh: simple, elegant, animation, etc."></textarea>
                                     </div>
+                                    @endif
                                     <div class="col-12 form-group">
                                         <label for="target-audience-produk">Target Audience:</label><br>
                                         <input type="text" name="target_audience" id="target_audience" class="form-control required" value="" placeholder="anak-anak-dewasa / 4-6">

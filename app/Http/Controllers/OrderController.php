@@ -21,8 +21,9 @@ class OrderController extends Controller
     public function orderDetail($no_order)
     {
         $orders = Cart::where('no_order', '=', $no_order)->get();
+        $order = Cart::where('no_order', '=', $no_order)->first();
         // dd($orders);
-        return view('pages.cms.order-detail', compact('orders'));
+        return view('pages.cms.order-detail', compact('orders', 'order'));
     }
 
 

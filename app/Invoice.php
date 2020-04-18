@@ -7,8 +7,22 @@ use Illuminate\Database\Eloquent\Model;
 class Invoice extends Model
 {
     //
+    protected $fillable = [
+        'user_id',
+        'cart_id',
+        'status',
+        'no_order',
+        'briefURL',
+        'price'
+
+    ];
     public function user()
 	{
 		return $this->belongsTo('App\User');
+    }
+
+    public function cart()
+	{
+		return $this->belongsTo('App\Cart');
     }
 }

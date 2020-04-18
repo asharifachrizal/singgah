@@ -8,15 +8,15 @@
             <li class="breadcrumb-item"><a href="javascript:void(0)">Order</a></li>
             <li class="breadcrumb-item active">Detail</li>
         </ol>
-    </div>   
+    </div>
 </div>
-<!-- End Bread crumb and right sidebar toggle -->  
+<!-- End Bread crumb and right sidebar toggle -->
 
 <!-- Start Invoice Content -->
 <div class="row">
     <div class="col-md-12">
         <div class="card card-body printableArea">
-            <h3><b>INVOICE</b> <span class="pull-right">#5669626</span></h3>
+            <h3><b>INVOICE</b> <span class="pull-right">#{{$invoice->no_order}}</span></h3>
             <hr>
             <div class="row">
                 <div class="col-md-12">
@@ -32,12 +32,12 @@
                     <div class="pull-right text-right">
                         <address>
                             <h3>To,</h3>
-                            <h4 class="font-bold">Customer,</h4>
-                            <p class="text-muted m-l-30">customer@email.com,
-                                <br/> address,
-                                <br/> city,
-                                <br/> +62 123465798</p>
-                            <p class="m-t-30"><b>Invoice Date :</b> <i class="fa fa-calendar"></i> 23rd Jan 2017</p>
+                            <h4 class="font-bold">{{$invoice->cart->user->full_name}},</h4>
+                            <p class="text-muted m-l-30">{{$invoice->cart->user->email}},
+                                <br/> {{$invoice->cart->user->address}},
+                                <br/> {{$invoice->cart->user->city}},
+                                <br/> {{$invoice->cart->user->phone_number}}</p>
+                            <p class="m-t-30"><b>Invoice Date :</b> <i class="fa fa-calendar"></i> {{date("d F Y")}}</p>
                             <p><b>Due Date :</b> <i class="fa fa-calendar"></i> 25th Jan 2017</p>
                         </address>
                     </div>
@@ -55,14 +55,19 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($invoices as $key=>$row)
                                 <tr>
-                                    <td class="text-center">1</td>
-                                    <td>Milk Powder</td>
-                                    <td class="text-right">2 </td>
-                                    <td class="text-right"> $24 </td>
-                                    <td class="text-right"> $48 </td>
+                                    <td class="text-center">{{$key+1}}</td>
+                                    <td>{{$row->cart->product_name}}</td>
+                                    <td class="text-right">{{$row->cart->quantity}}</td>
+                                    <td class="text-right">{{$row->price}}</td>
+                                    <td class="text-right">
+                                        {{
+                                           
+                                        }}
+                                    </td>
                                 </tr>
-                                
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -94,4 +99,3 @@
 
 
 
-        

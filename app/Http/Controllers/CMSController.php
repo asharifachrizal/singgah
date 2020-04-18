@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Sentinel;
 use App\User;
+use App\Invoice;
 
 class CMSController extends BaseController
 {
@@ -37,9 +38,9 @@ class CMSController extends BaseController
 
     public function invoice($no_order)
     {
-        $cart = Cart::where('no_order');
-        return view('pages.cms.transaction');
+        $invoice = Cart::where('no_order', '=', $no_order)->get();
+        return view('pages.cms.transaction', compact('invoice'));
     }
 
-
+    
 }
