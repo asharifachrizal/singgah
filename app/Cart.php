@@ -26,7 +26,8 @@ class Cart extends Model
         'link'
 
     ];
-        public function user()
+
+    public function user()
 	{
 		return $this->belongsTo('App\User');
     }
@@ -34,5 +35,10 @@ class Cart extends Model
     public function product()
     {
         return $this->belongsTo('App\Product');
+    }
+
+    public function invoice()
+    {
+        return $this->hasMany('App\Invoice');
     }
 }
