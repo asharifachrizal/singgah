@@ -19,7 +19,7 @@
 
 	<link rel="stylesheet" href="{{ asset('canvas/css/responsive.css') }}" type="text/css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    
+    <link rel="shortcut icon" href="{{ asset('singgah/logos/logo-1.png') }}" type="image/x-icon">
     @yield('styles')
 
 	<!-- Document Title

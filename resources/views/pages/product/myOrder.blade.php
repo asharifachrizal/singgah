@@ -34,13 +34,11 @@
                         <div class="fslider" data-pagi="false" data-arrows="false" data-thumbs="true">
                             <div class="flexslider">
                                 <div class="slider-wrap" data-lightbox="gallery">
-                                    <div class="slide" data-thumb="{{ asset('canvas/images/shop/thumbs/dress/3.jpg') }}"><a href="{{ asset('canvas/images/shop/dress/3.jpg') }}" title="Pink Printed Dress - Front View" data-lightbox="gallery-item"><img src="{{ asset('canvas/images/shop/dress/3.jpg') }}" alt="Pink Printed Dress"></a></div>
-                                    {{-- <div class="slide" data-thumb="{{ asset('canvas/images/shop/thumbs/dress/3-1.jpg') }}"><a href="{{ asset('canvas/images/shop/dress/3-1.jpg') }}" title="Pink Printed Dress - Side View" data-lightbox="gallery-item"><img src="{{ asset('canvas/images/shop/dress/3-1.jpg') }}" alt="Pink Printed Dress"></a></div>
-                                    <div class="slide" data-thumb="{{ asset('canvas/images/shop/thumbs/dress/3-2.jpg') }}"><a href="{{ asset('canvas/images/shop/dress/3-2.jpg') }}" title="Pink Printed Dress - Back View" data-lightbox="gallery-item"><img src="{{ asset('canvas/images/shop/dress/3-2.jpg') }}" alt="Pink Printed Dress"></a></div> --}}
+                                    <div class="slide" ><img src="{{ asset('singgah/products/product-1.jpg') }}" alt="Pink Printed Dress"></div>                                    
                                 </div>
                             </div>
                         </div>
-                        <div class="sale-flash">Sale!</div>
+                        <!-- <div class="sale-flash">Sale!</div> -->
                     </div><!-- Product Single - Gallery End -->
 
                 </div>
@@ -59,7 +57,7 @@
                                     <div class="form-process"></div>
                                     <div class="col-12 form-group">
                                         <label for="jenis-produk">Jenis Produk:</label>
-                                        <select class="form-control required" name="orientation" id="jenis-produk">
+                                        <select disabled class="form-control required" name="orientation" id="jenis-produk">
                                                 {{-- opsi untuk desain produksi:poster --}}
                                                 @if ($product->id == 3)
                                                 <option value="landscape">Landscape</option>
