@@ -64,6 +64,9 @@ class UserTableSeeder extends Seeder
 			'email' => 'januarelsan@mailinator.com',
             'password' => 'qwerty123',
             'full_name' => 'Januar Elsan',
+            'address' => 'Kemang',
+            'city' => 'Jakarta',
+            'phone_number' => '1234567890',
 		];
 
         $user = Sentinel::registerAndActivate($credentials);

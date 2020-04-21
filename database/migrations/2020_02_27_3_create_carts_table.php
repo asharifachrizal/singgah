@@ -19,30 +19,26 @@ class CreateCartsTable extends Migration
 
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->integer('product_id')->unsigned();
-            $table->string('product_name')->nullable();
+            $table->integer('invoice_id')->nullable();
+            $table->integer('product_id')->unsigned();            
             $table->integer('quantity')->nullable();
             $table->string('orientation')->nullable();
             $table->string('size')->nullable();
-            $table->integer('duration')->nullable();
+            $table->string('duration')->nullable();
             $table->text('target_audience')->nullable();
             $table->string('style')->nullable();
             $table->string('color')->nullable();
-            $table->string('color_grading')->nullable();
-            $table->string('design_style')->nullable();
+            $table->string('color_grading')->nullable();            
             $table->string('font')->nullable();
             $table->string('output')->nullable();
             $table->text('deadline')->nullable();
             $table->integer('status')->nullable();
-            $table->string('brief')->nullable();                        
-
+            $table->string('brief_url')->nullable();                        
+            $table->string('price')->nullable(); 
             $table->timestamps();
 
-            $table->foreign('user_id', 'product_id')->references('id','id')->on('users', 'products');
-
-            // $table->foreign('product_id')
-            //         ->references('id')->on('products')
-            //         ->onDelete('cascade');
+            $table->foreign('user_id','invoice_id', 'product_id')->references('id','id','id')->on('users','invoices', 'products');
+            
         });
     }
 

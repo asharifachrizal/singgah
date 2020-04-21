@@ -7,6 +7,7 @@ use Sentinel;
 use App\Cart;
 use App\Product;
 use App\Category;
+use App\Invoice;
 
 use Faker\Factory as Faker;
 
@@ -25,6 +26,13 @@ class CartController extends BaseController
         return view('pages.cart.index', compact('carts'));
     }
 
+    public function cartList()
+    {
+        $tempcarts = Cart::where('user_id', Sentinel::getUser()->id);
+        $carts = $tempcarts->where('status', '=', 0)->get();
+        return response()->json(compact('carts'));
+    }
+
     public function checkout()
     {
         $carts = Cart::where('user_id', Sentinel::getUser()->id)->get();
@@ -35,99 +43,92 @@ class CartController extends BaseController
         return view('pages.cart.checkout', compact('carts', 'totalCart'));
     }
 
-    public function myOrder($id)
+    public function myOrder()
     {
-
-        // $carts = Cart::where('user_id', '=', $id)->get();
-        $tempcarts = Cart::where('status', '=', 1)->where('user_id', '=', $id);
-        $carts = $tempcarts->orderBy('created_at', 'ASC')->get()->unique('no_order');
-        // $carts = $cart->groupBy('no_order')->get();
-        // dd($carts);
-        // $totalCart = 0;
-        // foreach($carts as $row){
-        //     $totalCart += $row->product->price;
-        // }
-        return view('pages.order.list', compact('carts'));
+        
+        // $invoices = Invoice::where('user_id', '=', Sentinel::getUser()->id);    
+        $invoices = Invoice::where('user_id', '=', Sentinel::getUser()->id)->get();    
+        // dd($invoices);
+        return view('pages.order.list', compact('invoices'));
     }
 
-    public function detailOrder($no_order)
+    public function detailOrder($invoice_id)
     {
-        $order = Cart::where('no_order', '=', $no_order)->get();
+        $orders = Cart::where('invoice_id', '=', $invoice_id)->get();
 
-        return view('pages.order.detail', compact('order'));
+        return view('pages.order.detail', compact('orders'));
     }
 
     public function additem(Request $request)
-    {
-        dd($request);
-        return response()->json(['success'=>'Got Simple Ajax Request.']);
-        // if(Sentinel::check()) {
-        //     // $product = Product::where('slug', $slug)->first();
-        //     $data = [
-        //         'user_id'       => Sentinel::getUser()->id,
-        //         'product_id'    => $request->product_id,
-        //         'product_name'    => $request->namaproduk,
-        //         'quantity'      => $request->quantity,
-        //         'orientation'   => $request->orientation,
-        //         'size'          => $request->size,
-        //         'duration'      => $request->duration,
-        //         'target_audience'   => $request->target_audience,
-        //         'deadline'      => $request->deadline,
-        //         'pattern'      => $request->pattern,
-        //         'style'      => $request->style,
-        //         'output'      => $request->output,
-        //         'tone'      => $request->tone,
-        //         'brief'      => $request->brief,
-        //         'status'      => 0,
-
-
-        //     ];
-
-        //     // dd ($data);
-
-        //     $cart = Cart::create($data);
-        //     $notification = [
-        //         'heading' => 'Berhasil!',
-        //         'message' => 'Item berhasil ditambahkan ke keranjang.',
-        //         'bgColor' => '#2b6c45',
-        //         'alert-type' => 'success'
-        //     ];
-        // } else {
-        //     $notification = [
-        //         'heading' => 'Gagal!',
-        //         'message' => 'Anda belum login. Silahkan login terlebih ada',
-        //         'bgColor' => '#990000',
-        //         'alert-type' => 'error'
-        //     ];
-        // }
-
-        return $notification;
-    }
-
-    public function addOrder(Request $request, $id)
-    {
-        $faker = Faker::create();
-        // dd($request->id_cart);
-        // $carts = Cart::where('user_id', '=', $id);
-        $arrayFile = $request->id_cart;
-
-        foreach ($arrayFile as $row){
-            $carts = Cart::where('id', '=', $row);
+    {        
+        if(Sentinel::check()) {
             $data = [
-                'status'         => 1,
-                'no_order'        => date("Ymdhis"),
-                'link'         => $request->brief
+                'user_id'       => Sentinel::getUser()->id,
+                'product_id'    => $request->product_id,                
+                'quantity'      => $request->quantity,
+                'orientation'   => $request->orientation,
+                'size'          => $request->size,
+                'duration'      => $request->duration,
+                'target_audience' => $request->target_audience,
+                'deadline'      => $request->deadline,
+                'style'      => $request->style,
+                'output'      => $request->output,
+                'status'      => 0,
             ];
-            // dd($data);
-
-            $carts->update($data);
+            $cart = Cart::create($data);
+            $notification = [
+                'heading' => 'Berhasil!',
+                'message' => 'Item berhasil ditambahkan ke keranjang.',
+                'bgColor' => '#2b6c45',
+                'alert-type' => 'success'
+            ];
+        } else {
+            $notification = [
+                'heading' => 'Gagal!',
+                'message' => 'Anda belum login. Silahkan login terlebih ada',
+                'bgColor' => '#990000',
+                'alert-type' => 'error'
+            ];
         }
 
+        return response()->json($notification);
+    }
 
-        // dd($data);
+    public function addInvoice($user_id){
+        $data = [
+            'user_id'       => $user_id,            
+            'status'        => 0,                        
+            'outputURL'      => 'asd',            
+        ];        
+        
+        $invoice = Invoice::create($data);        
+        return $invoice;
+    }
+
+    public function addOrder(Request $request)
+    {
+        $newInvoice = $this->addInvoice(Sentinel::getUser()->id);
+        
+        $carts = Cart::where([
+            ['user_id', '=', Sentinel::getUser()->id],
+            ['status', '=', 0]            
+        ]);
+        $data = [
+            'status'         => 1,
+            'invoice_id'        => $newInvoice->id,            
+        ];        
+
+        $carts->update($data);
+                
 
         return redirect()->route('profile');
 
+    }
+
+    public function delete($id) 
+    {
+        $cart = Cart::find($id)->delete(); 
+        return redirect()->route('cartUser');
     }
 
 

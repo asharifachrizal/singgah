@@ -44,7 +44,7 @@
             <form method="" class="row center my-auto">
 
                 <div class="col-lg-12 category-form form-group">
-                    <label for="exampleFormControlSelect1">Select category</label>
+                    <label for="exampleFormControlSelect1">Select Product</label>
                     <select class="form-control " id="category-selection" onchange="getSelected(this.value)">
                         <option value="select category" selected disabled>--- SELECT CATEGORY ---</option>
                         @foreach($products as $row)

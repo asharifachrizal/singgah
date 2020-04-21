@@ -15,17 +15,13 @@ class CreateInvoicesTable extends Migration
     {
         Schema::create('invoices', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
-            $table->integer('cart_id')->unsigned();
-            $table->integer('price')->nullable();
+            $table->integer('user_id')->unsigned();                        
             $table->text('briefURL')->nullable();
-            $table->text('outputURL')->nullable();
-            $table->string('no_order')->nullable();
+            $table->text('outputURL')->nullable();            
             $table->string('status')->nullable();
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('cart_id')->references('id')->on('carts') ;
+            $table->foreign('user_id')->references('id')->on('users');            
         });
     }
 

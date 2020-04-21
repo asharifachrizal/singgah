@@ -29,27 +29,32 @@
 
                         <th class="cart-product-name">Order Id</th>
                         <th class="cart-product-name">Status</th>
-                        <th class="cart-product-name">Last Update</th>
+                        <th class="cart-product-name">Created Date</th>
                         <th class="cart-product-name">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($carts as $key=>$row)
+                    @foreach ($invoices as $key=>$row)
                     <tr class="cart_item">
 
                         <td class="cart-product-name">
-                        <a>{{$row->no_order}}</a>
+                        <a>{{$row->id}}</a>
                         </td>
 
                         <td class="cart-product-name">
-                            <a>{{$row->status}}</a>
+                        @if ($row->status == 0)
+                            <a>Waiting Invoice</a>
+                        @elseif ($row->status == 1)
+                            <a>Waiting Payment</a>                        
+                        @endif
                         </td>
 
                         <td class="cart-product-name">
-                            <a>{{$row->updated_at}}</a>
+                            <a>{{$row->created_at}}</a>
                         </td>
-                        <td class="cart-product-name">
-                            <a href="{{ route('detailOrder', $row->no_order)}}" class="add" title="See Detail"><i class="icon-eye"></i></a>
+                        <td class="cart-product-name">                            
+                            <a href="{{ route('detailOrder', $row->id)}}" class="add" title="See Detail"><i class="icon-eye"></i></a>                            
+                            
                         </td>
                     </tr>
                     @endforeach

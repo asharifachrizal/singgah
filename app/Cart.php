@@ -8,22 +8,23 @@ class Cart extends Model
 {
 	protected $fillable = [
         'user_id',
-        'product_id',
-        'product_name',
+        'invoice_id',
+        'product_id',        
         'quantity',
         'orientation',
         'size',
         'duration',
         'target_audience',
-        'deadline',
-        'pattern',
         'style',
-        'kind',
+        'color',
+        'color_grading',
+        'design_style',
+        'font',
         'output',
-        'tone',
-        'brief',
+        'deadline',
         'status',
-        'link'
+        'brief_url',
+        'price'
 
     ];
 
@@ -39,6 +40,6 @@ class Cart extends Model
 
     public function invoice()
     {
-        return $this->hasMany('App\Invoice');
+        return $this->belongsTo('App\Invoice');
     }
 }

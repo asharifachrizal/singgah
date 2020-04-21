@@ -8,14 +8,13 @@ class Invoice extends Model
 {
     //
     protected $fillable = [
-        'user_id',
-        'cart_id',
-        'status',
-        'no_order',
-        'briefURL',
-        'price'
+        'user_id',        
+        'briefURL',        
+        'outputURL',
+        'status',        
 
     ];
+
     public function user()
 	{
 		return $this->belongsTo('App\User');
@@ -23,6 +22,7 @@ class Invoice extends Model
 
     public function cart()
 	{
-		return $this->belongsTo('App\Cart');
+		return $this->hasMany('App\Cart');
     }
+    
 }

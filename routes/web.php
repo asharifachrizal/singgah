@@ -52,7 +52,13 @@ Route::get('/product/detail', 'ProductController@detailProduct')->name('product.
 Route::group(['middleware' => 'visitor'], function() {
     Route::post('/logout', 'UserController@postLogout')->name('postLogout');
     Route::get('/category', 'ProductController@index')->name('product');
+    
+    // START CART ROUTE
     Route::get('/cart', 'CartController@cartClient')->name('cartUser');
+    Route::get('/cart/{id}', 'CartController@delete')->name('cart.delete');
+    Route::get('/listcart', 'CartController@cartList')->name('cart.list');
+    // END CART ROUTE
+
     // Route::get('/keranjang', 'CartController@index')->name('cart');
     Route::get('/cart/checkout', 'CartController@checkout')->name('cart.checkout');
     Route::post('/cart/add', 'CartController@additem')->name('cart.additem');

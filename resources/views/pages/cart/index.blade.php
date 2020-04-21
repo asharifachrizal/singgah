@@ -41,7 +41,7 @@
                         </td>
 
                         <td class="cart-product-name">
-                            <a >{{$row->product_name}}</a>
+                            <a >{{$row->product->value}}</a>
                         </td>
 
                         <td class="#">
@@ -49,29 +49,27 @@
                         </td>
                             <input type="hidden" name="id_cart" value="{{$row->id}}">
                         <td class="cart-product-subtotal">
-                            <a href="#" class="add" title="Edit this item"><i class="icon-pencil"></i></a>
-                            <a href="#" class="remove" title="Remove this item"><i class="icon-trash2"></i></a>
+                            <!-- <a href="#" class="add" title="Edit this item"><i class="icon-pencil"></i></a> -->
+                            <a href="{{route('cart.delete',$row->id)}}" class="remove" title="Remove this item"><i class="icon-trash2"></i></a>
                         </td>
                     </tr>
                     @endforeach
 
-                    @if (count($carts) > -1)
+                    @if (count($carts) > 0)
                     <tr class="cart_item">
                         <td colspan="6">
                             <div class="row clearfix">
                                 <div class="col-lg-12 col-12 nopadding">
-                                    <a href="#" onclick="document.getElementById('addOrder').submit()" class="button button-3d nomargin fright">Send Order</a>
                                     <!-- <a href="shop.html" class="button button-3d notopmargin fright">Proceed to Checkout</a> -->
+                                    <a href="#" onclick="$('#submitBtn').click()" class="button button-3d nomargin fright">Request Invoice</a>
                                 </div>
                                 <form action="{{ route('tambahOrder', Sentinel::getUser()->id) }}" method="POST" id="addOrder">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Brief Url</label>
-                                        <input type="text" name="brief" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Brief URL">
+                                        <input required type="text" name="brief" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Brief URL">
                                         <small id="emailHelp" class="form-text text-muted">Put Your brief on GDrive, and copy your brief link here!</small>
-                                    </div>
-                                    @foreach ($carts as $row)
-                                    <input type="hidden" name="id_cart[]" value="{{$row->id}}">
-                                    @endforeach
+                                    </div>   
+                                    <input type="submit" id="submitBtn" hidden>                        
                                 </form>
                             </div>
                         </td>
@@ -82,4 +80,5 @@
         </div>
     </div>
 </div>
+
 @endsection
