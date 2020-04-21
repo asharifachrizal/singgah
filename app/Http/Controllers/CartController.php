@@ -44,11 +44,8 @@ class CartController extends BaseController
     }
 
     public function myOrder()
-    {
-        
-        // $invoices = Invoice::where('user_id', '=', Sentinel::getUser()->id);    
-        $invoices = Invoice::where('user_id', '=', Sentinel::getUser()->id)->get();    
-        // dd($invoices);
+    {                
+        $invoices = Invoice::where('user_id', '=', Sentinel::getUser()->id)->get();            
         return view('pages.order.list', compact('invoices'));
     }
 
