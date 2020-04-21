@@ -36,8 +36,7 @@
 
                 <!-- Top Cart
                 ============================================= -->
-                <div id="top-cart">
-                    
+                <div id="top-cart">                    
                     <a href="{{ route('cartUser')}}" ><i class="icon-shopping-cart"></i>
                         <span id="total-cart"></span>
                     </a>

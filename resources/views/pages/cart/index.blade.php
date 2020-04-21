@@ -12,7 +12,7 @@
 
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item"><a href="#">Cart</a></li>
+            <li class="breadcrumb-item"><a href="#">My Cart</a></li>
 
         </ol>
     </div>
@@ -73,8 +73,9 @@
                                 </form>
                             </div>
                         </td>
-                    </tr>
+                    </tr>                    
                     @endif
+                    
                 </tbody>
             </table>
         </div>

@@ -22,8 +22,10 @@
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Order Amount</th>
-                        <th>Invoice Revenue</th>
+                        <th>Email</th>
+                        <th>Phone Number</th>
+                        <th>Address</th>
+                        <th>City</th>
 
                     </tr>
                 </thead>
@@ -31,8 +33,12 @@
                     @foreach ($users as $row)
                     <tr>
                         <td>{{$row->full_name}}</td>
-                        <td>{{$row->cart->count()}}</td>
-                        <td>Rp. 2.500.000</td>
+                        <td>{{$row->email}}</td>
+                        <td>{{$row->phone_number}}</td>
+                        <td>{{$row->address}}</td>
+                        <td>{{$row->city}}</td>
+
+                        
 
                     </tr>
                     @endforeach

@@ -21,8 +21,7 @@ class ProductController extends BaseController
 
     public function order($id)
     {
-        $product = Product::where('id', '=', $id)->first();
-        
+        $product = Product::where('id', '=', $id)->first();        
         return view('pages.product.myOrder', compact('product'));
     }
 

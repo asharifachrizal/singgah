@@ -34,7 +34,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($orders as $key=>$row)
+                    @foreach ($carts as $key=>$row)
                     <tr class="cart_item">
                         <td class="cart-product-name">
                             <a >{{$key+1}}</a>
@@ -69,17 +69,27 @@
         </div>
 
          <!-- Invoice -->
-         @if($orders[0]->invoice->status > 0)         
+        @if($carts[0]->invoice->status > 0)         
             <div class="row">
                 <div class="col-md-12">
                     <div class="card card-body printableArea">
-                        <h3><b>INVOICE</b> <span class="pull-right">#{{$orders[0]->invoice->id}}</span></h3>
+                        <h3>
+                            <b>INVOICE </b> 
+                            @if($carts[0]->invoice->status == 1)  
+                                <b class="text-info">SENT</b> 
+                            @elseif($carts[0]->invoice->status == 2)
+                                <b class="text-success">PAID</b> 
+                            @elseif($carts[0]->invoice->status == 3)
+                                <b class="text-danger">REJECTED</b> 
+                            @endif
+                            <span class="pull-right">#{{$carts[0]->invoice->id}}</span>
+                        </h3>
                         <hr>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="pull-left">
                                     <address>
-                                        <h3> &nbsp;<b class="text-danger">Singgah</b></h3>
+                                        <h3> &nbsp;<b class="text-info">Singgah</b></h3>
                                         <p class="text-muted m-l-5">Jalan Kemang 23,
                                             <br/> Mampang,
                                             <br/> Jakarta,
@@ -89,12 +99,12 @@
                                 <div class="pull-right text-right">
                                     <address>
                                         <h3>To,</h3>
-                                        <h4 class="font-bold">{{ $orders[0]->user->full_name}},</h4>
-                                        <p class="text-muted m-l-30">{{ $orders[0]->user->email}},
-                                            <br/> {{ $orders[0]->user->address}},
-                                            <br/> {{ $orders[0]->user->city}},
-                                            <br/> {{ $orders[0]->user->phone_number}}</p>
-                                            <p class="m-t-30"><b>Invoice Date :</b> <i class="fa fa-calendar"></i> {{$orders[0]->invoice->created_at}}</p>
+                                        <h4 class="font-bold">{{ $carts[0]->user->full_name}},</h4>
+                                        <p class="text-muted m-l-30">{{ $carts[0]->user->email}},
+                                            <br/> {{ $carts[0]->user->address}},
+                                            <br/> {{ $carts[0]->user->city}},
+                                            <br/> {{ $carts[0]->user->phone_number}}</p>
+                                            <p class="m-t-30"><b>Invoice Date :</b> <i class="fa fa-calendar"></i> {{$carts[0]->invoice->updated_at}}</p>
                                             <!-- <p><b>Due Date :</b> <i class="fa fa-calendar"></i> 25th Jan 2017</p> -->
                                     </address>
                                 </div>
@@ -112,7 +122,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        @foreach ($orders as $key=>$row)
+                                        @foreach ($carts as $key=>$row)
                                             <tr>
                                                 <td class="text-center">{{$key + 1}}</td>
                                                 <td>{{$row->product->value}}</td>
@@ -133,12 +143,10 @@
                                 <div class="pull-right m-t-30 text-right">
                                     <!-- <p>Sub - Total amount: $13,848</p>
                                     <p>vat (10%) : $138 </p> -->
-                                    <hr>
-
-                                    
+                                    <hr>                                    
                                     @php   
                                         $totalPrice = 0;
-                                        foreach ($orders as &$row) {                                                                                                                                                         
+                                        foreach ($carts as &$row) {                                                                                                                                                         
                                             $totalPrice += $row->price * $row->quantity;                                                    
                                         }
                                     @endphp
@@ -148,8 +156,13 @@
                                 <div class="clearfix"></div>
                                 <hr>
                                 <div class="text-right">
-                                    <button class="btn btn-danger" type="submit"> Reject Invoice </button>
-                                    <button class="btn btn-info" type="submit"> Proceed to Checkout </button>
+                                    @if($carts[0]->invoice->status == 1)
+                                    <form action="{{ route('invoice.reject', $carts[0]->invoice->id)}}" method="post">
+                                        <input hidden type="text" value="{{$carts[0]->invoice->id}}" name="invoice_id">                                
+                                        <button class="btn btn-danger" type="submit"> Reject Invoice </button>
+                                        <button class="btn btn-info" type="submit"> Proceed to Checkout </button>
+                                    </form>
+                                    @endif
                                 </div>
                             </div>
                         </div>

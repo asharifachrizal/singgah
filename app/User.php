@@ -52,9 +52,5 @@ class User extends \Cartalyst\Sentinel\Users\EloquentUser
 	{
 		return $this->hasMany('App\Cart');
     }
-
-    public function order()
-	{
-		return $this->hasMany('App\Order');
-	}
+    
 }

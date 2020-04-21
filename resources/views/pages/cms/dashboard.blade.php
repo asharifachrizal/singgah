@@ -23,7 +23,7 @@
                 <div class="d-flex flex-row">
                     <div class="round round-lg align-self-center round-info"><i class="ti-wallet"></i></div>
                     <div class="m-l-10 align-self-center">
-                        <h3 class="m-b-0 font-light">Rp. 3.000.000</h3>
+                        <h3 class="m-b-0 font-light">{{$totalRevenue}}</h3>
                         <h5 class="text-muted m-b-0">Total Revenue</h5></div>
                 </div>
             </div>
@@ -37,7 +37,7 @@
                 <div class="d-flex flex-row">
                     <div class="round round-lg align-self-center round-warning"><i class="mdi mdi-cellphone-link"></i></div>
                     <div class="m-l-10 align-self-center">
-                        <h3 class="m-b-0 font-lgiht">376</h3>
+                        <h3 class="m-b-0 font-lgiht">{{$totalUsers}}</h3>
                         <h5 class="text-muted m-b-0">Customer Registered</h5></div>
                 </div>
             </div>
@@ -45,7 +45,7 @@
     </div>
     <!-- Column -->
     <!-- Column -->
-    <div class="col-lg-3 col-md-6">
+    <!-- <div class="col-lg-3 col-md-6">
         <div class="card">
             <div class="card-body">
                 <div class="d-flex flex-row">
@@ -56,10 +56,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Column -->
     <!-- Column -->
-    <div class="col-lg-3 col-md-6">
+    <!-- <div class="col-lg-3 col-md-6">
         <div class="card">
             <div class="card-body">
                 <div class="d-flex flex-row">
@@ -70,7 +70,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Column -->
 </div>
 <!-- ============================================================== -->

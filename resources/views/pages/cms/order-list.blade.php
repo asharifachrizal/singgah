@@ -21,7 +21,7 @@
             <table id="myTable" class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                        <th>Order Id</th>
+                        <th>Invoice Id</th>
                         <th>Customer Name</th>
                         <th>Entry Date</th>
                         <th>Status</th>
@@ -30,18 +30,22 @@
                     </tr>
                 </thead>
                 <tbody>
-                @foreach ($orders as $order)
+                @foreach ($invoices as $row)
                     <tr>
-                        <td>{{ $order->no_order }}</td>
-                        <td>{{ $order->user->full_name}}</td>
-                        <td>{{ $order->created_at->toDateString() }}</td>
-                        @if ($order->status == 0)
-                            <td><span class="label label-warning">Request Invoice</span> </td>
-                        @elseif ($order->status == 1)
-                            <td><span class="label label-info">Invoice Received</span> </td>
+                        <td>{{ $row->id }}</td>
+                        <td>{{ $row->user->full_name}}</td>
+                        <td>{{ $row->created_at->toDateString() }}</td>
+                        @if ($row->status == 0)
+                            <td><span class="label label-warning">REQUEST INVOICE</span> </td>
+                        @elseif ($row->status == 1)
+                            <td><span class="label label-info">INVOICE SENT</span> </td>
+                        @elseif ($row->status == 2)
+                            <td><span class="label label-green">PAID</span> </td>
+                        @elseif ($row->status == 3)
+                            <td><span class="label label-danger">REJECTED</span> </td>
                         @endif
                         <td>
-                            <a href="{{ route('cms.order.detail', $order->no_order)}}" data-toggle="tooltip" data-original-title="Open Detail"> <i class="fa fa-eye"></i> </a>
+                            <a href="{{ route('cms.order.detail', $row->id)}}" data-toggle="tooltip" data-original-title="Open Detail"> <i class="fa fa-eye"></i> </a>
                         </td>
 
                     </tr>

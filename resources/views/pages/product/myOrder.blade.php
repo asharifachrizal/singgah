@@ -64,6 +64,7 @@
                                         <label for="kuatiti-produk">Kuantiti:</label><br>
                                         <input required type="number" name="quantity" id="quantity" class="form-control required" value="1" placeholder="minimal 1" min="1">
                                     </div>
+                                    @if($product->id == 3 || $product->id == 5 || $product->id == 7 )
                                     <div class="col-6 form-group">
                                         <label for="deadline-produk">Orientasi:</label><br>
                                         <select required class="form-control required" name="orientation" onchange="orientationSelected(this.value)">
@@ -71,23 +72,30 @@
                                             <option value="landscape">Landscape</option>
                                             <option value="horizontal">Horizontal</option>                                                
                                         </select>
-                                    </div>                                    
+                                    </div>  
+                                    @endif  
+                                    @if($product->id > 0 && $product->id < 16 )                                
                                     <div class="col-6 form-group">
                                         <label for="ukuran-rasio-produk">Ukuran/rasio:</label><br>
                                         <input type="text" required name="size" id="size" class="form-control required" value="" placeholder="1280 x 870">
                                     </div>  
+                                    @endif  
+                                    @if($product->id >= 18)       
                                     <div class="col-6 form-group">
                                         <label for="ukuran-rasio-produk">Durasi</label><br>
                                         <input type="text" required name="duration" id="duration" class="form-control required" value="" placeholder="120 Detik">
                                     </div>    
+                                    @endif 
                                     <div class="col-12 form-group">
                                         <label for="target-audience-produk">Target Audience:</label><br>
                                         <input type="text" required name="target_audience" id="target_audience" class="form-control required" value="" placeholder="anak-anak-dewasa / Umur 24-30">
-                                    </div>                                                                                                                                                                              
+                                    </div>   
+                                    @if($product->id <= 15)                                                                                                                                                                             
                                     <div class="col-12 form-group">
                                         <label for="design-style-produk">Design Style</label>
                                         <textarea class="form-control required" id="style" name="style" rows="3" placeholder="contoh: simple, elegant, animation, etc."></textarea>
-                                    </div>                                    
+                                    </div> 
+                                    @endif                                    
                                     <div class="col-12 form-group">
                                         <label for="design-style-produk">Warna</label>
                                         <input type="text" required name="color" id="target_audience" class="form-control required" value="" placeholder="Merah, Kuning">
@@ -102,7 +110,7 @@
                                     </div>                                    
                                     <div class="col-6 form-group">
                                         <label for="output-produk">Output File Type:</label><br>
-                                        <input type="text" required name="output" id="output" class="form-control required" value="" placeholder=".PSD , .PNG, .JPEG">
+                                        <input type="text" required name="output" id="output" class="form-control required" value="" placeholder=".PSD , .PNG, .MP4">
                                     </div>                                                                                                            
                                     <div class="col-6 form-group">
                                         <label for="deadline-produk">Deadline:</label><br>

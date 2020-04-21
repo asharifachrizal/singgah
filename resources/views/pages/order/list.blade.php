@@ -42,10 +42,14 @@
                         </td>
 
                         <td class="cart-product-name">
-                        @if ($row->status == 0)
-                            <a>Waiting Invoice</a>
+                        @if ($row->status == 0)                            
+                            <span class="badge badge-info">REQUESTING INVOICE</span>
                         @elseif ($row->status == 1)
-                            <a>Waiting Payment</a>                        
+                            <span class="badge badge-warning">WAITING PAYMENT</span>   
+                        @elseif ($row->status == 2)
+                            <span class="badge badge-success">PAID</span>   
+                        @elseif ($row->status == 3)
+                            <span class="badge badge-danger">REJECTED</span>   
                         @endif
                         </td>
 
@@ -53,11 +57,12 @@
                             <a>{{$row->created_at}}</a>
                         </td>
                         <td class="cart-product-name">                            
-                            <a href="{{ route('detailOrder', $row->id)}}" class="add" title="See Detail"><i class="icon-eye"></i></a>                            
+                            <a href="{{ route('invoice.detail', $row->id)}}" class="add" title="See Detail"><i class="icon-eye"></i></a>                            
                             
                         </td>
                     </tr>
                     @endforeach
+                    
                 </tbody>
             </table>
         </div>

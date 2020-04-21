@@ -1743,6 +1743,7 @@ body:not(.device-md):not(.device-sm):not(.device-xs) #primary-menu.style-2.cente
 #top-cart { position: relative; }
 
 #top-search a,
+
 #top-cart > a,
 #side-panel-trigger a {
 	display: block;

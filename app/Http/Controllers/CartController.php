@@ -49,13 +49,6 @@ class CartController extends BaseController
         return view('pages.order.list', compact('invoices'));
     }
 
-    public function detailOrder($invoice_id)
-    {
-        $orders = Cart::where('invoice_id', '=', $invoice_id)->get();
-
-        return view('pages.order.detail', compact('orders'));
-    }
-
     public function additem(Request $request)
     {        
         if(Sentinel::check()) {
@@ -71,6 +64,7 @@ class CartController extends BaseController
                 'style'      => $request->style,
                 'output'      => $request->output,
                 'status'      => 0,
+                'price'      => 0,
             ];
             $cart = Cart::create($data);
             $notification = [
@@ -91,11 +85,11 @@ class CartController extends BaseController
         return response()->json($notification);
     }
 
-    public function addInvoice($user_id){
+    public function addInvoice($user_id,$brief_url){
         $data = [
             'user_id'       => $user_id,            
             'status'        => 0,                        
-            'outputURL'      => 'asd',            
+            'briefURL'      => $brief_url,            
         ];        
         
         $invoice = Invoice::create($data);        
@@ -104,7 +98,8 @@ class CartController extends BaseController
 
     public function addOrder(Request $request)
     {
-        $newInvoice = $this->addInvoice(Sentinel::getUser()->id);
+        // dd($request->brief);
+        $newInvoice = $this->addInvoice(Sentinel::getUser()->id, $request->brief);
         
         $carts = Cart::where([
             ['user_id', '=', Sentinel::getUser()->id],
