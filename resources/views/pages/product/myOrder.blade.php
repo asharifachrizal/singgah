@@ -50,7 +50,7 @@
 
                         <div class="row">
                             <div class="col-lg-12">
-                                <form class="row" id="event-registration" action="{{ route('cart.additem')}}" method="post" enctype="multipart/form-data">
+                                <form class="row" id="event-registration"   enctype="multipart/form-data">
                                     <input type="hidden" name="id" value="{{Sentinel::getUser()->id }}">
                                     <input type="hidden" name="product_id" value="{{ $product->id }}">
                                     <input type="hidden" name="namaproduk" value="{{ $product->value }}">
@@ -58,29 +58,7 @@
                                     <div class="col-12 form-group">
                                         <label for="jenis-produk">Jenis Produk:</label>
                                         <select disabled class="form-control required" name="orientation" id="jenis-produk">
-                                                {{-- opsi untuk desain produksi:poster --}}
-                                                @if ($product->id == 3)
-                                                <option value="landscape">Landscape</option>
-                                                <option value="potrait">Potrait</option>
-                                                @elseif ($product->id == 5)
-                                                {{-- opsi untuk desain produksi:banner/baliho --}}
-                                                <option value="horizontal">Horizontal/Spanduk</option>
-                                                <option value="vertikal">Vertikal/Rontek</option>
-                                                @elseif ($product->id == 6)
-                                                {{-- opsi untuk desain produksi:banner/baliho --}}
-                                                <option value="horizontal">Horizontal</option>
-                                                <option value="vertikal">Vertikal</option>
-                                                @elseif ($product->id == 11)
-                                                {{-- opsi untuk desain non-produksi:konten IG --}}
-                                                <option value="feeds">Feeds</option>
-                                                <option value="ig-story">IG Story</option>
-                                                @elseif ($product->id == 16)
-                                                {{-- opsi untuk desain video:bumper --}}
-                                                <option value="short-bumper">Short Bumper (max. 15 secs)</option>
-                                                <option value="long-bumper">Long Bumper ( > 15 secs)</option>
-                                                @else
-                                                <option value="-" >{{$product->value}}</option>
-                                                @endif
+                                                <option value="landscape">{{$product->value}}</option>                                                
                                         </select>
                                     </div>
                                     <div class="col-6 form-group">
@@ -137,7 +115,7 @@
                                         <input type="text" id="event-registration-botcheck" name="event-registration-botcheck" value="" />
                                     </div>
                                     <div class="col-12">
-                                        <button type="submit" name="event-registration-submit" class="btn btn-secondary">Make Order</button>
+                                        <button onclick="submition()" name="event-registration-submit" class="btn btn-secondary">Make Order</button>
                                     </div>
 
                                     <input type="hidden" name="prefix" value="event-registration-">
@@ -151,4 +129,21 @@
         </div>
     </div>
 </div>
+
+<script>
+    function submition () {
+        $.ajax({
+                type:'POST',
+                url:'/cart/add',
+                data:{name:id },
+                success:function(data){
+                    alert('data.success');
+                },
+                error: function(data){
+                    alert('error')
+                }
+
+        });
+    }
+</script>
 @endsection

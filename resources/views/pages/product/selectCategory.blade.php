@@ -45,19 +45,32 @@
 
                 <div class="col-lg-12 category-form form-group">
                     <label for="exampleFormControlSelect1">Select category</label>
-                    <select class="form-control " id="exampleFormControlSelect1">
+                    <select class="form-control " id="category-selection" onchange="getSelected(this.value)">
+                        <option value="select category" selected disabled>--- SELECT CATEGORY ---</option>
                         @foreach($products as $row)
-                        <option value="{{$row->id}}">{{$row->value}}</option>
+                        <option value="{{$row->id}}" >{{$row->value}}</option>
                         @endforeach
                     </select>
                 </div>
                 <div class="col-lg-12 form-group">
-                    <a href="{{ route('productOrder', 1)}}" class="btn btn-primary" onclick="parentNode.submit()">Next Step</a>
+                    <a href="javascript:void(0)" id="next-btn-step" class="btn btn-primary" onclick="goToMyOrder()">Next Step</a>
                 </div>
                 {{-- @endforeach --}}
             </form>
         </div>
     </div>
 </div>
+
+<script>
+    var id_category = 0
+    function getSelected(data) {
+        id_category = data
+    }
+    function goToMyOrder() {
+        if(id_category != 0) {
+            window.location.href = "/product/my-order/"+id_category
+        }
+    }
+</script>
 
 @endsection

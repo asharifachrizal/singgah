@@ -59,48 +59,47 @@ class CartController extends BaseController
 
     public function additem(Request $request)
     {
-        if(Sentinel::check())
-        {
-            // $product = Product::where('slug', $slug)->first();
-            $data = [
-                'user_id'       => Sentinel::getUser()->id,
-                'product_id'    => $request->product_id,
-                'product_name'    => $request->namaproduk,
-                'quantity'      => $request->quantity,
-                'orientation'   => $request->orientation,
-                'size'          => $request->size,
-                'duration'      => $request->duration,
-                'target_audience'   => $request->target_audience,
-                'deadline'      => $request->deadline,
-                'pattern'      => $request->pattern,
-                'style'      => $request->style,
-                'output'      => $request->output,
-                'tone'      => $request->tone,
-                'brief'      => $request->brief,
-                'status'      => 0,
+        dd($request);
+        return response()->json(['success'=>'Got Simple Ajax Request.']);
+        // if(Sentinel::check()) {
+        //     // $product = Product::where('slug', $slug)->first();
+        //     $data = [
+        //         'user_id'       => Sentinel::getUser()->id,
+        //         'product_id'    => $request->product_id,
+        //         'product_name'    => $request->namaproduk,
+        //         'quantity'      => $request->quantity,
+        //         'orientation'   => $request->orientation,
+        //         'size'          => $request->size,
+        //         'duration'      => $request->duration,
+        //         'target_audience'   => $request->target_audience,
+        //         'deadline'      => $request->deadline,
+        //         'pattern'      => $request->pattern,
+        //         'style'      => $request->style,
+        //         'output'      => $request->output,
+        //         'tone'      => $request->tone,
+        //         'brief'      => $request->brief,
+        //         'status'      => 0,
 
 
-            ];
+        //     ];
 
-            // dd ($data);
+        //     // dd ($data);
 
-            $cart = Cart::create($data);
-            $notification = [
-                'heading' => 'Berhasil!',
-                'message' => 'Item berhasil ditambahkan ke keranjang.',
-                'bgColor' => '#2b6c45',
-                'alert-type' => 'success'
-            ];
-        }
-        else
-        {
-            $notification = [
-                'heading' => 'Gagal!',
-                'message' => 'Anda belum login. Silahkan login terlebih ada',
-                'bgColor' => '#990000',
-                'alert-type' => 'error'
-            ];
-        }
+        //     $cart = Cart::create($data);
+        //     $notification = [
+        //         'heading' => 'Berhasil!',
+        //         'message' => 'Item berhasil ditambahkan ke keranjang.',
+        //         'bgColor' => '#2b6c45',
+        //         'alert-type' => 'success'
+        //     ];
+        // } else {
+        //     $notification = [
+        //         'heading' => 'Gagal!',
+        //         'message' => 'Anda belum login. Silahkan login terlebih ada',
+        //         'bgColor' => '#990000',
+        //         'alert-type' => 'error'
+        //     ];
+        // }
 
         return $notification;
     }
