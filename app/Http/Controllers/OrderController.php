@@ -51,20 +51,17 @@ class OrderController extends Controller
             // $product = Product::where('slug', $slug)->first();
             $data = [
                 'user_id'       => Sentinel::getUser()->id,
-                'product_id'    => 2,
-                'product_name'    => $request->namaproduk,
+                'product_id'    => 2,                
                 'quantity'      => $request->quantity,
                 'orientation'   => $request->orientation,
                 'size'          => $request->size,
                 'duration'      => $request->duration,
                 'target_audience'   => $request->target_audience,
-                'deadline'      => $request->deadline,
-                'pattern'      => $request->pattern,
+                'deadline'      => $request->deadline,                
                 'style'      => $request->style,
-                'output'      => $request->output,
-                'tone'      => $request->tone,
-                'brief'      => $request->brief,
-                'status'      => "ORDER SENT",
+                'color'      => $request->color,
+                'color_grading'      => $request->color_grading,
+                'output'      => $request->output,                                
 
 
             ];

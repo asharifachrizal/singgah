@@ -46,151 +46,71 @@
                         <input type="number" class="form-control"  disabled value="{{$row->quantity}}">
                     </div>
                 </div>
-            </div>
-            <!--/row-->
-            <div class="row">
+                @if($row->product->id == 3 || $row->product->id == 5 || $row->product->id == 7 )
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Orientation</label>
+                        <input type="text" class="form-control" disabled value="{{$row->orientation}}">
+                    </div>
+                </div>  
+                @endif  
+                @if($row->product->id > 0 && $row->product->id < 16 )              
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Size/Ration</label>
                         <input type="text" class="form-control" disabled value="{{$row->size}}">
                     </div>
                 </div>
+                @endif
+                @if($row->product->id >= 18)
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label>Orientation</label>
-                        <input type="text" class="form-control" disabled value="{{$row->orientation}}">
+                        <label>Duration</label>
+                        <input type="text" class="form-control" disabled value="{{$row->duration}}">
                     </div>
-                </div>
-            </div>
-            <!--/row-->
-            <div class="row">
-                {{-- <div class="col-md-6">
-                    <div class="form-group">
-                    <div class="card">
-                        <div class="card-header">
-                            Color
-                            <div class="card-actions">
-                                <a class="" data-action="collapse"><i class="ti-plus"></i></a>
-                            </div>
-                        </div>
-                        <div class="card-body collapse">
-                            <!-- <h4 class="card-title">Special title treatment</h4> -->
-                            <p class="card-text">#FFFFFF</p>
-                            <p class="card-text">#FFFFFF</p>
-                            <p class="card-text">#FFFFFF</p>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                    <div class="card">
-                        <div class="card-header">
-                            Color Grading
-                            <div class="card-actions">
-                                <a class="" data-action="collapse"><i class="ti-plus"></i></a>
-                            </div>
-                        </div>
-                        <div class="card-body collapse">
-                            <p class="card-text">#FFFFFF</p>
-                            <p class="card-text">#FFFFFF</p>
-                            <p class="card-text">#FFFFFF</p>
-
-                        </div>
-                    </div>
-                    </div>
-                </div> --}}               
-            </div>
-
-            <div class="row">
-                {{-- <div class="col-md-6">
-                    <div class="form-group">
-                    <div class="card">
-                        <div class="card-header">
-                            Font Style
-                            <div class="card-actions">
-                                <a class="" data-action="collapse"><i class="ti-plus"></i></a>
-                            </div>
-                        </div>
-                        <div class="card-body collapse">
-                            <!-- <h4 class="card-title">Special title treatment</h4> -->
-                            <p class="card-text">Arial</p>
-                        </div>
-                    </div>
-                    </div>
-                </div> --}}
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label>Design Style</label>
-                        <input type="text" class="form-control" disabled value="{{$row->style}}">
-                    </div>
-                </div>
-                {{-- <div class="col-md-6">
-                    <div class="form-group">
-                    <div class="card">
-                        <div class="card-header">
-                            Target Audience
-                            <div class="card-actions">
-                                <a class="" data-action="collapse"><i class="ti-plus"></i></a>
-                            </div>
-                        </div>
-                        <div class="card-body collapse">
-                            <p class="card-text">Anak Muda</p>
-
-                        </div>
-                    </div>
-                    </div>
-                </div> --}}
+                </div>  
+                @endif                                                                              
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Target Audience</label>
                         <input type="text" class="form-control" disabled value="{{$row->target_audience}}">
                     </div>
-                </div>
-            </div>
-            <div class="row">
-                {{-- <div class="col-md-6">
+                </div> 
+                @if($row->product->id <= 15)   
+                <div class="col-md-6">
                     <div class="form-group">
-                    <div class="card">
-                        <div class="card-header">
-                            Output File URL
-                            <div class="card-actions">
-                                <a class="" data-action="collapse"><i class="ti-plus"></i></a>
-                            </div>
-                        </div>
-                        <div class="card-body collapse">
-                            <!-- <h4 class="card-title">Special title treatment</h4> -->
-                            <p class="card-text">JPEG, PNG</p>
-                        </div>
+                        <label>Design Style</label>
+                        <input type="text" class="form-control" disabled value="{{$row->style}}">
                     </div>
+                </div>    
+                @endif                                                            
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Font</label>
+                        <input type="text" class="form-control" disabled value="{{$row->font}}">
                     </div>
-                </div> --}}
+                </div> 
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Color</label>
+                        <input type="text" class="form-control" disabled value="{{$row->color}}">
+                    </div>
+                </div>                                                                                
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Color Grading</label>
+                        <input type="text" class="form-control" disabled value="{{$row->color_grading}}">
+                    </div>
+                </div>  
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Output File</label>
                         <input type="text" class="form-control" disabled value="{{$row->output}}">
                     </div>
-                </div>
-                {{-- <div class="col-md-6">
-                    <div class="form-group">
-                    <div class="card">
-                        <div class="card-header">
-                            Pattern/Reference
-                            <div class="card-actions">
-                                <a class="" data-action="collapse"><i class="ti-plus"></i></a>
-                            </div>
-                        </div>
-                        <div class="card-body collapse">
-                            <p class="card-text">BUMN</p>
-                            <p class="card-text">Poster Game</p>
-
-                        </div>
-                    </div>
-                    </div>
-                </div> --}}
+                </div>     
                 
-            </div>            
-            <!--/row-->
+            </div>
+            <!--/row-->                                                                                            
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
@@ -246,7 +166,7 @@
     function doPost() {
         var invoice_id = document.getElementById('invoice_id').value
         let DataPrices = []
-        for (let index = 0; index < 2; index++) {
+        for (let index = 0; index < 1; index++) {
             DataPrices.push({
                 cart_id: document.getElementById('itemsId_'+index).value,
                 price: document.getElementById('price_cart_id_'+index).value

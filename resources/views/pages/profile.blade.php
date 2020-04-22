@@ -79,8 +79,7 @@
             <div class="col-md-3 clearfix">
 
                 <div class="list-group">
-                    <!-- <a href="#" class="list-group-item list-group-item-action clearfix">Profile <i class="icon-user float-right"></i></a> -->
-                    <a href="{{ route('cartUser')}}" class="list-group-item list-group-item-action clearfix">My Carts <i class="icon-cart float-right"></i></a>
+                    <!-- <a href="#" class="list-group-item list-group-item-action clearfix">Profile <i class="icon-user float-right"></i></a> -->                    
                     <a href="{{ route('myorder', Sentinel::getUser()->id)}}" class="list-group-item list-group-item-action clearfix">My Orders <i class="icon-laptop2 float-right"></i></a>
                     <a href="#" class="list-group-item list-group-item-action clearfix">Logout <i class="icon-line2-logout float-right"></i></a>
                 </div>

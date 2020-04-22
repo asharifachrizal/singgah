@@ -58,9 +58,9 @@
                             <thead>
                                 <tr>
                                     <th class="text-center">#</th>
-                                    <th>Description</th>
+                                    <th>Product</th>
                                     <th class="text-right">Quantity</th>
-                                    <th class="text-right">Unit Cost</th>
+                                    <th class="text-right">Item Cost</th>
                                     <th class="text-right">Total</th>
                                 </tr>
                             </thead>

@@ -56,8 +56,8 @@
                                     <div class="form-process"></div>
                                     <div class="col-12 form-group">
                                         <label for="jenis-produk">Jenis Produk:</label>
-                                        <select disabled class="form-control required" name="orientation" id="jenis-produk">
-                                                <option value="landscape">{{$product->value}}</option>                                                
+                                        <select disabled class="form-control required" >
+                                                <option value="{{$product->value}}">{{$product->value}}</option>                                                
                                         </select>
                                     </div>
                                     <div class="col-6 form-group">
@@ -66,13 +66,17 @@
                                     </div>
                                     @if($product->id == 3 || $product->id == 5 || $product->id == 7 )
                                     <div class="col-6 form-group">
-                                        <label for="deadline-produk">Orientasi:</label><br>
-                                        <select required class="form-control required" name="orientation" onchange="orientationSelected(this.value)">
+                                        <label for="deadline-produk">Orientasi:</label><br>                                        
+                                        <select required class="form-control required" name="orientation" id="orientation" onchange="orientationSelected(this.value)">
                                             <option value="pilih" selected disabled>PILIH</option>
                                             <option value="landscape">Landscape</option>
                                             <option value="horizontal">Horizontal</option>                                                
                                         </select>
-                                    </div>  
+                                    </div> 
+                                    @else
+                                        <select hidden required class="form-control required" name="orientation_" id="orientation_" onchange="orientationSelected(this.value)">
+                                            <option value="null" selected disabled></option>                                            
+                                        </select>
                                     @endif  
                                     @if($product->id > 0 && $product->id < 16 )                                
                                     <div class="col-6 form-group">
@@ -93,20 +97,20 @@
                                     @if($product->id <= 15)                                                                                                                                                                             
                                     <div class="col-12 form-group">
                                         <label for="design-style-produk">Design Style</label>
-                                        <textarea class="form-control required" id="style" name="style" rows="3" placeholder="contoh: simple, elegant, animation, etc."></textarea>
+                                        <input type="text" required name="style" id="style" class="form-control required" value="" placeholder="contoh: simple, elegant, animation, etc.">                                        
                                     </div> 
                                     @endif                                    
                                     <div class="col-12 form-group">
                                         <label for="design-style-produk">Warna</label>
-                                        <input type="text" required name="color" id="target_audience" class="form-control required" value="" placeholder="Merah, Kuning">
+                                        <input type="text" required name="color" id="color" class="form-control required" value="" placeholder="Merah, Kuning">
                                     </div>
                                     <div class="col-12 form-group">
                                         <label for="design-style-produk">Grading Warna</label>
-                                        <input type="text" required name="color_grading" id="target_audience" class="form-control required" value="" placeholder="Merah dan Putih">
+                                        <input type="text" required name="color_grading" id="color_grading" class="form-control required" value="" placeholder="Merah dan Putih">
                                     </div>                                    
                                     <div class="col-12 form-group">
                                         <label for="design-style-produk">Font</label>
-                                        <input type="text" required name="font" id="target_audience" class="form-control required" value="" placeholder="Arial, Calibri">
+                                        <input type="text" required name="font" id="font" class="form-control required" value="" placeholder="Arial, Calibri">
                                     </div>                                    
                                     <div class="col-6 form-group">
                                         <label for="output-produk">Output File Type:</label><br>
@@ -114,7 +118,7 @@
                                     </div>                                                                                                            
                                     <div class="col-6 form-group">
                                         <label for="deadline-produk">Deadline:</label><br>
-                                        <select class="form-control required" name="deadline" id="deadline-produk" onchange="deadlineSelected(this.value)">
+                                        <select class="form-control required" name="deadline" id="deadline" onchange="deadlineSelected(this.value)">
                                             <option value="pilih" selected disabled>PILIH</option>
                                             <option value="segera">Segera</option>
                                             <option value="normal">Nomral</option>
@@ -160,19 +164,20 @@
         console.log('orientation ', orientations)
         var id = $("input[name=id]").val();
         var product_id = $("input[name=product_id]").val();        
-        var quantity = $("input[name=quantity]").val();
-        var orientation = orientations;
+        var quantity = $("input[name=quantity]").val();        
+        var orientation = orientations ? orientations : $("#orientation_").children("option:selected").val();
         var size = $("input[name=size]").val();
         var duration = $("input[name=duration]").val();
         var target_audience = $("input[name=target_audience]").val();                
         var style = $("input[name=style]").val();
         var color = $("input[name=color]").val();
         var color_grading = $("input[name=color_grading]").val();
-        var font = $("input[name=font]").val();
+        var font = $("input[name=font]").val();        
         var output = $("input[name=output]").val();        
-        var deadline = deadlines;
-        var brief_url = $("input[name=brief_url]").val();
+        var deadline = deadlines;        
         var price = $("input[name=price]").val();
+        
+
         if(orientation && deadline){
             console.log('will post')
             $.ajax({
@@ -189,10 +194,9 @@
                         style: style,
                         color: color,
                         color_grading: color_grading,                
-                        font: font,
-                        output: output,
-                        deadline: deadline,                    
-                        brief_url: brief_url,
+                        font: font,                        
+                        deadline: deadline,       
+                        output:output,                                     
                         price: price
                     },
                     success: function(data) {

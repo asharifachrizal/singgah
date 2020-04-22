@@ -18,12 +18,10 @@ class Cart extends Model
         'style',
         'color',
         'color_grading',
-        'design_style',
         'font',
         'output',
         'deadline',
-        'status',
-        'brief_url',
+        'status',        
         'price'
 
     ];

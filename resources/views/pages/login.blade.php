@@ -37,7 +37,7 @@
                     @endif
                     <div class="col_full">
                         <label for="login-form-username">Email:</label>
-                        <input type="text" id="login-form-username" name="email" value="" class="form-control" />
+                        <input type="email" id="login-form-username" name="email" value="" class="form-control" />
                     </div>
 
                     <div class="col_full">
@@ -57,7 +57,7 @@
                 <form id="register-form" name="register-form" class="nobottommargin" id="myForm" action="{{ route('register.store') }}" method="post">
                     <div class="col_full">
                         <label for="register-form-name">Email:</label>
-                        <input type="text" id="register-form-name" name="email" value="" class="form-control" />
+                        <input type="email" id="register-form-name" name="email" value="" class="form-control" />
                     </div>
 
                     <div class="col_full">
@@ -82,7 +82,7 @@
 
                     <div class="col_full">
                         <label for="register-form-name">Phone Number:</label>
-                        <input type="text" id="register-form-name" name="phone_number" value="" class="form-control" />
+                        <input type="number" id="register-form-name" name="phone_number" value="" class="form-control" />
                     </div>
 
                     <div class="col_full nobottommargin">

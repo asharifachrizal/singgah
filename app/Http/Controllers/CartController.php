@@ -63,6 +63,9 @@ class CartController extends BaseController
                 'deadline'      => $request->deadline,
                 'style'      => $request->style,
                 'output'      => $request->output,
+                'font'      => $request->font,
+                'color'      => $request->color,
+                'color_grading'      => $request->color_grading,
                 'status'      => 0,
                 'price'      => 0,
             ];
