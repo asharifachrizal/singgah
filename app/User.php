@@ -19,6 +19,7 @@ class User extends \Cartalyst\Sentinel\Users\EloquentUser
         'full_name',
         'address',
         'city',
+        'province',
         'phone_number',
         'name',
         'email',
