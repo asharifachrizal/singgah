@@ -14,6 +14,8 @@
 	<link rel="stylesheet" href="{{ asset('canvas/css/font-icons.css') }}" type="text/css" />
 	<link rel="stylesheet" href="{{ asset('canvas/css/animate.css') }}" type="text/css" />
 	<link rel="stylesheet" href="{{ asset('canvas/css/magnific-popup.css') }}" type="text/css" />
+	<!-- Bootstrap File Upload CSS -->
+	<link rel="stylesheet" href="{{ asset('canvas/css/components/bs-filestyle.css') }}" type="text/css" />
 	<!-- Custom CSS -->
     <link href="{{ asset('material/css/style.css') }}" rel="stylesheet">
 
@@ -53,9 +55,13 @@
 	<script src="{{ asset('canvas/js/jquery.js') }}"></script>
 	<script src="{{ asset('canvas/js/plugins.js') }}"></script>
 
+	<!-- Bootstrap File Upload Plugin -->
+	<script src="{{ asset('canvas/js/components/bs-filestyle.js') }}"></script>
+
 	<!-- Footer Scripts
 	============================================= -->
     <script src="{{ asset('canvas/js/functions.js') }}"></script>
+	
     @yield('scripts')
 </body>
 </html>

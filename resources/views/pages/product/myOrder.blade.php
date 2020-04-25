@@ -124,6 +124,41 @@
                                             <option value="normal">Nomral</option>
                                         </select>
                                     </div>
+                                    
+
+                                    <div class="col-lg-12 bottommargin">
+                                        <label>Select Multiple Items:</label><br>
+                                        <div class="file-input file-input-new"><div class="file-preview ">
+                                            <button type="button" class="close fileinput-remove" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>    
+                                            <div class="file-drop-disabled">
+                                                <div class="file-preview-thumbnails">
+                                            </div>
+                                            <div class="clearfix"></div>    <div class="file-preview-status text-center text-success"></div>
+                                            <div class="kv-fileinput-error file-error-message" style="display: none;"></div>
+                                            </div>
+                                        </div>
+                                        <div class="kv-upload-progress kv-hidden" style="display: none;"><div class="progress">
+                                            <div class="progress-bar bg-success progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%;">
+                                                0%
+                                            </div>
+                                        </div></div><div class="clearfix"></div>
+                                        <div class="input-group file-caption-main">
+                                        <div class="file-caption form-control kv-fileinput-caption" tabindex="500">
+                                        <span class="file-caption-icon"></span>
+                                        <input class="file-caption-name" onkeydown="return false;" onpaste="return false;" placeholder="Select files...">
+                                        </div>
+                                        <div class="input-group-btn input-group-append">
+                                            <button type="button" tabindex="500" title="Clear selected files" class="btn btn-default btn-secondary fileinput-remove fileinput-remove-button"><i class="glyphicon glyphicon-trash"></i>  <span class="d-none d-sm-inline-block">Remove</span></button>
+                                            <button type="button" tabindex="500" title="Abort ongoing upload" class="btn btn-default btn-secondary kv-hidden fileinput-cancel fileinput-cancel-button"><i class="glyphicon glyphicon-ban-circle"></i>  <span class="d-none d-sm-inline-block">Cancel</span></button>
+                                            
+                                            <div tabindex="500" class="btn btn-primary btn-file"><i class="glyphicon glyphicon-folder-open"></i>&nbsp;  <span class="d-none d-sm-inline-block">Browse …</span><input id="input-3" name="input2[]" type="file" class="file" multiple="" data-show-upload="false" data-show-caption="true" data-show-preview="true"></div>
+                                            </div>
+                                        </div></div>
+                                    </div>
+
+
                                     <div class="col-12 hidden">
                                         <input type="text" id="event-registration-botcheck" name="event-registration-botcheck" value="" />
                                     </div>
@@ -148,6 +183,69 @@
     onclick="SEMICOLON.widget.notifications(this); return false;">Show Success
 </a>
 
+<script >
+    $(document).ready(function() {
+        $("#input-5").fileinput({showCaption: false});
+
+        $("#input-6").fileinput({
+            showUpload: false,
+            maxFileCount: 10,
+            mainClass: "input-group-lg",
+            showCaption: true
+        });
+
+        $("#input-8").fileinput({
+            mainClass: "input-group-md",
+            showUpload: true,
+            previewFileType: "image",
+            browseClass: "btn btn-success",
+            browseLabel: "Pick Image",
+            browseIcon: "<i class=\"icon-picture\"></i> ",
+            removeClass: "btn btn-danger",
+            removeLabel: "Delete",
+            removeIcon: "<i class=\"icon-trash\"></i> ",
+            uploadClass: "btn btn-info",
+            uploadLabel: "Upload",
+            uploadIcon: "<i class=\"icon-upload\"></i> "
+        });
+
+        $("#input-9").fileinput({
+            previewFileType: "text",
+            allowedFileExtensions: ["txt", "md", "ini", "text"],
+            previewClass: "bg-warning",
+            browseClass: "btn btn-primary",
+            removeClass: "btn btn-secondary",
+            uploadClass: "btn btn-secondary",
+        });
+
+        $("#input-10").fileinput({
+            showUpload: false,
+            layoutTemplates: {
+                main1: "{preview}\n" +
+                "<div class=\'input-group {class}\'>\n" +
+                "   <div class=\'input-group-append\'>\n" +
+                "       {browse}\n" +
+                "       {upload}\n" +
+                "       {remove}\n" +
+                "   </div>\n" +
+                "   {caption}\n" +
+                "</div>"
+            }
+        });
+
+        $("#input-11").fileinput({
+            maxFileCount: 10,
+            allowedFileTypes: ["image", "video"]
+        });
+
+        $("#input-12").fileinput({
+            showPreview: false,
+            allowedFileExtensions: ["zip", "rar", "gz", "tgz"],
+            elErrorContainer: "#errorBlock"
+        });
+    });
+
+</script>
 
 
 <script>
