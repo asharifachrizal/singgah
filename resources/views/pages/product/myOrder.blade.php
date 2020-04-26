@@ -114,7 +114,23 @@
                                     @if($product->id <= 15)                                                                                                                                                                             
                                     <div class="col-12 form-group">
                                         <label for="design-style-produk">Design Style</label>
-                                        <input type="text" required name="style" id="style" class="form-control required" value="" placeholder="contoh: simple, elegant, animation, etc.">                                        
+                                        <div class="row" id="inputStyle-Warp">
+                                            <div class="col-lg-12 col-md-12" id="warpStyle_0">
+                                                <div class="input-group bootstrap-touchspin">
+                                                    <input id="indexStyle_0"  type="text" placeholder="Example: simple, elegant, animation, etc." data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control" style="display: block;">
+                                                    <div class="input-group-append bootstrap-touchspin-postfix" style="display: none;">
+                                                        <span class="input-group-text"></span>
+                                                    </div>
+                                                    <div class="input-group-append" id="spliceStyle_0" hidden="true">
+                                                        <button class="btn btn-danger bootstrap-touchspin-up" type="button" onclick="spliceStyle(0)">-</button>
+                                                    </div>
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-primary bootstrap-touchspin-up" type="button" onclick="addMoreStyle()">+</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- <input type="text" required name="style" id="style" class="form-control required" value="" >                                         -->
                                     </div> 
                                     @endif                                    
                                     <div class="col-12 form-group">
@@ -308,6 +324,47 @@
         }
     }
     // END FUNC AUDIENCE
+
+    // VARIABLE DESIGN STYLE
+    var xStyle = 1 //INDEXING INPUT DESIGN STYLE
+    var counterWarp_Style = [0] //INDEX STORAGE DESIGN STYLE
+    var warpInput_Style = $("#inputStyle-Warp") //WARP INPUT DESIGN STYLE
+
+    // START FUNC STYLE
+    function addMoreStyle() {
+        warpInput_Style.append(`
+        <div class="col-lg-12 col-md-12" id="warpStyle_${xStyle}" style="margin-top: 10px">
+            <div class="input-group bootstrap-touchspin">
+                <input id="indexStyle_${xStyle}"  type="text" placeholder="Example: simple, elegant, animation, etc." data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control" style="display: block;">
+                <div class="input-group-append bootstrap-touchspin-postfix" style="display: none;">
+                    <span class="input-group-text"></span>
+                </div>
+                <div class="input-group-append" id="spliceStyle_${xStyle}" >
+                    <button class="btn btn-danger bootstrap-touchspin-up" type="button" onclick="spliceStyle(${xStyle})">-</button>
+                </div>
+                <div class="input-group-append">
+                    <button class="btn btn-primary bootstrap-touchspin-up" type="button" onclick="addMoreStyle()">+</button>
+                </div>
+            </div>
+        </div>`)
+        if(counterWarp_Style.length == 1) {
+            $(`#spliceStyle_${counterWarp_Style[0]}`).removeAttr('hidden')
+        }
+        counterWarp_Style.push(xStyle)
+        xStyle++;
+    }
+
+    async function spliceStyle( warpNumber ) {
+        if(counterWarp_Style.length > 1) {
+            $(`#warpStyle_${warpNumber}`).remove()
+            await counterWarp_Style.splice(counterWarp_Style.findIndex( _warpNumber => _warpNumber == warpNumber ), 1)
+            if(counterWarp_Style.length == 1) {
+                $(`#spliceStyle_${counterWarp_Style[0]}`).attr("hidden", true);
+            }
+        }
+    }
+    
+    // END FUNC DESIGN STYLE
 
     var deadlines
     function deadlineSelected(data) {
