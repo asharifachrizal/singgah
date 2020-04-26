@@ -1,4 +1,5 @@
 <link href="{{ asset('material/plugins/jquery-asColorPicker-master/css/asColorPicker.css') }}" rel="stylesheet">
+<link href="{{ asset('libs/select2/select2.min.css') }}" rel="stylesheet">
 <style>
     .asColorPicker-wrap{
         width: 92%;
@@ -164,13 +165,38 @@
                                     </div>
                                     <div class="col-12 form-group">
                                         <label for="design-style-produk">Font</label>
-                                        <input type="text" required name="font" id="font" class="form-control required" value="" placeholder="Arial, Calibri">
+                                        <div class="row" id="inputFont-Warp">
+                                            <div class="col-lg-12 col-md-12" id="warpFont_0">
+                                                <div class="input-group bootstrap-touchspin">
+                                                    <input id="indexFont_0"  type="text" placeholder="anak-anak-dewasa / Umur 24-30" data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control" style="display: block;">
+                                                    <div class="input-group-append bootstrap-touchspin-postfix" style="display: none;">
+                                                        <span class="input-group-text"></span>
+                                                    </div>
+                                                    <div class="input-group-append" id="spliceAudience_0" hidden="true">
+                                                        <button class="btn btn-danger bootstrap-touchspin-up" type="button" onclick="spliceAudience(0)">-</button>
+                                                    </div>
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-primary bootstrap-touchspin-up" type="button" onclick="addMoreAudience()">+</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- <input type="text" required name="font" id="font" class="form-control required" value="" placeholder="Arial, Calibri"> -->
                                     </div>                                    
-                                    <div class="col-6 form-group">
+                                    <div class="col-12 form-group">
                                         <label for="output-produk">Output File Type:</label><br>
-                                        <input type="text" required name="output" id="output" class="form-control required" value="" placeholder=".PSD , .PNG, .MP4">
+                                        <select class="form-control select2 select2-hidden-accessible" multiple data-placeholder="SELECT OUTPUT" style="width: 100%;"  tabindex="-1" aria-hidden="true">
+                                            
+                                            <option value=".psd">.PSD</option>
+                                            <option value=".png">.PNG</option>
+                                            <option value=".jpg">.JPG/ JPEG</option>
+                                            <option value=".mp4">.MP4</option>
+                                            <option value=".mkv">.MKV</option>
+                                            <option value=".mov">.MOV</option>
+                                        </select>
+                                        <!-- <input type="text" required name="output" id="output" class="form-control required" value="" placeholder=".PSD , .PNG, .MP4"> -->
                                     </div>                                                                                                            
-                                    <div class="col-6 form-group">
+                                    <div class="col-12 form-group">
                                         <label for="deadline-produk">Deadline:</label><br>
                                         <select class="form-control required" name="deadline" id="deadline" onchange="deadlineSelected(this.value)">
                                             <option value="pilih" selected disabled>PILIH</option>
@@ -204,12 +230,12 @@
 
 <!-- START SCRIPT -->
 <script src="{{ asset('canvas/js/jquery.js') }}"></script>
-<script src="{{ asset('material/plugins/jquery-asColorPicker-master/libs/jquery-asColor.js') }}"></script>
-<script src="{{ asset('material/plugins/jquery-asColorPicker-master/libs/jquery-asGradient.js') }}"></script>
-<script src="{{ asset('material/plugins/jquery-asColorPicker-master/dist/jquery-asColorPicker.min.js') }}"></script>
+<script src="{{ asset('libs/select2/select2.min.js') }}"></script>
 <script>
+    $(".select2").select2()
+
     // VARIABLE COLOR PICKER
-    var xColor = 1 //INDEXING COLOR
+    var xColor = 1 //INDEXING COLOR 
     var counterWarp_Color = [0] //INDEX STORAGE COLOR
     var warpInput_Color = $("#inputColor-Warp") //WARP INPUT COLOR PICKER
     
@@ -330,7 +356,7 @@
     var counterWarp_Style = [0] //INDEX STORAGE DESIGN STYLE
     var warpInput_Style = $("#inputStyle-Warp") //WARP INPUT DESIGN STYLE
 
-    // START FUNC STYLE
+    // START FUNC DESIGN STYLE
     function addMoreStyle() {
         warpInput_Style.append(`
         <div class="col-lg-12 col-md-12" id="warpStyle_${xStyle}" style="margin-top: 10px">
@@ -363,8 +389,13 @@
             }
         }
     }
-    
     // END FUNC DESIGN STYLE
+
+    // VARIABLE FONT
+    var xFont = 1 //INDEXING INPUT FONT
+    var counterWarp_Font = [0] //INDEX STORAGE FONT
+    var warpInput_Font = $("#inputFont-Warp") //WARP INPUT FONT
+
 
     var deadlines
     function deadlineSelected(data) {
