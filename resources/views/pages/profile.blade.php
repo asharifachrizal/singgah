@@ -121,43 +121,43 @@
                                             <div class="form-group">
                                                 <label class="col-md-12">Full Name</label>
                                                 <div class="col-md-12">
-                                                    <input type="text" value="{{ Sentinel::getUser()->full_name }}" placeholder="Johnathan Doe" class="form-control form-control-line">
+                                                    <input type="text" name="full_name" value="{{ Sentinel::getUser()->full_name }}" placeholder="Johnathan Doe" class="form-control form-control-line">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="example-email" class="col-md-12">Email</label>
                                                 <div class="col-md-12">
-                                                    <input type="email" value="{{ Sentinel::getUser()->email }}" placeholder="johnathan@admin.com" class="form-control form-control-line" name="example-email" id="example-email">
+                                                    <input type="email" name="email" value="{{ Sentinel::getUser()->email }}" placeholder="johnathan@admin.com" class="form-control form-control-line" name="example-email" id="example-email">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-md-12">Password</label>
                                                 <div class="col-md-12">
-                                                    <input type="password" value="password" value="{{ Sentinel::getUser()->password }}" class="form-control form-control-line">
+                                                    <input type="password" name="password" value="password" value="{{ Sentinel::getUser()->password }}" class="form-control form-control-line">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-md-12">Phone Number</label>
                                                 <div class="col-md-12">
-                                                    <input type="number" value="{{ Sentinel::getUser()->phone_number }}" placeholder="123 456 7890" class="form-control form-control-line">
+                                                    <input type="number" name="phone_number" value="{{ Sentinel::getUser()->phone_number }}" placeholder="123 456 7890" class="form-control form-control-line">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-md-12">Street</label>
                                                 <div class="col-md-12">
-                                                    <input type="text" value="{{ Sentinel::getUser()->address }}" placeholder="Jalan Kemang" class="form-control form-control-line">
+                                                    <input type="text" name="address" value="{{ Sentinel::getUser()->address }}" placeholder="Jalan Kemang" class="form-control form-control-line">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-md-12">City</label>
                                                 <div class="col-md-12">
-                                                    <input type="text" value="{{ Sentinel::getUser()->city }}" placeholder="Jakarta" class="form-control form-control-line">
+                                                    <input type="text" name="city" value="{{ Sentinel::getUser()->city }}" placeholder="Jakarta" class="form-control form-control-line">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-md-12">Province</label>
                                                 <div class="col-md-12">
-                                                    <input type="text" value="{{ Sentinel::getUser()->province }}"placeholder="Jakarta Selatan" class="form-control form-control-line">
+                                                    <input type="text" name="province" value="{{ Sentinel::getUser()->province }}"placeholder="Jakarta Selatan" class="form-control form-control-line">
                                                 </div>
                                             </div>
                                             <div class="form-group">
