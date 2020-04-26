@@ -17,6 +17,7 @@ class NotificationTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();                                    
             $table->integer('notif_type_id')->unsigned();                                                
+            $table->string('title')->nullable();
             $table->string('value')->nullable();
             $table->string('status')->nullable();
             $table->timestamps();
