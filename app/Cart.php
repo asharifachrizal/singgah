@@ -13,13 +13,7 @@ class Cart extends Model
         'quantity',
         'orientation',
         'size',
-        'duration',
-        'target_audience',
-        'style',
-        'color',
-        'color_grading',
-        'font',
-        'output',
+        'duration',                                             
         'deadline',
         'status',        
         'price'
@@ -39,5 +33,31 @@ class Cart extends Model
     public function invoice()
     {
         return $this->belongsTo('App\Invoice');
+    }
+
+    public function color()
+    {
+        return $this->hasMany('App\Color');
+    }
+
+    public function briefURL()
+    {
+        return $this->hasMany('App\BriefURL');
+    }
+    public function briefFile()
+    {
+        return $this->hasMany('App\BriefFile');
+    }
+    public function outputType()
+    {
+        return $this->hasMany('App\OutputType');
+    }
+    public function style()
+    {
+        return $this->hasMany('App\Style');
+    }
+    public function font()
+    {
+        return $this->hasMany('App\Font');
     }
 }
