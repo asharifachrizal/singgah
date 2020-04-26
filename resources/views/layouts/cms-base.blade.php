@@ -136,7 +136,7 @@
                         </li>
                     </ul>
                 </div>
-                <form action="{{ route('postLogout') }}" method="POST" id="logout-form">
+                <form action="{{ route('postLogoutCMS') }}" method="POST" id="logout-form">
                 </form>
             </nav>
         </header>
@@ -246,7 +246,7 @@
                                 <li><a href="javascript:void(0)" data-theme="blue-dark" class="blue-dark-theme">10</a></li>
                                 <li><a href="javascript:void(0)" data-theme="purple-dark" class="purple-dark-theme">11</a></li>
                                 <li><a href="javascript:void(0)" data-theme="megna-dark" class="megna-dark-theme ">12</a></li>
-                            </ul>                            
+                            </ul>
                         </div>
                     </div>
                 </div>

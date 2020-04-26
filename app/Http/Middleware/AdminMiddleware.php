@@ -22,6 +22,6 @@ class AdminMiddleware
             else
                 return abort(404);
         else
-            return redirect()->route('login');
+            return redirect()->route('cms.login');
     }
 }

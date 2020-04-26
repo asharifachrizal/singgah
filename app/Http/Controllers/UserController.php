@@ -14,7 +14,7 @@ use App\User;
 class UserController extends BaseController
 {
     public function indexCustomer(){
-        $users = User::where('role_id', 2)->get();        
+        $users = User::where('role_id', 2)->get();
         return view('pages.cms.customers', compact('users'));
     }
 
@@ -22,8 +22,13 @@ class UserController extends BaseController
         return view('pages.login');
     }
 
+    public function CMSlogin(){
+        return view('pages.cms.admin-login');
+    }
+
     public function postLogin(Request $request)
     {
+        // dd($request);
         try{
             Sentinel::authenticate($request->all());
             if(Sentinel::check()) {
@@ -42,10 +47,33 @@ class UserController extends BaseController
         }
     }
 
+    public function postLoginCMS(Request $request)
+    {
+        try{
+            Sentinel::authenticate($request->all());
+            // dd($request);
+            if(Sentinel::check())
+                return redirect()->route('cms.dashboard');
+            else
+                throw new WrongCredentialException("Username atau Password salah");
+        } catch (WrongCredentialException $e) {
+            return redirect()->back()->with(['error' => $e->getMessage()]);
+        } catch (ThrottlingException $e) {
+            $delay = $e->getDelay();
+            return redirect()->back()->with(['error' => "You are banned for $delay seconds."]);
+        }
+    }
+
     public function postLogout()
     {
         Sentinel::logout();
         return redirect()->route('login');
+    }
+
+    public function postLogoutCMS()
+    {
+        Sentinel::logout();
+        return redirect()->route('cms.login');
     }
 
     public function setting()

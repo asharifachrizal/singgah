@@ -37,25 +37,25 @@
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
     <section id="wrapper">
-        <div class="login-register" style="background-image:url({{ asset('material/images/background/login-register.jpg') }});">        
+        <div class="login-register" style="background-image:url({{ asset('material/images/background/login-register.jpg') }});">
             <div class="login-box card">
             <div class="card-body">
-                <form class="form-horizontal form-material" id="loginform" action="index.html">
+                <form class="form-horizontal form-material" id="loginform" method="POST" action="{{ route('postLogin') }}">
                     <h3 class="box-title m-b-20">Sign In</h3>
                     <div class="form-group ">
                         <div class="col-xs-12">
-                            <input class="form-control" type="text" required="" placeholder="Username"> </div>
+                            <input class="form-control" type="text" name="email" required="" placeholder="Username"> </div>
                     </div>
                     <div class="form-group">
                         <div class="col-xs-12">
-                            <input class="form-control" type="password" required="" placeholder="Password"> </div>
+                            <input class="form-control" type="password" name="password" required="" placeholder="Password"> </div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-12">
                             <div class="checkbox checkbox-primary pull-left p-t-0">
                                 <input id="checkbox-signup" type="checkbox">
                                 <label for="checkbox-signup"> Remember me </label>
-                            </div> 
+                            </div>
                             <!-- <a href="javascript:void(0)" id="to-recover" class="text-dark pull-right"><i class="fa fa-lock m-r-5"></i> Forgot pwd?</a> -->
                         </div>
                     </div>
@@ -98,7 +98,7 @@
             </div>
           </div>
         </div>
-        
+
     </section>
     <!-- ============================================================== -->
     <!-- End Wrapper -->

@@ -135,4 +135,6 @@
         document.getElementById("myForm").submit();
     }
 </script>
+
+<script src="{{ asset('material/js/validation.js') }}"></script>
 @endsection

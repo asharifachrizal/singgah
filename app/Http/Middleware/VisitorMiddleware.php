@@ -17,16 +17,24 @@ class VisitorMiddleware
     public function handle($request, Closure $next)
     {
         if(Sentinel::check())
-            return $next($request);
-        else{
-            if($request->ajax()){
+            if(Sentinel::getUser()->roles()->first()->slug == 'visitor')
                 return $next($request);
-            } 
             else
-            {
-                return redirect()->route('login');
-            }
-            
-        }
+                return abort(404);
+        else
+            return redirect()->route('cms.login');
+
+        // if(Sentinel::check())
+        //     return $next($request);
+        // else{
+        //     if($request->ajax()){
+        //         return $next($request);
+        //     }
+        //     else
+        //     {
+        //         return redirect()->route('login');
+        //     }
+
+        // }
     }
 }
