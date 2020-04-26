@@ -54,6 +54,10 @@ class UserTableSeeder extends Seeder
 			'email' => 'asharifachrizal@mailinator.com',
             'password' => 'qwerty123',
             'full_name' => 'Ashari Fachrizal',
+            'address' => 'Kemang',
+            'city' => 'Jakarta',
+            'province' => 'Jakarta Selatan',
+            'phone_number' => '1234567890',
 		];
 
         $user = Sentinel::registerAndActivate($credentials);
@@ -66,6 +70,7 @@ class UserTableSeeder extends Seeder
             'full_name' => 'Januar Elsan',
             'address' => 'Kemang',
             'city' => 'Jakarta',
+            'province' => 'Jakarta Selatan',
             'phone_number' => '1234567890',
 		];
 

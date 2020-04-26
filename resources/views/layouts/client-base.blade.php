@@ -16,8 +16,14 @@
 	<link rel="stylesheet" href="{{ asset('canvas/css/magnific-popup.css') }}" type="text/css" />
 	<!-- Bootstrap File Upload CSS -->
 	<link rel="stylesheet" href="{{ asset('canvas/css/components/bs-filestyle.css') }}" type="text/css" />
+	<!-- Bootstrap Core CSS -->
+    <link href="{{ asset('material/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 	<!-- Custom CSS -->
     <link href="{{ asset('material/css/style.css') }}" rel="stylesheet">
+	<!--Morris CSS -->
+    <link href="{{ asset('material/plugins/morrisjs/morris.css') }}" rel="stylesheet">
+	<!-- You can change the theme colors from here -->
+    <link href="{{ asset('material/css/colors/blue.css') }}" id="theme" rel="stylesheet">	
 
 	<link rel="stylesheet" href="{{ asset('canvas/css/responsive.css') }}" type="text/css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />

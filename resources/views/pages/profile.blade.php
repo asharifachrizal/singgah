@@ -20,79 +20,160 @@
 
     <div class="container clearfix">
 
-        <div class="row clearfix">
-
-            <div class="col-md-9">
-
-                <!-- Avatar
-                <img src="{{ asset('canvas/images/avatar.jpg')}}" class="alignleft img-circle img-thumbnail notopmargin nobottommargin" alt="Avatar" style="max-width: 84px;"> -->
-
-                <div class="heading-block noborder">
-                    <h3>{{ Sentinel::getUser()->full_name }}</h3>
-                    <span>My Profile Bio</span>
-                </div>
-
-                <div class="clear"></div>
-
-                <div class="row clearfix">
-
-                    <div class="postcontent">
-
-						<!-- <h3>Simple Form</h3> -->
-
-						<form style="max-width: 50rem;" action="{{ route('registerUpdate', Sentinel::getUser()->id)}}" method="POST">
-							<div class="form-group">
-								<label for="exampleInputEmail1">Email </label>
-								<input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Email" value="{{ Sentinel::getUser()->email }}" required>
-								<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        <!-- Row -->
+        <div class="row">
+                    <!-- Column -->
+                    <div class="col-lg-4 col-xlg-3 col-md-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <center class="m-t-30"> <img src="{{ asset('material/images/users/5.jpg')}}" class="img-circle" width="150" />
+                                    <h4 class="card-title m-t-10">{{ Sentinel::getUser()->full_name }}</h4>
+                                    <!-- <h6 class="card-subtitle">Accoubts Manager Amix corp</h6> -->
+                                    <div class="list-group">                                        
+                                        <a href="#" class="list-group-item list-group-item-action clearfix">My Orders <i class="icon-credit-cards float-right"></i></a>                                                                                
+                                    </div>                                    
+                                </center>
                             </div>
-							<div class="form-group">
-								<label for="exampleInputPassword1">Password</label>
-								<input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                            <div>
+                                <hr> </div>
+                            <div class="card-body"> 
+                                <small class="text-muted">Email address </small>
+                                <h6>{{ Sentinel::getUser()->email }}</h6>
+                                
+                                <small class="text-muted ">Phone</small>
+                                <h6>{{ Sentinel::getUser()->phone_number }}</h6>
+                                
+                                <small class="text-muted">Street</small>                                
+                                <h6>{{ Sentinel::getUser()->address }}</h6>
+
+                                <small class="text-muted">City</small>                                
+                                <h6>{{ Sentinel::getUser()->city }}</h6>
+
+                                <small class="text-muted">Province</small>                                
+                                <h6>{{ Sentinel::getUser()->province }}</h6>
+                                                                
                             </div>
-                            <div class="form-group">
-								<label for="exampleInputEmail1">Full Name </label>
-								<input type="text" class="form-control" id="full_name" name="full_name" aria-describedby="emailHelp" placeholder="Full Name" value="{{ Sentinel::getUser()->full_name }}" required>
-							</div>
-							<div class="form-group">
-								<label for="exampleInputEmail1">Address </label>
-								<input type="text" class="form-control" id="address" name="address" aria-describedby="emailHelp" placeholder="Address" value="{{ Sentinel::getUser()->address }}">
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <!-- Column -->
+                    <div class="col-lg-8 col-xlg-9 col-md-7">
+                        <div class="card">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs profile-tab" role="tablist">                                
+                                <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#profile" role="tab">Profile</a> </li>
+                                <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#settings" role="tab">Settings</a> </li>
+                            </ul>
+                            <!-- Tab panes -->
+                            <div class="tab-content">                                
+                                <!--second tab-->
+                                <div class="tab-pane active" id="profile" role="tabpanel">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-3 col-xs-6 b-r"> <strong>Full Name</strong>
+                                                <br>
+                                                <p class="text-muted">{{ Sentinel::getUser()->full_name }}</p>
+                                            </div>
+                                            <div class="col-md-3 col-xs-6 b-r"> <strong>Phone Number</strong>
+                                                <br>
+                                                <p class="text-muted">{{ Sentinel::getUser()->phone_number }}</p>
+                                            </div>
+                                            <div class="col-md-3 col-xs-6 b-r"> <strong>Email</strong>
+                                                <br>
+                                                <p class="text-muted">{{ Sentinel::getUser()->email }}</p>
+                                            </div>
+                                            <div class="col-md-3 col-xs-6"> <strong>City</strong>
+                                                <br>
+                                                <p class="text-muted">{{ Sentinel::getUser()->city }}</p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        
+                                        <h4 class="font-medium m-t-30">Notifications</h4>
+                                        <hr>
+                                        <div class="message-box">
+                                            <div class="message-widget">                                                
+                                                <!-- Message -->
+                                                <a href="#">
+                                                    <div class="user-img"><span class="round"><i class="mdi mdi-earth" style="position:relative; top:14px"></i></span></div>
+                                                    <div class="mail-contnet">
+                                                        <h5>New Product </h5> <span class="mail-desc">Ada Produk Baru Loh Guys</span> <span class="time">9:10 AM</span> </div>
+                                                </a>
+                                                <!-- Message -->
+                                                <a href="#">
+                                                    <div class="user-img"> <span class="round bg-success"><i class="mdi mdi-currency-usd" style="position:relative; top:14px"></i></span></div>
+                                                    <div class="mail-contnet">
+                                                        <h5>Invoices to pay</h5> <span class="mail-desc">Invoice Id : #12345 dengan jumlah Rp 3.500.000 </span> <span class="time">9:08 AM</span> </div>
+                                                </a>
+                                                <!-- Message -->
+                                                <a href="#">
+                                                    <div class="user-img"><span class="round bg-danger"><i class="mdi mdi-tag-remove" style="position:relative; top:14px"></i></span></div>
+                                                    <div class="mail-contnet">
+                                                        <h5>Invoice Canceled</h5> <span class="mail-desc">Kamu membatalkan Invoice #112333</span> <span class="time">9:02 AM</span> </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="settings" role="tabpanel">
+                                    <div class="card-body">
+                                        <form class="form-horizontal form-material">
+                                            <div class="form-group">
+                                                <label class="col-md-12">Full Name</label>
+                                                <div class="col-md-12">
+                                                    <input type="text" value="{{ Sentinel::getUser()->full_name }}" placeholder="Johnathan Doe" class="form-control form-control-line">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="example-email" class="col-md-12">Email</label>
+                                                <div class="col-md-12">
+                                                    <input type="email" value="{{ Sentinel::getUser()->email }}" placeholder="johnathan@admin.com" class="form-control form-control-line" name="example-email" id="example-email">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-12">Password</label>
+                                                <div class="col-md-12">
+                                                    <input type="password" value="password" value="{{ Sentinel::getUser()->password }}" class="form-control form-control-line">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-12">Phone Number</label>
+                                                <div class="col-md-12">
+                                                    <input type="number" value="{{ Sentinel::getUser()->phone_number }}" placeholder="123 456 7890" class="form-control form-control-line">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-12">Street</label>
+                                                <div class="col-md-12">
+                                                    <input type="text" value="{{ Sentinel::getUser()->address }}" placeholder="Jalan Kemang" class="form-control form-control-line">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-12">City</label>
+                                                <div class="col-md-12">
+                                                    <input type="text" value="{{ Sentinel::getUser()->city }}" placeholder="Jakarta" class="form-control form-control-line">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-12">Province</label>
+                                                <div class="col-md-12">
+                                                    <input type="text" value="{{ Sentinel::getUser()->province }}"placeholder="Jakarta Selatan" class="form-control form-control-line">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-12">
+                                                    <button class="btn btn-success">Update Profile</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="form-group">
-								<label for="exampleInputEmail1">City </label>
-								<input type="text" class="form-control" id="city" name="city" aria-describedby="emailHelp" placeholder="City" value="{{ Sentinel::getUser()->city }}" required>
-                            </div>
-                            <div class="form-group">
-								<label for="exampleInputEmail1">Phone Number </label>
-								<input type="number" class="form-control" id="phone_number" name="phone_number" aria-describedby="emailHelp" placeholder="62" value="{{ Sentinel::getUser()->phone_number }}" required>
-							</div>
-							<button type="submit" class="btn btn-primary mt-3">Save</button>
-                        </form>
+                        </div>
+                    </div>
+                    <!-- Column -->
                 </div>
-
-                </div>
-
-            </div>
-
-            <div class="w-100 line d-block d-md-none"></div>
-
-            <div class="col-md-3 clearfix">
-
-                <div class="list-group">
-                    <!-- <a href="#" class="list-group-item list-group-item-action clearfix">Profile <i class="icon-user float-right"></i></a> -->                    
-                    <a href="{{ route('myorder', Sentinel::getUser()->id)}}" class="list-group-item list-group-item-action clearfix">My Orders <i class="icon-laptop2 float-right"></i></a>
-                    <a href="#" class="list-group-item list-group-item-action clearfix">Logout <i class="icon-line2-logout float-right"></i></a>
-                </div>
-
-                <!-- <div class="fancy-title topmargin title-border">
-                    <h4>About Me</h4>
-                </div>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum laboriosam, dignissimos veniam obcaecati. Quasi eaque, odio assumenda porro explicabo laborum!</p>                 -->
-
-            </div>
-
-        </div>
+                <!-- Row -->
 
     </div>
 
