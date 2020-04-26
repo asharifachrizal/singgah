@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Sentinel;
 use Validator;
+use App\Notification;
 
 class RegisterController extends Controller
 {
@@ -17,25 +18,29 @@ class RegisterController extends Controller
 
 
     public function registerStore(Request $request)
-    {
-        // dd($request->all());
-
-
-            // $data = [
-            //     'full_name'         => $request->fullName,
-            //     'address'           => $request->address,
-            //     'city'              => $request->city,
-            //     'phone_number'       => $request->phoneNumber,
-            //     'email'             => $request->email,
-            //     'password'          => $request->password
-            // ];
-            // dd($request->all());
+    {        
 
             $user = Sentinel::registerAndActivate($request->all());
             $role = Sentinel::findRoleBySlug('visitor');
             $user->roles()->attach($role);
 
+            $this->welcomeNotif($user);
+
             return redirect()->route('login');
+
+    }
+
+    public function welcomeNotif(User $user)
+    {                
+        $data = [
+            'user_id'         => $user->id,
+            'notif_type_id'         => 1,
+            'title'         => 'Selamat Datang!',
+            'value'        => 'Hallo ' . $user->full_name . ' Selamat Datang di Singgah Chambers',
+            'created_at' => date('Y-m-d H:i:s')
+        ];
+                    
+        Notification::create($data);
 
     }
 }

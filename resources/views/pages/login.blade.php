@@ -81,6 +81,11 @@
                     </div>
 
                     <div class="col_full">
+                        <label for="register-form-name">Province:</label>
+                        <input type="text" id="register-form-name" name="province" value="" class="form-control" />
+                    </div>
+
+                    <div class="col_full">
                         <label for="register-form-name">Phone Number:</label>
                         <input type="number" id="register-form-name" name="phone_number" value="" class="form-control" />
                     </div>
@@ -97,34 +102,6 @@
 
 </div>
 
-<!-- <div class="container">
-    <div class="row">
-        <div class="col-lg-6">
-            <h3>Masuk</h3>
-            <div class="theme-card">
-                <form class="theme-form" id="loginform" method="POST" action="{{ route('postLogin') }}">
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="text" class="form-control" name="email" placeholder="Email" required="">
-                    </div>
-                    <div class="form-group">
-                        <label for="review">Kata Sandi</label>
-                        <input type="password" class="form-control" name="password" placeholder="Enter your password" required="">
-                    </div>
-                    <button type="submit" class="btn btn-solid">Masuk</button>
-                </form>
-            </div>
-        </div>
-        <div class="col-lg-6 right-login">
-            <h3>Pelanggan Baru?</h3>
-            <div class="theme-card authentication-right">
-                <h6 class="title-font">Buat Akun</h6>
-                <p>Registrasi dengan mudah di toko kami dan dapatkan promo-promo dari produk kami. Gabung dan rasakan kemudahan bertransaksi. Dengan mendaftar, saya menyetujui syarat dan ketentuan serta kebijakan privasi.</p>
-                <br><br><br><br><br>
-                <a href="{{ route('register')}}" class="btn btn-solid">Buat Akun</a></div>
-        </div>
-    </div>
-</div> -->
 
 <!--Section ends-->
 @endsection
