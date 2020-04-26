@@ -1,3 +1,9 @@
+<link href="{{ asset('material/plugins/jquery-asColorPicker-master/css/asColorPicker.css') }}" rel="stylesheet">
+<style>
+    .asColorPicker-wrap{
+        width: 92%;
+    }
+</style>
 @extends('layouts.client-base')
 
 @section('title')
@@ -101,13 +107,36 @@
                                     </div> 
                                     @endif                                    
                                     <div class="col-12 form-group">
-                                        <label for="design-style-produk">Warna</label>
-                                        <input type="text" required name="color" id="color" class="form-control required" value="" placeholder="Merah, Kuning">
+                                        <label for="design-style-produk">Warna</label><br>
+                                        <span>
+                                            <small>Format: HEX, RGB, dan RGBA</small>
+                                        </span>
+                                        <div class="row" id="inputColor-Warp"> 
+                                            <div class="col-lg-12 col-md-12" id="warpColor_0" >
+                                                <input type="color" id="colorPicker_0" value="#acacec" hidden onchange="changeColor_Picker(this.value, 0)">
+                                                <div class="input-group bootstrap-touchspin">
+                                                    <div class="input-group-prepend">
+                                                        <button id="btnPicker_0" onclick="openColorPicker(0)" class="btn btn-secondary btn-outline bootstrap-touchspin-down" type="button" style="background-color: #acacec; width: 40px;"> </button>
+                                                    </div>
+                                                    <div class="input-group-prepend bootstrap-touchspin-prefix" style="display: none;">
+                                                        <span class="input-group-text"></span>
+                                                    </div>
+                                                    <input id="indexColor_0" onchange="changeColor_Input(this.value, 0)" type="text" value="#acacec" name="tch3" data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control" style="display: block;">
+                                                    <div class="input-group-append bootstrap-touchspin-postfix" style="display: none;">
+                                                        <span class="input-group-text"></span>
+                                                    </div>
+                                                    <div class="input-group-append" id="spliceColor_0" hidden="true">
+                                                        <button class="btn btn-danger bootstrap-touchspin-up" type="button" onclick="spliceColor(0)">-</button>
+                                                    </div>
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-primary bootstrap-touchspin-up" type="button" onclick="addMoreColor()">+</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="col-12 form-group">
-                                        <label for="design-style-produk">Grading Warna</label>
-                                        <input type="text" required name="color_grading" id="color_grading" class="form-control required" value="" placeholder="Merah dan Putih">
-                                    </div>                                    
+                                    
+                            
                                     <div class="col-12 form-group">
                                         <label for="design-style-produk">Font</label>
                                         <input type="text" required name="font" id="font" class="form-control required" value="" placeholder="Arial, Calibri">
@@ -124,9 +153,7 @@
                                             <option value="normal">Nomral</option>
                                         </select>
                                     </div>
-                                    
-
-                                    <div class="col-lg-12 bottommargin">
+                                    <!-- <div class="col-lg-12 bottommargin">
                                         <label>Select Multiple Items:</label><br>
                                         <div class="file-input file-input-new"><div class="file-preview ">
                                             <button type="button" class="close fileinput-remove" aria-label="Close">
@@ -156,9 +183,7 @@
                                             <div tabindex="500" class="btn btn-primary btn-file"><i class="glyphicon glyphicon-folder-open"></i>&nbsp;  <span class="d-none d-sm-inline-block">Browse …</span><input id="input-3" name="input2[]" type="file" class="file" multiple="" data-show-upload="false" data-show-caption="true" data-show-preview="true"></div>
                                             </div>
                                         </div></div>
-                                    </div>
-
-
+                                    </div> -->
                                     <div class="col-12 hidden">
                                         <input type="text" id="event-registration-botcheck" name="event-registration-botcheck" value="" />
                                     </div>
@@ -183,73 +208,81 @@
     onclick="SEMICOLON.widget.notifications(this); return false;">Show Success
 </a>
 
-<script >
-    $(document).ready(function() {
-        $("#input-5").fileinput({showCaption: false});
-
-        $("#input-6").fileinput({
-            showUpload: false,
-            maxFileCount: 10,
-            mainClass: "input-group-lg",
-            showCaption: true
-        });
-
-        $("#input-8").fileinput({
-            mainClass: "input-group-md",
-            showUpload: true,
-            previewFileType: "image",
-            browseClass: "btn btn-success",
-            browseLabel: "Pick Image",
-            browseIcon: "<i class=\"icon-picture\"></i> ",
-            removeClass: "btn btn-danger",
-            removeLabel: "Delete",
-            removeIcon: "<i class=\"icon-trash\"></i> ",
-            uploadClass: "btn btn-info",
-            uploadLabel: "Upload",
-            uploadIcon: "<i class=\"icon-upload\"></i> "
-        });
-
-        $("#input-9").fileinput({
-            previewFileType: "text",
-            allowedFileExtensions: ["txt", "md", "ini", "text"],
-            previewClass: "bg-warning",
-            browseClass: "btn btn-primary",
-            removeClass: "btn btn-secondary",
-            uploadClass: "btn btn-secondary",
-        });
-
-        $("#input-10").fileinput({
-            showUpload: false,
-            layoutTemplates: {
-                main1: "{preview}\n" +
-                "<div class=\'input-group {class}\'>\n" +
-                "   <div class=\'input-group-append\'>\n" +
-                "       {browse}\n" +
-                "       {upload}\n" +
-                "       {remove}\n" +
-                "   </div>\n" +
-                "   {caption}\n" +
-                "</div>"
-            }
-        });
-
-        $("#input-11").fileinput({
-            maxFileCount: 10,
-            allowedFileTypes: ["image", "video"]
-        });
-
-        $("#input-12").fileinput({
-            showPreview: false,
-            allowedFileExtensions: ["zip", "rar", "gz", "tgz"],
-            elErrorContainer: "#errorBlock"
-        });
-    });
-
-</script>
-
-
+<!-- START SCRIPT -->
+<script src="{{ asset('canvas/js/jquery.js') }}"></script>
+<script src="{{ asset('material/plugins/jquery-asColorPicker-master/libs/jquery-asColor.js') }}"></script>
+<script src="{{ asset('material/plugins/jquery-asColorPicker-master/libs/jquery-asGradient.js') }}"></script>
+<script src="{{ asset('material/plugins/jquery-asColorPicker-master/dist/jquery-asColorPicker.min.js') }}"></script>
 <script>
+    var x = 1
+    var counterWarp_Color = [0]
+    var warpInput_Color = $("#inputColor-Warp")
+    
+    
     var deadlines
+    var chooseColor = [
+        {
+            index: 0,
+            color: '#ffffff'
+        }
+    ]
+
+    async function spliceColor( warpNumber ) {
+        if(counterWarp_Color.length > 1) {
+            $(`#warpColor_${warpNumber}`).remove()
+            await counterWarp_Color.splice(counterWarp_Color.findIndex( _warpNumber => _warpNumber == warpNumber ), 1)
+            if(counterWarp_Color.length == 1) {
+                $(`#spliceColor_${counterWarp_Color[0]}`).attr("hidden", true);
+            }
+            console.log(counterWarp_Color)
+        }
+    }
+
+    function openColorPicker(warpNumber) {
+        $(`#colorPicker_${warpNumber}`).click()
+    }
+
+    function changeColor_Picker(data, warpNumber) {
+        $(`#indexColor_${warpNumber}`).val(data)
+        $(`#btnPicker_${warpNumber}`).css('background-color', `${data}`)
+    }
+
+    function changeColor_Input( data, warpNumber ) {
+        $(`#colorPicker_${warpNumber}`).val(data)
+        $(`#btnPicker_${warpNumber}`).css('background-color', `${data}`)
+    }
+
+    function addMoreColor() {
+        warpInput_Color.append(`
+        <div class="col-lg-12 col-md-12" id="warpColor_${x}" style="margin-top: 10px">
+            <input type="color" id="colorPicker_${x}" value="#acacec" hidden onchange="changeColor_Picker(this.value, ${x})">
+            <div class="input-group bootstrap-touchspin">
+                <div class="input-group-prepend">
+                    <button id="btnPicker_${x}" onclick="openColorPicker(${x})" class="btn btn-secondary btn-outline bootstrap-touchspin-down" type="button" style="background-color: #acacec; width: 40px;"> </button>
+                </div>
+                <div class="input-group-prepend bootstrap-touchspin-prefix" style="display: none;">
+                    <span class="input-group-text"></span>
+                </div>
+                <input id="indexColor_${x}" onchange="changeColor_Input(this.value, ${x})" type="text" value="#acacec" name="tch3" data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control" style="display: block;">
+                <div class="input-group-append bootstrap-touchspin-postfix" style="display: none;">
+                    <span class="input-group-text"></span>
+                </div>
+                <div class="input-group-append" id="spliceColor_${x}" >
+                    <button class="btn btn-danger bootstrap-touchspin-up" type="button" onclick="spliceColor(${x})">-</button>
+                </div>
+                <div class="input-group-append">
+                    <button class="btn btn-primary bootstrap-touchspin-up" type="button" onclick="addMoreColor()">+</button>
+                </div>
+            </div>
+        </div>`)
+
+        if(counterWarp_Color.length == 1) {
+            $(`#spliceColor_${counterWarp_Color[0]}`).removeAttr('hidden')
+        }
+        counterWarp_Color.push(x)
+        x++;
+    }
+
     function deadlineSelected(data) {
         deadlines = data
         console.log('deadline ', data)
