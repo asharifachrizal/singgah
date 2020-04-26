@@ -19,6 +19,7 @@ class User extends \Cartalyst\Sentinel\Users\EloquentUser
         'full_name',
         'address',
         'city',
+        'province',
         'phone_number',
         'name',
         'email',
@@ -43,8 +44,14 @@ class User extends \Cartalyst\Sentinel\Users\EloquentUser
     //     'email_verified_at' => 'datetime',
     // ];
 
-    // public function role()
-	// {
-	// 	return $this->belongsTo('App\Product');
-	// }
+    public function invoice()
+	{
+		return $this->hasMany('App\Invoice');
+    }
+
+    public function cart()
+	{
+		return $this->hasMany('App\Cart');
+    }
+    
 }

@@ -8,262 +8,191 @@
             <li class="breadcrumb-item"><a href="javascript:void(0)">Order</a></li>
             <li class="breadcrumb-item active">Detail</li>
         </ol>
-    </div>   
+    </div>
 </div>
-<!-- End Bread crumb and right sidebar toggle -->  
-                
+<!-- End Bread crumb and right sidebar toggle -->
+
 <!-- ============================================================== -->
 <!-- Start Page Content -->
 <!-- ============================================================== -->
-<div class="card">
-    <div class="card-header">
-        Brosur
-        <div class="card-actions">
-            <a class="" data-action="collapse"><i class="ti-plus"></i></a>
-            <!-- <a class="btn-minimize" data-action="expand"><i class="mdi mdi-arrow-expand"></i></a>
-            <a class="btn-close" data-action="close"><i class="ti-close"></i></a> -->
+<form >
+    @foreach ($carts as $index => $row)
+    <input type="hidden" id="totalCartsItem" value="{{ $carts->count() }}" >
+    <input type="hidden" id="itemsId_{{$index}}" value="{{ $row->id }}" >
+    <input type="hidden" name="user_id" value="{{$row->user_id}}">
+    <input type="hidden" name="cart_id[]" value="{{$row->id}}">
+    <input type="hidden" id="invoice_id" value="{{$row->invoice->id}}">
+    <div class="card">
+        <div class="card-header">
+            {{$row->product->value}}
+            <div class="card-actions">
+                <a class="" data-action="collapse"><i class="ti-plus"></i></a>
+                <!-- <a class="btn-minimize" data-action="expand"><i class="mdi mdi-arrow-expand"></i></a>
+                <a class="btn-close" data-action="close"><i class="ti-close"></i></a> -->
+            </div>
         </div>
-    </div>
-    <div class="card-body collapse">
-        <h4 class="card-title">Special title treatment</h4>
-        
-        <div class="row">
-            <div class="col-md-6 ">
-                <div class="form-group">
-                    <label>Deadline</label>
-                    <input type="date" class="form-control" disabled>
+        <div class="card-body collapse">
+            <h4 class="card-title">Special title treatment</h4>
+            <div class="row">
+                <div class="col-md-6 ">
+                    <div class="form-group">
+                        <label>Deadline</label>
+                        <input type="text" class="form-control" disabled value="{{$row->deadline}}">
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label>Quantity</label>
-                    <input type="number" class="form-control" value="1" disabled>
-                </div>               
-            </div>
-        </div>
-        <!--/row-->
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label>Size/Ration</label>
-                    <input type="text" class="form-control" value="1" disabled>
-                </div>               
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label>Orientation</label>
-                    <input type="text" class="form-control" disabled>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Quantity</label>
+                        <input type="number" class="form-control"  disabled value="{{$row->quantity}}">
+                    </div>
+                </div>
+                @if($row->product->id == 3 || $row->product->id == 5 || $row->product->id == 7 )
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Orientation</label>
+                        <input type="text" class="form-control" disabled value="{{$row->orientation}}">
+                    </div>
                 </div>  
+                @endif  
+                @if($row->product->id > 0 && $row->product->id < 16 )              
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Size/Ration</label>
+                        <input type="text" class="form-control" disabled value="{{$row->size}}">
+                    </div>
+                </div>
+                @endif
+                @if($row->product->id >= 18)
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Duration</label>
+                        <input type="text" class="form-control" disabled value="{{$row->duration}}">
+                    </div>
+                </div>  
+                @endif                                                                              
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Target Audience</label>
+                        <input type="text" class="form-control" disabled value="{{$row->target_audience}}">
+                    </div>
+                </div> 
+                @if($row->product->id <= 15)   
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Design Style</label>
+                        <input type="text" class="form-control" disabled value="{{$row->style}}">
+                    </div>
+                </div>    
+                @endif                                                            
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Font</label>
+                        <input type="text" class="form-control" disabled value="{{$row->font}}">
+                    </div>
+                </div> 
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Color</label>
+                        <input type="text" class="form-control" disabled value="{{$row->color}}">
+                    </div>
+                </div>                                                                                
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Color Grading</label>
+                        <input type="text" class="form-control" disabled value="{{$row->color_grading}}">
+                    </div>
+                </div>  
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Output File</label>
+                        <input type="text" class="form-control" disabled value="{{$row->output}}">
+                    </div>
+                </div>     
+                
             </div>
+            <!--/row-->                                                                                            
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Price</label>
+                        @if($row->invoice->status == 0)
+                            <input type="number" class="form-control" id="price_cart_id_{{$index}}" value="{{$row->price}}">
+                        @else
+                            <input disabled type="number" class="form-control" id="price_cart_id_{{$index}}" value="{{$row->price}}">
+                        @endif
+                    </div>
+                </div>
+            </div>
+            <!--/row-->
         </div>
-        <!--/row-->
-        <div class="row">
-            
-            <div class="col-md-6">
-                <div class="form-group">
-                <div class="card">
-                    <div class="card-header">
-                        Color
-                        <div class="card-actions">
-                            <a class="" data-action="collapse"><i class="ti-plus"></i></a>
-                        </div>
-                    </div>
-                    <div class="card-body collapse">
-                        <!-- <h4 class="card-title">Special title treatment</h4> -->
-                        <p class="card-text">#FFFFFF</p>
-                        <p class="card-text">#FFFFFF</p>
-                        <p class="card-text">#FFFFFF</p>                        
-                    </div>
-                </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                <div class="card">
-                    <div class="card-header">
-                        Color Grading
-                        <div class="card-actions">
-                            <a class="" data-action="collapse"><i class="ti-plus"></i></a>
-                        </div>
-                    </div>
-                    <div class="card-body collapse">
-                        <p class="card-text">#FFFFFF</p>
-                        <p class="card-text">#FFFFFF</p>
-                        <p class="card-text">#FFFFFF</p>
-                                         
-                    </div>
-                </div>
-                </div>
-            </div>
-            
-        </div>
-
-        <div class="row">
-            
-            <div class="col-md-6">
-                <div class="form-group">
-                <div class="card">
-                    <div class="card-header">
-                        Font Style
-                        <div class="card-actions">
-                            <a class="" data-action="collapse"><i class="ti-plus"></i></a>
-                        </div>
-                    </div>
-                    <div class="card-body collapse">
-                        <!-- <h4 class="card-title">Special title treatment</h4> -->
-                        <p class="card-text">Arial</p>                        
-                    </div>
-                </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                <div class="card">
-                    <div class="card-header">
-                        Target Audience
-                        <div class="card-actions">
-                            <a class="" data-action="collapse"><i class="ti-plus"></i></a>
-                        </div>
-                    </div>
-                    <div class="card-body collapse">
-                        <p class="card-text">Anak Muda</p>                        
-                                         
-                    </div>
-                </div>
-                </div>
-            </div>
-            
-        </div>
-        
-        <div class="row">            
-            <div class="col-md-6">
-                <div class="form-group">
-                <div class="card">
-                    <div class="card-header">
-                        Output File
-                        <div class="card-actions">
-                            <a class="" data-action="collapse"><i class="ti-plus"></i></a>
-                        </div>
-                    </div>
-                    <div class="card-body collapse">
-                        <!-- <h4 class="card-title">Special title treatment</h4> -->
-                        <p class="card-text">JPEG, PNG</p>                        
-                    </div>
-                </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                <div class="card">
-                    <div class="card-header">
-                        Pattern/Reference
-                        <div class="card-actions">
-                            <a class="" data-action="collapse"><i class="ti-plus"></i></a>
-                        </div>
-                    </div>
-                    <div class="card-body collapse">
-                        <p class="card-text">BUMN</p>
-                        <p class="card-text">Poster Game</p>                        
-                                         
-                    </div>
-                </div>
-                </div>
-            </div>
-        </div>
-        
-
-        <div class="row">
-            <div class="col-md-12">
-                <strong>Brief URL</strong>
-                <br>
-                <a href="https://www.visiprop.com" target="_blank" >visiprop.com</a>
-            </div>
-        </div>
-
     </div>
+    @endforeach
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12 ">
+                    <div class="form-group">
+                        <label>Brief From Client</label>
+                        <input type="text" class="form-control" name="brief" disabled value="{{$carts[0]->invoice->briefURL}}">
+                        <input type="hidden" class="form-control" name="brief"  value="{{$carts[0]->invoice->briefURL}}">
+                    </div>
+                </div>
+            </div>
+            <!--/row-->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Output File</label>
+                        <input type="text" class="form-control" id="outputURL" value="{{$carts[0]->invoice->outputURL}}">
+                    </div>
+                </div>
+            </div>
+            <!--/row-->
+        </div>
+    </div>
+</form>
+    <button onclick="doPost()" class="btn waves-effect waves-light btn-info">Save Prices and Output File URL</button>
 
-    
+    <button onclick="window.location.href = '/cms/order/invoice/{{$row->invoice->id}}'" type="button" class="btn waves-effect waves-light btn-info">See Detail Invoice</button>    
 
-</div>
+
+
 <!-- ============================================================== -->
 <!-- End PAge Content -->
 <!-- ============================================================== -->
 
-<!-- Start Invoice Content -->
-<div class="row">
-    <div class="col-md-12">
-        <div class="card card-body printableArea">
-            <h3><b>INVOICE</b> <span class="pull-right">#5669626</span></h3>
-            <hr>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="pull-left">
-                        <address>
-                            <h3> &nbsp;<b class="text-danger">Singgah</b></h3>
-                            <p class="text-muted m-l-5">E 104, Dharti-2,
-                                <br/> Nr' Viswakarma Temple,
-                                <br/> Talaja Road,
-                                <br/> Bhavnagar - 364002</p>
-                        </address>
-                    </div>
-                    <div class="pull-right text-right">
-                        <address>
-                            <h3>To,</h3>
-                            <h4 class="font-bold">Gaala & Sons,</h4>
-                            <p class="text-muted m-l-30">E 104, Dharti-2,
-                                <br/> Nr' Viswakarma Temple,
-                                <br/> Talaja Road,
-                                <br/> Bhavnagar - 364002</p>
-                            <p class="m-t-30"><b>Invoice Date :</b> <i class="fa fa-calendar"></i> 23rd Jan 2017</p>
-                            <p><b>Due Date :</b> <i class="fa fa-calendar"></i> 25th Jan 2017</p>
-                        </address>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="table-responsive m-t-40" style="clear: both;">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th class="text-center">#</th>
-                                    <th>Description</th>
-                                    <th class="text-right">Quantity</th>
-                                    <th class="text-right">Unit Cost</th>
-                                    <th class="text-right">Total</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="text-center">1</td>
-                                    <td>Milk Powder</td>
-                                    <td class="text-right">2 </td>
-                                    <td class="text-right"> $24 </td>
-                                    <td class="text-right"> $48 </td>
-                                </tr>
-                                
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="pull-right m-t-30 text-right">
-                        <p>Sub - Total amount: $13,848</p>
-                        <p>vat (10%) : $138 </p>
-                        <hr>
-                        <h3><b>Total :</b> $13,986</h3>
-                    </div>
-                    <div class="clearfix"></div>
-                    <hr>
-                    <div class="text-right">
-                        <button class="btn btn-info" type="submit"> Save </button>
-                        <button class="btn btn-danger" type="submit"> Send Invoice to Customer </button>
-                        <!-- <button id="print" class="btn btn-default btn-outline" type="button"> <span><i class="fa fa-print"></i> Print</span> </button> -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Invoice Content -->
+<script>
+    var counterCarts = document.getElementById('totalCartsItem').value
+    function doPost() {
+        var invoice_id = document.getElementById('invoice_id').value
+        let DataPrices = []
+        for (let index = 0; index < 1; index++) {
+            DataPrices.push({
+                cart_id: document.getElementById('itemsId_'+index).value,
+                price: document.getElementById('price_cart_id_'+index).value
+            })
+        }
+        $.ajax({
+                type: 'POST',
+                url: '/cms/order/modify/'+invoice_id,
+                data: {
+                    prices: DataPrices,
+                    outputURL:  document.getElementById('outputURL').value
+                },
+                success: function(data) {
+                    // console.log(data)
+                    window.location.reload()
+                },
+                error: function(data) {
+                        // alert('error')
+                    console.log(data)
+                }
+
+        });
+    }
+
+</script>
+
 @endsection
 
 
@@ -271,4 +200,3 @@
 
 
 
-        

@@ -14,12 +14,14 @@ class CreateInvoicesTable extends Migration
     public function up()
     {
         Schema::create('invoices', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('cart_id')->unsigned();
-            $table->string('status');
+            $table->increments('id');
+            $table->integer('user_id')->unsigned();                        
+            $table->text('briefURL')->nullable();
+            $table->text('outputURL')->nullable();            
+            $table->string('status')->nullable();
             $table->timestamps();
 
-            $table->foreign('cart_id')->references('id')->on('carts');
+            $table->foreign('user_id')->references('id')->on('users');            
         });
     }
 

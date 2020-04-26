@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\MessageBag;
+use App\Exceptions\User\WrongCredentialException;
+use Cartalyst\Sentinel\Checkpoints\ThrottlingException;
 use Sentinel;
 use Validator;
 use App\User;
@@ -11,8 +14,7 @@ use App\User;
 class UserController extends BaseController
 {
     public function indexCustomer(){
-        $users = User::where('role_id', 2)->get();
-        // dd($users);
+        $users = User::where('role_id', 2)->get();        
         return view('pages.cms.customers', compact('users'));
     }
 
@@ -25,6 +27,9 @@ class UserController extends BaseController
         try{
             Sentinel::authenticate($request->all());
             if(Sentinel::check()) {
+                if(Sentinel::getUser()->roles()->first()->slug == 'admin')
+                    return redirect()->route('cms.dashboard');
+                else
                 return redirect()->route('home');
             } else {
                 throw new WrongCredentialException("Kombinasi email dan password salah.");
@@ -56,10 +61,10 @@ class UserController extends BaseController
     {
 
             $data = [
-                'full_name'         => $request->fullName,
+                'full_name'         => $request->full_name,
                 'address'           => $request->address,
                 'city'              => $request->city,
-                'phone_number'       => $request->phoneNumber,
+                'phone_number'       => $request->phone_number,
                 'email'             => $request->email,
                 'password'          => $request->password
             ];
@@ -71,5 +76,34 @@ class UserController extends BaseController
 
             return redirect()->route('login');
 
+    }
+
+    public function registerUpdate(Request $request, $id)
+    {
+            // $hasher = Sentinel::setHasher($request->password);
+            // $rules = [
+
+            // ];
+            $data = [
+                'full_name'         => $request->full_name,
+                'address'           => $request->address,
+                'city'              => $request->city,
+                'phone_number'       => $request->phone_number,
+                'email'             => $request->email,
+                'password'          => $request->password
+            ];
+            // dd($data);
+
+            $user = Sentinel::findById($id);
+            $user = Sentinel::update($user, $data);;
+
+            return redirect()->route('profile');
+
+    }
+
+    public function profile()
+    {
+        $user = User::where('id', '=', Sentinel::getUser()->id)->first();
+        return view('pages.profile', compact('user'));
     }
 }

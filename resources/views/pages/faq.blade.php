@@ -1,98 +1,89 @@
+@extends('layouts.client-base')
 
-@extends('layouts.mk-base')
+@section('breadcumb')
+<section id="page-title" class="page-title-parallax page-title-dark" style="background-image: url('{{ asset('canvas/images/parallax/6.jpg') }}'); background-size: cover; padding: 120px 0;" data-bottom-top="background-position:0px 0px;" data-top-bottom="background-position:0px -300px;">
 
-@section('title')
-Singgah | FAQ
+    <div class="container clearfix">
+        <h1>FAQ</h1>
+        <span>All your Questions answered in one place.</span>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">FAQ</li>
+        </ol>
+    </div>
+
+</section>
 @endsection
 
 @section('content')
-<!-- breadcrumb start -->
-<div class="breadcrumb-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="page-title">
-                    <h2>FAQ</h2>
+<div class="content-wrap">
+
+    <div class="container clearfix">
+
+        <!-- Post Content
+        ============================================= -->
+        <div class="">
+
+            <div id="faqs" class="faqs">
+
+                <div id="faqs-list" class="fancy-title title-bottom-border">
+                    <h3>Some of your Questions:</h3>
                 </div>
+
+                <!-- start item -->
+                <ul class="iconlist faqlist">
+                    <li><i class="icon-caret-right"></i><strong><a href="#" data-scrollto="#faq-1">What is Singgah?</a></strong></li>                    
+                    <li><i class="icon-caret-right"></i><strong><a href="#" data-scrollto="#faq-2">Question 2?</a></strong></li>                    
+                    <li><i class="icon-caret-right"></i><strong><a href="#" data-scrollto="#faq-3">Question 3?</a></strong></li>                    
+                </ul>
+
+                <div class="divider"><i class="icon-circle"></i></div>
+
+                <h3 id="faq-1"><strong>Q.</strong> How do I become an author?</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                Assumenda, dolorum, vero ipsum molestiae minima odio quo voluptate illum excepturi quam cum voluptates 
+                doloribus quae nisi tempore necessitatibus dolores ducimus enim libero eaque explicabo suscipit animi at quaerat 
+                aliquid ex expedita perspiciatis? Saepe, aperiam, nam unde quas beatae vero vitae nulla.</p>
+
+                <div class="divider divider-right"><a href="#" data-scrollto="#faqs-list"><i class="icon-chevron-up"></i></a></div>
+
+                <!-- end item -->
+
+                <!-- start item -->                
+
+                <div class="divider"><i class="icon-circle"></i></div>
+
+                <h3 id="faq-2"><strong>Q.</strong>Question 2?</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                Assumenda, dolorum, vero ipsum molestiae minima odio quo voluptate illum excepturi quam cum voluptates 
+                doloribus quae nisi tempore necessitatibus dolores ducimus enim libero eaque explicabo suscipit animi at quaerat 
+                aliquid ex expedita perspiciatis? Saepe, aperiam, nam unde quas beatae vero vitae nulla.</p>
+
+                <div class="divider divider-right"><a href="#" data-scrollto="#faqs-list"><i class="icon-chevron-up"></i></a></div>
+
+                <!-- end item -->
+
+                <!-- start item -->                
+
+                <div class="divider"><i class="icon-circle"></i></div>
+
+                <h3 id="faq-3"><strong>Q.</strong>Question 3?</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                Assumenda, dolorum, vero ipsum molestiae minima odio quo voluptate illum excepturi quam cum voluptates 
+                doloribus quae nisi tempore necessitatibus dolores ducimus enim libero eaque explicabo suscipit animi at quaerat 
+                aliquid ex expedita perspiciatis? Saepe, aperiam, nam unde quas beatae vero vitae nulla.</p>
+
+                <div class="divider divider-right"><a href="#" data-scrollto="#faqs-list"><i class="icon-chevron-up"></i></a></div>
+
+                <!-- end item -->
+                
+
             </div>
-            <div class="col-sm-6">
-                <nav aria-label="breadcrumb" class="theme-breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">FAQ</li>
-                    </ol>
-                </nav>
-            </div>
-        </div>
+
+        </div><!-- .postcontent end -->
+
+        
     </div>
+
 </div>
-<!-- breadcrumb end -->
-
-<!--section start-->
-<section class="faq-section section-b-space">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="accordion theme-accordion" id="accordionExample">
-                    <div class="card">
-                        <div class="card-header" id="headingOne">
-                            <h5 class="mb-0"><button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Apakah Misbah Ganteng?</button></h5></div>
-                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                            <div class="card-body">
-                                <p>Hmmm...</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header" id="headingTwo">
-                            <h5 class="mb-0"><button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Apakah Singgah Bisa Print Buku Juga?</button></h5></div>
-                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                            <div class="card-body">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias inventore rem mollitia vero facere corporis nobis! Sapiente temporibus obcaecati possimus placeat quasi nemo illum, modi deserunt inventore ea adipisci ab.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header" id="headingThree">
-                            <h5 class="mb-0"><button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Pertanyaan 3?</button></h5></div>
-                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                            <div class="card-body">
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam, possimus cupiditate perferendis aliquam recusandae mollitia, dolore minima quaerat at sint odit iusto corrupti ad quibusdam illo, sunt magnam quod! Aspernatur.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header" id="headingFour">
-                            <h5 class="mb-0"><button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">Pertanyaan 4?</button></h5></div>
-                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
-                            <div class="card-body">
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error, cumque nam. Similique nemo quae minus quisquam numquam distinctio cupiditate ea odit eum ipsa alias itaque, animi voluptatem ad, tempora consequatur!</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header" id="headingFive">
-                            <h5 class="mb-0"><button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">Pertanyaan 5?</button></h5></div>
-                        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
-                            <div class="card-body">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, voluptates facere. Iusto alias dolorem reiciendis quasi inventore voluptatum, incidunt ipsum. Maiores nemo illo similique autem! Numquam libero consectetur reprehenderit incidunt.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header" id="headingSix">
-                            <h5 class="mb-0"><button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">Pertanyaan 6?</button></h5></div>
-                        <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
-                            <div class="card-body">
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi voluptate illum eveniet unde aliquid adipisci, officia a necessitatibus nostrum harum excepturi voluptatem, quibusdam natus pariatur deleniti. Perferendis soluta voluptatem laborum.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!--Section ends-->
-
 @endsection

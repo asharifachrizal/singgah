@@ -10,11 +10,40 @@ use App\Cart;
 
 class ProductController extends BaseController
 {
-    
-    public function selectProduct($slug, $category_id)
+
+    public function index()
     {
-        $products = Product::where('category_id', '=', $category_id)->get();        
+
+        $category = Category::all();
+        return view('pages.product.index', compact('category'));
+
+    }
+
+    public function order($id)
+    {
+        $product = Product::where('id', '=', $id)->first();        
+        return view('pages.product.myOrder', compact('product'));
+    }
+
+    public function selectCategory()
+    {
+        return view('pages.product.category');
+    }
+
+    public function selectProduct($slug, $id)
+    {
+        $product = Product::where('category_id', '=', $id)->first();
+        // dd($product->category_id);
+        $products = Product::where('category_id', '=', $id)->get();
+        // dd($products->category->id);
+        return view('pages.product.selectCategory', compact('products', 'product'));
+    }
+
+    public function detailProduct($category_id)
+    {
+        $products = Product::where('category_id', '=', $category_id)->get();
         return view('pages.product.selectProduct', compact('products'));
     }
+
 
 }

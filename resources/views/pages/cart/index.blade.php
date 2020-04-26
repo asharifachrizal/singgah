@@ -1,103 +1,85 @@
-@extends('layouts.mk')
+@extends('layouts.client-base')
+
 
 @section('title')
-Jasa Desain | Singgah
+@endsection
+
+@section('breadcumb')
+<section id="page-title" class="page-title-parallax page-title-dark" style="background-image: url('{{ asset('canvas/images/parallax/8.jpg') }}'); background-size: cover; padding: 120px 0;" data-bottom-top="background-position:0px 0px;" data-top-bottom="background-position:0px -300px;">
+
+    <div class="container clearfix">
+        <h1>Cart</h1>
+
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">My Cart</a></li>
+
+        </ol>
+    </div>
+
+</section>
 @endsection
 
 @section('content')
+<div class="content-wrap">
+    <div class="container clearfix">
+        <div class="table-responsive">
+            <table class="table cart">
+                <thead>
+                    <tr>
+                        <th class="cart-product-remove">No.</th>
+                        <th class="cart-product-thumbnail">Produk</th>
+                        <th class="cart-product-name">Category</th>
+                        <th class="cart-product-subtotal">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($carts as $key=>$row)
+                    <tr class="cart_item">
+                        <td class="cart-product-name">
+                            <a >{{$key+1}}</a>
+                        </td>
 
-<!-- breadcrumb start -->
-<div class="breadcrumb-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="page-title">
-                    <h2>Keranjang</h2></div>
-            </div>
-            <div class="col-sm-6">
-                <nav aria-label="breadcrumb" class="theme-breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Beranda</a></li>
-                        <li class="breadcrumb-item active">Keranjang</li>
-                    </ol>
-                </nav>
-            </div>
+                        <td class="cart-product-name">
+                            <a >{{$row->product->value}}</a>
+                        </td>
+
+                        <td class="#">
+                            <a>{{$row->product->category->name}}</a>
+                        </td>
+                            <input type="hidden" name="id_cart" value="{{$row->id}}">
+                        <td class="cart-product-subtotal">
+                            <!-- <a href="#" class="add" title="Edit this item"><i class="icon-pencil"></i></a> -->
+                            <a href="{{route('cart.delete',$row->id)}}" class="remove" title="Remove this item"><i class="icon-trash2"></i></a>
+                        </td>
+                    </tr>
+                    @endforeach
+
+                    @if (count($carts) > 0)
+                    <tr class="cart_item">
+                        <td colspan="6">
+                            <div class="row clearfix">
+                                <div class="col-lg-12 col-12 nopadding">
+                                    <!-- <a href="shop.html" class="button button-3d notopmargin fright">Proceed to Checkout</a> -->
+                                    <a href="#" onclick="$('#submitBtn').click()" class="button button-3d nomargin fright">Request Invoice</a>
+                                </div>
+                                <form action="{{ route('tambahOrder', Sentinel::getUser()->id) }}" method="POST" id="addOrder">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Brief Url</label>
+                                        <input required type="text" name="brief" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Brief URL">
+                                        <small id="emailHelp" class="form-text text-muted">Put Your brief on GDrive, and copy your brief link here!</small>
+                                    </div>   
+                                    <input type="submit" id="submitBtn" hidden>                        
+                                </form>
+                            </div>
+                        </td>
+                    </tr>                    
+                    @endif
+                    
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
-<!-- breadcrumb End -->
-
-<!--section start-->
-<section class="cart-section section-b-space">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <table class="table cart-table table-responsive-xs">
-                    <thead>
-                    <tr class="table-head">
-                        <th scope="col">Produk</th>
-                        <th scope="col">Nama Item</th>
-                        {{-- <th scope="col">Harga</th> --}}
-                        <th scope="col">Qty</th>
-                        <th scope="col">Aksi</th>
-                        {{-- <th scope="col">Total</th> --}}
-                    </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($carts as $row)
-                            <tr>
-                                <td>
-                                    <a href="#"><img src="{{ asset('uploads/' . $row->product->productImage->where('type', '1')->first()->img_path) }}" alt=""></a>
-                                </td>
-                                <td><a href="#">{{ $row->product->name }}</a>
-                                    <div class="mobile-cart-content row">
-                                        <div class="col-xs-3">
-                                            <div class="qty-box">
-                                                <div class="input-group">
-                                                    <input type="text" name="quantity" class="form-control input-number" value="1">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-3">
-                                            <h2 class="td-color">{{ $row->product->priceDisplay }}</h2></div>
-                                        <div class="col-xs-3">
-                                            <h2 class="td-color"><a href="#" class="icon"><i class="ti-close"></i></a></h2></div>
-                                    </div>
-                                </td>
-                                {{-- <td>
-                                    <h2>{{ $row->product->priceDisplay }}</h2></td> --}}
-                                <td>
-                                    <div class="qty-box">
-                                        <div class="input-group">
-                                            <input type="number" name="quantity" class="form-control input-number" value="1">
-                                        </div>
-                                    </div>
-                                </td>
-                                <td><a href="#" class="icon"><i class="ti-close"></i></a></td>
-                                {{-- <td>
-                                    <h2 class="td-color">{{ $row->price_subtotal_display }}</h2></td> --}}
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-                <table class="table cart-table table-responsive-md">
-                    <tfoot>
-                    <tr>
-                        {{-- <td>Total :</td> --}}
-                        <td>
-                            {{-- <h2>Rp. 45K</h2> --}}
-                        </td>
-                    </tr>
-                    </tfoot>
-                </table>
-            </div>
-        </div>
-        <div class="row cart-buttons">
-            <div class="col-6"><a href="{{ route('category') }}" class="btn btn-solid">Kembali Belanja</a></div>
-            <div class="col-6"><a href="#" class="btn btn-solid">Send Order</a></div>
-        </div>
-    </div>
-</section>
-<!--section end-->
 
 @endsection
