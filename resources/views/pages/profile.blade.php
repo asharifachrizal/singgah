@@ -93,24 +93,15 @@
                                         <hr>
                                         <div class="message-box">
                                             <div class="message-widget">                                                
-                                                <!-- Message -->
-                                                <a href="#">
-                                                    <div class="user-img"><span class="round"><i class="mdi mdi-earth" style="position:relative; top:14px"></i></span></div>
+                                                @foreach ($notifications as $row)                                                
+                                                <a>
+                                                    <div class="user-img"><span class="round"><i class="mdi mdi-bell-ring-outline" style="position:relative; top:14px"></i></span></div>
+                                                    
                                                     <div class="mail-contnet">
-                                                        <h5>New Product </h5> <span class="mail-desc">Ada Produk Baru Loh Guys</span> <span class="time">9:10 AM</span> </div>
+                                                        <h5>{{ $row->title }} </h5> <span class="mail-desc">{{ $row->value }}</span> <span class="time">{{ $row->created_at }}</span> 
+                                                    </div>
                                                 </a>
-                                                <!-- Message -->
-                                                <a href="#">
-                                                    <div class="user-img"> <span class="round bg-success"><i class="mdi mdi-currency-usd" style="position:relative; top:14px"></i></span></div>
-                                                    <div class="mail-contnet">
-                                                        <h5>Invoices to pay</h5> <span class="mail-desc">Invoice Id : #12345 dengan jumlah Rp 3.500.000 </span> <span class="time">9:08 AM</span> </div>
-                                                </a>
-                                                <!-- Message -->
-                                                <a href="#">
-                                                    <div class="user-img"><span class="round bg-danger"><i class="mdi mdi-tag-remove" style="position:relative; top:14px"></i></span></div>
-                                                    <div class="mail-contnet">
-                                                        <h5>Invoice Canceled</h5> <span class="mail-desc">Kamu membatalkan Invoice #112333</span> <span class="time">9:02 AM</span> </div>
-                                                </a>
+                                                @endforeach                                                                                              
                                             </div>
                                         </div>
                                     </div>

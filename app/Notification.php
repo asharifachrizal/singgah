@@ -12,7 +12,8 @@ class Notification extends Model
         'notif_type_id',
         'title',
         'value',                
-        'status',        
+        'status', 
+        'created_at'       
         
 
     ];
