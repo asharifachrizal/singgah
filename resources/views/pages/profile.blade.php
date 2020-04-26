@@ -30,7 +30,7 @@
                                     <h4 class="card-title m-t-10">{{ Sentinel::getUser()->full_name }}</h4>
                                     <!-- <h6 class="card-subtitle">Accoubts Manager Amix corp</h6> -->
                                     <div class="list-group">                                        
-                                        <a href="#" class="list-group-item list-group-item-action clearfix">My Orders <i class="icon-credit-cards float-right"></i></a>                                                                                
+                                        <a href="{{ route('myorder', Sentinel::getUser()->id)}}" class="list-group-item list-group-item-action clearfix">My Orders <i class="icon-credit-cards float-right"></i></a>                                                                                
                                     </div>                                    
                                 </center>
                             </div>
@@ -117,7 +117,7 @@
                                 </div>
                                 <div class="tab-pane" id="settings" role="tabpanel">
                                     <div class="card-body">
-                                        <form class="form-horizontal form-material">
+                                        <form class="form-horizontal form-material" action="{{ route('registerUpdate', Sentinel::getUser()->id)}}" method="POST">
                                             <div class="form-group">
                                                 <label class="col-md-12">Full Name</label>
                                                 <div class="col-md-12">
