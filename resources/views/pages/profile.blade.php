@@ -162,7 +162,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <div class="col-sm-12">
-                                                    <button class="btn btn-success">Update Profile</button>
+                                                    <button type="submit" class="btn btn-success">Update Profile</button>
                                                 </div>
                                             </div>
                                         </form>
