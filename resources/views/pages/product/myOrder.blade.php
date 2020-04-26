@@ -98,7 +98,7 @@
                                         <div class="row" id="inputAudience-Warp">
                                             <div class="col-lg-12 col-md-12" id="warpAudience_0">
                                                 <div class="input-group bootstrap-touchspin">
-                                                    <input id="indexAudience_0"  type="text" placeholder="anak-anak-dewasa / Umur 24-30" data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control" style="display: block;">
+                                                    <input id="indexAudience_0"  type="text" placeholder="Child / Adult / Age 24-30" data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control" style="display: block;">
                                                     <div class="input-group-append bootstrap-touchspin-postfix" style="display: none;">
                                                         <span class="input-group-text"></span>
                                                     </div>
@@ -137,7 +137,7 @@
                                     <div class="col-12 form-group">
                                         <label for="design-style-produk">Warna</label><br>
                                         <span>
-                                            <small>Format: HEX, RGB, dan RGBA</small>
+                                            <small>Format: HEX, RGB, and RGBA</small>
                                         </span>
                                         <div class="row" id="inputColor-Warp"> 
                                             <div class="col-lg-12 col-md-12" id="warpColor_0" >
@@ -168,15 +168,15 @@
                                         <div class="row" id="inputFont-Warp">
                                             <div class="col-lg-12 col-md-12" id="warpFont_0">
                                                 <div class="input-group bootstrap-touchspin">
-                                                    <input id="indexFont_0"  type="text" placeholder="anak-anak-dewasa / Umur 24-30" data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control" style="display: block;">
+                                                    <input id="indexFont_0"  type="text" placeholder="Arial, Calibri" data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control" style="display: block;">
                                                     <div class="input-group-append bootstrap-touchspin-postfix" style="display: none;">
                                                         <span class="input-group-text"></span>
                                                     </div>
-                                                    <div class="input-group-append" id="spliceAudience_0" hidden="true">
-                                                        <button class="btn btn-danger bootstrap-touchspin-up" type="button" onclick="spliceAudience(0)">-</button>
+                                                    <div class="input-group-append" id="spliceFont_0" hidden="true">
+                                                        <button class="btn btn-danger bootstrap-touchspin-up" type="button" onclick="spliceFont(0)">-</button>
                                                     </div>
                                                     <div class="input-group-append">
-                                                        <button class="btn btn-primary bootstrap-touchspin-up" type="button" onclick="addMoreAudience()">+</button>
+                                                        <button class="btn btn-primary bootstrap-touchspin-up" type="button" onclick="addMoreFont()">+</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -197,11 +197,11 @@
                                         <!-- <input type="text" required name="output" id="output" class="form-control required" value="" placeholder=".PSD , .PNG, .MP4"> -->
                                     </div>                                                                                                            
                                     <div class="col-12 form-group">
-                                        <label for="deadline-produk">Deadline:</label><br>
+                                        <label for="deadline-produk">Deadline</label><br>
                                         <select class="form-control required" name="deadline" id="deadline" onchange="deadlineSelected(this.value)">
-                                            <option value="pilih" selected disabled>PILIH</option>
-                                            <option value="segera">Segera</option>
-                                            <option value="normal">Nomral</option>
+                                            <option value="pilih" selected disabled>SELECT DEADLINE</option>
+                                            <option value="immediately">Immediately</option>
+                                            <option value="normal">Normal</option>
                                         </select>
                                     </div>
                                     <div class="col-12 hidden">
@@ -321,7 +321,7 @@
         warpInput_Audience.append(`
         <div class="col-lg-12 col-md-12" id="warpAudience_${xAudience}" style="margin-top: 10px">
             <div class="input-group bootstrap-touchspin">
-                <input id="indexAudience_${xAudience}"  type="text" placeholder="anak-anak-dewasa / Umur 24-30" data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control" style="display: block;">
+                <input id="indexAudience_${xAudience}"  type="text" placeholder="Child / Adult / Age 24-30" data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control" style="display: block;">
                 <div class="input-group-append bootstrap-touchspin-postfix" style="display: none;">
                     <span class="input-group-text"></span>
                 </div>
@@ -396,6 +396,40 @@
     var counterWarp_Font = [0] //INDEX STORAGE FONT
     var warpInput_Font = $("#inputFont-Warp") //WARP INPUT FONT
 
+    // START FUNC FONT 
+    function addMoreFont() {
+        warpInput_Font.append(`
+        <div class="col-lg-12 col-md-12" id="warpFont_${xFont}" style="margin-top: 10px">
+            <div class="input-group bootstrap-touchspin">
+                <input id="indexFont_${xFont}"  type="text" placeholder="Arial, Calibri" data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control" style="display: block;">
+                <div class="input-group-append bootstrap-touchspin-postfix" style="display: none;">
+                    <span class="input-group-text"></span>
+                </div>
+                <div class="input-group-append" id="spliceFont_${xFont}" >
+                    <button class="btn btn-danger bootstrap-touchspin-up" type="button" onclick="spliceFont(${xFont})">-</button>
+                </div>
+                <div class="input-group-append">
+                    <button class="btn btn-primary bootstrap-touchspin-up" type="button" onclick="addMoreFont()">+</button>
+                </div>
+            </div>
+        </div>`)
+        if(counterWarp_Font.length == 1) {
+            $(`#spliceFont_${counterWarp_Font[0]}`).removeAttr('hidden')
+        }
+        counterWarp_Font.push(xFont)
+        xFont++;
+    }
+
+    async function spliceFont( warpNumber ) {
+        if(counterWarp_Font.length > 1) {
+            $(`#warpFont_${warpNumber}`).remove()
+            await counterWarp_Font.splice(counterWarp_Font.findIndex( _warpNumber => _warpNumber == warpNumber ), 1)
+            if(counterWarp_Font.length == 1) {
+                $(`#spliceFont_${counterWarp_Font[0]}`).attr("hidden", true);
+            }
+        }
+    }
+    // END FUNC FONT
 
     var deadlines
     function deadlineSelected(data) {
