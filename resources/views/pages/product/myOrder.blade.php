@@ -726,9 +726,9 @@
                     success: function(data) {
                         console.log(data)
                         $("#toast-launcher").click()
-                        // setTimeout(() => {
-                        //     window.location.href = "/category"
-                        // }, 1000);
+                        setTimeout(() => {
+                            window.location.href = "/category"
+                        }, 1000);
                     },
                     error: function(data) {
                         // alert('error')
