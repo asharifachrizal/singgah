@@ -67,24 +67,28 @@
                                                 <option value="{{$product->value}}">{{$product->value}}</option>                                                
                                         </select>
                                     </div>
-                                    <div class="col-6 form-group">
+                                    <div class="col-4 form-group">
                                         <label for="kuantitas-produk">Qty</label><br>
                                         <input required type="number" name="quantity" id="quantity" class="form-control required" value="1" placeholder="minimal 1" min="1">
                                     </div>
                                     
-                                    <div class="col-6 form-group">
-                                        <label for="deadline-produk">Orientasi:</label><br>                                        
+                                    <!-- <div class="col-12 form-group">
+                                        <label for="deadline-produk">Orientation:</label><br>                                        
                                         <select required class="form-control required" name="orientation" id="orientation" onchange="orientationSelected(this.value)">
-                                            <option value="pilih" selected disabled>PILIH</option>
+                                            <option value="pilih" selected disabled>SELECT</option>
                                             <option value="landscape">Landscape</option>
-                                            <option value="horizontal">Horizontal</option>                                                
+                                            <option value="Portrait">Portrait</option>                                                
                                         </select>
-                                    </div> 
+                                    </div>  -->
                                     
                                     @if($product->id > 0 && $product->id < 16 )                                
-                                    <div class="col-6 form-group">
-                                        <label for="ukuran-rasio-produk">Ukuran/rasio:</label><br>
-                                        <input type="text" required name="size" id="size" class="form-control required" value="" placeholder="1280 x 870">
+                                    <div class="col-4 form-group">
+                                        <label for="ukuran-rasio-produk" >Width:</label><br>
+                                        <input type="number" required name="size" id="size" class="form-control required" value="" placeholder="1280">
+                                    </div>  
+                                    <div class="col-4 form-group">
+                                        <label for="ukuran-rasio-produk" >Height:</label><br>
+                                        <input type="number" required name="size" id="size" class="form-control required" value="" placeholder="870">
                                     </div>  
                                     @endif  
                                     @if($product->id >= 18)       
@@ -182,7 +186,51 @@
                                             </div>
                                         </div>
                                         <!-- <input type="text" required name="font" id="font" class="form-control required" value="" placeholder="Arial, Calibri"> -->
-                                    </div>                                    
+                                    </div>
+
+                                    <div class="col-12 form-group">
+                                        <label for="design-style-produk">Link Brief</label>
+                                        <div class="row" >
+                                            <div class="col-lg-12 col-md-12" >
+                                                <div class="input-group bootstrap-touchspin">
+                                                    <input id="linkBrief"  type="text" placeholder="Link Brief" data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control" style="display: block;">
+                                                    <div class="input-group-append bootstrap-touchspin-postfix" style="display: none;">
+                                                        <span class="input-group-text"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- <input type="text" required name="font" id="font" class="form-control required" value="" placeholder="Arial, Calibri"> -->
+                                    </div>
+                                    
+                                    <div class="col-12 form-group">
+                                        <label for="design-style-produk">Upload Brief</label><br>
+                                        <span>
+                                            <small>File Format: .doc, .docx or .pdf</small>
+                                        </span>
+                                        <div class="row" id="inputBrief-Warp">
+                                            <div class="col-lg-12 col-md-12" id="warpBrief_0" >
+                                                <input type="file" id="inputBrief_Hidden_0" hidden oninput="briefUploadStage(this.files, 0)">
+                                                <div class="input-group bootstrap-touchspin">
+                                                    <input disabled id="indexBrief_0" style="background-color: white;"  type="text" placeholder="No file choosen" data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control" style="display: block;">
+                                                    <div class="input-group-append bootstrap-touchspin-postfix" style="display: none;">
+                                                        <span class="input-group-text"></span>
+                                                    </div>
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-success  bootstrap-touchspin-up" type="button" onclick="openBrowseFile(0)" >
+                                                            <i class="fa fa-upload"></i> Choose File
+                                                        </button>
+                                                    </div>
+                                                    <div class="input-group-append" >
+                                                        <button id="plusBrief_0" class="btn btn-primary bootstrap-touchspin-up" type="button" onclick="addMoreBrief()"> + </button>
+                                                        <button id="spliceBrief_0" class="btn btn-danger bootstrap-touchspin-up" type="button" hidden onclick="spliceBrief(0)"> - </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- <input type="text" required name="font" id="font" class="form-control required" value="" placeholder="Arial, Calibri"> -->
+                                    </div>     
+
                                     <div class="col-12 form-group">
                                         <label for="output-produk">Output File Type:</label><br>
                                         <select class="form-control select2 select2-hidden-accessible" multiple data-placeholder="SELECT OUTPUT" style="width: 100%;"  tabindex="-1" aria-hidden="true">
@@ -225,6 +273,11 @@
 
 <a hidden id="toast-launcher" href="#" class="btn btn-success" data-notify-type="success" 
     data-notify-msg="<i class=icon-ok-sign></i> Add to Cart Successfully!" 
+    onclick="SEMICOLON.widget.notifications(this); return false;">Show Success
+</a>
+
+<a hidden id="error-briefUpload" href="#" class="btn btn-danger" data-notify-type="error" 
+    data-notify-msg="<i class=icon-info></i> This file type is not supported!" 
     onclick="SEMICOLON.widget.notifications(this); return false;">Show Success
 </a>
 
@@ -431,6 +484,80 @@
     }
     // END FUNC FONT
 
+    // START VARIABLE BRIEF
+    // VARIABLE FONT
+    var xBrief = 1 //INDEXING INPUT Brief
+    var counterWarp_Brief = [0] //INDEX STORAGE Brief
+    var warpInput_Brief = $("#inputBrief-Warp") //WARP INPUT Brief
+    var _fileList = []
+    // START FUNC BRIEF
+    function addMoreBrief() {
+        warpInput_Brief.append(`
+            <div class="col-lg-12 col-md-12" id="warpBrief_${xBrief}" style="margin-top: 10px">
+                <input type="file" id="inputBrief_Hidden_${xBrief}" hidden oninput="briefUploadStage(this.files, ${xBrief})">
+                <div class="input-group bootstrap-touchspin">
+                    <input disabled id="indexBrief_${xBrief}" style="background-color: white;"  type="text" placeholder="No file choosen" data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control" style="display: block;">
+                    <div class="input-group-append bootstrap-touchspin-postfix" style="display: none;">
+                        <span class="input-group-text"></span>
+                    </div>
+                    <div class="input-group-append">
+                        <button class="btn btn-success  bootstrap-touchspin-up" type="button" onclick="openBrowseFile(${xBrief})">
+                            <i class="fa fa-upload"></i> Choose File
+                        </button>
+                    </div>
+                    <div class="input-group-append" >
+                        <button id="plusBrief_${xBrief}" class="btn btn-primary bootstrap-touchspin-up" type="button" onclick="addMoreBrief()">+</button>
+                        <button id="spliceBrief_${xBrief}" class="btn btn-danger bootstrap-touchspin-up" type="button" hidden onclick="spliceBrief(${xBrief})"> - </button>    
+                    </div>
+                </div>
+            </div>`)
+        if(counterWarp_Brief.length == 1) {
+            $(`#spliceBrief_${counterWarp_Brief[0]}`).removeAttr('hidden')
+            $(`#plusBrief_${counterWarp_Brief[0]}`).attr('hidden', true)
+        } else {
+            $(`#spliceBrief_${counterWarp_Brief[ counterWarp_Brief.findIndex(_brief => _brief == (xBrief - 1)) ]}`).removeAttr('hidden')
+            $(`#plusBrief_${counterWarp_Brief[ counterWarp_Brief.findIndex(_brief => _brief == (xBrief - 1)) ]}`).attr('hidden', true)
+        }
+        counterWarp_Brief.push(xBrief)
+        xBrief++;
+    }
+
+    async function spliceBrief( warpNumber ) {
+        if(counterWarp_Brief.length > 1) {
+            $(`#warpBrief_${warpNumber}`).remove()
+            await counterWarp_Brief.splice(counterWarp_Brief.findIndex( _warpNumber => _warpNumber == warpNumber ), 1)
+            await _fileList.splice(_fileList.findIndex(_item => _item.warpNumber == warpNumber), 1)
+            if(counterWarp_Brief.length == 1) {
+                $(`#spliceBrief_${counterWarp_Brief[0]}`).attr("hidden", true);
+                $(`#plusBrief_${counterWarp_Brief[0]}`).removeAttr('hidden')
+            }
+        }
+    }
+
+    function openBrowseFile( warpNumber ) {
+        $(`#inputBrief_Hidden_${warpNumber}`).click()
+    }
+
+    function briefUploadStage( value, warpNumber ) {
+        if(value && value.length > 0) {
+            let ext = value[0].name.split('.')
+            if(ext && ext.length > 1 ) {
+                if(ext[1] == "pdf" || ext[1] == "doc" || ext[1] == "docx") {
+                    _fileList.push({
+                        warpNumber: warpNumber,
+                        file: value[0]
+                    })
+                    $(`#indexBrief_${warpNumber}`).val(value[0].name)
+                } else {
+                    $("#error-briefUpload").click()
+                }
+            } else {
+                $("#error-briefUpload").click()
+            }
+        }
+    }
+
+    // END FUNC BRIEF
     var deadlines
     function deadlineSelected(data) {
         deadlines = data
