@@ -81,20 +81,20 @@
                                         </select>
                                     </div>  -->
                                     
-                                    @if($product->id > 0 && $product->id < 16 )                                
+                                                                    
                                     <div class="col-4 form-group">
                                         <label for="ukuran-rasio-produk" >Width:</label><br>
-                                        <input type="number" required name="size" id="size" class="form-control required" value="" placeholder="1280">
+                                        <input type="number" required name="size" id="sizeW" class="form-control required" value="" placeholder="1280">
                                     </div>  
                                     <div class="col-4 form-group">
                                         <label for="ukuran-rasio-produk" >Height:</label><br>
-                                        <input type="number" required name="size" id="size" class="form-control required" value="" placeholder="870">
+                                        <input type="number" required name="size" id="sizeH" class="form-control required" value="" placeholder="870">
                                     </div>  
-                                    @endif  
-                                    @if($product->id >= 18)       
-                                    <div class="col-6 form-group">
-                                        <label for="ukuran-rasio-produk">Durasi</label><br>
-                                        <input type="text" required name="duration" id="duration" class="form-control required" value="" placeholder="120 Detik">
+
+                                    @if($product->id >= 16)       
+                                    <div class="col-12 form-group">
+                                        <label for="ukuran-rasio-produk">Duration</label><br>
+                                        <input type="text" required name="duration" id="duration" class="form-control required" value="" placeholder="120 Sec">
                                     </div>    
                                     @endif 
                                     <div class="col-12 form-group">
@@ -225,7 +225,7 @@
 
                                     <div class="col-12 form-group">
                                         <label for="output-produk">Output File Type:</label><br>
-                                        <select class="form-control select2 select2-hidden-accessible" multiple data-placeholder="SELECT OUTPUT" style="width: 100%;"  tabindex="-1" aria-hidden="true">
+                                        <select id="select2-output" class="form-control select2 select2-hidden-accessible" multiple data-placeholder="SELECT OUTPUT" style="width: 100%;"  tabindex="-1" aria-hidden="true">
                                             
                                             <option value=".psd">.PSD</option>
                                             <option value=".png">.PNG</option>
@@ -279,6 +279,16 @@
 <script>
     $(".select2").select2()
 
+    let outputs = []
+    $('#select2-output').on('select2:select', function (e) {
+        var data = e.params.data;
+        outputs.push({value: data.id})
+    });
+
+    $('#select2-output').on('select2:unselect', function (e) {
+        var data = e.params.data;
+        outputs.splice(outputs.findIndex(_val => _val.value == data.id))
+    });
     // VARIABLE COLOR PICKER
     var xColor = 1 //INDEXING COLOR 
     var counterWarp_Color = [0] //INDEX STORAGE COLOR
@@ -491,6 +501,7 @@
     var warpInput_Brief = $("#inputBrief-Warp") //WARP INPUT Brief
     var _fileList = []
     // START FUNC BRIEF
+
     function addMoreBrief() {
         warpInput_Brief.append(`
             <div class="col-lg-12 col-md-12" id="warpBrief_${xBrief}" style="margin-top: 10px">
@@ -522,15 +533,28 @@
         xBrief++;
     }
 
-    async function spliceBrief( warpNumber ) {
+    function spliceBrief( warpNumber ) {
         if(counterWarp_Brief.length > 1) {
-            $(`#warpBrief_${warpNumber}`).remove()
-            await counterWarp_Brief.splice(counterWarp_Brief.findIndex( _warpNumber => _warpNumber == warpNumber ), 1)
-            await _fileList.splice(_fileList.findIndex(_item => _item.warpNumber == warpNumber), 1)
-            if(counterWarp_Brief.length == 1) {
-                $(`#spliceBrief_${counterWarp_Brief[0]}`).attr("hidden", true);
-                $(`#plusBrief_${counterWarp_Brief[0]}`).removeAttr('hidden')
-            }
+            $.ajax({
+                type: 'POST',
+                url: '/delete/file',
+                data: {fileName: _fileList[_fileList.findIndex(_val => _val.warpNumber == warpNumber)].value},
+                success: async function(dataSuccess){
+                    if(dataSuccess.success) {
+                        $(`#warpBrief_${warpNumber}`).remove()
+                        await counterWarp_Brief.splice(counterWarp_Brief.findIndex( _warpNumber => _warpNumber == warpNumber ), 1)
+                        await _fileList.splice(_fileList.findIndex(_item => _item.warpNumber == warpNumber), 1)
+                        if(counterWarp_Brief.length == 1) {
+                            $(`#spliceBrief_${counterWarp_Brief[0]}`).attr("hidden", true);
+                            $(`#plusBrief_${counterWarp_Brief[0]}`).removeAttr('hidden')
+                        }
+                    } 
+                },
+                error: function(dataError) {
+                    console.log(dataError)
+                }
+            });
+            
         }
     }
 
@@ -539,15 +563,50 @@
     }
 
     function briefUploadStage( value, warpNumber ) {
+        let _formData = new FormData();
         if(value && value.length > 0) {
             let ext = value[0].name.split('.')
             if(ext && ext.length > 1 ) {
                 if(ext[1] == "pdf" || ext[1] == "doc" || ext[1] == "docx") {
-                    _fileList.push({
-                        warpNumber: warpNumber,
-                        file: value[0]
-                    })
-                    $(`#indexBrief_${warpNumber}`).val(value[0].name)
+                    try {
+                        _formData.append('file', value[0])
+                        $.ajax({
+                            type: 'POST',
+                            url: '/upload/brief',
+                            data: _formData,
+                            processData: false,
+                            contentType: false,
+                            success: function(uploadSuccess){
+                                if(_fileList.findIndex(_val => _val.warpNumber == warpNumber) > -1) {
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: '/delete/file',
+                                        data: {fileName: _fileList[_fileList.findIndex(_val => _val.warpNumber == warpNumber)].value},
+                                        success: async function(dataSuccess){
+                                            if(dataSuccess.success) {
+                                                _fileList[_fileList.findIndex(_val => _val.warpNumber == warpNumber)].value = uploadSuccess.file_name
+                                                $(`#indexBrief_${warpNumber}`).val(value[0].name)
+                                            } 
+                                        },
+                                        error: function(dataError) {
+                                            console.log(dataError)
+                                        }
+                                    });
+                                } else {
+                                    _fileList.push({
+                                        warpNumber: warpNumber,
+                                        value: uploadSuccess.file_name
+                                    })
+                                    $(`#indexBrief_${warpNumber}`).val(value[0].name)
+                                }
+                            },
+                            error: function(dataError) {
+                                console.log(dataError)
+                            }
+                        });
+                    } catch (_error) {
+                        console.log(_error)
+                    }
                 } else {
                     $("#error-briefUpload").click()
                 }
@@ -561,55 +620,115 @@
     var deadlines
     function deadlineSelected(data) {
         deadlines = data
-        console.log('deadline ', data)
     }
-    var orientations
-    function orientationSelected(data){
-        orientations = data
-    }
+    
+
     function submition () {
-        console.log('orientation ', orientations)
         var id = $("input[name=id]").val();
         var product_id = $("input[name=product_id]").val();        
         var quantity = $("input[name=quantity]").val();        
-        var orientation = orientations ? orientations : $("#orientation_").children("option:selected").val();
-        var size = $("input[name=size]").val();
+        // SIZE
+        var width = $("#sizeW").val()
+        var height = $("#sizeH").val()
+        var size = `${width}X${height}`
+
+        var orientation 
+        if (width > height) {
+            orientation = "Landscape"
+        } else if (width < height) {
+            orientation = "Portrait"
+        } else {
+            orientation = ""
+        }
+        
         var duration = $("input[name=duration]").val();
-        var target_audience = $("input[name=target_audience]").val();                
-        var style = $("input[name=style]").val();
-        var color_grading = $("input[name=color_grading]").val();
-        var font = $("input[name=font]").val();        
-        var output = $("input[name=output]").val();        
+
+        // TARGET AUDIENCE
+        let audience = []
+        let isAudience = false
+        counterWarp_Audience.map(_counter => {
+            if($(`#indexAudience_${_counter}`).val() || $(`#indexAudience_${_counter}`).val() ) {
+                audience.push({
+                    value: $(`#indexAudience_${_counter}`).val() 
+                })
+                isAudience = true
+            }
+        })
+
+        // STYLES
+        let style = []
+        let isStyle = false
+        counterWarp_Style.map(_counter => {
+            if($(`#indexStyle_${_counter}`).val() || $(`#indexStyle_${_counter}`).val() ) {
+                style.push({
+                    value: $(`#indexStyle_${_counter}`).val() 
+                })
+                isStyle = true
+            }
+        })
+
+        // COLOR
+        let color = []
+        let isColor = false
+        counterWarp_Color.map(_counter => {
+            if($(`#indexColor_${_counter}`).val() || $(`#indexColor_${_counter}`).val() ) {
+                color.push({
+                    value: $(`#indexColor_${_counter}`).val() 
+                })
+                isColor = true
+            }
+        })
+
+        // FONT
+        var font = []
+        let isFont = false
+        counterWarp_Font.map(_counter => {
+            if($(`#indexFont_${_counter}`).val() || $(`#indexFont_${_counter}`).val() ) {
+                font.push({
+                    value: $(`#indexFont_${_counter}`).val() 
+                })
+                isFont = true
+            }
+        })
+
+        var output = outputs
         var deadline = deadlines;        
-        var price = $("input[name=price]").val();
+
+        // BRIEF
+        var briefUrl = $("#linkBrief").val()
+        let briefFile = _fileList
+        
+        let dataWill_Post = {
+            id: id,
+            product_id: product_id,
+            quantity: quantity,
+            orientation: orientation,
+            size: size,
+            duration: duration,
+            target_audience: audience,
+            styles: style,
+            color: color,
+            font: font,
+            output: output,
+            deadline: deadline,
+            briefUrl: briefUrl,
+            briefFile: briefFile
+        }
+        console.log(dataWill_Post)
         
 
-        if(orientation && deadline){
+        if( deadline ){
             console.log('will post')
             $.ajax({
                     type: 'POST',
                     url: '/cart/add',
-                    data: {
-                        id: id,
-                        product_id: product_id,                    
-                        quantity: quantity,
-                        orientation: orientation,
-                        size: size,
-                        duration: duration,
-                        target_audience: target_audience,
-                        style: style,
-                        color: color,
-                        color_grading: color_grading,                
-                        font: font,                        
-                        deadline: deadline,       
-                        output:output,                                     
-                        price: price
-                    },
+                    data: dataWill_Post,
                     success: function(data) {
+                        console.log(data)
                         $("#toast-launcher").click()
-                        setTimeout(() => {
-                            window.location.href = "/category"
-                        }, 1000);
+                        // setTimeout(() => {
+                        //     window.location.href = "/category"
+                        // }, 1000);
                     },
                     error: function(data) {
                         // alert('error')

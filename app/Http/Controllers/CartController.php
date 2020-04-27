@@ -8,6 +8,13 @@ use App\Cart;
 use App\Product;
 use App\Category;
 use App\Invoice;
+use App\TargetAudience;
+use App\Style;
+use App\Color;
+use App\OutputType;
+use App\Font;
+use App\BriefUrl;
+use App\BriefFile;
 
 use Faker\Factory as Faker;
 
@@ -52,26 +59,78 @@ class CartController extends BaseController
     public function additem(Request $request)
     {        
         if(Sentinel::check()) {
-            $data = [
+            $dataCart = [
                 'user_id'       => Sentinel::getUser()->id,
                 'product_id'    => $request->product_id,                
                 'quantity'      => $request->quantity,
                 'orientation'   => $request->orientation,
                 'size'          => $request->size,
                 'duration'      => $request->duration,
-                'target_audience' => $request->target_audience,
                 'deadline'      => $request->deadline,
-                'style'      => $request->style,
-                'output'      => $request->output,
-                'font'      => $request->font,
-                'color'      => $request->color,
-                'color_grading'      => $request->color_grading,
                 'status'      => 0,
                 'price'      => 0,
             ];
-            $cart = Cart::create($data);
+            $targetAudience = $request->target_audience;
+
+            $cart = Cart::create($dataCart);
+
+            BriefUrl::create(["cart_id" => $cart->id, "value" => $request->briefUrl]);
+
+            foreach ($targetAudience as $item) {
+                $dataAudience = [ 
+                    'cart_id' => $cart->id,
+                    'value' => $item["value"] 
+                ];
+                TargetAudience::create($dataAudience);
+            }
+
+            $style = $request->styles;
+            foreach ($style as $item) {
+                $dataStyle = [ 
+                    'cart_id' => $cart->id,
+                    'value' => $item["value"] 
+                ];
+                Style::create($dataStyle);
+            }
+
+            $color = $request->color;
+            foreach ($color as $item) {
+                $dataColor = [ 
+                    'cart_id' => $cart->id,
+                    'value' => $item["value"] 
+                ];
+                Color::create($dataColor);
+            }
+
+            $output = $request->output;
+            foreach ($output as $item) {
+                $dataOut = [ 
+                    'cart_id' => $cart->id,
+                    'value' => $item["value"] 
+                ];
+                OutputType::create($dataOut);
+            }
+
+            $font = $request->font;
+            foreach ($font as $item) {
+                $dataFont = [ 
+                    'cart_id' => $cart->id,
+                    'value' => $item["value"] 
+                ];
+                Font::create($dataFont);
+            }
+            
+            $briefFile = $request->briefFile;
+            foreach ($briefFile as $item) {
+                $dataBrief = [ 
+                    'cart_id' => $cart->id,
+                    'value' => $item["value"]
+                ];
+                BriefFile::create($dataBrief);
+            }
+            
             $notification = [
-                'heading' => 'Berhasil!',
+                'heading' => 'Berhasil! ',
                 'message' => 'Item berhasil ditambahkan ke keranjang.',
                 'bgColor' => '#2b6c45',
                 'alert-type' => 'success'
