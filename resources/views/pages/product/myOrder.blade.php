@@ -106,11 +106,9 @@
                                                     <div class="input-group-append bootstrap-touchspin-postfix" style="display: none;">
                                                         <span class="input-group-text"></span>
                                                     </div>
-                                                    <div class="input-group-append" id="spliceAudience_0" hidden="true">
-                                                        <button class="btn btn-danger bootstrap-touchspin-up" type="button" onclick="spliceAudience(0)">-</button>
-                                                    </div>
                                                     <div class="input-group-append">
-                                                        <button class="btn btn-primary bootstrap-touchspin-up" type="button" onclick="addMoreAudience()">+</button>
+                                                        <button hidden id="spliceAudience_0" class="btn btn-danger bootstrap-touchspin-up" type="button" onclick="spliceAudience(0)">-</button>
+                                                        <button id="plusAudience_0" class="btn btn-primary bootstrap-touchspin-up" type="button" onclick="addMoreAudience()">+</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -126,11 +124,9 @@
                                                     <div class="input-group-append bootstrap-touchspin-postfix" style="display: none;">
                                                         <span class="input-group-text"></span>
                                                     </div>
-                                                    <div class="input-group-append" id="spliceStyle_0" hidden="true">
-                                                        <button class="btn btn-danger bootstrap-touchspin-up" type="button" onclick="spliceStyle(0)">-</button>
-                                                    </div>
                                                     <div class="input-group-append">
-                                                        <button class="btn btn-primary bootstrap-touchspin-up" type="button" onclick="addMoreStyle()">+</button>
+                                                        <button hidden id="spliceStyle_0" class="btn btn-danger bootstrap-touchspin-up" type="button" onclick="spliceStyle(0)">-</button>
+                                                        <button id="plusStyle_0" class="btn btn-primary bootstrap-touchspin-up" type="button" onclick="addMoreStyle()">+</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -157,11 +153,9 @@
                                                     <div class="input-group-append bootstrap-touchspin-postfix" style="display: none;">
                                                         <span class="input-group-text"></span>
                                                     </div>
-                                                    <div class="input-group-append" id="spliceColor_0" hidden="true">
-                                                        <button class="btn btn-danger bootstrap-touchspin-up" type="button" onclick="spliceColor(0)">-</button>
-                                                    </div>
                                                     <div class="input-group-append">
-                                                        <button class="btn btn-primary bootstrap-touchspin-up" type="button" onclick="addMoreColor()">+</button>
+                                                        <button hidden id="spliceColor_0" class="btn btn-danger bootstrap-touchspin-up" type="button" onclick="spliceColor(0)">-</button>
+                                                        <button id="plusColor_0" class="btn btn-primary bootstrap-touchspin-up" type="button" onclick="addMoreColor()">+</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -176,11 +170,9 @@
                                                     <div class="input-group-append bootstrap-touchspin-postfix" style="display: none;">
                                                         <span class="input-group-text"></span>
                                                     </div>
-                                                    <div class="input-group-append" id="spliceFont_0" hidden="true">
-                                                        <button class="btn btn-danger bootstrap-touchspin-up" type="button" onclick="spliceFont(0)">-</button>
-                                                    </div>
                                                     <div class="input-group-append">
-                                                        <button class="btn btn-primary bootstrap-touchspin-up" type="button" onclick="addMoreFont()">+</button>
+                                                        <button hidden id="spliceFont_0" class="btn btn-danger bootstrap-touchspin-up" type="button" onclick="spliceFont(0)">-</button>
+                                                        <button id="plusFont_0" class="btn btn-primary bootstrap-touchspin-up" type="button" onclick="addMoreFont()">+</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -347,17 +339,19 @@
                 <div class="input-group-append bootstrap-touchspin-postfix" style="display: none;">
                     <span class="input-group-text"></span>
                 </div>
-                <div class="input-group-append" id="spliceColor_${xColor}" >
-                    <button class="btn btn-danger bootstrap-touchspin-up" type="button" onclick="spliceColor(${xColor})">-</button>
-                </div>
                 <div class="input-group-append">
-                    <button class="btn btn-primary bootstrap-touchspin-up" type="button" onclick="addMoreColor()">+</button>
+                    <button hidden id="spliceColor_${xColor}" class="btn btn-danger bootstrap-touchspin-up" type="button" onclick="spliceColor(${xColor})">-</button>
+                    <button id="plusColor_${xColor}" class="btn btn-primary bootstrap-touchspin-up" type="button" onclick="addMoreColor()">+</button>
                 </div>
             </div>
         </div>`)
 
         if(counterWarp_Color.length == 1) {
             $(`#spliceColor_${counterWarp_Color[0]}`).removeAttr('hidden')
+            $(`#plusColor_${counterWarp_Color[0]}`).attr('hidden', true)
+        } else {
+            $(`#spliceColor_${counterWarp_Color[ counterWarp_Color.findIndex(_Color => _Color == (xColor - 1)) ]}`).removeAttr('hidden')
+            $(`#plusColor_${counterWarp_Color[ counterWarp_Color.findIndex(_Color => _Color == (xColor - 1)) ]}`).attr('hidden', true)
         }
         counterWarp_Color.push(xColor)
         xColor++;
@@ -378,16 +372,18 @@
                 <div class="input-group-append bootstrap-touchspin-postfix" style="display: none;">
                     <span class="input-group-text"></span>
                 </div>
-                <div class="input-group-append" id="spliceAudience_${xAudience}" >
-                    <button class="btn btn-danger bootstrap-touchspin-up" type="button" onclick="spliceAudience(${xAudience})">-</button>
-                </div>
                 <div class="input-group-append">
-                    <button class="btn btn-primary bootstrap-touchspin-up" type="button" onclick="addMoreAudience()">+</button>
+                    <button hidden id="spliceAudience_${xAudience}"  class="btn btn-danger bootstrap-touchspin-up" type="button" onclick="spliceAudience(${xAudience})">-</button>
+                    <button id="plusAudience_${xAudience}" class="btn btn-primary bootstrap-touchspin-up" type="button" onclick="addMoreAudience()">+</button>
                 </div>
             </div>
         </div>`)
         if(counterWarp_Audience.length == 1) {
             $(`#spliceAudience_${counterWarp_Audience[0]}`).removeAttr('hidden')
+            $(`#plusAudience_${counterWarp_Audience[0]}`).attr('hidden', true)
+        } else {
+            $(`#spliceAudience_${counterWarp_Audience[ counterWarp_Audience.findIndex(_Audience => _Audience == (xAudience - 1)) ]}`).removeAttr('hidden')
+            $(`#plusAudience_${counterWarp_Audience[ counterWarp_Audience.findIndex(_Audience => _Audience == (xAudience - 1)) ]}`).attr('hidden', true)
         }
         counterWarp_Audience.push(xAudience)
         xAudience++;
@@ -418,16 +414,18 @@
                 <div class="input-group-append bootstrap-touchspin-postfix" style="display: none;">
                     <span class="input-group-text"></span>
                 </div>
-                <div class="input-group-append" id="spliceStyle_${xStyle}" >
-                    <button class="btn btn-danger bootstrap-touchspin-up" type="button" onclick="spliceStyle(${xStyle})">-</button>
-                </div>
                 <div class="input-group-append">
-                    <button class="btn btn-primary bootstrap-touchspin-up" type="button" onclick="addMoreStyle()">+</button>
+                    <button hidden id="spliceStyle_${xStyle}" class="btn btn-danger bootstrap-touchspin-up" type="button" onclick="spliceStyle(${xStyle})">-</button>
+                    <button id="plusStyle_${xStyle}" class="btn btn-primary bootstrap-touchspin-up" type="button" onclick="addMoreStyle()">+</button>
                 </div>
             </div>
         </div>`)
         if(counterWarp_Style.length == 1) {
             $(`#spliceStyle_${counterWarp_Style[0]}`).removeAttr('hidden')
+            $(`#plusStyle_${counterWarp_Style[0]}`).attr('hidden', true)
+        } else {
+            $(`#spliceStyle_${counterWarp_Style[ counterWarp_Style.findIndex(_Style => _Style == (xStyle - 1)) ]}`).removeAttr('hidden')
+            $(`#plusStyle_${counterWarp_Style[ counterWarp_Style.findIndex(_Style => _Style == (xStyle - 1)) ]}`).attr('hidden', true)
         }
         counterWarp_Style.push(xStyle)
         xStyle++;
@@ -458,16 +456,18 @@
                 <div class="input-group-append bootstrap-touchspin-postfix" style="display: none;">
                     <span class="input-group-text"></span>
                 </div>
-                <div class="input-group-append" id="spliceFont_${xFont}" >
-                    <button class="btn btn-danger bootstrap-touchspin-up" type="button" onclick="spliceFont(${xFont})">-</button>
-                </div>
                 <div class="input-group-append">
-                    <button class="btn btn-primary bootstrap-touchspin-up" type="button" onclick="addMoreFont()">+</button>
+                    <button hidden id="spliceFont_${xFont}" class="btn btn-danger bootstrap-touchspin-up" type="button" onclick="spliceFont(${xFont})">-</button>
+                    <button id="plusFont_${xFont}" class="btn btn-primary bootstrap-touchspin-up" type="button" onclick="addMoreFont()">+</button>
                 </div>
             </div>
         </div>`)
         if(counterWarp_Font.length == 1) {
             $(`#spliceFont_${counterWarp_Font[0]}`).removeAttr('hidden')
+            $(`#plusFont_${counterWarp_Font[0]}`).attr('hidden', true)
+        } else {
+            $(`#spliceFont_${counterWarp_Font[ counterWarp_Font.findIndex(_Font => _Font == (xFont - 1)) ]}`).removeAttr('hidden')
+            $(`#plusFont_${counterWarp_Font[ counterWarp_Font.findIndex(_Font => _Font == (xFont - 1)) ]}`).attr('hidden', true)
         }
         counterWarp_Font.push(xFont)
         xFont++;
