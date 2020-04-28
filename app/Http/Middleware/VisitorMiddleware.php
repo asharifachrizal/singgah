@@ -22,7 +22,7 @@ class VisitorMiddleware
             else
                 return abort(404);
         else
-            return redirect()->route('cms.login');
+            return redirect()->route('login');
 
         // if(Sentinel::check())
         //     return $next($request);

@@ -35,7 +35,7 @@ class UserController extends BaseController
                 if(Sentinel::getUser()->roles()->first()->slug == 'admin')
                     return redirect()->route('cms.dashboard');
                 else
-                return redirect()->route('home');
+                    return redirect()->route('home');
             } else {
                 throw new WrongCredentialException("Kombinasi email dan password salah.");
             }
@@ -52,15 +52,17 @@ class UserController extends BaseController
         try{
             Sentinel::authenticate($request->all());
             // dd($request);
-            if(Sentinel::check())
+            if(Sentinel::check()){
+                if(Sentinel::getUser()->roles()->first()->slug == 'admin')
                 return redirect()->route('cms.dashboard');
-            else
-                throw new WrongCredentialException("Username atau Password salah");
+            }else {
+                throw new WrongCredentialException("Kombinasi email dan password salah.");
+            }
         } catch (WrongCredentialException $e) {
             return redirect()->back()->with(['error' => $e->getMessage()]);
         } catch (ThrottlingException $e) {
             $delay = $e->getDelay();
-            return redirect()->back()->with(['error' => "You are banned for $delay seconds."]);
+            return redirect()->back()->with(['error' => "Alamat IP anda di ban selama $delay detik."]);
         }
     }
 

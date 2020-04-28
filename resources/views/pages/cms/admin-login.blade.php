@@ -40,7 +40,14 @@
         <div class="login-register" style="background-image:url({{ asset('material/images/background/login-register.jpg') }});">
             <div class="login-box card">
             <div class="card-body">
-                <form class="form-horizontal form-material" id="loginform" method="POST" action="{{ route('postLogin') }}">
+                <form class="form-horizontal form-material" id="loginform" method="POST" action="{{ route('postLoginCMS') }}">
+                    @if(session('error'))
+                    <div class="form-group m-t-30">
+                        <div class="col-xs-12">
+                            <div class="alert alert-danger"> {{ session()->get('error') }} </div>
+                        </div>
+                    </div>
+                    @endif
                     <h3 class="box-title m-b-20">Sign In</h3>
                     <div class="form-group ">
                         <div class="col-xs-12">
