@@ -30,7 +30,7 @@
                                     <h4 class="card-title m-t-10">{{ Sentinel::getUser()->full_name }}</h4>
                                     <!-- <h6 class="card-subtitle">Accoubts Manager Amix corp</h6> -->
                                     <div class="list-group">                                        
-                                        <a href="{{ route('myorder', Sentinel::getUser()->id)}}" class="list-group-item list-group-item-action clearfix">My Orders <i class="icon-credit-cards float-right"></i></a>                                                                                
+                                        <a href="{{ route('myorder', Sentinel::getUser()->id)}}" class="btn btn-success">My Orders <i class="icon-credit-cards float-right"></i></a>                                                                                
                                     </div>                                    
                                 </center>
                             </div>
