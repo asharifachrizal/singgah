@@ -15,6 +15,7 @@ use App\OutputType;
 use App\Font;
 use App\BriefUrl;
 use App\BriefFile;
+use App\Notification;
 
 use Faker\Factory as Faker;
 
@@ -147,11 +148,10 @@ class CartController extends BaseController
         return response()->json($notification);
     }
 
-    public function addInvoice($user_id,$brief_url){
+    public function addInvoice($user_id){
         $data = [
             'user_id'       => $user_id,            
-            'status'        => 0,                        
-            'briefURL'      => $brief_url,            
+            'status'        => 0,                                    
         ];        
         
         $invoice = Invoice::create($data);        
@@ -160,8 +160,8 @@ class CartController extends BaseController
 
     public function addOrder(Request $request)
     {
-        // dd($request->brief);
-        $newInvoice = $this->addInvoice(Sentinel::getUser()->id, $request->brief);
+        
+        $newInvoice = $this->addInvoice(Sentinel::getUser()->id);
         
         $carts = Cart::where([
             ['user_id', '=', Sentinel::getUser()->id],
@@ -173,10 +173,25 @@ class CartController extends BaseController
         ];        
 
         $carts->update($data);
-                
+        
+        $this->addOrderNotif($newInvoice);
 
         return redirect()->route('profile');
 
+    }
+
+    public function addOrderNotif(Invoice $invoice){        
+
+        $data = [
+            'user_id'         => Sentinel::getUser()->id,
+            'notif_type_id'         => 1,
+            'title'         => 'Invoice Requested',
+            'value'        => 'Invoice Requested for Order Id ' . $invoice->id,
+            'created_at' => date('Y-m-d H:i:s')
+        ];
+                    
+        Notification::create($data);
+    
     }
 
     public function delete($id) 

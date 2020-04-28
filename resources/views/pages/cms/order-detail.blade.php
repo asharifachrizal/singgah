@@ -128,17 +128,7 @@
     </div>
     @endforeach
     <div class="card">
-        <div class="card-body">
-            <div class="row">
-                <div class="col-md-12 ">
-                    <div class="form-group">
-                        <label>Brief From Client</label>
-                        <input type="text" class="form-control" name="brief" disabled value="{{$carts[0]->invoice->briefURL}}">
-                        <input type="hidden" class="form-control" name="brief"  value="{{$carts[0]->invoice->briefURL}}">
-                    </div>
-                </div>
-            </div>
-            <!--/row-->
+        <div class="card-body">            
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">

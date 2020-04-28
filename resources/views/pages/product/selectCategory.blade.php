@@ -25,19 +25,14 @@
 
         <div class="col-lg-12 text-center">
             <h2>Order Information</h2>
-            <h4>Choose category for your product</h4>
+            <!-- <h4>Choose category for your product</h4> -->
         </div>
         <div class="feature-box fbox-center fbox-effect nobottomborder" >
             <div class="fbox-icon">
                 <i class="icon-box"></i>
-            </div>
-            @if ($product->category_id == 1)
-            <h3>Desain Produksi</h3>
-            @elseif ($product->category_id == 2)
-            <h3>Desain Non Produksi</h3>
-            @else
-            <h3>Video</h3>
-            @endif
+            </div>            
+            <h3>{{ $product->category->name }}</h3>
+            
         </div>
 
         <div class="">

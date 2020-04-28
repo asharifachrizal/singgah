@@ -63,12 +63,7 @@
                                     <!-- <a href="shop.html" class="button button-3d notopmargin fright">Proceed to Checkout</a> -->
                                     <a href="#" onclick="$('#submitBtn').click()" class="button button-3d nomargin fright">Request Invoice</a>
                                 </div>
-                                <form action="{{ route('tambahOrder', Sentinel::getUser()->id) }}" method="POST" id="addOrder">
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Brief Url</label>
-                                        <input required type="text" name="brief" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Brief URL">
-                                        <small id="emailHelp" class="form-text text-muted">Put Your brief on GDrive, and copy your brief link here!</small>
-                                    </div>   
+                                <form action="{{ route('tambahOrder', Sentinel::getUser()->id) }}" method="POST" id="addOrder">                                      
                                     <input type="submit" id="submitBtn" hidden>                        
                                 </form>
                             </div>

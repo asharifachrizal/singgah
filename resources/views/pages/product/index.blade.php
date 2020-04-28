@@ -40,7 +40,7 @@
                 <div class="fbox-icon">
                     <a href="{{ route('product.select', ['desain-non-produksi', 2])}}"><i class="icon-news"></i></a>
                 </div>
-                <h3>Desain Non-produksi</h3>
+                <h3>Desain Digital</h3>
                 <!-- <p>Looks beautiful &amp; ultra-sharp on Retina Displays with Retina Icons, Fonts &amp; Images.</p> -->
             </div>
         </div>
