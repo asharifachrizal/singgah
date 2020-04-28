@@ -13,7 +13,7 @@ class OutputTypeTable extends Migration
      */
     public function up()
     {
-        Schema::create('output_type', function (Blueprint $table) {
+        Schema::create('output_types', function (Blueprint $table) {
             $table->increments('id');
             $table->bigInteger('cart_id')->unsigned();
             $table->string('value')->nullable();
@@ -30,6 +30,6 @@ class OutputTypeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('output_type');
+        Schema::dropIfExists('output_types');
     }
 }

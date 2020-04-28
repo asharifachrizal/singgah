@@ -47,6 +47,7 @@ Route::group(['middleware' => 'visitor'], function() {
     Route::get('/cart', 'CartController@cartClient')->name('cartUser');
     Route::get('/cart/{id}', 'CartController@delete')->name('cart.delete');
     Route::get('/listcart', 'CartController@cartList')->name('cart.list');
+    
     // END CART ROUTE
     
     Route::get('/cart/checkout', 'CartController@checkout')->name('cart.checkout');
@@ -61,4 +62,9 @@ Route::group(['middleware' => 'visitor'], function() {
     
     Route::get('/product/select-product/{slug}/{id}', 'ProductController@selectProduct')->name('product.select');
     Route::get('/product/my-order/{id}', 'ProductController@order')->name('productOrder');
+    
+    // UPLOAD FILE
+    Route::post('/upload/brief', 'UploadController@upload_brief')->name('uploadBrief');
+    Route::post('/delete/file', 'UploadController@delete_file' )->name('deleteFile');
+    
 });
