@@ -142,7 +142,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label>Output File</label>
+                        <label>Output File (URL)</label>
                         <input type="text" class="form-control" id="outputURL" value="{{$carts[0]->invoice->outputURL}}">
                     </div>
                 </div>

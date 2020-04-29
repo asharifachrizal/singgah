@@ -217,6 +217,11 @@
                                                 <td> :</td>
                                                 <td> {{ $carts[0]->user->phone_number }} </td>
                                             </tr>
+                                            <tr>
+                                                <td>Address</td>
+                                                <td> :</td>
+                                                <td> {{ $carts[0]->user->address }} </td>
+                                            </tr>
                                         </table>
                                     </div>
                                 </td>
@@ -297,12 +302,13 @@
                 </div>
                 <br>
                 <div class="col-md-12 col-lg-12">
+                
                 </div>
+
                 <div class="col-md-12 col-lg-12">
                     <img src="/singgah/footer-inv-01.jpeg" alt="" style="width: 100%; margin-top: 20px;">
                 </div>
-            </div>
-            
+            </div>                        
         </div>
     </div>
 </div>

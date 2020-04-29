@@ -229,7 +229,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card ">
-                    <a href="http://www.google.com" target="_blank" id="openResult" class="btn waves-effect waves-light btn-success">Open Result Files</a>                    
+                    <a href="{{ $carts[0]->invoice->outputURL}}" target="_blank" id="openResult" class="btn waves-effect waves-light btn-success">Open Result Files</a>                    
                 </div>
             </div>
         </div>
