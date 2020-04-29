@@ -8,6 +8,8 @@ use App\Cart;
 use App\Product;
 use App\Category;
 use App\Invoice;
+use App\Notification;
+
 
 class InvoiceController extends Controller
 {
@@ -35,8 +37,24 @@ class InvoiceController extends Controller
 
         $invoice->update($data);
 
+        $this->invoiceSentNotif($invoice);
+
         return redirect()->route('cms.invoice',$id);
         
+    }
+
+    public function invoiceSentNotif(Invoice $invoice)
+    {                
+        $data = [
+            'user_id'         => $invoice->user->id,
+            'notif_type_id'         => 1,
+            'title'         => 'Invoice Sent',
+            'value'        => 'Hai, Invoice ' . $invoice->code . ' kamu telah terbit. Segera lakukan pembayaran ',
+            'created_at' => date('Y-m-d H:i:s')
+        ];
+                    
+        Notification::create($data);
+
     }
 
     public function invoiceCMSPaid($id)
