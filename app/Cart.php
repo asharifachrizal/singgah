@@ -52,6 +52,10 @@ class Cart extends Model
     {
         return $this->hasMany('App\OutputType');
     }
+    public function targetAudience()
+    {
+        return $this->hasMany('App\TargetAudience');
+    }
     public function style()
     {
         return $this->hasMany('App\Style');
