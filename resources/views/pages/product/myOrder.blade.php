@@ -290,6 +290,10 @@
     onclick="SEMICOLON.widget.notifications(this); return false;">Show Success
 </a>
 
+<a hidden id="error-upload" href="#" class="btn btn-danger" data-notify-type="error" 
+    onclick="SEMICOLON.widget.notifications(this); return false;">Show Success
+</a>
+
 <!-- START SCRIPT -->
 
 <script src="{{ asset('canvas/js/jquery.js') }}"></script>
@@ -561,25 +565,37 @@
     async function spliceBrief( warpNumber ) {
         if(counterWarp_Brief.length > 1) {
             if( _fileList.length > 0) {
-                $.ajax({
-                    type: 'POST',
-                    url: '/delete/file',
-                    data: {fileName: _fileList[_fileList.findIndex(_val => _val.warpNumber == warpNumber)].value},
-                    success: async function(dataSuccess){
-                        if(dataSuccess.success) {
-                            $(`#warpBrief_${warpNumber}`).remove()
-                            await counterWarp_Brief.splice(counterWarp_Brief.findIndex( _warpNumber => _warpNumber == warpNumber ), 1)
-                            await _fileList.splice(_fileList.findIndex(_item => _item.warpNumber == warpNumber), 1)
-                            if(counterWarp_Brief.length == 1) {
-                                $(`#spliceBrief_${counterWarp_Brief[0]}`).attr("hidden", true);
-                                $(`#plusBrief_${counterWarp_Brief[0]}`).removeAttr('hidden')
-                            }
-                        } 
-                    },
-                    error: function(dataError) {
-                        console.log(dataError)
+                if(_fileList.findIndex(_val => _val.warpNumber == warpNumber) > -1) {
+                    $.ajax({
+                        type: 'POST',
+                        url: '/delete/file',
+                        data: {fileName: _fileList[_fileList.findIndex(_val => _val.warpNumber == warpNumber)].value},
+                        success: async function(dataSuccess){
+                            if(dataSuccess.success) {
+                                $(`#warpBrief_${warpNumber}`).remove()
+                                await counterWarp_Brief.splice(counterWarp_Brief.findIndex( _warpNumber => _warpNumber == warpNumber ), 1)
+                                await _fileList.splice(_fileList.findIndex(_item => _item.warpNumber == warpNumber), 1)
+                                if(counterWarp_Brief.length == 1) {
+                                    $(`#spliceBrief_${counterWarp_Brief[0]}`).attr("hidden", true);
+                                    $(`#plusBrief_${counterWarp_Brief[0]}`).removeAttr('hidden')
+                                }
+                            } 
+                        },
+                        error: function(dataError) {
+                            
+                            console.log(dataError)
+                        }
+                    });
+                } else {
+                    $(`#warpBrief_${warpNumber}`).remove()
+                    await counterWarp_Brief.splice(counterWarp_Brief.findIndex( _warpNumber => _warpNumber == warpNumber ), 1)
+                    await _fileList.splice(_fileList.findIndex(_item => _item.warpNumber == warpNumber), 1)
+                    if(counterWarp_Brief.length == 1) {
+                        $(`#spliceBrief_${counterWarp_Brief[0]}`).attr("hidden", true);
+                        $(`#plusBrief_${counterWarp_Brief[0]}`).removeAttr('hidden')
                     }
-                });
+                }
+                
             } else {
                 $(`#warpBrief_${warpNumber}`).remove()
                 await counterWarp_Brief.splice(counterWarp_Brief.findIndex( _warpNumber => _warpNumber == warpNumber ), 1)
@@ -624,6 +640,7 @@
                                             } 
                                         },
                                         error: function(dataError) {
+                                            
                                             console.log(dataError)
                                         }
                                     });
@@ -636,6 +653,11 @@
                                 }
                             },
                             error: function(dataError) {
+                                // 
+                                $("#error-upload").attr("data-notify-msg",`<i class=icon-info></i> File too large!`)
+                                setTimeout(() => {
+                                    $("#error-upload").click() 
+                                }, 500);
                                 console.log(dataError)
                             }
                         });
