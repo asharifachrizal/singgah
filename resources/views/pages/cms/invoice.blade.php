@@ -244,9 +244,64 @@
             
             <div class="row">
                 <div class="col-md-12 col-lg-12">
-                    <div style="margin-left: 10px; margin-right: 10px; background-color: #e6e6e6;" id="space-content-inv" >
-                    
+                    <div style="margin-left: 10px; margin-right: 10px; background-color: #ffffff;" id="space-content-inv" >
+                        <div class="col-md-12">
+                            <div class="table-responsive m-t-40" style="clear: both;">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">No</th>
+                                            <th>Product</th>
+                                            <th class="text-right">Quantity</th>
+                                            <th class="text-right">Unit Cost</th>
+                                            <th class="text-right">Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($carts as $index => $row)
+                                        <tr>
+                                            <td class="text-center">{{ $index + 1 }}</td>
+                                            <td>{{ $row->product->value }}</td>
+                                            <td class="text-right">{{ $row->quantity }} </td>
+                                            <td class="text-right"> {{ $row->price }} </td>
+                                            <td class="text-right"> {{ $row->price * $row->quantity  }} </td>
+                                        </tr>
+                                        @endforeach                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="pull-right m-t-30 text-right">
+                                <!-- <p>Sub - Total amount: $13,848</p>
+                                <p>vat (10%) : $138 </p> -->
+                                <hr>                                    
+                                @php   
+                                    $totalPrice = 0;
+                                    foreach ($carts as &$row) {                                                                                                                                                         
+                                        $totalPrice += $row->price * $row->quantity;                                                    
+                                    }
+                                @endphp
+
+                                <h3><b>Total :</b> Rp. {{$totalPrice}}</h3>
+                            </div>
+                            <div class="clearfix"></div>
+                            <hr>
+                            <div class="text-right">                                
+                                @if($carts[0]->invoice->status == 0)                
+                                    <form action="{{ route('cms.invoice.update', $carts[0]->invoice->id)}}" method="post">
+                                        <input hidden type="text" value="{{$carts[0]->invoice->id}}" name="invoice_id">
+                                        <button class="btn btn-danger" type="submit"> Send Invoice to Customer </button>    
+                                    </form>
+                                        <span class="sl-date">You Can't Change Price after Send Invoice to Customer</span>
+                                @endif
+                            </div>
+                            
+                        </div>
                     </div>
+                </div>
+                <br>
+                <div class="col-md-12 col-lg-12">
                 </div>
                 <div class="col-md-12 col-lg-12">
                     <img src="/singgah/footer-inv-01.jpeg" alt="" style="width: 100%; margin-top: 20px;">
