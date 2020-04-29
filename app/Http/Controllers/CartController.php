@@ -75,59 +75,73 @@ class CartController extends BaseController
 
             $cart = Cart::create($dataCart);
 
-            BriefUrl::create(["cart_id" => $cart->id, "value" => $request->briefUrl]);
+            if($request->briefUrl && $request->briefUrl->length > 0){
+                BriefUrl::create(["cart_id" => $cart->id, "value" => $request->briefUrl]);
+            }
 
-            foreach ($targetAudience as $item) {
-                $dataAudience = [ 
-                    'cart_id' => $cart->id,
-                    'value' => $item["value"] 
-                ];
-                TargetAudience::create($dataAudience);
+            if($targetAudience && $targetAudience->length > 0){
+                foreach ($targetAudience as $item) {
+                    $dataAudience = [ 
+                        'cart_id' => $cart->id,
+                        'value' => $item["value"] 
+                    ];
+                    TargetAudience::create($dataAudience);
+                }
             }
 
             $style = $request->styles;
-            foreach ($style as $item) {
-                $dataStyle = [ 
-                    'cart_id' => $cart->id,
-                    'value' => $item["value"] 
-                ];
-                Style::create($dataStyle);
+            if($style && $style->length > 0){
+                foreach ($style as $item) {
+                    $dataStyle = [ 
+                        'cart_id' => $cart->id,
+                        'value' => $item["value"] 
+                    ];
+                    Style::create($dataStyle);
+                }
             }
 
             $color = $request->color;
-            foreach ($color as $item) {
-                $dataColor = [ 
-                    'cart_id' => $cart->id,
-                    'value' => $item["value"] 
-                ];
-                Color::create($dataColor);
+            if($color && $color->length > 0){
+                foreach ($color as $item) {
+                    $dataColor = [ 
+                        'cart_id' => $cart->id,
+                        'value' => $item["value"] 
+                    ];
+                    Color::create($dataColor);
+                }
             }
 
             $output = $request->output;
-            foreach ($output as $item) {
-                $dataOut = [ 
-                    'cart_id' => $cart->id,
-                    'value' => $item["value"] 
-                ];
-                OutputType::create($dataOut);
+            if($output && $output->length > 0){
+                foreach ($output as $item) {
+                    $dataOut = [ 
+                        'cart_id' => $cart->id,
+                        'value' => $item["value"] 
+                    ];
+                    OutputType::create($dataOut);
+                }
             }
 
             $font = $request->font;
-            foreach ($font as $item) {
-                $dataFont = [ 
-                    'cart_id' => $cart->id,
-                    'value' => $item["value"] 
-                ];
-                Font::create($dataFont);
+            if($font && $font->length > 0){
+                foreach ($font as $item) {
+                    $dataFont = [ 
+                        'cart_id' => $cart->id,
+                        'value' => $item["value"] 
+                    ];
+                    Font::create($dataFont);
+                }
             }
             
             $briefFile = $request->briefFile;
-            foreach ($briefFile as $item) {
-                $dataBrief = [ 
-                    'cart_id' => $cart->id,
-                    'value' => $item["value"]
-                ];
-                BriefFile::create($dataBrief);
+            if($briefFile && $briefFile->length > 0){
+                foreach ($briefFile as $item) {
+                    $dataBrief = [ 
+                        'cart_id' => $cart->id,
+                        'value' => $item["value"]
+                    ];
+                    BriefFile::create($dataBrief);
+                }
             }
             
             $notification = [

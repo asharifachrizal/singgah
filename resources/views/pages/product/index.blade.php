@@ -50,7 +50,7 @@
                 <div class="fbox-icon">
                     <a href="{{ route('product.select', ['video', 3])}}"><i class="icon-video1"></i></a>
                 </div>
-                <h3>Video</h3>
+                <h3>Video Editing</h3>
                 <!-- <p>Optimized code that are completely customizable and deliver unmatched fast performance.</p> -->
             </div>
         </div>

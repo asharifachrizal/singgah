@@ -25,7 +25,7 @@ class CreateCartsTable extends Migration
             $table->string('orientation')->nullable();
             $table->string('size')->nullable();
             $table->string('duration')->nullable();            
-            $table->text('deadline')->nullable();
+            $table->string('deadline')->nullable();
             $table->integer('status')->nullable();                                 
             $table->string('price')->nullable(); 
             $table->timestamps();

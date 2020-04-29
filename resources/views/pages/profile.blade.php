@@ -92,16 +92,15 @@
                                         <h4 class="font-medium m-t-30">Notifications</h4>
                                         <hr>
                                         <div class="message-box">
-                                            <div class="message-widget">                                                
-                                                @foreach ($notifications as $row)                                                
+                                            <div class="message-widget">   
+                                            @for ($i = count($notifications) - 1; $i >= 0; $i--)                                                
                                                 <a>
-                                                    <div class="user-img"><span class="round"><i class="mdi mdi-bell-ring-outline" style="position:relative; top:14px"></i></span></div>
-                                                    
+                                                    <div class="user-img"><span class="round"><i class="mdi mdi-bell-ring-outline" style="position:relative; top:14px"></i></span></div>                                                    
                                                     <div class="mail-contnet">
-                                                        <h5>{{ $row->title }} </h5> <span class="mail-desc">{{ $row->value }}</span> <span class="time">{{ $row->created_at }}</span> 
+                                                        <h5>{{ $notifications[$i]->title }} </h5> <span class="mail-desc">{{ $notifications[$i]->value }}</span> <span class="time">{{ $notifications[$i]->created_at }}</span> 
                                                     </div>
                                                 </a>
-                                                @endforeach                                                                                              
+                                            @endfor                                                                                                                                                                                        
                                             </div>
                                         </div>
                                     </div>

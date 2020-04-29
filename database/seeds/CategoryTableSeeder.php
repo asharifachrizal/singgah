@@ -27,8 +27,8 @@ class CategoryTableSeeder extends Seeder
         ]);
 
         DB::table('categories')->insert([
-            'name' => 'Video',
-            'slug' => 'video',
+            'name' => 'Video Editing',
+            'slug' => 'video editing',
         ]);
     }
 }
