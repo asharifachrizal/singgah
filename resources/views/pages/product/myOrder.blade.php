@@ -229,27 +229,27 @@
                                         <label for="output-produk">Output File Type:</label><br>
                                         <select id="select2-output" class="form-control select2 select2-hidden-accessible" multiple data-placeholder="SELECT OUTPUT" style="width: 100%;"  tabindex="-1" aria-hidden="true">
                                             @if($product->id < 11)   
-                                                <option value=".psd">.JPEG</option>
-                                                <option value=".psd">.PNG</option>
-                                                <option value=".psd">.PDF</option>                                                                                            
-                                                <option value=".psd">.AI (Charge)</option>                                                                                            
-                                                <option value=".psd">.PSD (Charge)</option>                                                                                            
-                                                <option value=".psd">.EPS (Charge)</option>
+                                                <option value=".JPEG">.JPEG</option>
+                                                <option value=".PNG">.PNG</option>
+                                                <option value=".PDF">.PDF</option>                                                                                            
+                                                <option value=".AI (Charge)">.AI (Charge)</option>                                                                                            
+                                                <option value=".PSD (Charge)">.PSD (Charge)</option>                                                                                            
+                                                <option value=".EPS (Charge)">.EPS (Charge)</option>
                                             @elseif($product->id < 16)   
-                                                <option value=".psd">.JPEG</option>
-                                                <option value=".psd">.PNG</option>
-                                                <option value=".psd">.PDF</option>                                                                                            
-                                                <option value=".psd">.AI (Charge)</option>                                                                                            
-                                                <option value=".psd">.PSD (Charge)</option>                                                                                            
-                                                <option value=".psd">.EPS (Charge)</option>                                               
+                                            <option value=".JPEG">.JPEG</option>
+                                                <option value=".PNG">.PNG</option>
+                                                <option value=".PDF">.PDF</option>                                                                                            
+                                                <option value=".AI (Charge)">.AI (Charge)</option>                                                                                            
+                                                <option value=".PSD (Charge)">.PSD (Charge)</option>                                                                                            
+                                                <option value=".EPS (Charge)">.EPS (Charge)</option>
                                             @else    
-                                                <option value=".psd">.MP4</option>
-                                                <option value=".psd">.MOV</option>
-                                                <option value=".psd">.MKV</option>                                                
+                                                <option value=".MP4">.MP4</option>
+                                                <option value=".MOV">.MOV</option>
+                                                <option value=".MKV">.MKV</option>                                                
                                             @endif
                                             
                                         </select>
-                                        <!-- <input type="text" required name="output" id="output" class="form-control required" value="" placeholder=".PSD , .PNG, .MP4"> -->
+                                        
                                     </div>                                                                                                            
                                     <div class="col-12 form-group">
                                         

@@ -104,17 +104,17 @@
                         <label>Brief URL </label>                                              
                         <input type="text" class="form-control" disabled value="{{$row->briefURL[0]->value}}">                            
                     </div>    
-                    <label>Brief File</label>                                  
+                    <label>Brief Files</label>                                  
                     <ul class="list-group">
                         @foreach (json_decode($row->briefFile) as $file)                                                        
                             <li class="list-group-item">{{$file->value}}</li>
                         @endforeach                        
                     </ul>
-                    <br>
+                    
                     <button type="button" class="btn waves-effect waves-light btn-success">Download Files</button>
                     <br>                         
                     @endif
-                                                        
+                    <br>                                       
                 </div>
                
                                
@@ -144,6 +144,12 @@
                     <div class="form-group">
                         <label>Output File</label>
                         <input type="text" class="form-control" id="outputURL" value="{{$carts[0]->invoice->outputURL}}">
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Invoice Id</label>
+                        <input type="text" class="form-control" id="code" value="{{$carts[0]->invoice->code}}">
                     </div>
                 </div>
             </div>
@@ -177,7 +183,8 @@
                 url: '/cms/order/modify/'+invoice_id,
                 data: {
                     prices: DataPrices,
-                    outputURL:  document.getElementById('outputURL').value
+                    outputURL:  document.getElementById('outputURL').value,
+                    code:  document.getElementById('code').value
                 },
                 success: function(data) {
                     // console.log(data)

@@ -226,7 +226,7 @@
                                             <b class="pull-right">INVOICE</b>
                                             <br>
                                             <strong id="h6-header" class="pull-right" style="color: #0f4ca4">
-                                               #{{ $carts[0]->invoice->id }} <br><small class="pull-right">{{ $carts[0]->invoice->created_at }}</small>
+                                               #{{ $carts[0]->invoice->code }} <br><small class="pull-right">{{ $carts[0]->invoice->created_at }}</small>
                                             </strong>    
                                         </strong>
                                     </div>

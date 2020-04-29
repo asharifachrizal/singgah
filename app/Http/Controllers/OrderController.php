@@ -28,8 +28,11 @@ class OrderController extends Controller
                 } 
             }
         }   
-
-        $dataInvoice = [ 'outputURL' => $request->outputURL ];
+        
+        $dataInvoice = [ 
+            'outputURL' => $request->outputURL,
+            'code' => $request->code
+         ];
         Invoice::where('id', '=', $invoice_id)->update($dataInvoice);
         
         return response()->json(['success' => true]);
