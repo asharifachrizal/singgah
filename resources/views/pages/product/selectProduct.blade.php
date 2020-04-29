@@ -50,7 +50,7 @@
 
                             <!-- <label class="col-form-label"><span>*</span>Produk</label> -->
                             <select name="product-list" class="custom-select" required="" >
-                                {{-- style="box-shadow: 7px 6px 15px -10px black" --}}
+                                
                                 @foreach ($products as $row)
                                 <option value="{{$row->id}}">{{$row->name}}</option>
                                 @endforeach

@@ -67,19 +67,19 @@
                                     <div class="form-process"></div>
                                     <div class="col-12 form-group">
                                         <label for="jenis-produk">PRODUCT</label>
-                                        <select disabled class="form-control required" >
+                                        <select disabled class="form-control required" style="box-shadow: 8px 7px 20px -15px black;">
                                                 <option value="{{$product->value}}">{{$product->value}}</option>                                                
                                         </select>
                                     </div>
                                     <div class="col-4 form-group">
                                         <label for="kuantitas-produk">Qty</label><br>
-                                        <input type="number" name="quantity" id="quantity" class="form-control " value="1" placeholder="minimal 1" min="1">
+                                        <input type="number" name="quantity" id="quantity" class="form-control " value="1" placeholder="minimal 1" min="1" style="box-shadow: 8px 7px 20px -15px black;">
                                     </div>                                                                                                           
                                            
                                     @if($product->id >= 16)  
                                     <div class="col-8 form-group">
                                         <label for="videoSize-produk">Size</label><br>
-                                        <select id="videoSize" class="form-control select2 select2-hidden-accessible"  data-placeholder="SELECT OUTPUT" style="width: 100%;"  aria-hidden="true">                                            
+                                        <select id="videoSize" class="form-control select2 select2-hidden-accessible"  data-placeholder="SELECT OUTPUT" style="width: 100%;"  aria-hidden="true" style="box-shadow: 8px 7px 20px -15px black;">                                            
                                                 <option value=".psd">1080px - Full HD</option>
                                                 <option value=".psd">720px - HD</option>
                                                 <option value=".psd">640px - SD</option>                                                                                                                                            
@@ -88,18 +88,18 @@
                                     @else
                                     <div class="col-4 form-group">
                                         <label for="ukuran-rasio-produk" >Width:</label><br>
-                                        <input type="number" name="size" id="sizeW" class="form-control " value="" placeholder="1280">
+                                        <input type="number" name="size" id="sizeW" class="form-control " value="" placeholder="1280" style="box-shadow: 8px 7px 20px -15px black;">
                                     </div>  
                                     <div class="col-4 form-group">
                                         <label for="ukuran-rasio-produk" >Height:</label><br>
-                                        <input type="number" name="size" id="sizeH" class="form-control " value="" placeholder="870">
+                                        <input type="number" name="size" id="sizeH" class="form-control " value="" placeholder="870" style="box-shadow: 8px 7px 20px -15px black;">
                                     </div>  
                                     @endif
 
                                     @if($product->id >= 16)       
                                     <div class="col-12 form-group">
                                         <label for="ukuran-rasio-produk">Duration (Seconds)</label><br>
-                                        <input type="text"  name="duration" id="duration" class="form-control" value="" placeholder="120 Sec">
+                                        <input type="text"  name="duration" id="duration" class="form-control" value="" placeholder="120 Sec" style="box-shadow: 8px 7px 20px -15px black;">
                                     </div>    
                                     @endif 
                                     <div class="col-12 form-group">
@@ -107,7 +107,7 @@
                                         <div class="row" id="inputAudience-Warp">
                                             <div class="col-lg-12 col-md-12" id="warpAudience_0">
                                                 <div class="input-group bootstrap-touchspin">
-                                                    <input id="indexAudience_0"  type="text" placeholder="Child / Adult / Age 24-30" data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control" style="display: block;">
+                                                    <input id="indexAudience_0"  type="text" placeholder="Child / Adult / Age 24-30" data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control" style="display: block; box-shadow: 8px 7px 20px -15px black;">
                                                     <div class="input-group-append bootstrap-touchspin-postfix" style="display: none;">
                                                         <span class="input-group-text"></span>
                                                     </div>
@@ -125,7 +125,7 @@
                                         <div class="row" id="inputStyle-Warp">
                                             <div class="col-lg-12 col-md-12" id="warpStyle_0">
                                                 <div class="input-group bootstrap-touchspin">
-                                                    <input id="indexStyle_0"  type="text" placeholder="Example: simple, elegant, animation, etc." data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control" style="display: block;">
+                                                    <input id="indexStyle_0"  type="text" placeholder="Example: simple, elegant, animation, etc." data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control" style="display: block; box-shadow: 8px 7px 20px -15px black;">
                                                     <div class="input-group-append bootstrap-touchspin-postfix" style="display: none;">
                                                         <span class="input-group-text"></span>
                                                     </div>
@@ -154,11 +154,11 @@
                                                     <div class="input-group-prepend bootstrap-touchspin-prefix" style="display: none;">
                                                         <span class="input-group-text"></span>
                                                     </div>
-                                                    <input id="indexColor_0" onchange="changeColor_Input(this.value, 0)" type="text" value="#acacec" name="tch3" data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control" style="display: block;">
+                                                    <input id="indexColor_0" onchange="changeColor_Input(this.value, 0)" type="text" value="#acacec" name="tch3" data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control" style="display: block; box-shadow: 8px 7px 20px -15px black;">
                                                     <div class="input-group-append bootstrap-touchspin-postfix" style="display: none;">
                                                         <span class="input-group-text"></span>
                                                     </div>
-                                                    <div class="input-group-append">
+                                                    <div class="input-group-append" style="box-shadow: 8px 7px 20px -15px black;">
                                                         <button hidden id="spliceColor_0" class="btn btn-danger bootstrap-touchspin-up" type="button" onclick="spliceColor(0)">-</button>
                                                         <button style="background-color: #0f4ba4;" id="plusColor_0" class="btn btn-primary bootstrap-touchspin-up" type="button" onclick="addMoreColor()">+</button>
                                                     </div>
@@ -171,11 +171,11 @@
                                         <div class="row" id="inputFont-Warp">
                                             <div class="col-lg-12 col-md-12" id="warpFont_0">
                                                 <div class="input-group bootstrap-touchspin">
-                                                    <input id="indexFont_0"  type="text" placeholder="Arial, Calibri" data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control" style="display: block;">
+                                                    <input id="indexFont_0"  type="text" placeholder="Arial, Calibri" data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control" style="display: block; box-shadow: 8px 7px 20px -15px black;">
                                                     <div class="input-group-append bootstrap-touchspin-postfix" style="display: none;">
                                                         <span class="input-group-text"></span>
                                                     </div>
-                                                    <div class="input-group-append">
+                                                    <div class="input-group-append" style="box-shadow: 8px 7px 20px -15px black;">
                                                         <button hidden id="spliceFont_0" class="btn btn-danger bootstrap-touchspin-up" type="button" onclick="spliceFont(0)">-</button>
                                                         <button style="background-color: #0f4ba4;" id="plusFont_0" class="btn btn-primary bootstrap-touchspin-up" type="button" onclick="addMoreFont()">+</button>
                                                     </div>
@@ -190,7 +190,7 @@
                                         <div class="row" >
                                             <div class="col-lg-12 col-md-12" >
                                                 <div class="input-group bootstrap-touchspin">
-                                                    <textarea class="form-control" id="linkBrief" rows="6"></textarea>                                                                                                        
+                                                    <textarea class="form-control" id="linkBrief" rows="6" style="box-shadow: 8px 7px 20px -15px black;"></textarea>                                                                                                        
                                                 </div>
                                             </div>
                                         </div>
@@ -206,7 +206,7 @@
                                             <div class="col-lg-12 col-md-12" id="warpBrief_0" >
                                                 <input type="file" id="inputBrief_Hidden_0" hidden oninput="briefUploadStage(this.files, 0)">
                                                 <div class="input-group bootstrap-touchspin">
-                                                    <input disabled id="indexBrief_0" style="background-color: white;"  type="text" placeholder="No file choosen" data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control" style="display: block;">
+                                                    <input disabled id="indexBrief_0" style="background-color: white;"  type="text" placeholder="No file choosen" data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control" style="display: block; box-shadow: 8px 7px 20px -15px black;">
                                                     <div class="input-group-append bootstrap-touchspin-postfix" style="display: none;">
                                                         <span class="input-group-text"></span>
                                                     </div>
@@ -227,7 +227,7 @@
 
                                     <div class="col-12 form-group">
                                         <label for="output-produk">Output File Type:</label><br>
-                                        <select id="select2-output" class="form-control select2 select2-hidden-accessible" multiple data-placeholder="SELECT OUTPUT" style="width: 100%;"  tabindex="-1" aria-hidden="true">
+                                        <select id="select2-output" class="form-control select2 select2-hidden-accessible" multiple data-placeholder="SELECT OUTPUT" style="width: 100%; box-shadow: 8px 7px 20px -15px black;"  tabindex="-1" aria-hidden="true" >
                                             @if($product->id < 11)   
                                                 <option value=".JPEG">.JPEG</option>
                                                 <option value=".PNG">.PNG</option>
@@ -254,7 +254,7 @@
                                     <div class="col-12 form-group">
                                         
                                             <label for="">Deadline</label>
-                                            <input id="deadline" type="text" value="" class="form-control tleft today" placeholder="MM/DD/YYYY">
+                                            <input id="deadline" type="text" value="" class="form-control tleft today" placeholder="MM/DD/YYYY" style="box-shadow: 8px 7px 20px -15px black;">
                                         
                                     </div>
                                     <div class="col-12 hidden">

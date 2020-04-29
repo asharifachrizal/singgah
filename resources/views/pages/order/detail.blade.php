@@ -239,7 +239,7 @@
         @if($carts[0]->invoice->status > 0)                 
         <div class="row" >
             <div class="col-md-12">
-                <div class="card card-body printableArea">
+                <div class="card card-body " id="printableArea">
                     <div class="row" style="color: #0f4ca4">
                         <div class="col-md-12 col-lg-12">
                             <div class="pull-rigth">
@@ -376,8 +376,10 @@
                         <input hidden type="text" value="{{$carts[0]->invoice->id}}" name="invoice_id">                                
                         <button class="btn btn-danger" type="submit"> Cancel Invoice </button>
                         <button class="btn btn-info" type="submit"> Proceed to Checkout </button>
+                        
                     </form>
                     @endif
+                    <!-- <button onclick="doPrint()" id="print" class="btn btn-default btn-outline" type="button"> <span><i class="fa fa-print"></i> Print</span> </button> -->
                 </div>
                 
             </div>
@@ -385,7 +387,7 @@
         @else
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card card-body printableArea">
+                    <div class="card card-body ">
                         <h3 center><b>WAITING INVOICE</b></h3>                        
                     </div>
                 </div>
@@ -394,5 +396,24 @@
     </div>
 </div>
 
+<script src="{{ asset('canvas/js/jquery.js') }}"></script>
+<script src="{{ asset('material/js/jquery.PrintArea.js') }}" type="text/JavaScript"></script>
+<script>
+
+    
+
+    function doPrint(){
+        var mode = 'iframe'; //popup
+        var close = mode == "popup";
+        var options = {
+            mode: mode,
+            popClose: close
+        };
+        $("#printableArea").printArea(options);
+    }
+
+</script>
 
 @endsection
+
+
