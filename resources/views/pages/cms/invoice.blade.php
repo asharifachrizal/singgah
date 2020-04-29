@@ -210,17 +210,12 @@
                                             <tr>
                                                 <td>Client</td>
                                                 <td> :</td>
-                                                <td> Jhony Indo </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Project</td>
-                                                <td> :</td>
-                                                <td> Instagram - Feed </td>
-                                            </tr>
+                                                <td> {{ $carts[0]->user->full_name }} </td>
+                                            </tr>                                            
                                             <tr>
                                                 <td>Contact</td>
                                                 <td> :</td>
-                                                <td> 0813XXXXXX </td>
+                                                <td> {{ $carts[0]->user->phone_number }} </td>
                                             </tr>
                                         </table>
                                     </div>
@@ -231,7 +226,7 @@
                                             <b class="pull-right">INVOICE</b>
                                             <br>
                                             <strong id="h6-header" class="pull-right" style="color: #0f4ca4">
-                                                001/INV/PSD/IX/2020 <br><small class="pull-right">01 January 2020</small>
+                                               #{{ $carts[0]->invoice->id }} <br><small class="pull-right">{{ $carts[0]->invoice->created_at }}</small>
                                             </strong>    
                                         </strong>
                                     </div>

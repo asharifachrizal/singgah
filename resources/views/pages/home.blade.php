@@ -48,7 +48,7 @@
 
             <div class="col-xl-5">
                 <div class="heading-block topmargin">
-                    <h1>Welcome to Singgah.<br>Design Agency</h1>
+                    <h1>Welcome to Singgah Chamber.<br>Branding Agency</h1>
                 </div>
                 <p class="lead">Create a design that you are gonna be proud of. Be it Poster, Video, Photography &amp; much more.</p>
             </div>
@@ -209,7 +209,7 @@
         <div class="col_full nobottommargin clearfix">
     
             <div class="col_one_fourth">
-                <div class="feature-box fbox-center fbox-bg fbox-plain">
+                <div class="feature-box fbox-center fbox-bg fbox-plain" style="box-shadow: 8px 7px 20px -15px black;">
                     <div class="fbox-icon">
                         <a ><i class="icon-map-marker2"></i></a>
                     </div>
@@ -218,7 +218,7 @@
             </div>
     
             <div class="col_one_fourth">
-                <div class="feature-box fbox-center fbox-bg fbox-plain">
+                <div class="feature-box fbox-center fbox-bg fbox-plain" style="box-shadow: 8px 7px 20px -15px black;">
                     <div class="fbox-icon">
                         <a ><i class="icon-phone3"></i></a>
                     </div>
@@ -227,16 +227,16 @@
             </div>
     
             <div class="col_one_fourth">
-                <div class="feature-box fbox-center fbox-bg fbox-plain">
+                <div class="feature-box fbox-center fbox-bg fbox-plain" style="box-shadow: 8px 7px 20px -15px black;">
                     <div class="fbox-icon">
                         <a ><i class="icon-instagram"></i></a>
                     </div>
-                    <h3>Follow On Instagram<span class="subtitle">@singgah</span></h3>
+                    <h3>Instagram<span class="subtitle">@singgah</span></h3>
                 </div>
             </div>
     
             <div class="col_one_fourth col_last">
-                <div class="feature-box fbox-center fbox-bg fbox-plain">
+                <div class="feature-box fbox-center fbox-bg fbox-plain" style="box-shadow: 8px 7px 20px -15px black;">
                     <div class="fbox-icon">
                         <a ><i class="icon-twitter2"></i></a>
                     </div>

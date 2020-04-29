@@ -1,5 +1,9 @@
 <link href="{{ asset('material/plugins/jquery-asColorPicker-master/css/asColorPicker.css') }}" rel="stylesheet">
 <link href="{{ asset('libs/select2/select2.min.css') }}" rel="stylesheet">
+<!-- Date & Time Picker CSS -->
+<link rel="stylesheet" href="{{ asset('canvas/demos/travel/css/datepicker.css') }}" type="text/css" />
+<link rel="stylesheet" href="{{ asset('canvas/css/components/timepicker.css') }}" type="text/css" />
+<link rel="stylesheet" href="{{ asset('canvas/css/components/daterangepicker.css') }}" type="text/css" />
 <style>
     .asColorPicker-wrap{
         width: 92%;
@@ -41,7 +45,7 @@
                         <div class="fslider" data-pagi="false" data-arrows="false" data-thumbs="true">
                             <div class="flexslider">
                                 <div class="slider-wrap" data-lightbox="gallery">
-                                    <div class="slide" ><img src="{{ asset('singgah/products/product-1.jpg') }}" alt="Pink Printed Dress"></div>                                    
+                                    <div class="slide" ><img src="{{ asset('singgah/logos/logo-0.png') }}" alt="Pink Printed Dress"></div>                                    
                                 </div>
                             </div>
                         </div>
@@ -70,18 +74,18 @@
                                     <div class="col-4 form-group">
                                         <label for="kuantitas-produk">Qty</label><br>
                                         <input required type="number" name="quantity" id="quantity" class="form-control required" value="1" placeholder="minimal 1" min="1">
-                                    </div>
-                                    
-                                    <!-- <div class="col-12 form-group">
-                                        <label for="deadline-produk">Orientation:</label><br>                                        
-                                        <select required class="form-control required" name="orientation" id="orientation" onchange="orientationSelected(this.value)">
-                                            <option value="pilih" selected disabled>SELECT</option>
-                                            <option value="landscape">Landscape</option>
-                                            <option value="Portrait">Portrait</option>                                                
-                                        </select>
-                                    </div>  -->
-                                    
-                                                                    
+                                    </div>                                                                                                           
+                                           
+                                    @if($product->id >= 16)  
+                                    <div class="col-8 form-group">
+                                        <label for="videoSize-produk">Size</label><br>
+                                        <select id="videoSize" class="form-control select2 select2-hidden-accessible"  data-placeholder="SELECT OUTPUT" style="width: 100%;"  aria-hidden="true">                                            
+                                                <option value=".psd">1080px - Full HD</option>
+                                                <option value=".psd">720px - HD</option>
+                                                <option value=".psd">640px - SD</option>                                                                                                                                            
+                                        </select>                                        
+                                    </div> 
+                                    @else
                                     <div class="col-4 form-group">
                                         <label for="ukuran-rasio-produk" >Width:</label><br>
                                         <input type="number" required name="size" id="sizeW" class="form-control required" value="" placeholder="1280">
@@ -90,10 +94,11 @@
                                         <label for="ukuran-rasio-produk" >Height:</label><br>
                                         <input type="number" required name="size" id="sizeH" class="form-control required" value="" placeholder="870">
                                     </div>  
+                                    @endif
 
                                     @if($product->id >= 16)       
                                     <div class="col-12 form-group">
-                                        <label for="ukuran-rasio-produk">Duration</label><br>
+                                        <label for="ukuran-rasio-produk">Duration (Seconds)</label><br>
                                         <input type="text" required name="duration" id="duration" class="form-control required" value="" placeholder="120 Sec">
                                     </div>    
                                     @endif 
@@ -108,7 +113,7 @@
                                                     </div>
                                                     <div class="input-group-append">
                                                         <button hidden id="spliceAudience_0" class="btn btn-danger bootstrap-touchspin-up" type="button" onclick="spliceAudience(0)">-</button>
-                                                        <button id="plusAudience_0" class="btn btn-primary bootstrap-touchspin-up" type="button" onclick="addMoreAudience()">+</button>
+                                                        <button style="background-color: #0f4ba4;" id="plusAudience_0" class="btn btn-primary bootstrap-touchspin-up" type="button" onclick="addMoreAudience()">+</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -126,7 +131,7 @@
                                                     </div>
                                                     <div class="input-group-append">
                                                         <button hidden id="spliceStyle_0" class="btn btn-danger bootstrap-touchspin-up" type="button" onclick="spliceStyle(0)">-</button>
-                                                        <button id="plusStyle_0" class="btn btn-primary bootstrap-touchspin-up" type="button" onclick="addMoreStyle()">+</button>
+                                                        <button style="background-color: #0f4ba4;" id="plusStyle_0" class="btn btn-primary bootstrap-touchspin-up" type="button" onclick="addMoreStyle()">+</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -155,7 +160,7 @@
                                                     </div>
                                                     <div class="input-group-append">
                                                         <button hidden id="spliceColor_0" class="btn btn-danger bootstrap-touchspin-up" type="button" onclick="spliceColor(0)">-</button>
-                                                        <button id="plusColor_0" class="btn btn-primary bootstrap-touchspin-up" type="button" onclick="addMoreColor()">+</button>
+                                                        <button style="background-color: #0f4ba4;" id="plusColor_0" class="btn btn-primary bootstrap-touchspin-up" type="button" onclick="addMoreColor()">+</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -172,31 +177,28 @@
                                                     </div>
                                                     <div class="input-group-append">
                                                         <button hidden id="spliceFont_0" class="btn btn-danger bootstrap-touchspin-up" type="button" onclick="spliceFont(0)">-</button>
-                                                        <button id="plusFont_0" class="btn btn-primary bootstrap-touchspin-up" type="button" onclick="addMoreFont()">+</button>
+                                                        <button style="background-color: #0f4ba4;" id="plusFont_0" class="btn btn-primary bootstrap-touchspin-up" type="button" onclick="addMoreFont()">+</button>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- <input type="text" required name="font" id="font" class="form-control required" value="" placeholder="Arial, Calibri"> -->
+                                        
                                     </div>
 
                                     <div class="col-12 form-group">
-                                        <label for="design-style-produk">Link Brief</label>
+                                        <label for="design-style-produk">Brief</label>
                                         <div class="row" >
                                             <div class="col-lg-12 col-md-12" >
                                                 <div class="input-group bootstrap-touchspin">
-                                                    <input id="linkBrief"  type="text" placeholder="Link Brief" data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control" style="display: block;">
-                                                    <div class="input-group-append bootstrap-touchspin-postfix" style="display: none;">
-                                                        <span class="input-group-text"></span>
-                                                    </div>
+                                                    <textarea class="form-control" id="linkBrief" rows="6"></textarea>                                                                                                        
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- <input type="text" required name="font" id="font" class="form-control required" value="" placeholder="Arial, Calibri"> -->
+                                        
                                     </div>
                                     
                                     <div class="col-12 form-group">
-                                        <label for="design-style-produk">Upload Brief</label><br>
+                                        <label for="design-style-produk">Upload Brief/Reference</label><br>
                                         <span>
                                             <small>File Format: .doc, .docx or .pdf</small>
                                         </span>
@@ -214,8 +216,8 @@
                                                         </button>
                                                     </div>
                                                     <div class="input-group-append" >
-                                                        <button id="plusBrief_0" class="btn btn-primary bootstrap-touchspin-up" type="button" onclick="addMoreBrief()"> + </button>
                                                         <button id="spliceBrief_0" class="btn btn-danger bootstrap-touchspin-up" type="button" hidden onclick="spliceBrief(0)"> - </button>
+                                                        <button style="background-color: #0f4ba4;" id="plusBrief_0" class="btn btn-primary bootstrap-touchspin-up" type="button" onclick="addMoreBrief()"> + </button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -226,23 +228,34 @@
                                     <div class="col-12 form-group">
                                         <label for="output-produk">Output File Type:</label><br>
                                         <select id="select2-output" class="form-control select2 select2-hidden-accessible" multiple data-placeholder="SELECT OUTPUT" style="width: 100%;"  tabindex="-1" aria-hidden="true">
+                                            @if($product->id < 11)   
+                                                <option value=".psd">.JPEG</option>
+                                                <option value=".psd">.PNG</option>
+                                                <option value=".psd">.PDF</option>                                                                                            
+                                                <option value=".psd">.AI (Charge)</option>                                                                                            
+                                                <option value=".psd">.PSD (Charge)</option>                                                                                            
+                                                <option value=".psd">.EPS (Charge)</option>
+                                            @elseif($product->id < 16)   
+                                                <option value=".psd">.JPEG</option>
+                                                <option value=".psd">.PNG</option>
+                                                <option value=".psd">.PDF</option>                                                                                            
+                                                <option value=".psd">.AI (Charge)</option>                                                                                            
+                                                <option value=".psd">.PSD (Charge)</option>                                                                                            
+                                                <option value=".psd">.EPS (Charge)</option>                                               
+                                            @else    
+                                                <option value=".psd">.MP4</option>
+                                                <option value=".psd">.MOV</option>
+                                                <option value=".psd">.MKV</option>                                                
+                                            @endif
                                             
-                                            <option value=".psd">.PSD</option>
-                                            <option value=".png">.PNG</option>
-                                            <option value=".jpg">.JPG/ JPEG</option>
-                                            <option value=".mp4">.MP4</option>
-                                            <option value=".mkv">.MKV</option>
-                                            <option value=".mov">.MOV</option>
                                         </select>
                                         <!-- <input type="text" required name="output" id="output" class="form-control required" value="" placeholder=".PSD , .PNG, .MP4"> -->
                                     </div>                                                                                                            
                                     <div class="col-12 form-group">
-                                        <label for="deadline-produk">Deadline</label><br>
-                                        <select class="form-control required" name="deadline" id="deadline" onchange="deadlineSelected(this.value)">
-                                            <option value="pilih" selected disabled>SELECT DEADLINE</option>
-                                            <option value="immediately">Immediately</option>
-                                            <option value="normal">Normal</option>
-                                        </select>
+                                        
+                                            <label for="">Deadline</label>
+                                            <input id="deadline" type="text" value="" class="form-control tleft today" placeholder="MM/DD/YYYY">
+                                        
                                     </div>
                                     <div class="col-12 hidden">
                                         <input type="text" id="event-registration-botcheck" name="event-registration-botcheck" value="" />
@@ -274,10 +287,18 @@
 </a>
 
 <!-- START SCRIPT -->
+
 <script src="{{ asset('canvas/js/jquery.js') }}"></script>
 <script src="{{ asset('libs/select2/select2.min.js') }}"></script>
+<script src="{{ asset('canvas/demos/travel/js/datepicker.js') }}"></script>
 <script>
     $(".select2").select2()
+
+    $(' .today').datepicker({
+        autoclose: true,
+        startDate: "today",
+        todayHighlight: true
+    });
 
     let outputs = []
     $('#select2-output').on('select2:select', function (e) {
@@ -617,10 +638,7 @@
     }
 
     // END FUNC BRIEF
-    var deadlines
-    function deadlineSelected(data) {
-        deadlines = data
-    }
+    
     
 
     function submition () {
@@ -628,9 +646,15 @@
         var product_id = $("input[name=product_id]").val();        
         var quantity = $("input[name=quantity]").val();        
         // SIZE
-        var width = $("#sizeW").val()
-        var height = $("#sizeH").val()
-        var size = `${width}X${height}`
+        if($("#videoSize").val() ){
+            var size = $("#videoSize").val()                        
+        } else{
+            var width = $("#sizeW").val()
+            var height = $("#sizeH").val()
+            var size = `${width}X${height}`
+        }
+
+        var deadline = $("#deadline").val()
 
         var orientation 
         if (width > height) {
@@ -692,7 +716,7 @@
         })
 
         var output = outputs
-        var deadline = deadlines;        
+        
 
         // BRIEF
         var briefUrl = $("#linkBrief").val()

@@ -99,6 +99,7 @@
                             <span class="label label-light-inverse">{{$output->value}}</span>                                                        
                         @endforeach
                     </div>    
+                    @if($row->briefURL->count() > 0)
                     <div class="form-group">
                         <label>Brief URL </label>                                              
                         <input type="text" class="form-control" disabled value="{{$row->briefURL[0]->value}}">                            
@@ -111,8 +112,8 @@
                     </ul>
                     <br>
                     <button type="button" class="btn waves-effect waves-light btn-success">Download Files</button>
-                    <br>     
-                    <br>    
+                    <br>                         
+                    @endif
                                                         
                 </div>
                
