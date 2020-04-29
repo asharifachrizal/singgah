@@ -1,3 +1,160 @@
+<style>
+    /* 
+    ##Device = Desktops
+    ##Screen = 1281px to higher resolution desktops
+    */
+
+    @media (min-width: 1281px) {
+        #table-inv-header {
+            margin-left: 4%;
+            font-size: 12pt;
+            color: #0f4ca4;
+        }
+        #right-header #h1-header{
+            font-size: 54px;
+        }
+
+        #right-header #h6-header {
+            font-size: 18px;
+        }
+        #space-content-inv {
+            min-height: 270px;
+            width: 98%;
+        }
+    
+    
+    }
+
+    /* 
+    ##Device = Laptops, Desktops
+    ##Screen = B/w 1025px to 1280px
+    */
+
+    @media (min-width: 1025px) and (max-width: 1280px) {
+        #table-inv-header {
+            margin-left: 4%;
+            font-size: 12pt;
+            color: #0f4ca4;
+        }
+        #right-header #h1-header {
+            font-size: 54px;
+        }
+        #right-header #h6-header {
+            font-size: 18pt;
+        }
+        #space-content-inv {
+            min-height: 270px;
+            width: 98%;
+        }
+    }
+
+    /* 
+    ##Device = Tablets, Ipads (portrait)
+    ##Screen = B/w 768px to 1024px
+    */
+
+    @media (min-width: 768px) and (max-width: 1024px) {
+        #table-inv-header {
+            margin-left: 4%;
+            font-size: 9pt;
+            color: #0f4ca4;
+        }
+
+        #right-header #h1-header {
+            font-size: 24px;
+        }
+
+        #right-header #h6-header {
+            font-size: 9pt;
+        }
+        #space-content-inv {
+            min-height: 270px;
+            width: 98%;
+        }
+    
+    }
+
+    /* 
+    ##Device = Tablets, Ipads (landscape)
+    ##Screen = B/w 768px to 1024px
+    */
+
+    @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+        #table-inv-header {
+            margin-left: 4%;
+            font-size: 9pt;
+            color: #0f4ca4;
+        }
+        #right-header #h1-header{
+            font-size: 24px;
+        }
+
+        #right-header #h6-header {
+            font-size: 9pt;
+        }
+
+        #space-content-inv {
+            min-height: 270px;
+            width: 98%;
+        }
+   
+    
+    }
+
+    /* 
+    ##Device = Low Resolution Tablets, Mobiles (Landscape)
+    ##Screen = B/w 481px to 767px
+    */
+
+    @media (min-width: 481px) and (max-width: 767px) {
+        #table-inv-header {
+            margin-left: 3%;
+            font-size: 5pt;
+            color: #0f4ca4;
+        }
+        #right-header #h1-header {
+            font-size: 16px;
+        }
+
+        #right-header #h6-header {
+            font-size: 6px;
+        }
+
+        #space-content-inv {
+            min-height: 140px;
+            width: 90%;
+        }
+  
+    
+    }
+
+    /* 
+    ##Device = Most of the Smartphones Mobiles (Portrait)
+    ##Screen = B/w 320px to 479px
+    */
+
+    @media (min-width: 320px) and (max-width: 480px) {
+        #table-inv-header {
+            margin-left: 0%;
+            font-size: 4pt;
+            color: #0f4ca4;
+        }
+        #right-header #h1-header {
+            font-size: 16px;
+        }
+
+        #right-header #h6-header {
+            font-size: 6px;
+        }
+
+        #space-content-inv {
+            min-height: 140px;
+            width: 90%;
+        }
+    
+    }
+</style>
+
 @extends('layouts.client-base')
 
 
@@ -119,6 +276,12 @@
                                                         <td> :</td>
                                                         <td> {{ $carts[0]->user->phone_number }} </td>
                                                     </tr>
+                                                    <tr>
+                                                        <td>Address</td>
+                                                        <td> :</td>
+                                                        <td> {{ $carts[0]->user->address }} </td>                                                                                                                
+                                                    </tr>
+                                                    
                                                 </table>
                                             </div>
                                         </td>
@@ -128,7 +291,7 @@
                                                     <b class="pull-right">INVOICE</b>
                                                     <br>
                                                     <strong id="h6-header" class="pull-right" style="color: #0f4ca4">
-                                                        #{{ $carts[0]->invoice->id }} <br><small class="pull-right">{{ $carts[0]->invoice->created_at }}</small>
+                                                        #{{ $carts[0]->invoice->code }} <br><small class="pull-right">{{ $carts[0]->invoice->created_at }}</small>
                                                     </strong>    
                                                 </strong>
                                             </div>

@@ -22,7 +22,7 @@ Route::group(['middleware' => 'admin'], function() {
     Route::get('/cms/customer', 'CMSController@customer')->name('cms.customer');
     Route::get('/cms/order', 'OrderController@index')->name('cms.order');
     Route::post('/cms/order/modify/{invoice_id}',  'OrderController@updateOrder')->name('cms.modify.order');
-    Route::get('/cms/order/detail/{invoice_id}', 'OrderController@orderDetail')->name('cms.order.detail');
+    Route::get('/cms/order/detail/{invoice_id}', 'OrderController@orderDetail')->name('cms.order.detail');    
 
     Route::post('/cms/store', 'InvoiceController@store')->name('invoice.store');
     Route::get('/cms/order/invoice/{id}', 'InvoiceController@invoiceCMSDetail')->name('cms.invoice');
