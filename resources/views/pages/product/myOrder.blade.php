@@ -73,7 +73,7 @@
                                     </div>
                                     <div class="col-4 form-group">
                                         <label for="kuantitas-produk">Qty</label><br>
-                                        <input required type="number" name="quantity" id="quantity" class="form-control required" value="1" placeholder="minimal 1" min="1">
+                                        <input type="number" name="quantity" id="quantity" class="form-control " value="1" placeholder="minimal 1" min="1">
                                     </div>                                                                                                           
                                            
                                     @if($product->id >= 16)  
@@ -88,18 +88,18 @@
                                     @else
                                     <div class="col-4 form-group">
                                         <label for="ukuran-rasio-produk" >Width:</label><br>
-                                        <input type="number" required name="size" id="sizeW" class="form-control required" value="" placeholder="1280">
+                                        <input type="number" name="size" id="sizeW" class="form-control " value="" placeholder="1280">
                                     </div>  
                                     <div class="col-4 form-group">
                                         <label for="ukuran-rasio-produk" >Height:</label><br>
-                                        <input type="number" required name="size" id="sizeH" class="form-control required" value="" placeholder="870">
+                                        <input type="number" name="size" id="sizeH" class="form-control " value="" placeholder="870">
                                     </div>  
                                     @endif
 
                                     @if($product->id >= 16)       
                                     <div class="col-12 form-group">
                                         <label for="ukuran-rasio-produk">Duration (Seconds)</label><br>
-                                        <input type="text" required name="duration" id="duration" class="form-control required" value="" placeholder="120 Sec">
+                                        <input type="text"  name="duration" id="duration" class="form-control" value="" placeholder="120 Sec">
                                     </div>    
                                     @endif 
                                     <div class="col-12 form-group">
@@ -261,7 +261,7 @@
                                         <input type="text" id="event-registration-botcheck" name="event-registration-botcheck" value="" />
                                     </div>
                                     <div class="col-12">
-                                        <button onclick="submition()" name="event-registration-submit" class="btn btn-secondary">Make Order</button>
+                                        <button id="btn-order" onclick="submition()" name="event-registration-submit" class="btn btn-secondary">Make Order</button>
                                     </div>
 
                                     <input type="hidden" name="prefix" value="event-registration-">
@@ -285,6 +285,10 @@
     data-notify-msg="<i class=icon-info></i> This file type is not supported!" 
     onclick="SEMICOLON.widget.notifications(this); return false;">Show Success
 </a>
+<a hidden id="error-submit" href="#" class="btn btn-danger" data-notify-type="error" 
+    data-notify-msg="<i class=icon-info></i> Please input correctly!" 
+    onclick="SEMICOLON.widget.notifications(this); return false;">Show Success
+</a>
 
 <!-- START SCRIPT -->
 
@@ -293,7 +297,7 @@
 <script src="{{ asset('canvas/demos/travel/js/datepicker.js') }}"></script>
 <script>
     $(".select2").select2()
-
+    
     $(' .today').datepicker({
         autoclose: true,
         startDate: "today",
@@ -554,27 +558,37 @@
         xBrief++;
     }
 
-    function spliceBrief( warpNumber ) {
+    async function spliceBrief( warpNumber ) {
         if(counterWarp_Brief.length > 1) {
-            $.ajax({
-                type: 'POST',
-                url: '/delete/file',
-                data: {fileName: _fileList[_fileList.findIndex(_val => _val.warpNumber == warpNumber)].value},
-                success: async function(dataSuccess){
-                    if(dataSuccess.success) {
-                        $(`#warpBrief_${warpNumber}`).remove()
-                        await counterWarp_Brief.splice(counterWarp_Brief.findIndex( _warpNumber => _warpNumber == warpNumber ), 1)
-                        await _fileList.splice(_fileList.findIndex(_item => _item.warpNumber == warpNumber), 1)
-                        if(counterWarp_Brief.length == 1) {
-                            $(`#spliceBrief_${counterWarp_Brief[0]}`).attr("hidden", true);
-                            $(`#plusBrief_${counterWarp_Brief[0]}`).removeAttr('hidden')
-                        }
-                    } 
-                },
-                error: function(dataError) {
-                    console.log(dataError)
+            if( _fileList.length > 0) {
+                $.ajax({
+                    type: 'POST',
+                    url: '/delete/file',
+                    data: {fileName: _fileList[_fileList.findIndex(_val => _val.warpNumber == warpNumber)].value},
+                    success: async function(dataSuccess){
+                        if(dataSuccess.success) {
+                            $(`#warpBrief_${warpNumber}`).remove()
+                            await counterWarp_Brief.splice(counterWarp_Brief.findIndex( _warpNumber => _warpNumber == warpNumber ), 1)
+                            await _fileList.splice(_fileList.findIndex(_item => _item.warpNumber == warpNumber), 1)
+                            if(counterWarp_Brief.length == 1) {
+                                $(`#spliceBrief_${counterWarp_Brief[0]}`).attr("hidden", true);
+                                $(`#plusBrief_${counterWarp_Brief[0]}`).removeAttr('hidden')
+                            }
+                        } 
+                    },
+                    error: function(dataError) {
+                        console.log(dataError)
+                    }
+                });
+            } else {
+                $(`#warpBrief_${warpNumber}`).remove()
+                await counterWarp_Brief.splice(counterWarp_Brief.findIndex( _warpNumber => _warpNumber == warpNumber ), 1)
+                await _fileList.splice(_fileList.findIndex(_item => _item.warpNumber == warpNumber), 1)
+                if(counterWarp_Brief.length == 1) {
+                    $(`#spliceBrief_${counterWarp_Brief[0]}`).attr("hidden", true);
+                    $(`#plusBrief_${counterWarp_Brief[0]}`).removeAttr('hidden')
                 }
-            });
+            }
             
         }
     }
@@ -741,9 +755,7 @@
         console.log(dataWill_Post)
         
 
-        if( deadline ){
-            console.log('will post')
-            $.ajax({
+        $.ajax({
                     type: 'POST',
                     url: '/cart/add',
                     data: dataWill_Post,
@@ -760,7 +772,6 @@
                     }
 
             });
-        }
     }
 </script>
 @endsection

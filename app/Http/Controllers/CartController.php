@@ -75,11 +75,11 @@ class CartController extends BaseController
 
             $cart = Cart::create($dataCart);
 
-            if($request->briefUrl && $request->briefUrl->length > 0){
+            if($request->briefUrl ){
                 BriefUrl::create(["cart_id" => $cart->id, "value" => $request->briefUrl]);
             }
 
-            if($targetAudience && $targetAudience->length > 0){
+            if($targetAudience ){
                 foreach ($targetAudience as $item) {
                     $dataAudience = [ 
                         'cart_id' => $cart->id,
@@ -90,7 +90,7 @@ class CartController extends BaseController
             }
 
             $style = $request->styles;
-            if($style && $style->length > 0){
+            if($style ){
                 foreach ($style as $item) {
                     $dataStyle = [ 
                         'cart_id' => $cart->id,
@@ -101,7 +101,7 @@ class CartController extends BaseController
             }
 
             $color = $request->color;
-            if($color && $color->length > 0){
+            if($color ){
                 foreach ($color as $item) {
                     $dataColor = [ 
                         'cart_id' => $cart->id,
@@ -112,7 +112,7 @@ class CartController extends BaseController
             }
 
             $output = $request->output;
-            if($output && $output->length > 0){
+            if($output ){
                 foreach ($output as $item) {
                     $dataOut = [ 
                         'cart_id' => $cart->id,
@@ -123,7 +123,7 @@ class CartController extends BaseController
             }
 
             $font = $request->font;
-            if($font && $font->length > 0){
+            if($font ){
                 foreach ($font as $item) {
                     $dataFont = [ 
                         'cart_id' => $cart->id,
@@ -134,7 +134,7 @@ class CartController extends BaseController
             }
             
             $briefFile = $request->briefFile;
-            if($briefFile && $briefFile->length > 0){
+            if($briefFile){
                 foreach ($briefFile as $item) {
                     $dataBrief = [ 
                         'cart_id' => $cart->id,
