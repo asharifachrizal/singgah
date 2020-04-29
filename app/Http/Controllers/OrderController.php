@@ -39,7 +39,10 @@ class OrderController extends Controller
 
     public function orderDetail($invoice_id)
     {
-        $carts = Cart::where('invoice_id', '=', $invoice_id)->get();                
+        $carts = Cart::where('invoice_id', '=', $invoice_id)->get();   
+        
+        // $colors = json_decode( $carts->color, true );             
+        // dd($colors);
         return view('pages.cms.order-detail', compact('carts'));
     }
 

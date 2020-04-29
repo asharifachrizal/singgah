@@ -57,8 +57,7 @@
                             <a>{{$row->created_at}}</a>
                         </td>
                         <td class="cart-product-name">                            
-                            <a href="{{ route('invoice.detail', $row->id)}}" class="add" title="See Detail"><i class="icon-eye"></i></a>                            
-                            
+                            <a href="{{ route('invoice.detail', $row->id)}}" class="add" title="See Detail"><i class="icon-eye"></i></a>                                                        
                         </td>
                     </tr>
                     @endforeach

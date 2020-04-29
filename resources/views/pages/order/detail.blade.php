@@ -67,6 +67,14 @@
 
             </table>
         </div>
+        
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card ">
+                    <a href="http://www.google.com" target="_blank" id="openResult" class="btn waves-effect waves-light btn-success">Open Result Files</a>                    
+                </div>
+            </div>
+        </div>
 
          <!-- Invoice -->
         @if($carts[0]->invoice->status > 0)         
@@ -138,7 +146,8 @@
                                         </tbody>
                                     </table>
                                 </div>
-                            </div>
+                                
+                            </div>                            
                             <div class="col-md-12">
                                 <div class="pull-right m-t-30 text-right">
                                     <!-- <p>Sub - Total amount: $13,848</p>
