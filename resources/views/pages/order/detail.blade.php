@@ -286,9 +286,16 @@
                                             </div>
                                         </td>
                                         <td style="width: 50%; ">
+                                            @if($carts[0]->invoice->status == 1)                                                  
+                                                <span class="label label-warning pull-right">WAITING PAYMENT</span> 
+                                            @elseif($carts[0]->invoice->status == 2)                                                  
+                                                <span class="label label-green pull-right">PAID</span>                                             
+                                            @else
+                                                <span class="label label-danger pull-right">CANCELED</span>                                               
+                                            @endif
                                             <div style="width: 100%; " id="right-header" class="pull-right">
                                                 <strong id="h1-header" class="pull-right" style="color: #0f4ca4">
-                                                    <b class="pull-right">INVOICE</b>
+                                                    <b class="pull-right">INVOICE</b>                                                    
                                                     <br>
                                                     <strong id="h6-header" class="pull-right" style="color: #0f4ca4">
                                                         #{{ $carts[0]->invoice->code }} <br><small class="pull-right">{{ $carts[0]->invoice->created_at }}</small>

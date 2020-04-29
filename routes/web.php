@@ -27,6 +27,7 @@ Route::group(['middleware' => 'admin'], function() {
     Route::post('/cms/store', 'InvoiceController@store')->name('invoice.store');
     Route::get('/cms/order/invoice/{id}', 'InvoiceController@invoiceCMSDetail')->name('cms.invoice');
     Route::post('/cms/order/invoice/update/{id}', 'InvoiceController@invoiceCMSUpdate')->name('cms.invoice.update');
+    Route::post('/cms/order/invoice/paid/{id}', 'InvoiceController@invoiceCMSPaid')->name('cms.invoice.paid');
 
 });
 

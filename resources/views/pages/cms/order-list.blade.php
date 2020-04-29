@@ -42,7 +42,7 @@
                         @elseif ($row->status == 2)
                             <td><span class="label label-green">PAID</span> </td>
                         @elseif ($row->status == 3)
-                            <td><span class="label label-danger">REJECTED</span> </td>
+                            <td><span class="label label-danger">CANCELED</span> </td>
                         @endif
                         <td>
                             <a href="{{ route('cms.order.detail', $row->id)}}" data-toggle="tooltip" data-original-title="Open Detail"> <i class="fa fa-eye"></i> </a>

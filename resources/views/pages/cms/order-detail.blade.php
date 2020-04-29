@@ -104,14 +104,15 @@
                         <label>Brief URL </label>                                              
                         <input type="text" class="form-control" disabled value="{{$row->briefURL[0]->value}}">                            
                     </div>    
-                    <label>Brief Files</label>                                  
+                    <label>Brief Files</label>    
+                                                  
                     <ul class="list-group">
                         @foreach (json_decode($row->briefFile) as $file)                                                        
                             <li class="list-group-item">{{$file->value}}</li>
                         @endforeach                        
                     </ul>
-                    
-                    <button type="button" class="btn waves-effect waves-light btn-success">Download Files</button>
+                    <br>
+                    <button type="button" class="btn waves-effect waves-light btn-success">Download All Brief Files</button>
                     <br>                         
                     @endif
                     <br>                                       
@@ -142,7 +143,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label>Output File</label>
+                        <label>Output File (GDrive URL)</label>
                         <input type="text" class="form-control" id="outputURL" placeholder="www.example.com" value="{{$carts[0]->invoice->outputURL}}">
                         <span style="color:red" id="helper-outputUrl" hidden>
                             <small>Unsupported format, Please input link url into field!</small>

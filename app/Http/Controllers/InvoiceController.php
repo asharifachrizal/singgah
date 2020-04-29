@@ -39,6 +39,21 @@ class InvoiceController extends Controller
         
     }
 
+    public function invoiceCMSPaid($id)
+    {                        
+        $invoice = Invoice::where('id', '=', $id)->first();  
+        date_default_timezone_set("Asia/Bangkok");
+        $data = [
+            'status' => 2,            
+            'updated_at' => date("Y/m/d"),   
+        ];        
+
+        $invoice->update($data);
+
+        return redirect()->route('cms.invoice',$id);
+        
+    }
+
     public function invoiceReject($id)
     {                        
         $invoice = Invoice::where('id', '=', $id)->first();          

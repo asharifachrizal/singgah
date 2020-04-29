@@ -49,7 +49,7 @@
                         @elseif ($row->status == 2)
                             <span class="badge badge-success">PAID</span>   
                         @elseif ($row->status == 3)
-                            <span class="badge badge-danger">REJECTED</span>   
+                            <span class="badge badge-danger">CANCELED</span>   
                         @endif
                         </td>
 

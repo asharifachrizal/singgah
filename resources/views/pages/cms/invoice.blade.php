@@ -226,6 +226,13 @@
                                     </div>
                                 </td>
                                 <td style="width: 50%; ">
+                                    @if($carts[0]->invoice->status == 1)                                                  
+                                        <span class="label label-warning pull-right">WAITING PAYMENT</span> 
+                                    @elseif($carts[0]->invoice->status == 2)                                                  
+                                        <span class="label label-green pull-right">PAID</span>                                             
+                                        @elseif($carts[0]->invoice->status == 3)     
+                                        <span class="label label-danger pull-right">CANCELED</span>                                               
+                                    @endif
                                     <div style="width: 100%; " id="right-header" class="pull-right">
                                         <strong id="h1-header" class="pull-right" style="color: #0f4ca4">
                                             <b class="pull-right">INVOICE</b>
@@ -310,6 +317,16 @@
                 </div>
             </div>                        
         </div>
+
+        @if($carts[0]->invoice->status == 1)                
+        <div class="card card-body ">
+            <form action="{{ route('cms.invoice.paid', $carts[0]->invoice->id)}}" method="post">
+                <input hidden type="text" value="{{$carts[0]->invoice->id}}" name="invoice_id">
+                <button class="btn btn-danger" type="submit"> Change Invoice status to PAID </button>    
+            </form>
+                <span class="sl-date ">Be Carefull! Check Your Bank First!</span>
+        </div>
+        @endif
     </div>
 </div>
 <!-- End Invoice Content -->
