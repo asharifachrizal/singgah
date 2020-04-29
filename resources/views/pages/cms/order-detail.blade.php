@@ -143,7 +143,10 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Output File</label>
-                        <input type="text" class="form-control" id="outputURL" value="{{$carts[0]->invoice->outputURL}}">
+                        <input type="text" class="form-control" id="outputURL" placeholder="www.example.com" value="{{$carts[0]->invoice->outputURL}}">
+                        <span style="color:red" id="helper-outputUrl" hidden>
+                            <small>Unsupported format, Please input link url into field!</small>
+                        </span>
                     </div>
                 </div>
                 <div class="col-md-12">
@@ -170,32 +173,40 @@
 <script>
     var counterCarts = document.getElementById('totalCartsItem').value
     function doPost() {
-        var invoice_id = document.getElementById('invoice_id').value
-        let DataPrices = []
-        for (let index = 0; index < counterCarts; index++) {
-            DataPrices.push({
-                cart_id: document.getElementById('itemsId_'+index).value,
-                price: document.getElementById('price_cart_id_'+index).value
-            })
-        }
-        $.ajax({
-                type: 'POST',
-                url: '/cms/order/modify/'+invoice_id,
-                data: {
-                    prices: DataPrices,
-                    outputURL:  document.getElementById('outputURL').value,
-                    code:  document.getElementById('code').value
-                },
-                success: function(data) {
-                    // console.log(data)
-                    window.location.reload()
-                },
-                error: function(data) {
-                        // alert('error')
-                    console.log(data)
+        let checkingOutput_Url = $("#outputURL").val()
+        if(checkingOutput_Url) {
+            let tempOutput_Url = checkingOutput_Url.split(".")
+            if(tempOutput_Url.length > 2) {
+                var invoice_id = document.getElementById('invoice_id').value
+                let DataPrices = []
+                for (let index = 0; index < counterCarts; index++) {
+                    DataPrices.push({
+                        cart_id: document.getElementById('itemsId_'+index).value,
+                        price: document.getElementById('price_cart_id_'+index).value
+                    })
                 }
+                $.ajax({
+                        type: 'POST',
+                        url: '/cms/order/modify/'+invoice_id,
+                        data: {
+                            prices: DataPrices,
+                            outputURL:  document.getElementById('outputURL').value,
+                            code:  document.getElementById('code').value
+                        },
+                        success: function(data) {
+                            // console.log(data)
+                            window.location.reload()
+                        },
+                        error: function(data) {
+                                // alert('error')
+                            console.log(data)
+                        }
+                });
 
-        });
+            } else {
+                $("#helper-outputUrl").removeAttr("hidden")
+            }
+        } 
     }
 
 </script>
