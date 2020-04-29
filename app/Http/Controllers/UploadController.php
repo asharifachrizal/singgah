@@ -34,4 +34,11 @@ class UploadController extends BaseController
             return response()->json(["success" => false]);
         }
     }
+
+    public function download_brief($file_name) {
+        $file= "uploads/brief/".$file_name;
+        if (file_exists($file)) {
+            return response()->download($file);
+        } 
+    }
 }

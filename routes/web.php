@@ -67,5 +67,5 @@ Route::group(['middleware' => 'visitor'], function() {
     // UPLOAD FILE
     Route::post('/upload/brief', 'UploadController@upload_brief')->name('uploadBrief');
     Route::post('/delete/file', 'UploadController@delete_file' )->name('deleteFile');
-    
+    Route::get('/download/brief/{file_name}', 'UploadController@download_brief' )->name('downloadBrief');
 });
