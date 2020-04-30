@@ -200,7 +200,7 @@ class CartController extends BaseController
             'user_id'         => Sentinel::getUser()->id,
             'notif_type_id'         => 1,
             'title'         => 'Invoice Requested',
-            'value'        => 'Invoice Requested for Order Id ' . $invoice->id,
+            'value'        => 'Invoice Requested for Order Id #' . $invoice->id,
             'created_at' => date('Y-m-d H:i:s')
         ];
                     

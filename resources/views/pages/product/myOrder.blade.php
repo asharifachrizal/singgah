@@ -198,7 +198,7 @@
                                     </div>
                                     
                                     <div class="col-12 form-group">
-                                        <label for="design-style-produk">Upload Brief/Reference</label><br>
+                                        <label for="design-style-produk">Upload Brief/Reference (Maks: 2mb)</label><br>
                                         <span>
                                             <small>File Format: .doc, .docx or .pdf</small>
                                         </span>

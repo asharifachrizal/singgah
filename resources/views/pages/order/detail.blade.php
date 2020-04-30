@@ -375,7 +375,7 @@
                     <form action="{{ route('invoice.reject', $carts[0]->invoice->id)}}" method="post">
                         <input hidden type="text" value="{{$carts[0]->invoice->id}}" name="invoice_id">                                
                         <button class="btn btn-danger" type="submit"> Cancel Invoice </button>
-                        <button class="btn btn-info" type="submit"> Proceed to Checkout </button>
+                        <!-- <button class="btn btn-info" type="submit"> Proceed to Checkout </button> -->
                         
                     </form>
                     @endif

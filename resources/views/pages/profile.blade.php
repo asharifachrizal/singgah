@@ -95,7 +95,15 @@
                                             <div class="message-widget">   
                                             @for ($i = count($notifications) - 1; $i >= 0; $i--)                                                
                                                 <a>
-                                                    <div class="user-img"><span class="round"><i class="mdi mdi-bell-ring-outline" style="position:relative; top:14px"></i></span></div>                                                    
+                                                    @if($notifications[$i]->notifType->id == 1)
+                                                        <div class="user-img"><span class="round "><i class="mdi mdi-bell-ring-outline" style="position:relative; top:14px"></i></span></div>                                                    
+                                                    @elseif($notifications[$i]->notifType->id == 5)
+                                                        <div class="user-img"><span class="round round-warning"><i class="mdi mdi-bell-ring-outline" style="position:relative; top:14px"></i></span></div>                                                    
+                                                    @elseif($notifications[$i]->notifType->id == 6)
+                                                        <div class="user-img"><span class="round round-danger"><i class="mdi mdi-bell-ring-outline" style="position:relative; top:14px"></i></span></div>                                                    
+                                                    @elseif($notifications[$i]->notifType->id == 7)
+                                                        <div class="user-img"><span class="round round-success"><i class="mdi mdi-bell-ring-outline" style="position:relative; top:14px"></i></span></div>                                                    
+                                                    @endif
                                                     <div class="mail-contnet">
                                                         <h5>{{ $notifications[$i]->title }} </h5> <span class="mail-desc">{{ $notifications[$i]->value }}</span> <span class="time">{{ $notifications[$i]->created_at }}</span> 
                                                     </div>

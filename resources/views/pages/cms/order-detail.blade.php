@@ -104,17 +104,24 @@
                         <label>Brief URL </label>                                              
                         <input type="text" class="form-control" disabled value="{{$row->briefURL[0]->value}}">                            
                     </div>    
-                    <label>Brief Files</label>    
-                                                  
-                    <ul class="list-group">
-                        @foreach (json_decode($row->briefFile) as $file)                                                        
-                            <li class="list-group-item">{{$file->value}}</li>
-                        @endforeach                        
-                    </ul>
-                    <br>
-                    <button type="button" class="btn waves-effect waves-light btn-success">Download All Brief Files</button>
-                    <br>                         
+                    
                     @endif
+                    <label>Brief Files</label>    
+                    @foreach (json_decode($row->briefFile) as $file)
+                    <div class="form-group">
+                        <div class="input-group bootstrap-touchspin">
+                            <input disabled value="{{$file->value}}" style="background-color: white;"  type="text"  data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control" style="display: block;">
+                            <div class="input-group-append bootstrap-touchspin-postfix" style="display: none;">
+                                <span class="input-group-text"></span>
+                            </div>
+                            <div class="input-group-append" >
+                                <a style="background-color: #0f4ba4;"  class="btn btn-primary bootstrap-touchspin-up" type="button" href="/download/brief/{{$file->value}}" target="_BLANK"> 
+                                    <i class="mdi mdi-download"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>     
+                    @endforeach  
                     <br>                                       
                 </div>
                
@@ -172,6 +179,11 @@
 <!-- ============================================================== -->
 
 <script>
+
+    function doDownload(data) {
+        
+    }
+
     var counterCarts = document.getElementById('totalCartsItem').value
     function doPost() {
         let checkingOutput_Url = $("#outputURL").val()
