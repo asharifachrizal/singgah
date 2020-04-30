@@ -104,6 +104,8 @@
                         <label>Brief URL </label>                                              
                         <input type="text" class="form-control" disabled value="{{$row->briefURL[0]->value}}">                            
                     </div>    
+                    
+                    @endif
                     <label>Brief Files</label>    
                     @foreach (json_decode($row->briefFile) as $file)
                     <div class="form-group">
@@ -120,8 +122,6 @@
                         </div>
                     </div>     
                     @endforeach  
-                                            
-                    @endif
                     <br>                                       
                 </div>
                
