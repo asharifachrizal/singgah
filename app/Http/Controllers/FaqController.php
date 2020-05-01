@@ -10,7 +10,7 @@ class FaqController extends Controller
     public function index()
     {
         $faqs = Faq::orderBy('order', 'DESC')->get();
-        return view('pages.cms.faq-list', compact('faqs'));
+        return view('pages.cms.faq.faq-list', compact('faqs'));
     }
 
     public function clientIndex()
@@ -21,13 +21,13 @@ class FaqController extends Controller
 
     public function formAdd()
     {                
-        return view('pages.cms.faq-form');
+        return view('pages.cms.faq.faq-form');
     }
 
     public function formUpdate($id)
     {                
         $faq = Faq::where('id', '=', $id)->first();  
-        return view('pages.cms.faq-form',compact('faq'));
+        return view('pages.cms.faq.faq-form',compact('faq'));
     }
 
     public function update($id, Request $request)

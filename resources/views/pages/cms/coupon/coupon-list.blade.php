@@ -4,9 +4,9 @@
 <!-- Bread crumb and right sidebar toggle -->
 <div class="row page-titles">
     <div class="col-md-5 col-8 align-self-center">
-        <h3 class="text-themecolor m-b-0 m-t-0">FAQ</h3>
+        <h3 class="text-themecolor m-b-0 m-t-0">Coupon</h3>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="javascript:void(0)">FAQ</a></li>
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Coupon</a></li>
             <li class="breadcrumb-item active">List</li>
         </ol>
     </div>
@@ -15,25 +15,36 @@
 
 <div class="card">
     <div class="card-body">
-        <h4 class="card-title">FAQ</h4>
-        <h6 class="card-subtitle">Form</h6>
-        <form class="form-horizontal m-t-40" action="{{ isset($faq) ? route('cms.faq.update',$faq->id) : route('cms.faq.store') }}" method="POST">                            
-            <div class="form-group">                
-                <label>Urutan</label>                
-                <input type="number" name="order" min="1" class="form-control" rows="2" value="{{ isset($faq) ? '$faq->order' : '' }}" placeholder="{{ isset($faq) ? $faq->order : '' }}">
-            </div>
-            <div class="form-group">                                                
-                <label>Question</label>                
-                <textarea name="question" class="form-control" rows="2" value="{{ isset($faq) ? '$faq->question' : '' }}">{{ isset($faq) ? $faq->question:''}}</textarea>
-            </div>
-            <div class="form-group">               
-                <label>Answer</label>
-                <textarea  name="answer" class="form-control" rows="4" value="{{ isset($faq) ? '$faq->answer' : '' }}">{{ isset($faq) ? $faq->answer:''}} </textarea>
-            </div>
-            
-            <button type="submit" class="btn waves-effect waves-light btn-success">{{ isset($faq) ? 'Update' : 'Add' }}</button>            
-            
-        </form>        
+        <h4 class="card-title">Coupon</h4>
+        <h6 class="card-subtitle">Data table</h6>
+        <div class="table-responsive m-t-40">
+            <table id="myTable" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Discount by Percent</th>                        
+                        <th>Discount by Cash</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach ($coupons as $index => $row)
+                    <tr>
+                        <td>{{ $row->title }}</td>                        
+                        <td>{{ $row->description }}</td>
+                        <td>{{ $row->percent }}</td>                        
+                        <td>{{ $row->cash }}</td>                        
+                        <td>
+                            <a href="{{ route('cms.coupon.form.update', $row->id)}}" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil"></i> </a>
+                            <a href="{{ route('cms.coupon.delete', $row->id)}}" data-toggle="tooltip" data-original-title="Remove"> <i class="fa fa-trash-o text-danger"></i> </a>
+                        </td>                        
+                    </tr>
+                @endforeach
+
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 @endsection
