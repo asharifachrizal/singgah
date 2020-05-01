@@ -21,7 +21,7 @@
                     <li><a href="{{ route('home') }}"><div>Home</div></a></li>
                     <li><a href="{{ route('product') }}"><div>Services</div></a></li>
                     <li><a href="{{ route('aboutUs') }}"><div>About Us</div></a></li>
-                    <li><a href="{{ route('faq') }}"><div>FAQ</div></a></li>
+                    <li><a href="{{ route('client.faq.index') }}"><div>FAQ</div></a></li>
                     @if(Sentinel::check())
                         <li class="mobile-wishlist"><a href="{{ route('profile')}}"><i class="fa fa-user" aria-hidden="true"></i>{{ Sentinel::getUser()->full_name }}</a></li>
                         <li class="mobile-wishlist"><a href="#" onclick="document.getElementById('logout-form').submit()"><i class="fa fa-sign-out-alt" aria-hidden="true"></i> Logout</a></li>
