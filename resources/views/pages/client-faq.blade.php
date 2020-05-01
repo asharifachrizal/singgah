@@ -47,11 +47,7 @@
                     <div class="divider divider-right"><a href="#" data-scrollto="#faqs-list"><i class="icon-chevron-up"></i></a></div>
 
                     <!-- end item -->                       
-                @endforeach
-
-                       
-
-                
+                @endforeach                                    
 
             </div>
 

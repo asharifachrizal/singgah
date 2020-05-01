@@ -29,12 +29,27 @@ Route::group(['middleware' => 'admin'], function() {
     Route::post('/cms/order/invoice/update/{id}', 'InvoiceController@invoiceCMSUpdate')->name('cms.invoice.update');
     Route::post('/cms/order/invoice/paid/{id}', 'InvoiceController@invoiceCMSPaid')->name('cms.invoice.paid');
 
+    //Start FAQ
     Route::get('/cms/faq/list', 'FaqController@index')->name('cms.faq.list');
     Route::get('/cms/faq/form/add', 'FaqController@formAdd')->name('cms.faq.form.add');
     Route::get('/cms/faq/form/update/{id}', 'FaqController@formUpdate')->name('cms.faq.form.update');
     Route::post('/cms/faq/store', 'FaqController@store')->name('cms.faq.store');
     Route::post('/cms/faq/update/{id}', 'FaqController@update')->name('cms.faq.update');
     Route::get('/cms/faq/delete/{id}', 'FaqController@delete')->name('cms.faq.delete');
+    //End FAQ
+
+    //Start Coupon
+    Route::get('/cms/coupon/list', 'CouponController@index')->name('cms.coupon.list');
+    Route::get('/cms/coupon/form/add', 'CouponController@formAdd')->name('cms.coupon.form.add');
+    Route::get('/cms/coupon/form/update/{id}', 'CouponController@formUpdate')->name('cms.coupon.form.update');
+    Route::post('/cms/coupon/store', 'CouponController@store')->name('cms.coupon.store');
+    Route::post('/cms/coupon/update/{id}', 'CouponController@update')->name('cms.coupon.update');
+    Route::get('/cms/coupon/delete/{id}', 'CouponController@delete')->name('cms.coupon.delete');
+    //End Coupon
+
+    
+
+
 
 });
 
