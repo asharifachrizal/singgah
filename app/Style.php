@@ -6,7 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Style extends Model
 {
-    //
+	//
+	protected $fillable = [
+        'cart_id',
+        'value'
+	];
     public function Cart()
 	{
 		return $this->belongsTo('App\Cart');

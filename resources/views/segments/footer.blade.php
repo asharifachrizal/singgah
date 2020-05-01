@@ -16,7 +16,7 @@
 
                 <div class="col_half col_last tright">
                     <div class="copyrights-menu copyright-links fright clearfix">
-                        <a href="{{ route('home') }}">Home</a>/<a href="#">Product</a>/<a href="{{ route('aboutUs') }}">About Us</a>/<a href="{{ route('faq') }}">FAQ</a>
+                        <a href="{{ route('home') }}">Home</a>/<a href="#">Services</a>/<a href="{{ route('aboutUs') }}">About Us</a>/<a href="{{ route('client.faq.index') }}">FAQ</a>
                     </div>
 
                 </div>

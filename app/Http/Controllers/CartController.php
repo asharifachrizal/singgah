@@ -8,6 +8,14 @@ use App\Cart;
 use App\Product;
 use App\Category;
 use App\Invoice;
+use App\TargetAudience;
+use App\Style;
+use App\Color;
+use App\OutputType;
+use App\Font;
+use App\BriefUrl;
+use App\BriefFile;
+use App\Notification;
 
 use Faker\Factory as Faker;
 
@@ -52,26 +60,92 @@ class CartController extends BaseController
     public function additem(Request $request)
     {        
         if(Sentinel::check()) {
-            $data = [
+            $dataCart = [
                 'user_id'       => Sentinel::getUser()->id,
                 'product_id'    => $request->product_id,                
                 'quantity'      => $request->quantity,
                 'orientation'   => $request->orientation,
                 'size'          => $request->size,
                 'duration'      => $request->duration,
-                'target_audience' => $request->target_audience,
                 'deadline'      => $request->deadline,
-                'style'      => $request->style,
-                'output'      => $request->output,
-                'font'      => $request->font,
-                'color'      => $request->color,
-                'color_grading'      => $request->color_grading,
                 'status'      => 0,
                 'price'      => 0,
             ];
-            $cart = Cart::create($data);
+            $targetAudience = $request->target_audience;
+
+            $cart = Cart::create($dataCart);
+
+            if($request->briefUrl ){
+                BriefUrl::create(["cart_id" => $cart->id, "value" => $request->briefUrl]);
+            }
+
+            if($targetAudience ){
+                foreach ($targetAudience as $item) {
+                    $dataAudience = [ 
+                        'cart_id' => $cart->id,
+                        'value' => $item["value"] 
+                    ];
+                    TargetAudience::create($dataAudience);
+                }
+            }
+
+            $style = $request->styles;
+            if($style ){
+                foreach ($style as $item) {
+                    $dataStyle = [ 
+                        'cart_id' => $cart->id,
+                        'value' => $item["value"] 
+                    ];
+                    Style::create($dataStyle);
+                }
+            }
+
+            $color = $request->color;
+            if($color ){
+                foreach ($color as $item) {
+                    $dataColor = [ 
+                        'cart_id' => $cart->id,
+                        'value' => $item["value"] 
+                    ];
+                    Color::create($dataColor);
+                }
+            }
+
+            $output = $request->output;
+            if($output ){
+                foreach ($output as $item) {
+                    $dataOut = [ 
+                        'cart_id' => $cart->id,
+                        'value' => $item["value"] 
+                    ];
+                    OutputType::create($dataOut);
+                }
+            }
+
+            $font = $request->font;
+            if($font ){
+                foreach ($font as $item) {
+                    $dataFont = [ 
+                        'cart_id' => $cart->id,
+                        'value' => $item["value"] 
+                    ];
+                    Font::create($dataFont);
+                }
+            }
+            
+            $briefFile = $request->briefFile;
+            if($briefFile){
+                foreach ($briefFile as $item) {
+                    $dataBrief = [ 
+                        'cart_id' => $cart->id,
+                        'value' => $item["value"]
+                    ];
+                    BriefFile::create($dataBrief);
+                }
+            }
+            
             $notification = [
-                'heading' => 'Berhasil!',
+                'heading' => 'Berhasil! ',
                 'message' => 'Item berhasil ditambahkan ke keranjang.',
                 'bgColor' => '#2b6c45',
                 'alert-type' => 'success'
@@ -88,11 +162,10 @@ class CartController extends BaseController
         return response()->json($notification);
     }
 
-    public function addInvoice($user_id,$brief_url){
+    public function addInvoice($user_id){
         $data = [
             'user_id'       => $user_id,            
-            'status'        => 0,                        
-            'briefURL'      => $brief_url,            
+            'status'        => 0,                                    
         ];        
         
         $invoice = Invoice::create($data);        
@@ -101,8 +174,8 @@ class CartController extends BaseController
 
     public function addOrder(Request $request)
     {
-        // dd($request->brief);
-        $newInvoice = $this->addInvoice(Sentinel::getUser()->id, $request->brief);
+        
+        $newInvoice = $this->addInvoice(Sentinel::getUser()->id);
         
         $carts = Cart::where([
             ['user_id', '=', Sentinel::getUser()->id],
@@ -114,10 +187,25 @@ class CartController extends BaseController
         ];        
 
         $carts->update($data);
-                
+        
+        $this->addOrderNotif($newInvoice);
 
         return redirect()->route('profile');
 
+    }
+
+    public function addOrderNotif(Invoice $invoice){        
+
+        $data = [
+            'user_id'         => Sentinel::getUser()->id,
+            'notif_type_id'         => 1,
+            'title'         => 'Invoice Requested',
+            'value'        => 'Invoice Requested for Order Id #' . $invoice->id,
+            'created_at' => date('Y-m-d H:i:s')
+        ];
+                    
+        Notification::create($data);
+    
     }
 
     public function delete($id) 

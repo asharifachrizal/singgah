@@ -8,8 +8,10 @@ use App\Exceptions\User\WrongCredentialException;
 use Cartalyst\Sentinel\Checkpoints\ThrottlingException;
 use Sentinel;
 use Validator;
+use App\Http\Controllers\NotificationController;
 use App\User;
-// use User;
+use App\Notification;
+
 
 class UserController extends BaseController
 {
@@ -57,33 +59,13 @@ class UserController extends BaseController
         return view('pages.register');
     }
 
-    public function registerStore(Request $request)
-    {
+   
 
-            $data = [
-                'full_name'         => $request->full_name,
-                'address'           => $request->address,
-                'city'              => $request->city,
-                'phone_number'       => $request->phone_number,
-                'email'             => $request->email,
-                'password'          => $request->password
-            ];
-            // dd($data);
-
-            $user = Sentinel::registerAndActivate($data);
-            $role = Sentinel::findRoleBySlug('visitor');
-            $user->roles()->attach($role);
-
-            return redirect()->route('login');
-
-    }
+    
 
     public function registerUpdate(Request $request, $id)
     {
-            // $hasher = Sentinel::setHasher($request->password);
-            // $rules = [
-
-            // ];
+           
             $data = [
                 'full_name'         => $request->full_name,
                 'address'           => $request->address,
@@ -104,6 +86,7 @@ class UserController extends BaseController
     public function profile()
     {
         $user = User::where('id', '=', Sentinel::getUser()->id)->first();
-        return view('pages.profile', compact('user'));
+        $notifications = Notification::where('user_id', '=', Sentinel::getUser()->id)->get();
+        return view('pages.profile', compact('user','notifications'));
     }
 }

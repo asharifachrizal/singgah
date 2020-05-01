@@ -72,7 +72,7 @@
                         {{-- <div class="row"></div> --}}
                         <div class="col-12 form-group">
                             <label for="nama-produk">Product:</label>
-                            <select class="form-control required" name="namaproduk" id="nama-produk">
+                            <select class="form-control required" name="namaproduk" id="nama-produk" >
                                     <option value="brosur">Brosur</option>
                                     <option value="poster">Poster</option>
                                     <option value="banner">Banner</option>

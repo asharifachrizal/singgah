@@ -1,6 +1,7 @@
 {
     "private": true,
     "scripts": {
+        "serve": "php artisan serve",
         "dev": "npm run development",
         "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
         "watch": "npm run development -- --watch",
@@ -20,9 +21,11 @@
         "resolve-url-loader": "^3.1.1",
         "sass": "^1.26.1",
         "sass-loader": "^8.0.2",
-        "vue": "^2.6.11"
+        "vue": "^2.6.11",
+        "vue-template-compiler": "^2.6.11"
     },
     "dependencies": {
-        "gulp": "^4.0.2"
+        "gulp": "^4.0.2",
+        "webpack-dev-server": "^3.10.3"
     }
 }

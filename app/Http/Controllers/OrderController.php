@@ -28,8 +28,11 @@ class OrderController extends Controller
                 } 
             }
         }   
-
-        $dataInvoice = [ 'outputURL' => $request->outputURL ];
+        
+        $dataInvoice = [ 
+            'outputURL' => $request->outputURL,
+            'code' => $request->code
+         ];
         Invoice::where('id', '=', $invoice_id)->update($dataInvoice);
         
         return response()->json(['success' => true]);
@@ -39,7 +42,10 @@ class OrderController extends Controller
 
     public function orderDetail($invoice_id)
     {
-        $carts = Cart::where('invoice_id', '=', $invoice_id)->get();                
+        $carts = Cart::where('invoice_id', '=', $invoice_id)->get();   
+        
+        // $colors = json_decode( $carts->color, true );             
+        // dd($colors);
         return view('pages.cms.order-detail', compact('carts'));
     }
 

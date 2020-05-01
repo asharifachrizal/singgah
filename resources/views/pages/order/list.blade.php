@@ -49,7 +49,7 @@
                         @elseif ($row->status == 2)
                             <span class="badge badge-success">PAID</span>   
                         @elseif ($row->status == 3)
-                            <span class="badge badge-danger">REJECTED</span>   
+                            <span class="badge badge-danger">CANCELED</span>   
                         @endif
                         </td>
 
@@ -57,8 +57,7 @@
                             <a>{{$row->created_at}}</a>
                         </td>
                         <td class="cart-product-name">                            
-                            <a href="{{ route('invoice.detail', $row->id)}}" class="add" title="See Detail"><i class="icon-eye"></i></a>                            
-                            
+                            <a href="{{ route('invoice.detail', $row->id)}}" class="add" title="See Detail"><i class="icon-eye"></i></a>                                                        
                         </td>
                     </tr>
                     @endforeach

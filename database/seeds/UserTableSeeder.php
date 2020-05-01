@@ -50,23 +50,16 @@ class UserTableSeeder extends Seeder
 
     public function createDefaultVisitor()
     {
-        $credentials = [
-			'email' => 'asharifachrizal@mailinator.com',
-            'password' => 'qwerty123',
-            'full_name' => 'Ashari Fachrizal',
-		];
-
-        $user = Sentinel::registerAndActivate($credentials);
-        $role = Sentinel::findRoleBySlug('visitor');
-        $user->roles()->attach($role);
+        
 
         $credentials = [
-			'email' => 'januarelsan@mailinator.com',
+			'email' => 'januarelsan@gmail.com',
             'password' => 'qwerty123',
             'full_name' => 'Januar Elsan',
             'address' => 'Kemang',
             'city' => 'Jakarta',
-            'phone_number' => '1234567890',
+            'province' => 'Jakarta Selatan',
+            'phone_number' => '081242652956',
 		];
 
         $user = Sentinel::registerAndActivate($credentials);

@@ -22,13 +22,13 @@ class CategoryTableSeeder extends Seeder
         ]);
 
         DB::table('categories')->insert([
-            'name' => 'Desain Non-Produksi',
-            'slug' => 'desain-non-produksi',
+            'name' => 'Desain Digital',
+            'slug' => 'desain-digital',
         ]);
 
         DB::table('categories')->insert([
-            'name' => 'Video',
-            'slug' => 'video',
+            'name' => 'Video Editing',
+            'slug' => 'video editing',
         ]);
     }
 }

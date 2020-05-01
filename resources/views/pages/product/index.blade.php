@@ -40,7 +40,7 @@
                 <div class="fbox-icon">
                     <a href="{{ route('product.select', ['desain-non-produksi', 2])}}"><i class="icon-news"></i></a>
                 </div>
-                <h3>Desain Non-produksi</h3>
+                <h3>Desain Digital</h3>
                 <!-- <p>Looks beautiful &amp; ultra-sharp on Retina Displays with Retina Icons, Fonts &amp; Images.</p> -->
             </div>
         </div>
@@ -50,7 +50,7 @@
                 <div class="fbox-icon">
                     <a href="{{ route('product.select', ['video', 3])}}"><i class="icon-video1"></i></a>
                 </div>
-                <h3>Video</h3>
+                <h3>Video Editing</h3>
                 <!-- <p>Optimized code that are completely customizable and deliver unmatched fast performance.</p> -->
             </div>
         </div>
