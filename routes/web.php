@@ -13,7 +13,7 @@
 
 
 Route::view('/', 'pages.home')->name('home');
-Route::view('/faq', 'pages.faq')->name('faq');
+Route::get('/faq', 'FaqController@clientIndex')->name('client.faq.index');
 Route::view('/about-us', 'pages.about-us')->name('aboutUs');
 
 Route::group(['middleware' => 'admin'], function() {
@@ -28,6 +28,13 @@ Route::group(['middleware' => 'admin'], function() {
     Route::get('/cms/order/invoice/{id}', 'InvoiceController@invoiceCMSDetail')->name('cms.invoice');
     Route::post('/cms/order/invoice/update/{id}', 'InvoiceController@invoiceCMSUpdate')->name('cms.invoice.update');
     Route::post('/cms/order/invoice/paid/{id}', 'InvoiceController@invoiceCMSPaid')->name('cms.invoice.paid');
+
+    Route::get('/cms/faq/list', 'FaqController@index')->name('cms.faq.list');
+    Route::get('/cms/faq/form/add', 'FaqController@formAdd')->name('cms.faq.form.add');
+    Route::get('/cms/faq/form/update/{id}', 'FaqController@formUpdate')->name('cms.faq.form.update');
+    Route::post('/cms/faq/store', 'FaqController@store')->name('cms.faq.store');
+    Route::post('/cms/faq/update/{id}', 'FaqController@update')->name('cms.faq.update');
+    Route::get('/cms/faq/delete/{id}', 'FaqController@delete')->name('cms.faq.delete');
 
 });
 

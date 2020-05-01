@@ -177,14 +177,14 @@
                         </li>
                         <li>
                             <a href="{{ route('cms.order')}}" aria-expanded="false"><i class="fa fa-book"></i><span class="hide-menu">Order</span></a>
-                        </li>
-                        <!-- <li>
-                            <a class="has-arrow " href="#" aria-expanded="false"><i class="mdi mdi-map-marker"></i><span class="hide-menu">FAQ</span></a>
+                        </li>                        
+                        <li>
+                            <a class="has-arrow " href="#" aria-expanded="false"><i class="mdi mdi-comment-question-outline"></i><span class="hide-menu">FAQ</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="map-google.html">Add</a></li>
-                                <li><a href="map-vector.html">List</a></li>
+                                <li><a href="{{ route('cms.faq.form.add')}}">Add</a></li>
+                                <li><a href="{{ route('cms.faq.list')}}">List</a></li>
                             </ul>
-                        </li> -->
+                        </li>
 
                     </ul>
                 </nav>
