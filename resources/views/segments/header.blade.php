@@ -19,7 +19,7 @@
 
                 <ul>
                     <li><a href="{{ route('home') }}"><div>Home</div></a></li>
-                    <li><a href="{{ route('product') }}"><div>Product</div></a></li>
+                    <li><a href="{{ route('product') }}"><div>Services</div></a></li>
                     <li><a href="{{ route('aboutUs') }}"><div>About Us</div></a></li>
                     <li><a href="{{ route('faq') }}"><div>FAQ</div></a></li>
                     @if(Sentinel::check())
