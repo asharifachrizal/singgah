@@ -55,20 +55,39 @@
                     </tr>
                     @endforeach
 
-                    @if (count($carts) > 0)
+                    @if (count($carts) > 0)                        
+                    <tr class="cart_item">
+                        <td colspan="6">                            
+                            <div class="row clearfix">    
+                                <form class="form-inline">                                    
+                                    <div class="form-group">                                        
+                                        <input type="text" class="form-control" id="inputPassword2" placeholder="Input Your Coupon">                                                                                
+                                    </div>
+                                    
+                                    <button type="submit" class="button button-3d mb-2">Check Coupon</button>                                    
+                                    
+                                </form>                                                                                                             
+                            </div>
+                        </td>
+                    </tr>       
+
                     <tr class="cart_item">
                         <td colspan="6">
                             <div class="row clearfix">
-                                <div class="col-lg-12 col-12 nopadding">
-                                    <!-- <a href="shop.html" class="button button-3d notopmargin fright">Proceed to Checkout</a> -->
-                                    <a href="#" onclick="$('#submitBtn').click()" class="button button-3d nomargin fright">Request Invoice</a>
+                                <div class="col-lg-12 col-12 nopadding">                                    
+                                    <!-- <a href="shop.html" class="button button-3d notopmargin fright">Proceed to Checkout</a>                                     -->
+                                    <a href="#" onclick="$('#submitBtn').click()" class="button button-3d nomargin fright">Request Invoice</a>                                    
                                 </div>
                                 <form action="{{ route('tambahOrder', Sentinel::getUser()->id) }}" method="POST" id="addOrder">                                      
-                                    <input type="submit" id="submitBtn" hidden>                        
-                                </form>
+                                    <input type="submit" id="submitBtn" hidden>                                                            
+                                </form>                                
                             </div>
                         </td>
-                    </tr>                    
+                    </tr>   
+
+
+
+
                     @endif
                     
                 </tbody>
