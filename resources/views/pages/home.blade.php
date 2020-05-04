@@ -11,6 +11,7 @@
                         <div class="slider-caption slider-caption-center">
                             <h2 data-animate="fadeInUp">Welcome to Singgah</h2>
                             <p class="d-none d-sm-block" data-animate="fadeInUp" data-delay="200">We Create just what you need for your Perfect Product.</p>
+                            <a href="#" class="button button-border button-large button-light button-rounded tright nomargin" data-animate="fadeInUp" data-delay="1000"><span>Order Plan</span><i class="icon-angle-right"></i></a>
                         </div>
                     </div>
                 </div>
